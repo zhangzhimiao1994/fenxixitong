@@ -26,6 +26,8 @@ SPREADS = {
     "single": ["核心讯息"],
     "three": ["过去/根源", "现在/处境", "趋势/可能走向"],
     "relation": ["我的状态", "对方/环境的状态", "关系的连接点", "阻碍", "建议方向"],
+    # 高风险决策专用：只看态度，不设"趋势/结果"位，避免牌面暗示做或不做
+    "stakes": ["我在怕什么", "我在期待什么", "我忽略了什么"],
     # Waite《Pictorial Key》Part III §7 原位置名
     "cross": ["笼罩·整体氛围", "交叉·阻碍", "冠顶·目标与理想", "其下·已成的根基", "其后·正在过去的影响",
               "其前·即将到来的影响", "自我态度", "环境与亲友", "希望与恐惧", "将来·汇总走向"],
@@ -111,6 +113,88 @@ def bazi(date, time, gender):
     print(f"起运: 出生后约 {yun.getStartYear()} 年 {yun.getStartMonth()} 个月")
     for dy in yun.getDaYun()[1:9]:
         print(f"  大运 {dy.getGanZhi()}  {dy.getStartYear()}-{dy.getEndYear()}（{dy.getStartAge()}-{dy.getEndAge()}岁）")
+    from datetime import date
+    this_year = date.today().year
+    years = []
+    for yr in range(this_year, this_year + 3):
+        # 取当年 6 月 1 日（已过立春）的年柱作为流年
+        gz = Solar.fromYmd(yr, 6, 1).getLunar().getYearInGanZhiByLiChun()
+        years.append(f"{yr} {gz}")
+    print("流年（立春换年）: " + " / ".join(years))
+
+
+# ---------------- 星盘 ----------------
+SIGNS = ["白羊", "金牛", "双子", "巨蟹", "狮子", "处女", "天秤", "天蝎", "射手", "摩羯", "水瓶", "双鱼"]
+PLANETS = [("太阳", "Sun"), ("月亮", "Moon"), ("水星", "Mercury"), ("金星", "Venus"), ("火星", "Mars"),
+           ("木星", "Jupiter"), ("土星", "Saturn"), ("天王", "Uranus"), ("海王", "Neptune"), ("冥王", "Pluto")]
+ASPECTS = [(0, "合"), (60, "六分"), (90, "四分"), (120, "三分"), (180, "对分")]
+
+
+def _fmt(lon):
+    lon %= 360
+    return f"{SIGNS[int(lon // 30)]} {lon % 30:4.1f}°"
+
+
+def _longitudes(ephem, when):
+    out = {}
+    for cn, en in PLANETS:
+        body = getattr(ephem, en)(when)
+        out[cn] = float(ephem.Ecliptic(body, epoch=when).lon) * 180 / 3.141592653589793
+    return out
+
+
+def astro(date, time, tz, lat, lon):
+    try:
+        import ephem
+    except ImportError:
+        sys.exit("[DEPENDENCY_MISSING] ephem 未安装。\n"
+                 "AGENT 操作: 运行 `pip install -r requirements.txt`（或 `pip install ephem`），安装成功后重跑本命令。\n"
+                 "若当前环境禁止安装: 请用户从 astro.com 粘贴星盘；禁止心算行星位置。")
+    import math
+    from datetime import datetime, timedelta
+    local = datetime.strptime(f"{date} {time}", "%Y-%m-%d %H:%M")
+    utc = local - timedelta(hours=tz)
+    when = ephem.Date(utc)
+    natal = _longitudes(ephem, when)
+    print(f"出生: {date} {time} (UTC{tz:+g})  纬度 {lat} 经度 {lon}  | 回归黄道")
+    for cn, _ in PLANETS:
+        print(f"  {cn}: {_fmt(natal[cn])}")
+    # 上升点：由地方恒星时与黄赤交角计算
+    obs = ephem.Observer()
+    obs.date, obs.lat, obs.lon = when, str(lat), str(lon)
+    ramc = float(obs.sidereal_time())
+    eps = math.radians(23.4393 - 0.0130 * ((utc.year - 2000) / 100))
+    phi = math.radians(lat)
+    asc = math.degrees(math.atan2(math.cos(ramc), -(math.sin(ramc) * math.cos(eps) + math.tan(phi) * math.sin(eps)))) % 360
+    print(f"  上升: {_fmt(asc)}  （整宫制：第 1 宫 = {SIGNS[int(asc // 30)]}）")
+    print("主要相位（个人行星间，容许度 ≤6°）:")
+    names = ["太阳", "月亮", "水星", "金星", "火星", "木星", "土星"]
+    for i, a in enumerate(names):
+        for b in names[i + 1:]:
+            d = abs(natal[a] - natal[b]) % 360
+            d = min(d, 360 - d)
+            for ang, label in ASPECTS:
+                if abs(d - ang) <= 6:
+                    print(f"  {a} {label} {b}（{d:.1f}°）")
+    now = ephem.now()
+    transit = _longitudes(ephem, now)
+    print(f"当前行运（{ephem.Date(now).datetime():%Y-%m-%d} UTC）:")
+    for cn in ["木星", "土星"]:
+        hits = []
+        for target in ["太阳", "月亮"]:
+            d = abs(transit[cn] - natal[target]) % 360
+            d = min(d, 360 - d)
+            for ang, label in [(0, "合"), (90, "刑"), (180, "冲")]:
+                if abs(d - ang) <= 5:
+                    hits.append(f"{label}本命{target}")
+        d = abs(transit[cn] - asc) % 360
+        if min(d, 360 - d) <= 5:
+            hits.append("合上升")
+        if cn == "土星":
+            d = abs(transit[cn] - natal["土星"]) % 360
+            if min(d, 360 - d) <= 8:
+                hits.append("土星回归")
+        print(f"  行运{cn}: {_fmt(transit[cn])}  {'、'.join(hits) if hits else '与本命 ☉☽↑ 无紧密相位'}")
 
 
 def main():
@@ -124,11 +208,19 @@ def main():
     b.add_argument("date")
     b.add_argument("time")
     b.add_argument("--gender", choices=["m", "f"], required=True)
+    s = sub.add_parser("astro")
+    s.add_argument("date")
+    s.add_argument("time")
+    s.add_argument("--tz", type=float, default=8, help="出生地时区，北京时间=8")
+    s.add_argument("--lat", type=float, required=True, help="纬度，北纬为正")
+    s.add_argument("--lon", type=float, required=True, help="经度，东经为正")
     a = p.parse_args()
     if a.cmd == "tarot":
         draw_tarot(a.spread, not a.no_reversed)
     elif a.cmd == "iching":
         cast_iching()
+    elif a.cmd == "astro":
+        astro(a.date, a.time, a.tz, a.lat, a.lon)
     else:
         bazi(a.date, a.time, a.gender)
 
