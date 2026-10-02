@@ -161,8 +161,9 @@ def bazi(date, time, gender, no_hour=False, lon=None):
         print("无时辰: 只排年月日三柱；旺衰计分不含时柱；起运岁数为近似值")
         print(f"三柱: {ec.getYear()} {ec.getMonth()} {ec.getDay()}")
         print(f"五行: {ec.getYearWuXing()} {ec.getMonthWuXing()} {ec.getDayWuXing()}")
-    elif lon is None:
-        print("注意: 未做真太阳时校正（加 --lon 出生地经度 即可自动校正，如成都 104.07）。")
+    else:
+        if lon is None:
+            print("注意: 未做真太阳时校正（加 --lon 出生地经度 即可自动校正，如成都 104.07）。")
         print(f"四柱: {ec.getYear()} {ec.getMonth()} {ec.getDay()} {ec.getTime()}")
         print(f"五行: {ec.getYearWuXing()} {ec.getMonthWuXing()} {ec.getDayWuXing()} {ec.getTimeWuXing()}")
     print(f"日主: {ec.getDayGan()}")
