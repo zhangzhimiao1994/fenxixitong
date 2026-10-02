@@ -12,21 +12,18 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 # 塔罗象征系统 (Tarot)
 
-> 78 张牌 → 4 个可执行 skill
-> evidence level: firsthand（已对照 Waite 原著，2026-10-02）+ 通行释义（四花色元素、宫廷牌梯度为后世体系，已在子 skill 中标注）
-
-## 核心立场
+> evidence: 已对照 Waite 原著；四花色元素、宫廷牌梯度为后世体系（子 skill 中已标注）
 
 塔罗是**结构化的投射工具**：牌是随机的，意义由用户带来。输出"这张牌邀请你看什么"，不说"会发生什么"（接口见 `psyche`）。
 
 ## 子 skill 目录
 
-| # | 子 skill | 目录 | 触发场景 | 流程位置 |
-|---|---------|------|---------|---------|
-| 1 | 抽牌协议 | `tarot-draw-protocol/` | "帮我抽一张""用什么牌阵" | 第 1 步：问题改写 + 随机抽牌 |
-| 2 | 单牌释义 | `tarot-card-meaning/` | "XX 牌什么意思""逆位怎么看" | 第 2 步：逐张解读 |
-| 3 | 牌阵综合 | `tarot-spread-synthesis/` | "整体怎么看""这几张连起来" | 第 3 步：叙事线 + 元素分布 |
-| 4 | 投射式对话 | `tarot-projective-dialogue/` | "我看到这张牌很难受""这牌好准" | 贯穿：把反应变成自我觉察 |
+| 子 skill | 触发场景 |
+|---------|---------|
+| `tarot-draw-protocol/` | "帮我抽一张""用什么牌阵" |
+| `tarot-card-meaning/` | "XX 牌什么意思""逆位怎么看" |
+| `tarot-spread-synthesis/` | "整体怎么看""这几张连起来" |
+| `tarot-projective-dialogue/` | "看到这张牌很难受""这牌好准" |
 
 ### 标准链路（每步的输入 → 输出）
 
@@ -47,8 +44,8 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | 用户拒绝改写问题、坚持要"会不会" | 可抽，开头声明"牌面呈现态势，不给是/否" | 用户只要是/否 → 不抽，说明原因 |
 | 用户给出的牌面缺正逆或位置 | 追问一次 | 仍缺 → 正逆按正位读、位置按三张牌阵顺序读，并标注 |
 | 用户问托特/马赛牌 | 交给 `tarot-card-meaning`，声明体系差异 | — |
-| 用户带着别人/App 的"确定结论"或恐惧而来 | 1 句承接情绪，不重抽，用反例第 1 行话术改写为态势 | 恐惧持续 → `tarot-projective-dialogue` |
-| 出现自杀/自伤信号 | 停止抽牌与解读，执行 `cross-system-hub` C5 | — |
+| 用户带着别人/App 的"确定结论"或恐惧而来 | 顺序：① 1 句承接情绪 ② 每张凶牌 1 句转化面（`tarot-card-meaning`）③ 用反例第 1 行话术改写为态势；不重抽 | 恐惧持续 → `tarot-projective-dialogue` |
+| 出现自杀/自伤信号 | 停止抽牌与解读，先问"你现在安全吗？"，给出热线 12356，再执行 `cross-system-hub` C5 | — |
 
 ## 在 cross-system-hub 中的输出格式
 
