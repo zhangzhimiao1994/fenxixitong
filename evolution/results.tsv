@@ -1,0 +1,13 @@
+﻿timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
+2026-10-02T19:48	baseline	cross-system-hub	-	69.5	baseline	-	d3/d4 工具失败无分支;等待用户的环节未标🛑;高风险问题回答偏空 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	psyche	-	62.5	baseline	-	d4 无检查点标记;危机处理靠外链;路由失败无兜底 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	tarot	-	67.8	baseline	-	d4 无检查点;流程无输入/输出;兜底只在子skill runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	tarot-draw-protocol	-	82.7	baseline	-	牌阵位置名未列;抽完即停不接释义 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	tarot-card-meaning	-	68.5	baseline	-	d3 失败模式无if-then;d4 无检查点;逆位无选择规则 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	tarot-spread-synthesis	-	78.5	baseline	-	d3 缺牌面不全分支;d9 黑名单仅3条 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	tarot-projective-dialogue	-	66.9	baseline	-	d4 无检查点;缺情绪承接与收尾话术;d9 散落 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	fortune	-	72.1	baseline	-	d3 工具失败无分支;无编号流程;本命年缺转换 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	bazi-liunian	-	72.3	baseline	-	d3 工具失败无分支;d9 无独立黑名单 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	astrology-transit	-	61.5	baseline	-	d3/d6 星盘无取数路径;d9 无独立黑名单 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	ziwei-doushu	-	70.3	baseline	-	d3 部分命盘/无工具无分支;d9 散落 runtime_warn=0	full_test_seq
+2026-10-02T19:48	baseline	zhouyi-divination	-	76	baseline	-	d4 无检查点;d3 工具失败/数字非法无分支;d9 散落 runtime_warn=0	full_test_seq
