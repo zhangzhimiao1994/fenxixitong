@@ -17,10 +17,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 ## 核心立场
 
-塔罗在本体系中的定位是 **"结构化的投射工具"**：
-- 牌是随机的，**意义是用户带来的**。价值在于用一组丰富的意象，帮用户说出自己还没说出口的判断。
-- 输出的是 **"这张牌邀请你看什么"**，不是 **"这张牌说会发生什么"**。
-- 与荣格共时性、投射理论接口（见 `psyche`）。
+塔罗是**结构化的投射工具**：牌是随机的，意义由用户带来。输出"这张牌邀请你看什么"，不说"会发生什么"（接口见 `psyche`）。
 
 ## 子 skill 目录
 
@@ -35,7 +32,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 | 步 | 子 skill | 输入 | 输出 | 关卡 |
 |---|---------|------|------|------|
-| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名 | 🔴 **CHECKPOINT**：用户确认改写后的问题 |
+| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（感情/两人 → relation；每日 → single；重大议题 → cross；高风险决策 → stakes；其余 → three） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
 | 2 | `tarot-draw-protocol` | 确认的问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源标注 | 🛑 抽完不解读，直接进入第 3 步 |
 | 3 | `tarot-card-meaning` | 牌面列表 + 问题领域 | 每张 1 句：原型/公式 → 在此位置意味着 | — |
 | 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动 | 🔴 **CHECKPOINT**：问"哪张牌让你最有感觉？" |
@@ -50,6 +47,8 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | 用户拒绝改写问题、坚持要"会不会" | 可抽，开头声明"牌面呈现态势，不给是/否" | 用户只要是/否 → 不抽，说明原因 |
 | 用户给出的牌面缺正逆或位置 | 追问一次 | 仍缺 → 正逆按正位读、位置按三张牌阵顺序读，并标注 |
 | 用户问托特/马赛牌 | 交给 `tarot-card-meaning`，声明体系差异 | — |
+| 用户带着别人/App 的"确定结论"或恐惧而来 | 1 句承接情绪，不重抽，用反例第 1 行话术改写为态势 | 恐惧持续 → `tarot-projective-dialogue` |
+| 出现自杀/自伤信号 | 停止抽牌与解读，执行 `cross-system-hub` C5 | — |
 
 ## 在 cross-system-hub 中的输出格式
 
@@ -64,7 +63,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 ## 使用原则
 
-1. **问题先行**：不改写问题不抽牌（"会不会" → "我需要看见什么"）
+1. **问题先行**：封闭问题先改写再抽（"会不会" → "我需要看见什么"）
 2. **随机必须真实**：用户自抽 > `python tools/divine.py tarot` > 拒绝。**禁止模型自己"想"出牌面**
 3. **一事一抽**：同一问题不重复抽（《蒙》："初筮告，再三渎，渎则不告"），想重抽本身就是心理材料
 4. **不吓人**：死神、高塔、恶魔、宝剑十等"凶牌"必须讲出其转化面
@@ -77,4 +76,4 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | "塔罗说你们会分手" | 确定性预言，剥夺能动性 | "这组牌呈现的是关系里的 X 张力，你怎么看？" |
 | 模型直接"抽"出牌而无随机来源 | 伪随机 = 模型挑牌 = 操纵 | 用户自抽或运行工具 |
 | 用户第 3 次抽同一个问题 | 在寻找想要的答案 | 停止抽牌，转 `tarot-projective-dialogue` 问"你希望抽到什么" |
-| 用塔罗判断是否就医/投资 | 高风险领域 | 明确拒绝作为决策依据，转专业渠道 |
+| 用塔罗判断是否就医/投资 | 高风险领域 | 不为"做不做"抽牌；只允许 `stakes` 牌阵看心态，并转专业渠道 |
