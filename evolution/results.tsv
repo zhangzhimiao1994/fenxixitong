@@ -71,3 +71,15 @@
 2026-10-02T20:29	r5	astrology-transit	77.0	82.2	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
 2026-10-02T20:29	r5	ziwei-doushu	80.0	83.5	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
 2026-10-02T20:29	r5	zhouyi-divination	84.1	84.7	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:37	r6	psyche	80.3	83.9	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	tarot	78.4	85.0	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	tarot-draw-protocol	83.1	87.3	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	tarot-card-meaning	80.8	83.1	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	tarot-spread-synthesis	80.0	84.2	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	tarot-projective-dialogue	81.1	85.5	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	fortune	84.2	88.6	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	bazi-liunian	76.5	82.9	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	astrology-transit	80.4	83.2	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	ziwei-doushu	79.0	86.5	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	zhouyi-divination	82.7	87.9	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:37	r6	cross-system-hub	-	-	split-not-adopted	Phase2.5 rewrite v4	judge1 v4 79.8>78.1; judge2 old 82.8>80.8; v4 dropped rules	full_test_ab
