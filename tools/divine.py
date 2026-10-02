@@ -302,14 +302,14 @@ def astro(date, time, tz, lat, lon):
             d = min(d, 360 - d)
             for ang, label in [(0, "合"), (90, "刑"), (180, "冲")]:
                 if abs(d - ang) <= 5:
-                    hits.append(f"{label}本命{target}")
+                    hits.append(f"{label}本命{target}（差 {abs(d - ang):.1f}°）")
         d = abs(transit[cn] - asc) % 360
         if min(d, 360 - d) <= 5:
-            hits.append("合上升")
+            hits.append(f"合上升（差 {min(d, 360 - d):.1f}°）")
         if cn == "土星":
             d = abs(transit[cn] - natal["土星"]) % 360
             if min(d, 360 - d) <= 8:
-                hits.append("土星回归")
+                hits.append(f"土星回归（差 {min(d, 360 - d):.1f}°）")
         print(f"  行运{cn}: {_fmt(transit[cn])}  {'、'.join(hits) if hits else '与本命 ☉☽↑ 无紧密相位'}")
 
 
