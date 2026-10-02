@@ -11,10 +11,8 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 # Tarot Draw Protocol — 抽牌协议
 
 ## R — 来源
-- Waite 原著 Part III §7 "An Ancient Celtic Method of Divination"：十张牌排成十字形（后世称"凯尔特十字"，Waite 原文未用此名），原文称此法最适合回答"a definite question"（例："Will a lawsuit be necessary?"）✅
-- "提问前明确表述问题并朗读"出自 Part III §8 末尾 "Notes on the Practice of Divination"（Waite 称系他人所供）✅
-- **本 skill 的"封闭问题改写为开放问题"规则是本体系新增约束，不是 Waite 的主张**（Waite 的示例恰是封闭问题）
-- 《周易·蒙》："初筮告，再三渎，渎则不告。" —— 本体系借用为"一事一抽"规则。
+- 凯尔特十字：Waite Part III §7；"提问前明确表述问题"：Part III §8（均已对照原文）
+- "封闭问题改写为开放问题"是本体系新增约束，不是 Waite 的主张；"一事一抽"借自《蒙》"再三渎，渎则不告"
 
 ## I — 方法论骨架
 
@@ -60,6 +58,10 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 - 输入："刚才抽到高塔，我不服，再抽一次。"
 - 处理：不重抽。"同一个问题再抽，通常是在找想要的答案。你希望抽到什么牌？这个'希望'本身可能就是答案的一部分。" → 转 `tarot-projective-dialogue`
 
+**案例 3：高风险决策**
+- 输入："我要不要做这个手术，你抽牌帮我决定。"
+- 处理："手术要不要做，只能以医生意见为准，塔罗不能替你决定。如果你想看看自己面对这件事的心态，我可以用三张态度牌：我在怕什么、我在期待什么、我忽略了什么。" → 用户同意 → `--spread stakes`，解读只谈情绪，结尾再说一次"请以医生意见为准"
+
 ## A2 — 触发场景
 - ✅ "帮我用塔罗看看最近的工作""抽张牌""用凯尔特十字看看我的人生方向"
 - ❌ "宝剑三是什么意思"（→ `tarot-card-meaning`）
@@ -72,6 +74,7 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 3. **改写检测**：含"会不会/能不能/什么时候/他怎么想" → 改写并征得同意；开放问题跳过本步
    🔴 **CHECKPOINT**：改写后的问题需用户确认
 4. **选牌阵**：单独使用时——默认三张；"每日指引/简单看看"→单张；两人关系→关系五张；"人生方向/重大议题"→十字。被 cross-system-hub 调用时按其深度等级（见该文件 B 节：L1 轻量→单张，L2 标准→三张，L3 深度/L4 全景→十字）
+   用户只问"用什么牌阵" → 推荐牌阵并列出位置，然后问"现在抽吗？"，不自动抽
 5. **确定随机来源**：用户说"帮我抽"或已表明没有牌 → 直接运行工具，不再询问；用户没有表态 → 问一次"你手边有牌吗？"
 6. **记录牌面**：输出 `[位置] 牌名·正逆`，标注来源（用户自抽/工具随机）
 7. 🛑 **STOP（本 skill 到此为止）**：本 skill 不解读；同一轮回复中直接加载 `tarot-card-meaning` 接着解读，不要只给一张牌面清单就结束
