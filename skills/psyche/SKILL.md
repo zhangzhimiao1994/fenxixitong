@@ -3,7 +3,7 @@ name: psyche
 description: |
   心理维度总路由（荣格 + 弗洛伊德合并）。当用户的困扰需要从心理结构、情绪模式、关系模式、自我认同角度理解时激活，先判断"回溯成因（弗洛伊德）"还是"面向成长（荣格）"，再路由到 19 个分析子 skill。
   触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、关系里总受伤。
-  NOT trigger: 明确的身体急症、纯事实查询。出现自杀/自伤信号时仍会接住，但只输出第五节危机话术。
+  NOT trigger: 运势/星座/八字 → fortune；塔罗 → tarot；身体症状为主 → huangdi-neijing；纯事实查询直接回答。自杀/自伤信号仍会接住，只输出第五节危机话术。
 version: "1.0.0"
 tags: [psyche, jung, freud, hub]
 related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-archetype, cross-system-hub]
@@ -31,7 +31,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 ### 执行顺序
 1. **安全筛查**：出现"不想活/想消失/结束一切/伤害自己"等信号 → 🛑 **STOP**，执行第五节危机话术，不进入第 2 步
 2. **双镜判别**：按上表计两列命中数，输出 `主镜: 弗洛伊德/荣格/双镜 | 依据: [用户原文]`
-3. **选子 skill**：查第二节路由表，选 1 个（双镜时最多 2 个）
+3. **选子 skill**：查第二节路由表，选 1 个（双镜时最多 2 个）；用户要求诊断 → 先输出第五节第 2 条
 4. 🔴 **CHECKPOINT**：命中 3 个以上主题时，先问用户"最想先谈哪一个？"，等回答再继续
 5. 按第三节格式输出
 
@@ -93,8 +93,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 
 ## 四、与象征维度（塔罗 / 运势 / 周易）的接口
 
-- 牌面、卦象、星盘意象 = **投射屏幕**：问"你第一反应是什么"，不问"它决定了什么"；禁止用荣格为占卜背书
-- 用户对占断结果的强烈情绪（恐惧、反复求证）是心理材料 → `freud-anxiety-defense` / `jung-complex-archetype`
+牌面、卦象、星盘 = 投射屏幕（问"你第一反应是什么"）；对占断结果的强烈情绪 → `freud-anxiety-defense`
 
 ## 五、边界
 
