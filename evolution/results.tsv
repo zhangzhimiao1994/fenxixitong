@@ -11,3 +11,15 @@
 2026-10-02T19:48	baseline	astrology-transit	-	61.5	baseline	-	d3/d6 星盘无取数路径;d9 无独立黑名单 runtime_warn=0	full_test_seq
 2026-10-02T19:48	baseline	ziwei-doushu	-	70.3	baseline	-	d3 部分命盘/无工具无分支;d9 散落 runtime_warn=0	full_test_seq
 2026-10-02T19:48	baseline	zhouyi-divination	-	76	baseline	-	d4 无检查点;d3 工具失败/数字非法无分支;d9 散落 runtime_warn=0	full_test_seq
+2026-10-02T20:04	r1	cross-system-hub	69.5	76.7	keep	d2/d3/d4	round1 delta=7.2	full_test_seq
+2026-10-02T20:04	r1	psyche	62.5	75.5	keep	d2/d3/d4	round1 delta=13	full_test_seq
+2026-10-02T20:04	r1	tarot	67.8	83.2	keep	d2/d3/d4	round1 delta=15.4	full_test_seq
+2026-10-02T20:04	r1	tarot-draw-protocol	82.7	84.4	keep	d2/d3/d4	round1 delta=1.7	full_test_seq
+2026-10-02T20:04	r1	tarot-card-meaning	68.5	76.6	keep	d2/d3/d4	round1 delta=8.1	full_test_seq
+2026-10-02T20:04	r1	tarot-spread-synthesis	78.5	80.3	keep	d2/d3/d4	round1 delta=1.8	full_test_seq
+2026-10-02T20:04	r1	tarot-projective-dialogue	66.9	79.1	keep	d2/d3/d4	round1 delta=12.2	full_test_seq
+2026-10-02T20:04	r1	fortune	72.1	80.2	keep	d2/d3/d4	round1 delta=8.1	full_test_seq
+2026-10-02T20:04	r1	bazi-liunian	72.3	79.6	keep	d2/d3/d4	round1 delta=7.3	full_test_seq
+2026-10-02T20:04	r1	astrology-transit	61.5	71.5	keep	d2/d3/d4	round1 delta=10	full_test_seq
+2026-10-02T20:04	r1	ziwei-doushu	70.3	77.5	keep	d2/d3/d4	round1 delta=7.2	full_test_seq
+2026-10-02T20:04	r1	zhouyi-divination	76	82.6	keep	d2/d3/d4	round1 delta=6.6	full_test_seq
