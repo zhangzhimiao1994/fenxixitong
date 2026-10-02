@@ -31,7 +31,25 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | 3 | 牌阵综合 | `tarot-spread-synthesis/` | "整体怎么看""这几张连起来" | 第 3 步：叙事线 + 元素分布 |
 | 4 | 投射式对话 | `tarot-projective-dialogue/` | "我看到这张牌很难受""这牌好准" | 贯穿：把反应变成自我觉察 |
 
-标准链路：`draw-protocol → card-meaning → spread-synthesis → projective-dialogue`
+### 标准链路（每步的输入 → 输出）
+
+| 步 | 子 skill | 输入 | 输出 | 关卡 |
+|---|---------|------|------|------|
+| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名 | 🔴 **CHECKPOINT**：用户确认改写后的问题 |
+| 2 | `tarot-draw-protocol` | 确认的问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源标注 | 🛑 抽完不解读，直接进入第 3 步 |
+| 3 | `tarot-card-meaning` | 牌面列表 + 问题领域 | 每张 1 句：原型/公式 → 在此位置意味着 | — |
+| 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动 | 🔴 **CHECKPOINT**：问"哪张牌让你最有感觉？" |
+| 5 | `tarot-projective-dialogue` | 用户对某张牌的反应 | 用户自己说出的洞察 | 每轮只问一个问题 |
+
+单张牌阵跳过第 4 步；用户只问牌义时只走第 3 步。
+
+### 路由失败的处理
+| 触发条件 | 一线处理 | 仍失败 → 兜底 |
+|---------|---------|-------------|
+| `divine.py` 运行失败 | 请用户用实体牌或 App 自抽并报牌名·正逆 | 用户也无法抽 → 转 `tarot-projective-dialogue` 让用户从意象中自选一张，标注"自选，非抽牌" |
+| 用户拒绝改写问题、坚持要"会不会" | 可抽，开头声明"牌面呈现态势，不给是/否" | 用户只要是/否 → 不抽，说明原因 |
+| 用户给出的牌面缺正逆或位置 | 追问一次 | 仍缺 → 正逆按正位读、位置按三张牌阵顺序读，并标注 |
+| 用户问托特/马赛牌 | 交给 `tarot-card-meaning`，声明体系差异 | — |
 
 ## 在 cross-system-hub 中的输出格式
 
