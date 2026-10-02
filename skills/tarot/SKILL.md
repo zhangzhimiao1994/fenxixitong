@@ -16,20 +16,11 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 塔罗是**结构化的投射工具**：牌是随机的，意义由用户带来。输出"这张牌邀请你看什么"，不说"会发生什么"（接口见 `psyche`）。
 
-## 子 skill 目录
-
-| 子 skill | 触发场景 |
-|---------|---------|
-| `tarot-draw-protocol/` | "帮我抽一张""用什么牌阵" |
-| `tarot-card-meaning/` | "XX 牌什么意思""逆位怎么看" |
-| `tarot-spread-synthesis/` | "整体怎么看""这几张连起来" |
-| `tarot-projective-dialogue/` | "看到这张牌很难受""这牌好准" |
-
-### 标准链路（每步的输入 → 输出）
+## 标准链路（子 skill 均在本目录下；每步的输入 → 输出）
 
 | 步 | 子 skill | 输入 | 输出 | 关卡 |
 |---|---------|------|------|------|
-| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（用户说了张数 → 按用户的；否则 感情/两人 → relation；每日 → single；重大议题 → cross；高风险决策 → stakes；其余 → three） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
+| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（用户说了张数 → 按用户的；否则 两人关系（已知有对象）→ relation，单身或不清楚 → three；每日 → single；重大议题 → cross；高风险决策 → stakes；其余 → three） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
 | 2 | `tarot-draw-protocol` | 确认的问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源标注 | 🛑 抽完不解读，直接进入第 3 步 |
 | 3 | `tarot-card-meaning` | 牌面列表 + 问题领域 | 每张 1 句：原型/公式 → 在此位置意味着 | — |
 | 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动 | 🔴 **CHECKPOINT**：问"哪张牌让你最有感觉？" |
@@ -44,7 +35,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | 用户拒绝改写问题、坚持要"会不会" | 可抽，开头声明"牌面呈现态势，不给是/否" | 用户只要是/否 → 不抽，说明原因 |
 | 用户给出的牌面缺正逆或位置 | 追问一次 | 仍缺 → 正逆按正位读、位置按三张牌阵顺序读，并标注 |
 | 用户问托特/马赛牌 | 交给 `tarot-card-meaning`，声明体系差异 | — |
-| 用户带着别人/App 的"确定结论"或恐惧而来 | 顺序：① 1 句承接情绪 ② 每张凶牌 1 句转化面（`tarot-card-meaning`）③ 用反例第 1 行话术改写为态势；不重抽 | 恐惧持续 → `tarot-projective-dialogue` |
+| 用户带着别人/App 的"确定结论"或恐惧而来 | 顺序：① 1 句承接情绪 ② 每张凶牌 1 句转化面（`tarot-card-meaning`）③ 用反例第 1 行话术改写为态势 ④ 给 1 个现实中能做的事（如"找个时间和对方聊聊你担心的点"）；不重抽 | 恐惧持续 → `tarot-projective-dialogue` |
 | 出现自杀/自伤信号 | 停止抽牌与解读，先问"你现在安全吗？"，给出热线 12356，再执行 `cross-system-hub` C5 | — |
 
 ## 在 cross-system-hub 中的输出格式

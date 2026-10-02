@@ -61,7 +61,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 
 | 触发条件 | 一线处理 | 仍失败 → 兜底 |
 |---------|---------|-------------|
-| 用户说"抽好了"但没列出牌面 | 请用户按 `位置 · 牌名 · 正逆` 逐行列出 | 用户还没抽 → 转 `tarot-draw-protocol`（可用 `python tools/divine.py tarot --spread cross`） |
+| 用户说"抽好了"但没列出牌面 | 先回应用户话里已有的信息（如"全是好牌"→ 按下方全吉行给出镜子问题和小行动），再请用户按 `位置 · 牌名 · 正逆` 列出 | 用户还没抽 → 转 `tarot-draw-protocol`（可用 `python tools/divine.py tarot --spread cross`） |
 | 牌面不全（缺位置或正逆） | 追问一次 | 仍缺 → 正逆按正位读、位置按牌阵默认顺序，并标注 |
 | 用户抽牌前没有明确问题 | 问"这次你想看的是哪件事？" | 用户说"随便看看" → 按"当下整体状态"解读 |
 | 牌面信号互相矛盾 | 不强行统一，说"牌阵呈现了两种力量的拉扯" | 镜子问题问"这两股力量，你现在更站在哪一边？" |
