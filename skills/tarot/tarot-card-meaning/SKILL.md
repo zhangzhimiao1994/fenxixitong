@@ -1,7 +1,7 @@
 ---
 name: tarot-card-meaning
 description: |
-  用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义。用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导释义，而不是背诵词条。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、不用于多张牌整体叙事（→ tarot-spread-synthesis）。
+  用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义。用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导释义，而不是背诵词条。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、多张牌整体叙事（→ tarot-spread-synthesis）、对牌面的恐惧或强烈情绪（→ tarot-projective-dialogue）。
 source_book: Waite《The Pictorial Key to the Tarot》(1910) Part II "The Doctrine Behind the Veil" + Part III 各牌释义；Pamela Colman Smith 牌面图像
 source_scope: Rider-Waite-Smith 体系；托特牌、马赛牌编号与释义有差异，不在范围内
 tags: [tarot, card-meaning, major-arcana, minor-arcana]
@@ -70,7 +70,7 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 | 9 | 接近完成、独自承担 |
 | 10 | 完成、过载、周期终点 |
 
-**宫廷牌 = 成熟度/角色**：侍从（学习、讯息）→ 骑士（行动、冲动）→ 王后（内化、滋养）→ 国王（掌控、外化）
+**宫廷牌 = 成熟度/角色**：侍从（学习、讯息）→ 骑士（行动、冲动）→ 王后（内化、滋养）→ 国王（掌控、外化）。宫廷牌逆位 = 该角色的不成熟或过度版本（如国王逆 = 控制欲、侍从逆 = 拖延或轻率）；宫廷牌可指用户自己，也可指生活中的某个人，问用户"像你，还是像你身边的谁？"
 
 **推导示例**：
 - 宝剑五 = 风（思维/言语冲突）× 5（失去/考验）→ "赢了争论、输了关系"
@@ -83,6 +83,7 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 | 牌 | 释义 | 转化面（凶牌） |
 |----|------|-------------|
 | 宝剑三 | 心碎、被刺痛 | 痛被说出来，才开始愈合 |
+| 宝剑六 | 离开动荡、过渡到平静处 | — |
 | 宝剑七 | 回避、取巧、不全说实话 | — |
 | 宝剑八 | 自我设限、被困感 | 绑带是松的，可以自己走出来 |
 | 宝剑九 | 失眠式焦虑、夜里的恐惧 | 最重的是想象，白天的事实往往轻一些 |
@@ -110,10 +111,6 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 - **死神正位，问工作**："不是会出事，是某种工作方式/角色到期了。哪部分你其实早就不想继续？"
 - **圣杯三逆位，问友谊**：水×3（情感协作）受阻 → "社交在消耗而非滋养你"
 - **宝剑十正位**：风×10 → 思维冲突走到终点、"最糟已经发生"；转化面：黎明在背景里，不会更糟了
-
-## A2 — 触发场景
-- ✅ "高塔逆位什么意思""我抽到权杖骑士和圣杯王后"
-- ❌ "帮我抽一张"（→ draw-protocol）
 
 ## E — 执行步骤
 1. 识别牌：大/小阿卡纳、花色、数字/宫廷、正逆
