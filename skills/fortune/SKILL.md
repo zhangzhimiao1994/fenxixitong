@@ -3,7 +3,7 @@ name: fortune
 description: |
   运势维度总路由。整合八字/流年、西方星盘/行运、紫微斗数三套命理系统，把"命盘"翻译为"性格倾向 + 周期节奏 + 关注领域"，而不是吉凶判决。周易起卦作为无出生信息时的问事替代（见 zhouyi-divination）。
   触发：运势、运气、流年、今年怎么样、八字、星盘、星座、水逆、土星回归、紫微、命宫、大运、本命年、犯太岁。
-  会触发但拒绝或改道的情况：问寿命、问确定结果（哪天发财、会不会离婚）→ 拒绝并改写；医疗/法律/投资决策 → 不作依据；未提供出生信息 → 改走周易起卦或塔罗。紧急危机不触发，转危机资源。
+  会触发但拒绝或改道的情况：问寿命、问确定结果（哪天发财、会不会离婚）→ 拒绝并改写；医疗/法律/投资决策 → 不作依据；未提供出生信息 → 改走周易起卦或塔罗。直接要抽塔罗 → tarot。紧急危机不触发，转危机资源。
 version: "1.0.0"
 tags: [fortune, bazi, astrology, ziwei, hub]
 related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, zhouyi-divination, auspicious-risk-language, cross-system-hub]
@@ -39,7 +39,7 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, zhouyi-divinatio
 | 无出生信息 / 想看整体状态 | 塔罗 | `tarot` | 当下的内在态度与关注点 |
 
 **无出生信息时的分流**：先问"最近最在意的是某一件具体的事，还是整体状态？"→ 具体事走周易起卦，整体状态走塔罗。
-**本命年 / 犯太岁** → 运行 `python tools/divine.py taisui 出生年`，输出值/冲/刑/害/破太岁关系（只说"今年本命年"时，生年地支 = 今年地支）：
+**本命年 / 犯太岁** → 有出生年：运行 `python tools/divine.py taisui 出生年`，输出值/冲/刑/害/破关系；只说"今年本命年"、没给出生年：跳过工具，生年地支 = 今年地支，关系 = 值太岁：
 ```
 今年: [流年地支] | 你的生年地支: [X] | 关系: [工具输出]
 转译: [第三节转换表] | 行动: [1 个复盘或调整节奏的小行动]
