@@ -1,7 +1,7 @@
 ---
 name: tarot-card-meaning
 description: |
-  用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义。用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导释义，而不是背诵词条。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、多张牌整体叙事（→ tarot-spread-synthesis）、对牌面的恐惧或强烈情绪（→ tarot-projective-dialogue）。
+  用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义。用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导释义，而不是背诵词条。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、多张牌整体叙事（→ tarot-spread-synthesis）、解释完仍持续恐惧或有强烈联想（→ tarot-projective-dialogue）。"我抽到死神是不是很糟"这类问题由本 skill 先解释并给转化面。
 source_book: Waite《The Pictorial Key to the Tarot》(1910) Part II "The Doctrine Behind the Veil" + Part III 各牌释义；Pamela Colman Smith 牌面图像
 source_scope: Rider-Waite-Smith 体系；托特牌、马赛牌编号与释义有差异，不在范围内
 tags: [tarot, card-meaning, major-arcana, minor-arcana]
