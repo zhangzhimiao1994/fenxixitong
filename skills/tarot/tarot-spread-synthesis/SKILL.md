@@ -1,7 +1,7 @@
 ---
 name: tarot-spread-synthesis
 description: |
-  用于把一个牌阵中的多张塔罗牌整合成一条叙事线：位置关系、元素分布、大牌比例、数字重复、正逆比例，最终输出"象征主线 + 镜子问题 + 最小行动"。触发信号："这几张牌连起来怎么看""整体是什么意思""帮我综合解读"。不用于单张牌解释（→ tarot-card-meaning），不输出确定性结论。
+  用于把一个牌阵中的多张塔罗牌整合成一条叙事线：位置关系、元素分布、大牌比例、数字重复、正逆比例，最终输出"象征主线 + 镜子问题 + 最小行动"。触发信号："这几张牌连起来怎么看""整体是什么意思""帮我综合解读"。不用于单张牌解释（→ tarot-card-meaning）、还没抽牌（→ tarot-draw-protocol）、对某张牌的恐惧（→ tarot-projective-dialogue）；不输出确定性结论。
 source_book: Waite《The Pictorial Key to the Tarot》Part III 占法部分 + 通行牌阵综合实践
 source_scope: 元素统计、大牌比例等综合技巧属通行实践，非 Waite 原文明确提出（标注 inference）
 tags: [tarot, spread, synthesis, narrative]
@@ -13,7 +13,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 ## R — 来源
 - Waite 凯尔特法（Part III §7）按位置逐张翻读，并以第 10 张"What will come"为汇总点 ✅
 - "先快速浏览获整体印象、再逐张细读"见 Part III §8（原针对 42 张法）✅
-- 十个位置的 Waite 原名：1 covers him（整体氛围）、2 crosses him（阻碍）、3 crowns him（目标/理想）、4 beneath him（已成为现实的根基）、5 behind him（正在过去的影响）、6 before him（即将到来的影响）、7 himself（自我态度）、8 his house（环境、亲友）、9 hopes or fears、10 what will come。`tools/divine.py` 的 cross 牌阵按此命名
+- 十个位置取 Waite 原文命名（列表见 `tarot-draw-protocol`，与 `tools/divine.py` 一致）
 - 元素分布、大牌比例、数字重复等统计法为后世通行实践（evidence: inference / 通行做法）
 
 ## I — 方法论骨架：四层扫描
@@ -27,7 +27,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 
 牌数 ≤3 时只做第 2、4 层（样本太少，大牌比例与重复信号无意义）。
 
-然后做**叙事线**：按位置顺序讲一个"起-承-转-落"的故事，并找出**关键张**（最能改变走向的那张）。候选：三张 → 第 2"现在"、第 3"趋势"（过去已发生，不作关键张）；关系五张 → 第 4"阻碍"、第 5"建议"；凯尔特十字 → 第 2"交叉"、第 7"自我态度"、第 10"将来"。在候选中按顺序挑：① 逆位优先 ② 元素与问题领域一致 ③ 仍并列 → 选位置靠后的那张。
+然后做**叙事线**：按位置顺序讲一个"起-承-转-落"的故事，并找出**关键张**（最能改变走向的那张）。候选：三张 → 第 2"现在"、第 3"趋势"（过去已发生，不作关键张）；关系五张 → 第 4"阻碍"、第 5"建议"；凯尔特十字 → 第 2"交叉"、第 7"自我态度"、第 10"将来"。在候选中按顺序挑：① 逆位优先 ② 元素与问题领域一致（问"整体状态"时跳过本条）③ 仍并列 → 选位置靠后的那张。
 
 ## A1 — 应用案例
 
@@ -50,7 +50,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
    ```
    象征主线: [1-2 句]
    关键张: [牌名] —— [为什么]
-   元素提示: [缺席/过剩的领域]
+   元素提示: [缺席/过剩的领域；缺席时镜子问题优先问这个领域]
    镜子问题: [一个问题，交还给用户]
    最小行动: [5 分钟可开始]
    ⚠️ 这是象征叙事，不是预测
@@ -64,7 +64,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 | 用户说"抽好了"但没列出牌面 | 请用户按 `位置 · 牌名 · 正逆` 逐行列出 | 用户还没抽 → 转 `tarot-draw-protocol`（可用 `python tools/divine.py tarot --spread cross`） |
 | 牌面不全（缺位置或正逆） | 追问一次 | 仍缺 → 正逆按正位读、位置按牌阵默认顺序，并标注 |
 | 用户抽牌前没有明确问题 | 问"这次你想看的是哪件事？" | 用户说"随便看看" → 按"当下整体状态"解读 |
-| 牌面信号互相矛盾 | 不强行统一，说"牌阵呈现了两种力量的拉扯"，这本身是信息 | — |
+| 牌面信号互相矛盾 | 不强行统一，说"牌阵呈现了两种力量的拉扯" | 镜子问题问"这两股力量，你现在更站在哪一边？" |
 | 全是凶牌 | 找转化面最强的一张作为出口；先确认用户情绪状态 | 用户明显恐慌 → 转 `tarot-projective-dialogue`；危机信号 → `cross-system-hub` C5 |
 | 全是吉牌，用户要求"确认会成功" | 提醒"牌面顺利≠结果保证，它说的是你的状态有利"；照常输出关键张（选最需要你付出努力的那张）+ 镜子问题"成功需要你做到哪一件事？"+ 最小行动 | — |
 | 用户认为"不准" | 不辩护。问"哪里不像？"——不像的部分同样有信息 | 用户说明后：以用户描述的现实为准，只重写叙事线和镜子问题，不重抽、不改牌义 |
