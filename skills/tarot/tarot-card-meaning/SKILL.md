@@ -11,10 +11,9 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 # Tarot Card Meaning — 单牌释义（结构推导法）
 
 ## R — 来源（已对照原文，2026-10-02）
-- 大阿卡纳 22 张及顺序依 Waite 体系：力量为 VIII、正义为 XI。Waite 将两者对调，原文仅称 Justice "usually numbered eight"，且不说明理由（"For reasons which satisfy myself"）；见 Part II §2 "VIII Strength, or Fortitude" ✅
-- 每张牌的正位与逆位（"Reversed:"）释义：Part III §2（小阿卡纳）、§3（大阿卡纳）✅
-- **四花色-元素对应不是 Waite 原书内容**：原书只说花色代表"the elements of natural life"，仅提到圣杯与水相关；完整的火/水/风/土对应属金色黎明及后世通行体系（evidence: reliable-secondary）
-- **宫廷牌"成熟度"梯度是现代读法**：Waite 的宫廷牌释义以人物描述为主（他在凯尔特法中甚至以骑士代表四十岁以上男性），与本梯度不同
+- 大阿卡纳顺序依 Waite：力量 VIII、正义 XI（Waite 对调且不说明理由，Part II §2）✅
+- 正逆位释义：Part III §2（小阿卡纳）、§3（大阿卡纳）✅
+- **四花色-元素对应、宫廷牌"成熟度"梯度均非 Waite 原书内容**：前者属金色黎明及后世通行体系，后者为现代读法（evidence: reliable-secondary）
 - 本表"正位邀请你看""转化面"两列是本体系的心理转译；Waite 原释义多为事件性词语（见各牌条目）
 
 ## I — 方法论骨架
@@ -118,14 +117,14 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 3. 结合**牌阵位置**（如"阻碍"位置的太阳 = "过度乐观可能是阻碍"）
 4. 结合**用户问题领域**落地成一句具体的话
 5. 凶牌 → 必须输出"转化面"
-6. 输出格式：`牌名·正逆 | 原型/公式 | 在此位置意味着 | 邀请你看`
+6. 输出：每张牌写成 1-2 句自然的话（牌名·正逆 → 原型 → 在此位置意味着什么 → 一个贴合用户处境的具体问题），不用竖线模板，不照抄表格里的关键词
 7. 🔴 **CHECKPOINT**：多张牌、单独使用时，逐张释义后先给 1 句整体线索 + 1 个小行动，再问"要我把这几张连起来细看吗？"；从 `tarot` 链路进来时不停，直接进 `tarot-spread-synthesis`
 
 ## B — 边界与 Fallback
 
 | 触发条件 | 一线处理 | 仍失败 → 兜底 |
 |---------|---------|-------------|
-| 用户说的是托特牌 | 先用托特自己的语言简述（Lust：狂喜的生命力与对欲望的拥抱；Adjustment：动态平衡），再给对照：Lust XI ↔ 力量 VIII、Adjustment VIII ↔ 正义 XI（RWS 沿用金色黎明的对调，对应狮子座/天秤座）；Art ↔ 节制、Aeon ↔ 审判、Universe ↔ 世界 | 用户要深读托特 → 说明"细节以托特体系的书为准"，只给对照层面的解读 |
+| 用户说的是托特牌 | 先用托特自己的语言简述（Lust：狂喜的生命力与对欲望的拥抱；Adjustment：动态平衡），再给对照：Lust XI ↔ 力量 VIII、Adjustment VIII ↔ 正义 XI（托特保留传统编号 Lust XI、Adjustment VIII；RWS 按金色黎明对调为力量 VIII、正义 XI；分别对应狮子座/天秤座）；不假设前文说过什么；Art ↔ 节制、Aeon ↔ 审判、Universe ↔ 世界 | 用户要深读托特 → 说明"细节以托特体系的书为准"，只给对照层面的解读 |
 | 用户说的是马赛牌 | 马赛中正义为 VIII、力量为 XI；小牌无场景图，按元素×数字推导 | — |
 | 用户问"高塔是不是说明家里会出事" | 原样回答："牌不预告具体事件。" 然后给该牌的转化面 | 用户追问不休 → 转 `tarot-projective-dialogue` 问"你最担心的是什么？" |
 | 用户的直觉与书面释义冲突 | 以用户直觉为准，转 `tarot-projective-dialogue` | — |

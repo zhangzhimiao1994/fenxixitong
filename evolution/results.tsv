@@ -105,3 +105,4 @@
 2026-10-02T20:54	final-eval-1	astrology-transit	-	82.9	measured	d8=7.0	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
 2026-10-02T20:54	final-eval-1	ziwei-doushu	-	82.5	measured	d8=7.8	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
 2026-10-02T20:54	final-eval-1	zhouyi-divination	-	84.7	measured	d8=8.0	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T22:10	final-eval-2	ALL(12)	-	83.2	measured	d8 7.5-8.75	r9 real execution vs reused baselines, 2 blind judges; hub 83.9 psyche 82.2 tarot 83.0 draw 84.1 card 81.0 spread 84.9 proj 83.8 zhouyi 86.9 fortune 79.0 bazi 82.7 astro 85.0 ziwei 82.3	full_test_real
