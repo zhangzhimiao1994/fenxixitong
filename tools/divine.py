@@ -88,7 +88,44 @@ def cast_iching():
         print(f"变爻: {'、'.join(moving)}（共 {len(moving)} 个）")
         print(f"之卦: {hexagram(changed)}")
     else:
-        print("变爻: 无（静卦，看本卦卦辞）")
+        print("变爻: 无")
+    print("取辞: " + reading_target(values, base, changed))
+
+
+def _line_name(i, yang):
+    num = "九" if yang else "六"
+    if i == 0:
+        return "初" + num
+    if i == 5:
+        return "上" + num
+    return num + LINE_NAMES[i]
+
+
+def reading_target(values, base, changed):
+    """朱熹《易学启蒙·考变占》变爻取辞规则（1 变、乾坤 6 变两条另见《周易本义》）。"""
+    mv = [i for i, v in enumerate(values) if v in (6, 9)]
+    still = [i for i in range(6) if i not in mv]
+    b = hexagram(base).split(" ")[1].split("（")[0]
+    c = hexagram(changed).split(" ")[1].split("（")[0]
+    n = len(mv)
+    if n == 0:
+        return f"本卦 {b} 卦辞"
+    if n == 1:
+        return f"本卦 {b} {_line_name(mv[0], base[mv[0]])} 爻辞"
+    if n == 2:
+        lo, hi = mv
+        return f"本卦 {b} {_line_name(lo, base[lo])}、{_line_name(hi, base[hi])} 爻辞，以上爻 {_line_name(hi, base[hi])} 为主（据《启蒙》转述）"
+    if n == 3:
+        return f"本卦 {b} 卦辞为主，之卦 {c} 卦辞为辅（据《启蒙》转述）"
+    if n == 4:
+        lo, hi = still
+        return f"之卦 {c} 不变爻 {_line_name(lo, changed[lo])}、{_line_name(hi, changed[hi])} 爻辞，以下爻 {_line_name(lo, changed[lo])} 为主（据《启蒙》转述）"
+    if n == 5:
+        i = still[0]
+        return f"之卦 {c} 不变爻 {_line_name(i, changed[i])} 爻辞（据《启蒙》转述）"
+    if b in ("乾", "坤"):
+        return f"{b}卦 {'用九' if b == '乾' else '用六'}"
+    return f"之卦 {c} 卦辞（据《启蒙》转述）"
 
 
 # ---------------- 八字 ----------------
@@ -109,6 +146,19 @@ def bazi(date, time, gender):
     print(f"五行: {ec.getYearWuXing()} {ec.getMonthWuXing()} {ec.getDayWuXing()} {ec.getTimeWuXing()}")
     print(f"日主: {ec.getDayGan()}")
     print(f"十神(天干): 年{ec.getYearShiShenGan()} 月{ec.getMonthShiShenGan()} 时{ec.getTimeShiShenGan()}")
+    # 旺衰简化计分（本工具约定，非唯一流派）：月支本气生扶日主 +2、否则 -1；
+    # 其余三干、年日时三支（取本气五行）生扶日主各 +1、否则 -1。≥+2 偏强，≤-2 偏弱，其间中和
+    gen = {"木": "火", "火": "土", "土": "金", "金": "水", "水": "木"}
+    me = ec.getDayWuXing()[0]
+    helps = lambda e: e == me or gen[e] == me
+    wx = [ec.getYearWuXing(), ec.getMonthWuXing(), ec.getDayWuXing(), ec.getTimeWuXing()]
+    score = 2 if helps(wx[1][1]) else -1
+    for i in (0, 1, 3):
+        score += 1 if helps(wx[i][0]) else -1
+    for i in (0, 2, 3):
+        score += 1 if helps(wx[i][1]) else -1
+    level = "偏强（喜克、泄、耗）" if score >= 2 else "偏弱（喜生、扶）" if score <= -2 else "中和（流派分歧，只谈倾向）"
+    print(f"旺衰计分: {score:+d} → {level}")
     yun = ec.getYun(1 if gender == "m" else 0)
     print(f"起运: 出生后约 {yun.getStartYear()} 年 {yun.getStartMonth()} 个月")
     for dy in yun.getDaYun()[1:9]:
@@ -167,10 +217,12 @@ def astro(date, time, tz, lat, lon):
     phi = math.radians(lat)
     asc = math.degrees(math.atan2(math.cos(ramc), -(math.sin(ramc) * math.cos(eps) + math.tan(phi) * math.sin(eps)))) % 360
     print(f"  上升: {_fmt(asc)}  （整宫制：第 1 宫 = {SIGNS[int(asc // 30)]}）")
-    print("主要相位（个人行星间，容许度 ≤6°）:")
+    print("主要相位（个人行星之间、及其与木星/土星，容许度 ≤6°）:")
     names = ["太阳", "月亮", "水星", "金星", "火星", "木星", "土星"]
     for i, a in enumerate(names):
         for b in names[i + 1:]:
+            if a in ("木星", "土星") and b in ("木星", "土星"):
+                continue  # 木土相位是同龄人共有的世代相位，不作个人解读
             d = abs(natal[a] - natal[b]) % 360
             d = min(d, 360 - d)
             for ang, label in ASPECTS:
