@@ -11,7 +11,9 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 # Tarot Draw Protocol — 抽牌协议
 
 ## R — 来源
-- Waite 原著 Part III 记载了凯尔特十字（Celtic Cross）等占法，并强调提问前需专注于问题本身（Part III "An Ancient Celtic Method of Divination" 一节，位置引用，转述；节号待对照原文）。
+- Waite 原著 Part III §7 "An Ancient Celtic Method of Divination"：十张牌排成十字形（后世称"凯尔特十字"，Waite 原文未用此名），原文称此法最适合回答"a definite question"（例："Will a lawsuit be necessary?"）✅
+- "提问前明确表述问题并朗读"出自 Part III §8 末尾 "Notes on the Practice of Divination"（Waite 称系他人所供）✅
+- **本 skill 的"封闭问题改写为开放问题"规则是本体系新增约束，不是 Waite 的主张**（Waite 的示例恰是封闭问题）
 - 《周易·蒙》："初筮告，再三渎，渎则不告。" —— 本体系借用为"一事一抽"规则。
 
 ## I — 方法论骨架

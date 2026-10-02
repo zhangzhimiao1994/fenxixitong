@@ -13,7 +13,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 # 塔罗象征系统 (Tarot)
 
 > 78 张牌 → 4 个可执行 skill
-> evidence level: reliable-secondary（韦特原著 + 通行释义；未逐条对照原文，见 distill 包 PIPELINE_STATE）
+> evidence level: firsthand（已对照 Waite 原著，2026-10-02）+ 通行释义（四花色元素、宫廷牌梯度为后世体系，已在子 skill 中标注）
 
 ## 核心立场
 

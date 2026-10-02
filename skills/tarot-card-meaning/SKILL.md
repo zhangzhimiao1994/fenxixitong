@@ -10,9 +10,12 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 
 # Tarot Card Meaning — 单牌释义（结构推导法）
 
-## R — 来源
-- 大阿卡纳 22 张及顺序依 Waite 体系（力量为 VIII、正义为 XI，Waite 将两者与早期马赛顺序对调；见 Part II 关于 Strength/Justice 的说明，位置引用）
-- 四组花色与元素对应、宫廷牌含义：Waite Part III 各牌条目（转述，非逐字）
+## R — 来源（已对照原文，2026-10-02）
+- 大阿卡纳 22 张及顺序依 Waite 体系：力量为 VIII、正义为 XI。Waite 将两者对调，原文仅称 Justice "usually numbered eight"，且不说明理由（"For reasons which satisfy myself"）；见 Part II §2 "VIII Strength, or Fortitude" ✅
+- 每张牌的正位与逆位（"Reversed:"）释义：Part III §2（小阿卡纳）、§3（大阿卡纳）✅
+- **四花色-元素对应不是 Waite 原书内容**：原书只说花色代表"the elements of natural life"，仅提到圣杯与水相关；完整的火/水/风/土对应属金色黎明及后世通行体系（evidence: reliable-secondary）
+- **宫廷牌"成熟度"梯度是现代读法**：Waite 的宫廷牌释义以人物描述为主（他在凯尔特法中甚至以骑士代表四十岁以上男性），与本梯度不同
+- 本表"正位邀请你看""转化面"两列是本体系的心理转译；Waite 原释义多为事件性词语（见各牌条目）
 
 ## I — 方法论骨架
 
@@ -33,7 +36,7 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 | X | 命运之轮 | 周期、转折 | 顺势而变 | 抗拒变化 | — |
 | XI | 正义 | 因果、公平、决断 | 诚实面对后果 | 偏颇、逃避责任 | — |
 | XII | 倒吊人 | 暂停、换视角 | 主动的等待 | 无谓牺牲、拖延 | — |
-| XIII | 死神 | 结束、蜕变 | 让该结束的结束 | 抗拒结束 | **不是肉体死亡**；旧阶段谢幕，新阶段才有位置 |
+| XIII | 死神 | 结束、蜕变 | 让该结束的结束 | 抗拒结束 | 本体系**不作死亡预告**，取其"结束/转化"象征义：旧阶段谢幕，新阶段才有位置（注：Waite 原释义含 "End, mortality, destruction"，此处为伦理取舍） |
 | XIV | 节制 | 调和、适度 | 慢慢调配 | 失衡、过度 | — |
 | XV | 恶魔 | 束缚、成瘾、执念 | 看清什么在绑住你 | 正在挣脱 | 锁链是松的——意识到即可解开 |
 | XVI | 高塔 | 突变、崩塌 | 虚假结构被打破 | 推迟的崩塌 | 倒掉的是本就不牢的东西，释放出真实 |
@@ -45,7 +48,7 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 
 ### 2. 小阿卡纳：元素 × 数字 推导公式
 
-**花色 = 生活领域**
+**花色 = 生活领域**（元素对应为后世通行体系，非 Waite 原书）
 | 花色 | 元素 | 领域 | 身心维度对照 |
 |------|-----|------|-----------|
 | 权杖 | 火 | 行动、热情、事业冲劲 | 肝/心之火 |

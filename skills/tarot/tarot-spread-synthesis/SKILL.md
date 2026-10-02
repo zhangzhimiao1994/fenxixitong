@@ -11,7 +11,9 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 # Tarot Spread Synthesis — 牌阵综合
 
 ## R — 来源
-- Waite 在凯尔特十字占法中按位置顺序逐张读，再看整体走向（Part III，位置引用，转述）
+- Waite 凯尔特法（Part III §7）按位置逐张翻读，并以第 10 张"What will come"为汇总点 ✅
+- "先快速浏览获整体印象、再逐张细读"见 Part III §8（原针对 42 张法）✅
+- 十个位置的 Waite 原名：1 covers him（整体氛围）、2 crosses him（阻碍）、3 crowns him（目标/理想）、4 beneath him（已成为现实的根基）、5 behind him（正在过去的影响）、6 before him（即将到来的影响）、7 himself（自我态度）、8 his house（环境、亲友）、9 hopes or fears、10 what will come。`tools/divine.py` 的 cross 牌阵按此命名
 - 元素分布、大牌比例、数字重复等统计法为后世通行实践（evidence: inference / 通行做法）
 
 ## I — 方法论骨架：四层扫描
