@@ -1,0 +1,15 @@
+{
+  "should_trigger": [
+    {"prompt": "我抽到了死神正位，问的是工作，是不是很糟？", "reason": "单牌释义+凶牌转化面。"},
+    {"prompt": "星币四在'阻碍'位置怎么理解？", "reason": "小阿卡纳元素×数字推导+位置含义。"},
+    {"prompt": "逆位到底应该怎么读？", "reason": "逆位三种读法。"}
+  ],
+  "should_not_trigger": [
+    {"prompt": "这三张牌连起来整体讲了什么故事？", "reason": "多张综合，应路由到 tarot-spread-synthesis。"},
+    {"prompt": "帮我抽一张今日指引。", "reason": "抽牌，应路由到 tarot-draw-protocol。"}
+  ],
+  "edge_case": [
+    {"prompt": "托特牌里的'欲望'（Lust）和你说的力量牌一样吗？", "reason": "超出 RWS 范围，需声明体系差异。"},
+    {"prompt": "高塔是不是说明我家里会出事？", "reason": "必须拒绝灾祸预告式解释，讲转化面。"}
+  ]
+}

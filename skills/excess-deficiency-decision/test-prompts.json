@@ -1,0 +1,48 @@
+{
+  "skill": "excess-deficiency-decision",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队人手不够要不要加人，还是说现有的人效率有问题需要减掉冗余流程",
+      "expected_behavior": "调用 excess-deficiency-decision, 引导判断是'虚'(资源不足需补)还是'实'(冗余需泻)",
+      "notes": "正面场景: 补泻方向决策"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个功能模块的代码量太大了，一直在加新功能，现在维护成本很高",
+      "expected_behavior": "调用 excess-deficiency-decision, 识别为'实'(过多需削减/精简)",
+      "notes": "正面场景: 实证需泻"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的测试覆盖率很低，bug频出，该不该加强测试投入",
+      "expected_behavior": "调用 excess-deficiency-decision, 识别为'虚'(不足需增益)",
+      "notes": "正面场景: 虚证需补"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下这个项目的ROI",
+      "expected_behavior": "纯计算任务, 不涉及补泻方向判断",
+      "notes": "诱饵: 非方向决策场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "今天中午吃什么",
+      "expected_behavior": "日常选择, 不应调用",
+      "notes": "诱饵: 日常琐事"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我觉得自己知识面太窄了，应该广泛涉猎还是深入一个方向",
+      "expected_behavior": "可触发, 广泛=补宽度, 深入=补深度, 但也涉及精简(泻), 属于虚实并存的混合型",
+      "notes": "边界: 个人发展类虚实判断"
+    }
+  ]
+}

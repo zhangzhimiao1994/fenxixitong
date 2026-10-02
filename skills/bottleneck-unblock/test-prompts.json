@@ -1,0 +1,48 @@
+{
+  "skill": "bottleneck-unblock",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "整个审批流程特别慢，卡在一个环节上，上下游都等着",
+      "expected_behavior": "调用 bottleneck-unblock, 引导定位阻塞点(卡住的环节), 找到'横络盛加于大经'的瓶颈",
+      "notes": "正面场景: 流程阻塞"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "项目推进不下去，感觉所有事情都堵在一个地方",
+      "expected_behavior": "调用 bottleneck-unblock, 引导精确定位阻塞原因, 而非分散精力",
+      "notes": "正面场景: 需要找瓶颈"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "CI/CD pipeline跑到deploy阶段就卡住了，前面的build和test都很快",
+      "expected_behavior": "调用 bottleneck-unblock, 引导在deploy阶段找阻塞原因(权限?配置?资源?), 聚焦精准疏通",
+      "notes": "正面场景: 技术流水线阻塞"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我选一个合适的CI/CD工具",
+      "expected_behavior": "工具选型, 不涉及疏通阻塞",
+      "notes": "诱饵: 非阻塞场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个季度的OKR怎么写",
+      "expected_behavior": "目标规划, 不涉及流程疏通",
+      "notes": "诱饵: 非阻塞问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "团队协作效率低，不知道具体卡在哪里",
+      "expected_behavior": "应触发, 但需要先诊断(observe-infer)再疏通(bottleneck-unblock), 两个skill可能联动",
+      "notes": "边界: 阻塞点不明确, 需先诊断"
+    }
+  ]
+}

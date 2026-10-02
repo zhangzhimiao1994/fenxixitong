@@ -1,0 +1,12 @@
+{
+  "should_trigger": [
+    {"prompt": "用塔罗帮我看看最近的感情状态。", "reason": "塔罗入口，路由到抽牌协议。"},
+    {"prompt": "我抽到了月亮和恶魔，好害怕。", "reason": "释义+投射对话。"}
+  ],
+  "should_not_trigger": [
+    {"prompt": "帮我看看八字。", "reason": "命理，应路由到 fortune。"}
+  ],
+  "edge_case": [
+    {"prompt": "塔罗说我们会分手，是真的吗？", "reason": "需纠正确定性预言。"}
+  ]
+}

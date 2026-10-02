@@ -1,0 +1,48 @@
+{
+  "skill": "personalize-by-constitution",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "同样的管理方法在不同团队效果完全不同，怎么调整",
+      "expected_behavior": "调用 personalize-by-constitution, 引导识别每个团队的'体质'差异, 因人/因团队施术",
+      "notes": "正面场景: 同一方法不同效果"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "给新人制定培训计划，他有五年经验但跨行了，该怎么安排",
+      "expected_behavior": "调用 personalize-by-constitution, 引导评估个体特质(有经验但跨行), 定制方案",
+      "notes": "正面场景: 因人定制方案"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "两个下属犯同样的错，一个老员工一个新人，该怎么分别处理",
+      "expected_behavior": "调用 personalize-by-constitution, 引导根据个体差异(经验/心态)采取不同方式",
+      "notes": "正面场景: 同一问题不同个体差异化处理"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "推荐一本学习JavaScript的书",
+      "expected_behavior": "通用推荐, 不涉及个体差异",
+      "notes": "诱饵: 无需因人施术"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我生成一个标准化的onboarding checklist",
+      "expected_behavior": "要求标准化方案, 不是因人定制",
+      "notes": "诱饵: 需要标准化而非个性化"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个用户反馈说功能不好用，但我看数据大多数人都在用",
+      "expected_behavior": "可能触发, 涉及个体差异vs群体数据的判断, 但更偏数据分析",
+      "notes": "边界: 个体vs群体的场景"
+    }
+  ]
+}

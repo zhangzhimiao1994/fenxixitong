@@ -1,0 +1,48 @@
+{
+  "skill": "timing-opportunity",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "市场波动很大，现在是不是抄底的好时机",
+      "expected_behavior": "调用 timing-opportunity, 引导评估时机等级(未盛/已盛/已衰), 判断是否在不可干预窗口",
+      "notes": "正面场景: 时机判断"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "产品已经上线但还有不少bug，是现在修还是等用户反馈再改",
+      "expected_behavior": "调用 timing-opportunity, 引导评估修复时机——提前预防vs等问题暴露",
+      "notes": "正面场景: 预防vs等待"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "和老板谈加薪，现在公司刚裁完人，是不是时机不好",
+      "expected_behavior": "调用 timing-opportunity, 分析当前是否在'不可干预窗口'(裁人后气氛紧张), 建议等待",
+      "notes": "正面场景: 识别不可干预窗口"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "今天天气怎么样",
+      "expected_behavior": "信息查询, 时机不影响",
+      "notes": "诱饵: 非时机决策"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一个数据库迁移方案",
+      "expected_behavior": "方案设计, 不涉及时机选择",
+      "notes": "诱饵: 纯方案非时机"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "客户正在气头上打电话来投诉，我现在应该马上回还是等他冷静一下",
+      "expected_behavior": "应触发, 识别'熇熇之热'(情绪最盛)状态, 建议等待过峰再处理",
+      "notes": "边界: 情绪高峰的不可干预窗口"
+    }
+  ]
+}

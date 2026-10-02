@@ -1,0 +1,48 @@
+{
+  "skill": "root-cause-priority",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "项目延期了，有人说需求变更多，有人说开发慢，有人说沟通有问题，到底该先解决哪个",
+      "expected_behavior": "调用 root-cause-priority, 引导区分本(根本原因)和标(表面表现), 确定优先级",
+      "notes": "正面场景: 多因素混杂需排序"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "系统同时出了三个问题，资源有限应该先修哪个",
+      "expected_behavior": "调用 root-cause-priority, 引导找到三个问题中哪个是根(导致其他两个的源头)",
+      "notes": "正面场景: 标本先后判断"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "每次解决一个bug就会冒出两个新bug，感觉在打地鼠",
+      "expected_behavior": "调用 root-cause-priority, 识别'打地鼠'模式, 建议找根因而非逐个击破",
+      "notes": "正面场景: 治标不治本"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我列出今天的待办事项",
+      "expected_behavior": "简单任务列表, 不涉及根因分析",
+      "notes": "诱饵: 非因果分析场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "解释一下什么是微服务架构",
+      "expected_behavior": "纯知识查询, 不涉及问题排序",
+      "notes": "诱饵: 知识解释"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "同时有急事和重要事要做，先做哪个",
+      "expected_behavior": "可触发, 涉及标(急)本(重要)的优先级判断, 但场景较简单",
+      "notes": "边界: 简单的紧急vs重要决策"
+    }
+  ]
+}
