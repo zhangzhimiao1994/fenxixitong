@@ -94,8 +94,9 @@ def bazi(date, time, gender):
     try:
         from lunar_python import Solar
     except ImportError:
-        sys.exit("未安装 lunar_python。请先运行: pip install lunar_python\n"
-                 "或改用专业排盘软件，把四柱与大运结果粘贴给 skill。")
+        sys.exit("[DEPENDENCY_MISSING] lunar_python 未安装。\n"
+                 "AGENT 操作: 运行 `pip install -r requirements.txt`（或 `pip install lunar_python`），安装成功后重跑本命令。\n"
+                 "若当前环境禁止安装: 请用户从专业排盘软件粘贴四柱+大运；禁止心算排盘。")
     y, m, d = map(int, date.split("-"))
     hh, mm = map(int, time.split(":"))
     lunar = Solar.fromYmdHms(y, m, d, hh, mm, 0).getLunar()

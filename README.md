@@ -18,6 +18,16 @@
 1. **实事求是**：观察维度（心理、身心）基于用户陈述的事实；象征维度（塔罗、运势、周易）只提供视角与节奏，不得推翻事实，也不得单独决定"主要矛盾"
 2. **内因决定**：象征为镜，行动在人——不输出确定预言，不恐吓，不推荐付费化解
 
+## 📥 安装（给 agent 的指令）
+
+把本仓库放进你的 agent 的 skills 目录后，**立即执行一次依赖安装**：
+
+```bash
+pip install -r requirements.txt
+```
+
+运行时若 `tools/divine.py` 输出 `[DEPENDENCY_MISSING]`，agent 应先执行上述安装命令再重试；只有在环境禁止安装时，才改为请用户粘贴排盘结果。
+
 ## 🎲 工具
 
 `tools/divine.py`：用操作系统级随机源抽塔罗、三钱法起卦，以及八字排盘，避免模型"心算随机"或"心算排盘"。
@@ -25,7 +35,6 @@
 ```bash
 python tools/divine.py tarot --spread three        # single | three | relation | cross
 python tools/divine.py iching                      # 本卦 / 变爻 / 之卦
-pip install lunar_python                           # 八字排盘依赖
 python tools/divine.py bazi 1996-08-12 15:20 --gender f
 ```
 
