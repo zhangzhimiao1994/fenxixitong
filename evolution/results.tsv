@@ -59,3 +59,15 @@
 2026-10-02T20:21	r4	astrology-transit	77.8	83.1	keep	AB	blind A/B x2 judges, both prefer new; scores=mean of 2 judges	full_test_ab
 2026-10-02T20:21	r4	ziwei-doushu	78.0	83.8	keep	AB	blind A/B x2 judges, both prefer new; scores=mean of 2 judges	full_test_ab
 2026-10-02T20:21	r4	zhouyi-divination	79.7	88.6	keep	AB	blind A/B x2 judges, both prefer new; scores=mean of 2 judges	full_test_ab
+2026-10-02T20:29	r5	cross-system-hub	73.0	79.4	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	psyche	77.4	81.8	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	tarot	77.8	83.0	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	tarot-draw-protocol	83.1	85.7	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	tarot-card-meaning	83.8	85.6	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	tarot-spread-synthesis	78.1	82.5	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	tarot-projective-dialogue	77.7	82.3	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	fortune	83.8	86.7	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	bazi-liunian	77.3	83.5	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	astrology-transit	77.0	82.2	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	ziwei-doushu	80.0	83.5	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
+2026-10-02T20:29	r5	zhouyi-divination	84.1	84.7	keep	AB	blind A/B x2, both prefer new (zhouyi: 1 tie + 1 new)	full_test_ab
