@@ -93,3 +93,15 @@
 2026-10-02T20:45	r7	bazi-liunian	79.8	82.8	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
 2026-10-02T20:45	r7	astrology-transit	77.8	82.2	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
 2026-10-02T20:45	r7	ziwei-doushu	80.7	81.9	keep	AB	blind A/B x2, both prefer new	full_test_ab(d8 dry-run)
+2026-10-02T20:54	final-eval-1	cross-system-hub	-	81.5	measured	d8=7.7	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	psyche	-	79.3	measured	d8=6.8	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	tarot	-	81.9	measured	d8=7.5	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	tarot-draw-protocol	-	83.3	measured	d8=7.0	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	tarot-card-meaning	-	80.4	measured	d8=7.0	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	tarot-spread-synthesis	-	84.5	measured	d8=7.5	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	tarot-projective-dialogue	-	80.5	measured	d8=7.0	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	fortune	-	78	measured	d8=6.8	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	bazi-liunian	-	80.1	measured	d8=6.5	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	astrology-transit	-	82.9	measured	d8=7.0	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	ziwei-doushu	-	82.5	measured	d8=7.8	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
+2026-10-02T20:54	final-eval-1	zhouyi-divination	-	84.7	measured	d8=8.0	real execution: with-skill vs baseline executors, blind output rating x2 judges; structural dims from SKILL.md	full_test_real
