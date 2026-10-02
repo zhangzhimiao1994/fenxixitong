@@ -3,7 +3,7 @@ name: psyche
 description: |
   心理维度总路由（荣格 + 弗洛伊德合并）。当用户的困扰需要从心理结构、情绪模式、关系模式、自我认同角度理解时激活，先判断"回溯成因（弗洛伊德）"还是"面向成长（荣格）"，再路由到 20 个子 skill。
   触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、关系里总受伤。
-  NOT trigger: 需要精神科紧急干预（自杀/自伤）、明确的身体急症、纯事实查询。
+  NOT trigger: 明确的身体急症、纯事实查询。出现自杀/自伤信号时仍会接住，但只输出第五节危机话术。
 version: "1.0.0"
 tags: [psyche, jung, freud, hub]
 related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-archetype, cross-system-hub]
@@ -11,8 +11,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 
 # 心理维度 (Psyche) —— 荣格 × 弗洛伊德 合并路由
 
-> 在 cross-system-hub v3 中，荣格与弗洛伊德不再是两个独立维度，而是「心理」维度的两只眼睛：
-> **弗洛伊德看"为什么会这样"（向后看：冲突、压抑、重复）**，**荣格看"正在成为谁"（向前看：面具、阴影、个体化）**。
+> 弗洛伊德看"为什么会这样"（向后看），荣格看"正在成为谁"（向前看）。本文件只做路由，不新增理论主张。
 
 ## 一、双镜判别（先选镜，再选 skill）
 
@@ -22,9 +21,9 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 | 痛苦的形态 | 控制不住、内疚、自责、反复踩坑 | 空虚、意义感缺失、角色窒息 |
 | 主导情绪 | 焦虑、羞耻、愤怒被压住 | 迷茫、疏离、"不像自己" |
 | 关键材料 | 童年经历、丧失、创伤、口误 | 梦、巧合、反复出现的意象、中年转折 |
-| 期待的帮助 | 理解成因、松开束缚 | 找到方向、整合自我 |
 
 **规则**：
+- 两列合计命中 ≤1 → 走"路由失败的处理"第 1 行
 - 两列命中差 ≥2 → 单镜分析，另一镜仅一句补充
 - 命中接近 → 双镜并用，输出顺序固定为 **弗洛伊德（成因）→ 荣格（方向）**，先松绑再前行
 - 用户明确点名某一位 → 尊重点名
@@ -34,7 +33,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 2. **双镜判别**：按上表计两列命中数，输出 `主镜: 弗洛伊德/荣格/双镜 | 依据: [用户原文]`
 3. **选子 skill**：查第二节路由表，选 1 个（双镜时最多 2 个）
 4. 🔴 **CHECKPOINT**：命中 3 个以上主题时，先问用户"最想先谈哪一个？"，等回答再继续
-5. **输出**：按第三节格式
+5. 按第三节格式输出
 
 ### 路由失败的处理
 | 触发条件 | 一线处理 | 仍失败 → 兜底 |
@@ -46,7 +45,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 
 ## 二、子 skill 路由表
 
-### 🛋️ 弗洛伊德镜（14）
+### 🛋️ 弗洛伊德镜（13 个分析 skill；另有 `freud-hub`、`freud-classic-hub` 2 个路由）
 | 信号 | 路由 |
 |------|------|
 | "我应该…但我不想""控制不住" | `freud-structural-model` |
@@ -57,6 +56,9 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 | "又重蹈覆辙""每次都这样" | `freud-death-drive-repetition` |
 | "别人怎么看我""我不够好" | `freud-narcissism-identification` |
 | 性格成因、控制欲、洁癖 | `freud-sexuality-development` |
+| "越压抑越反弹""说不出来" | `freud-metapsychology` |
+| "这社会是不是有问题"、时代性焦虑 | `freud-anxiety-civilization` |
+| "弗洛伊德整体怎么看" | `freud-development-overview` |
 | 跨 3 个以上主题 | `freud-complete` |
 
 ### 🔮 荣格镜（6）
@@ -76,6 +78,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
   视角: [成因或方向，1-2 句]
   洞察: [用户没意识到的那一层]
   行动: [1 个 5 分钟内可开始的最小行动]
+  提问: [1 个把洞察交还给用户的问题，引用用户原话]
 ```
 被 cross-system-hub 调用时，在开头加 `权重=X/5`（由 Hub 赋值）；单独使用时不写权重。
 
@@ -85,14 +88,13 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
   视角: 每次在同一个位置崩掉，说明这不是运气，而是一个在重复的模式。
   洞察: 重复往往发生在"关系开始变得重要"的那个节点——越靠近，越触发旧的不安。
   行动: 写下最近三段关系各自"开始崩"的那一刻，你当时在想什么。
+  提问: 你说"同一个地方"——那个地方通常是关系里的哪个时刻？
 ```
 
 ## 四、与象征维度（塔罗 / 运势 / 周易）的接口
 
-荣格的**共时性**与**投射**是心理维度连接象征系统的唯一合法桥梁：
-- 塔罗牌面、卦象、星盘意象 → 视为**投射屏幕**，问"你看到这张牌第一反应是什么"，而不是"这张牌决定了什么"
-- 用户对占断结果的强烈情绪反应（恐惧、狂喜、反复求证）本身就是心理材料，交给 `freud-anxiety-defense` / `jung-complex-archetype` 处理
-- 禁止用心理学术语为占断结果背书（如"荣格证明了塔罗有效"）——共时性是体验描述，不是预测机制
+- 牌面、卦象、星盘意象 = **投射屏幕**：问"你第一反应是什么"，不问"它决定了什么"
+- 用户对占断结果的强烈情绪（恐惧、反复求证）是心理材料 → `freud-anxiety-defense` / `jung-complex-archetype`
 
 ## 五、边界
 
@@ -115,8 +117,3 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 | 4 | 一次推 3 个以上子 skill | 用户认知超载 | 最多 2 个，先问最想谈哪个 |
 | 5 | 替用户下结论（"你就是恨你父亲"） | 剥夺用户的自我发现 | 用问题把洞察交还给用户 |
 | 6 | 洞察写成套话（"你需要爱自己"） | 没有信息量 | 洞察必须引用用户原话中的具体细节 |
-
-## 来源
-- 荣格子 skill：`skills/jung-*`（6 个）
-- 弗洛伊德子 skill：`skills/freud-*`（14 个）
-- 本文件为路由层，不新增理论主张
