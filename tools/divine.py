@@ -159,6 +159,16 @@ def bazi(date, time, gender):
         score += 1 if helps(wx[i][1]) else -1
     level = "偏强（喜克、泄、耗）" if score >= 2 else "偏弱（喜生、扶）" if score <= -2 else "中和（流派分歧，只谈倾向）"
     print(f"旺衰计分: {score:+d} → {level}")
+    mother = [k for k, v in gen.items() if v == me][0]          # 生我（印）
+    child = gen[me]                                              # 我生（食伤）
+    wealth = gen[child]                                          # 我克（财）
+    officer = [k for k, v in gen.items() if v == mother][0]     # 克我（官杀）
+    if score <= -2:
+        print(f"喜用（扶抑法）: {mother}（印，生我）、{me}（比劫，同我）")
+    elif score >= 2:
+        print(f"喜用（扶抑法）: {child}（食伤，泄）、{wealth}（财，耗）、{officer}（官杀，克）")
+    else:
+        print("喜用（扶抑法）: 中和，不定喜用，只按十神分布谈倾向")
     yun = ec.getYun(1 if gender == "m" else 0)
     print(f"起运: 出生后约 {yun.getStartYear()} 年 {yun.getStartMonth()} 个月")
     for dy in yun.getDaYun()[1:9]:
