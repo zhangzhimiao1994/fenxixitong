@@ -1,7 +1,7 @@
 ---
 name: tarot-card-meaning
 description: |
-  用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义。用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导释义，而不是背诵词条。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、多张牌整体叙事（→ tarot-spread-synthesis）、解释完用户仍说害怕/担心，或主动讲起个人联想（→ tarot-projective-dialogue）。"我抽到死神是不是很糟"这类问题由本 skill 先解释并给转化面。
+  用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义，用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、多张牌整体叙事（→ tarot-spread-synthesis）、解释后仍害怕或讲起个人联想（→ tarot-projective-dialogue）。
 source_book: Waite《The Pictorial Key to the Tarot》(1910) Part II "The Doctrine Behind the Veil" + Part III 各牌释义；Pamela Colman Smith 牌面图像
 source_scope: Rider-Waite-Smith 体系；托特牌、马赛牌编号与释义有差异，不在范围内
 tags: [tarot, card-meaning, major-arcana, minor-arcana]
@@ -117,7 +117,7 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 3. 结合**牌阵位置**（如"阻碍"位置的太阳 = "过度乐观可能是阻碍"）
 4. 结合**用户问题领域**落地成一句具体的话
 5. 凶牌 → 必须输出"转化面"
-6. 输出：每张牌写成 1-2 句自然的话（牌名·正逆 → 原型 → 在此位置意味着什么 → 一个贴合用户处境的具体问题），不用竖线模板，不照抄表格里的关键词
+6. 输出：每张牌写成 1-2 句自然的话（牌名·正逆 → 原型 + 画面里 1 个具体细节 → 在此位置意味着什么 → 一个贴合用户处境的具体问题），不用竖线模板，不照抄表格里的关键词；只问一张牌时，结尾加 1 个贴合用户处境、今天能做的小行动
 7. 🔴 **CHECKPOINT**：多张牌、单独使用时，逐张释义后先给 1 句整体线索 + 1 个小行动，再问"要我把这几张连起来细看吗？"；从 `tarot` 链路进来时不停，直接进 `tarot-spread-synthesis`
 
 ## B — 边界与 Fallback

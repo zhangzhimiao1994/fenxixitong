@@ -20,7 +20,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 | 步 | 子 skill | 输入 | 输出 | 关卡 |
 |---|---------|------|------|------|
-| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（用户说了张数 → 按用户的；否则 两人关系（已知有对象）→ relation，单身或不清楚 → three 并在开头说明"按你目前的状态来看"；每日 → single；重大议题 → cross；高风险决策 → stakes；其余 → three） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
+| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（用户说了张数 → 按用户的；否则 两人关系（已知有对象）→ relation，单身或不清楚 → three 并在开头说明"按你目前的状态来看"；每日 → single；人生方向/换城市或行业/关系去留 → cross；高风险决策 → stakes；其余 → three） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
 | 2 | `tarot-draw-protocol` | 确认的问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源标注 | 🛑 抽完不解读，直接进入第 3 步 |
 | 3 | `tarot-card-meaning` | 牌面列表 + 问题领域 | 每张 1 句：原型/公式 → 在此位置意味着 | — |
 | 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动 | 🔴 **CHECKPOINT**：问"哪张牌让你最有感觉？" |
@@ -52,7 +52,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 ## 使用原则
 
 1. **问题先行**：封闭问题先改写再抽（"会不会" → "我需要看见什么"）
-2. **随机必须真实**：用户自抽 > `python tools/divine.py tarot` > 拒绝。**禁止模型自己"想"出牌面**
+2. **随机必须真实**：用户自抽 > `python tools/divine.py tarot`（仓库根目录运行；回复里附 1 行工具原始输出）> 拒绝。**禁止模型自己"想"出牌面**
 3. **一事一抽**：同一问题不重复抽（《蒙》："初筮告，再三渎，渎则不告"），想重抽本身就是心理材料
 4. **不吓人**：死神、高塔、恶魔、宝剑十等"凶牌"必须讲出其转化面
 5. **用户的解读优先**：用户对牌面的直觉联想 > 书本释义
