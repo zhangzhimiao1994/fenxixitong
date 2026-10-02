@@ -11,10 +11,8 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 # Tarot Spread Synthesis — 牌阵综合
 
 ## R — 来源
-- Waite 凯尔特法（Part III §7）按位置逐张翻读，并以第 10 张"What will come"为汇总点 ✅
-- "先浏览整体、再逐张细读"见 Part III §8 ✅
-- 十个位置取 Waite 原文命名（列表见 `tarot-draw-protocol`，与 `tools/divine.py` 一致）
-- 元素分布、大牌比例、数字重复等统计法为后世通行实践（evidence: inference / 通行做法）
+- Waite 凯尔特法按位置逐张读、以第 10 张为汇总点（Part III §7）；先浏览整体再细读（§8）✅
+- 元素分布、大牌比例等统计法为后世通行实践（inference）
 
 ## I — 方法论骨架：四层扫描
 
@@ -41,7 +39,8 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 
 ## E — 执行步骤
 
-1. 列出所有牌面（位置 · 牌名 · 正逆），确认来自 `tarot-draw-protocol`（同目录 `skills/tarot/`）
+1. 列出所有牌面（位置 · 牌名 · 正逆），确认来自 `tarot-draw-protocol`
+   🔴 **CHECKPOINT**：牌面缺位置或正逆 → 先追问一次再做统计；仍缺 → 按 B 表默认并标注
 2. 四层扫描，输出统计结论（每层 1 句）
 3. 逐位置简读（每张 ≤1 句，引用 `tarot-card-meaning` 结论）
 4. 叙事线：起-承-转-落，≤4 句
@@ -58,7 +57,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 | 用户抽牌前没有明确问题 | 在扫描**之前**用 1 句问"这次你想看的是哪件事？"，同轮先按"当下整体状态"读完，关键张和镜子问题落到用户处境上 | 用户说"随便看看" → 维持整体状态读法 |
 | 牌面信号互相矛盾 | 不强行统一，说"牌阵呈现了两种力量的拉扯" | 镜子问题问"这两股力量，你现在更站在哪一边？" |
 | 全是凶牌 | 先问一句"看到这组牌你现在心里怎么样？"，再找转化面最强的一张（`tarot-card-meaning` 转化面列最贴近用户问题的）作为出口 | 用户明显恐慌 → 转 `tarot-projective-dialogue`；危机信号 → `cross-system-hub` C5 |
-| 全是吉牌，用户要求"确认会成功" | 提醒"牌面顺利≠结果保证，它说的是你的状态有利"；照常输出关键张（选最需要你付出努力的那张；牌面未列出时，直接点出用户目标里最需要用力的 1 个具体环节）+ 镜子问题"成功需要你做到哪一件事？"+ 最小行动 | — |
+| 全是吉牌，用户要求"确认会成功" | 提醒"牌面顺利≠结果保证，它说的是你的状态有利"；牌面已列 → 关键张选最需要付出努力的那张；未列 → 问 1 句"这次想成的是什么事？"；都给镜子问题"成功需要你做到哪一件事？"+ 最小行动 | — |
 | 用户认为"不准" | 不辩护。问"哪里不像？"——不像的部分同样有信息 | 用户说明后：以用户描述的现实为准，只重写叙事线和镜子问题，不重抽、不改牌义 |
 
 ## 反例黑名单

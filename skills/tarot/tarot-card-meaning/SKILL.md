@@ -129,7 +129,7 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 
 | 触发条件 | 一线处理 | 仍失败 → 兜底 |
 |---------|---------|-------------|
-| 用户说的是托特牌 | 先用托特自己的语言简述（Lust：狂喜的生命力与对欲望的拥抱；Adjustment：动态平衡），再给对照：Lust XI ↔ 力量 VIII、Adjustment VIII ↔ 正义 XI（托特保留传统编号 Lust XI、Adjustment VIII；RWS 按金色黎明对调为力量 VIII、正义 XI；分别对应狮子座/天秤座）；不假设前文说过什么；Art ↔ 节制、Aeon ↔ 审判、Universe ↔ 世界 | 用户要深读托特 → 说明"细节以托特体系的书为准"，只给对照层面的解读 |
+| 用户说的是托特牌 | ① 先用托特自己的语言 + 1 个画面细节简述（Lust：骑在七头兽上、高举圣杯的女子，狂喜的生命力；Adjustment：持剑与天平、踮脚保持平衡的女子，动态平衡）② 再给对照：托特保留传统编号 Lust XI、Adjustment VIII；RWS 按金色黎明对调为力量 VIII、正义 XI；分别对应狮子座/天秤座 ③ 一句对比（驯服 vs 拥抱）+ 落回用户的问题。只讲用户问到的牌，不主动列 Art/Aeon/Universe 等其他对照；不假设前文说过什么 | 用户要深读托特 → 说明"细节以托特体系的书为准"，只给对照层面的解读 |
 | 用户说的是马赛牌 | 马赛中正义为 VIII、力量为 XI；小牌无场景图，按元素×数字推导 | — |
 | 用户问"高塔是不是说明家里会出事" | 原样回答："牌不预告具体事件。" 然后给该牌的转化面 | 用户追问不休 → 转 `tarot-projective-dialogue` 问"你最担心的是什么？" |
 | 用户的直觉与书面释义冲突 | 以用户直觉为准，转 `tarot-projective-dialogue` | — |
