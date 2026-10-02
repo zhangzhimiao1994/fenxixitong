@@ -129,7 +129,23 @@ def reading_target(values, base, changed):
 
 
 # ---------------- 八字 ----------------
-def bazi(date, time, gender):
+def solar_time(date, time, lon):
+    """北京时间 → 真太阳时：经度差每度 4 分钟 + 均时差（Spencer 近似）。"""
+    import math
+    from datetime import datetime, timedelta
+    t = datetime.strptime(f"{date} {time}", "%Y-%m-%d %H:%M")
+    g = 2 * math.pi / 365 * (t.timetuple().tm_yday - 1)
+    eot = 229.18 * (0.000075 + 0.001868 * math.cos(g) - 0.032077 * math.sin(g)
+                    - 0.014615 * math.cos(2 * g) - 0.040849 * math.sin(2 * g))
+    delta = (lon - 120) * 4 + eot
+    return t + timedelta(minutes=delta), delta
+
+
+def bazi(date, time, gender, no_hour=False, lon=None):
+    if lon is not None and not no_hour:
+        corrected, delta = solar_time(date, time, lon)
+        print(f"真太阳时校正: 经度 {lon} → {delta:+.0f} 分钟 → {corrected:%Y-%m-%d %H:%M}")
+        date, time = f"{corrected:%Y-%m-%d}", f"{corrected:%H:%M}"
     try:
         from lunar_python import Solar
     except ImportError:
@@ -137,25 +153,30 @@ def bazi(date, time, gender):
                  "AGENT 操作: 运行 `pip install -r requirements.txt`（或 `pip install lunar_python`），安装成功后重跑本命令。\n"
                  "若当前环境禁止安装: 请用户从专业排盘软件粘贴四柱+大运；禁止心算排盘。")
     y, m, d = map(int, date.split("-"))
-    hh, mm = map(int, time.split(":"))
+    hh, mm = (12, 0) if no_hour else map(int, time.split(":"))
     lunar = Solar.fromYmdHms(y, m, d, hh, mm, 0).getLunar()
     ec = lunar.getEightChar()
-    print(f"公历 {date} {time}  →  农历 {lunar.toString()}")
-    print("注意: 未做真太阳时校正；出生地经度偏离东经120°较多时，请先换算真太阳时再输入。")
-    print(f"四柱: {ec.getYear()} {ec.getMonth()} {ec.getDay()} {ec.getTime()}")
-    print(f"五行: {ec.getYearWuXing()} {ec.getMonthWuXing()} {ec.getDayWuXing()} {ec.getTimeWuXing()}")
+    print(f"公历 {date} {'（无时辰）' if no_hour else time}  →  农历 {lunar.toString()}")
+    if no_hour:
+        print("无时辰: 只排年月日三柱；旺衰计分不含时柱；起运岁数为近似值")
+        print(f"三柱: {ec.getYear()} {ec.getMonth()} {ec.getDay()}")
+        print(f"五行: {ec.getYearWuXing()} {ec.getMonthWuXing()} {ec.getDayWuXing()}")
+    elif lon is None:
+        print("注意: 未做真太阳时校正（加 --lon 出生地经度 即可自动校正，如成都 104.07）。")
+        print(f"四柱: {ec.getYear()} {ec.getMonth()} {ec.getDay()} {ec.getTime()}")
+        print(f"五行: {ec.getYearWuXing()} {ec.getMonthWuXing()} {ec.getDayWuXing()} {ec.getTimeWuXing()}")
     print(f"日主: {ec.getDayGan()}")
-    print(f"十神(天干): 年{ec.getYearShiShenGan()} 月{ec.getMonthShiShenGan()} 时{ec.getTimeShiShenGan()}")
+    print(f"十神(天干): 年{ec.getYearShiShenGan()} 月{ec.getMonthShiShenGan()}" + ("" if no_hour else f" 时{ec.getTimeShiShenGan()}"))
     # 旺衰简化计分（本工具约定，非唯一流派）：月支本气生扶日主 +2、否则 -1；
-    # 其余三干、年日时三支（取本气五行）生扶日主各 +1、否则 -1。≥+2 偏强，≤-2 偏弱，其间中和
+    # 其余天干、年日时支（取本气五行）生扶日主各 +1、否则 -1。≥+2 偏强，≤-2 偏弱，其间中和
     gen = {"木": "火", "火": "土", "土": "金", "金": "水", "水": "木"}
     me = ec.getDayWuXing()[0]
     helps = lambda e: e == me or gen[e] == me
     wx = [ec.getYearWuXing(), ec.getMonthWuXing(), ec.getDayWuXing(), ec.getTimeWuXing()]
     score = 2 if helps(wx[1][1]) else -1
-    for i in (0, 1, 3):
+    for i in ((0, 1) if no_hour else (0, 1, 3)):
         score += 1 if helps(wx[i][0]) else -1
-    for i in (0, 2, 3):
+    for i in ((0, 2) if no_hour else (0, 2, 3)):
         score += 1 if helps(wx[i][1]) else -1
     level = "偏强（喜克、泄、耗）" if score >= 2 else "偏弱（喜生、扶）" if score <= -2 else "中和（流派分歧，只谈倾向）"
     print(f"旺衰计分: {score:+d} → {level}")
@@ -181,6 +202,38 @@ def bazi(date, time, gender):
         gz = Solar.fromYmd(yr, 6, 1).getLunar().getYearInGanZhiByLiChun()
         years.append(f"{yr} {gz}")
     print("流年（立春换年）: " + " / ".join(years))
+
+
+# ---------------- 太岁 ----------------
+ZHI = "子丑寅卯辰巳午未申酉戌亥"
+SHENGXIAO = "鼠牛虎兔龙蛇马羊猴鸡狗猪"
+LIUHAI = {frozenset(p) for p in ["子未", "丑午", "寅巳", "卯辰", "申亥", "酉戌"]}
+LIUPO = {frozenset(p) for p in ["子酉", "卯午", "巳申", "寅亥", "辰丑", "戌未"]}
+SANXING = [set("寅巳申"), set("丑戌未"), {"子", "卯"}]
+ZIXING = set("辰午酉亥")
+
+
+def taisui(birth_year, year=None):
+    from datetime import date
+    year = year or date.today().year
+    by = ZHI[(birth_year - 4) % 12]
+    ly = ZHI[(year - 4) % 12]
+    rel = []
+    if by == ly:
+        rel.append("值太岁（本命年）")
+        if by in ZIXING:
+            rel.append("自刑")
+    if (ZHI.index(by) - ZHI.index(ly)) % 12 == 6:
+        rel.append("冲太岁")
+    if any(by in g and ly in g and by != ly for g in SANXING):
+        rel.append("刑太岁")
+    if frozenset(by + ly) in LIUHAI:
+        rel.append("害太岁")
+    if frozenset(by + ly) in LIUPO:
+        rel.append("破太岁")
+    print(f"{year} 年流年地支: {ly}（{SHENGXIAO[ZHI.index(ly)]}年）| 生年 {birth_year} 地支: {by}（属{SHENGXIAO[ZHI.index(by)]}）")
+    print("注意: 生日在立春（约 2 月 4 日）前的，生年地支要算上一年")
+    print("与太岁关系: " + ("、".join(rel) if rel else "无"))
 
 
 # ---------------- 星盘 ----------------
@@ -268,8 +321,13 @@ def main():
     sub.add_parser("iching")
     b = sub.add_parser("bazi")
     b.add_argument("date")
-    b.add_argument("time")
+    b.add_argument("time", nargs="?", default="12:00")
     b.add_argument("--gender", choices=["m", "f"], required=True)
+    b.add_argument("--no-hour", action="store_true", help="不知道出生时辰：只排三柱，计分不含时柱")
+    b.add_argument("--lon", type=float, help="出生地经度（东经为正），给出则自动换算真太阳时")
+    ts = sub.add_parser("taisui")
+    ts.add_argument("birth_year", type=int)
+    ts.add_argument("--year", type=int, help="流年，默认今年")
     s = sub.add_parser("astro")
     s.add_argument("date")
     s.add_argument("time")
@@ -281,10 +339,12 @@ def main():
         draw_tarot(a.spread, not a.no_reversed)
     elif a.cmd == "iching":
         cast_iching()
+    elif a.cmd == "taisui":
+        taisui(a.birth_year, a.year)
     elif a.cmd == "astro":
         astro(a.date, a.time, a.tz, a.lat, a.lon)
     else:
-        bazi(a.date, a.time, a.gender)
+        bazi(a.date, a.time, a.gender, a.no_hour, a.lon)
 
 
 if __name__ == "__main__":
