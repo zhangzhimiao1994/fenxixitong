@@ -20,10 +20,10 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 | 步 | 子 skill | 输入 | 输出 | 关卡 |
 |---|---------|------|------|------|
-| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（用户说了张数 → 按用户的；否则 两人关系（已知有对象）→ relation，单身或不清楚 → three 并在开头说明"按你目前的状态来看"；每日 → single；人生方向/换城市或行业/关系去留 → cross；高风险决策 → stakes；其余 → three） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
+| 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（选阵规则只在 `tarot-draw-protocol` 第 4 步，这里不重复） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
 | 2 | `tarot-draw-protocol` | 确认的问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源标注 | 🛑 抽完不解读，直接进入第 3 步 |
 | 3 | `tarot-card-meaning` | 牌面列表 + 问题领域 | 每张 1 句：原型/公式 → 在此位置意味着 | — |
-| 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动 | 🔴 **CHECKPOINT**：问"哪张牌让你最有感觉？" |
+| 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动（统计结论最多 1 句，篇幅留给用户处境） | 🔴 **CHECKPOINT**：问"哪张牌让你最有感觉？" |
 | 5 | `tarot-projective-dialogue` | 用户对某张牌的反应 | 用户自己说出的洞察 | 每轮只问一个问题 |
 
 单张牌阵跳过第 4 步；用户只问牌义时只走第 3 步；用户带着已抽好的牌来 → 跳过第 1-2 步，从第 3 步开始（带着恐惧来 → 先走下表"恐惧"行）。
