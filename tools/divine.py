@@ -313,6 +313,48 @@ def astro(date, time, tz, lat, lon):
         print(f"  行运{cn}: {_fmt(transit[cn])}  {'、'.join(hits) if hits else '与本命 ☉☽↑ 无紧密相位'}")
 
 
+def find_pillars(year_p, month_p, day_p, hour_p=None, start=1900, end=2050):
+    """反查：给定四柱（或三柱），列出公历里能对上的日期；对不上就明说"不存在"。"""
+    try:
+        from lunar_python import Solar
+    except ImportError:
+        print("[DEPENDENCY_MISSING] 缺少 lunar_python。AGENT 操作: 运行 pip install -r requirements.txt 后重试。")
+        sys.exit(2)
+    import datetime as dt
+    gz = [a + b for a, b in zip("甲乙丙丁戊己庚辛壬癸" * 6, "子丑寅卯辰巳午未申酉戌亥" * 5)]
+    if year_p not in gz or month_p not in gz or day_p not in gz or (hour_p and hour_p not in gz):
+        print("输入不是合法干支（应为 甲子…癸亥）。")
+        return
+    branches = "子丑寅卯辰巳午未申酉戌亥"
+    hits = []
+    for y in range(start, end + 1):
+        if gz[(y - 4) % 60] != year_p:
+            continue
+        d = dt.date(y, 1, 25)
+        while d <= dt.date(y + 1, 2, 10):
+            ec = Solar.fromYmdHms(d.year, d.month, d.day, 12, 0, 0).getLunar().getEightChar()
+            if ec.getYear() == year_p and ec.getMonth() == month_p and ec.getDay() == day_p:
+                if hour_p:
+                    for i, br in enumerate(branches):
+                        h = (i * 2) % 24
+                        ec2 = Solar.fromYmdHms(d.year, d.month, d.day, h if i else 0, 30, 0).getLunar().getEightChar()
+                        if ec2.getTime() == hour_p:
+                            rng = "23:00-00:59" if i == 0 else f"{h - 1:02d}:00-{h:02d}:59"
+                            hits.append(f"{d.isoformat()} {br}时（{rng}）")
+                            break
+                else:
+                    hits.append(d.isoformat())
+            d += dt.timedelta(days=1)
+    label = " ".join(x for x in [year_p, month_p, day_p, hour_p] if x)
+    if not hits:
+        print(f"反查 {label}（{start}-{end}）：不存在这样的组合。年、月、日柱至少有一个记错了，请提供公历生日用 bazi 重排。")
+        return
+    print(f"反查 {label}（{start}-{end}）：可能的公历日期 {len(hits)} 个")
+    for h in hits:
+        print("  " + h)
+    print("注意: 节气交接当天按正午判断，交节日出生请再用 bazi 核对。")
+
+
 def main():
     p = argparse.ArgumentParser(description="cross-system-hub 占断辅助工具")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -335,8 +377,17 @@ def main():
     s.add_argument("--tz", type=float, default=8, help="出生地时区，北京时间=8")
     s.add_argument("--lat", type=float, required=True, help="纬度，北纬为正")
     s.add_argument("--lon", type=float, required=True, help="经度，东经为正")
+    fp = sub.add_parser("pillars", help="反查：四柱/三柱 → 可能的公历日期")
+    fp.add_argument("year_p")
+    fp.add_argument("month_p")
+    fp.add_argument("day_p")
+    fp.add_argument("hour_p", nargs="?")
+    fp.add_argument("--from", dest="start", type=int, default=1900)
+    fp.add_argument("--to", dest="end", type=int, default=2050)
     a = p.parse_args()
-    if a.cmd == "tarot":
+    if a.cmd == "pillars":
+        find_pillars(a.year_p, a.month_p, a.day_p, a.hour_p, a.start, a.end)
+    elif a.cmd == "tarot":
         draw_tarot(a.spread, not a.no_reversed)
     elif a.cmd == "iching":
         cast_iching()
