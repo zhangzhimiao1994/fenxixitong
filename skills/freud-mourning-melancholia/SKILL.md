@@ -18,7 +18,10 @@ description: 弗洛伊德的哀悼与忧郁模型。当用户出现持久的自�
 - 单纯的情绪低落、明确的现实挫折反应
 - 有明确生理原因的抑郁（需先排除器质性）
 - 内心冲突但自尊完好（「我应该但不想」）→ `freud-structural-model`
+- 丧失和「应该 vs 想要」的冲突交织（如「妈走了，我该不该辞职回老家」），或分不清是哪一种 → `freud-mourning-structure`
 - 以焦虑/回避为主，丧失不是主线 → `freud-anxiety-defense`
+
+**与 `freud-mourning-structure` 的分工**：两者都覆盖「丧失后自责」。只有丧失这一条主线时用本 skill（更专门）；丧失之外还有要做决定的内心冲突，交给 `freud-mourning-structure`。
 
 ## 模型
 

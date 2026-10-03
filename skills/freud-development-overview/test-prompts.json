@@ -36,7 +36,7 @@
       "id": "should-not-trigger-02",
       "type": "should_not_trigger",
       "prompt": "被裁员以后我一直在怪自己，觉得自己一无是处，什么都提不起兴趣。",
-      "expected_behavior": "不应激活本 skill，应按 Skill 索引路由到 freud-mourning-structure",
+      "expected_behavior": "不应激活本 skill，应按 Skill 索引路由到 freud-mourning-melancholia（只有丧失这一条主线的自我谴责）",
       "notes": "诱饵：丧失后自我谴责有具体困扰，不是全景或禁忌问题"
     },
     {

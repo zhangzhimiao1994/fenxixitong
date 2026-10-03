@@ -72,6 +72,7 @@ python tools/check_skills.py
 
 | Tag | 说明 |
 |-----|------|
+| `v3.1.2` | 删除 `three-kingdoms-skill`（与 `cross-system-hub` 重复），其组合链路并入 hub 参考文件第三节；写明 `freud-mourning-melancholia` / `freud-mourning-structure` 分界 |
 | `v3.1.1` | 删除入口目录下 153 份子 skill 重复副本；补齐 version 与 test-prompts；修 20 个非法 YAML frontmatter；新增 `tools/check_skills.py` |
 | `v3.1.0` | 新增体系分析维度（行为科学六书）与预测校准层；运势补托勒密古典本命 |
 | `v3.0.0` | 体系重构：心理合并、新增塔罗/运势、毛选改为引擎 |

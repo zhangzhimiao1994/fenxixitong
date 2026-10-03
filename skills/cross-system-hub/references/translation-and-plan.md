@@ -36,3 +36,15 @@
 ```
 
 把每一天的内容换成用户原话里的具体事（如"面具审计"→"列出你在公司、家里、父母面前各是什么样"）；用户没激活的维度对应的天数改成观察维度的练习。
+
+## 三、引擎 × 身心 × 周易 的组合链路（STEP 8 选行动时参考）
+
+主要矛盾跨到身心、进退时机时，可以按下表串联子 skill。链路只是候选，第 1 个行动仍按 STEP 8 打在主要矛盾上。
+
+| 场景 | 链路 | 说明 |
+|------|------|------|
+| 职业困境 + 身心崩溃 | `maodun-fenxi` → `body-mind-integration` → `hexagram-situation-diagnosis` | 先理清矛盾 → 身心联动 → 处境判断 |
+| 创业方向 + 节奏 + 压力 | `chijiuzhan-san-jieduan` → `excess-deficiency-decision` → `advance-retreat-boundary` | 阶段判断 → 投入产出 → 进退时机 |
+| 团队冲突 + 管理 + 个人情绪 | `lianglei-maodun` → `conflict-coalition-diagnosis` → `emotion-organ-proxy` | 敌我判断 → 联盟处理 → 情绪影响 |
+| 重大决策 + 信息不足 | `diaocha-yanjiu` → `observation-judgment` → `timing-opportunity` | 调查 → 透过现象 → 把握时机 |
+| 多任务崩溃 | `tan-gangqin` → `biao-ben-priority` → `scale-and-restraint-control` | 弹钢琴 → 标本先后 → 节制规模 |

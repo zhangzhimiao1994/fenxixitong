@@ -180,7 +180,7 @@ runtime: universal
 行动写法：
 - 第 1 个打在主要矛盾上，5 分钟内可开始、无需准备、有完成标准（`jianmiezhan-jizhong-bingli`）；起步太大时用 `habit-starter-design` 缩成两分钟版
 - 行动里含"会不会成"的预期时，附 1 个复盘日（"两周后看……有没有变化"），见 `forecast-calibrate-claim`
-- 其余配合主攻，不分散（`tan-gangqin`）；运势顺风可加码、逆风缩小规模
+- 其余配合主攻，不分散（`tan-gangqin`）；运势顺风可加码、逆风缩小规模；主要矛盾跨到身心或进退时机时，从 `references/translation-and-plan.md` 第三节的组合链路里选子 skill 串联
 - 每个行动都从用户原话里取材料（如用户说"突然觉得全都不对"→"写下最不对的那一件具体的事"），不用"做个小测试"这类通用句
 - 写成普通句子："先做的一件事：…（为什么是现在，做完的标志是…）"，不用 🥇/竖线格式
 
@@ -303,7 +303,7 @@ runtime: universal
 
 心理 `psyche`（弗洛伊德 15、荣格 6）｜体系分析 `tixi-fenxi`（关系 `attach-`×4 `eft-`×4、成长 `mindset-`×4、行动 `habit-`×4 `deepwork-`×4、判断 `forecast-`×3）｜身心 `huangdi-neijing`（23）｜塔罗 `tarot` 及 4 个子 skill｜运势 `fortune`（`bazi-liunian`、`astrology-transit`、`ziwei-doushu`）｜周易 `zhouyi`（12 个义理诊断 + `zhouyi-divination`）｜引擎 `mao-thought`（`maodun-fenxi`、`diaocha-yanjiu`、`shishiqiushi-sigao`、`jianmiezhan-jizhong-bingli`、`tan-gangqin`、`chijiuzhan-san-jieduan`、`neiyin-juedinglun`、`zhanlue-miaoshi-zhanshu-zhongshi`）｜重大决策可选 `proact-framework`、`psychological-traps`
 
-工具 `tools/divine.py`：tarot / iching / bazi / pillars（只给四柱时反查日期）/ taisui / astro。参考 `references/translation-and-plan.md`（互译表、21 天计划）。本文件中 `tools/`、`requirements.txt` 均指**仓库根目录**下的路径（即 `skills/` 的上一级），命令都在仓库根目录运行。依赖：安装本 skill 包时在仓库根目录执行 `pip install -r requirements.txt`。
+工具 `tools/divine.py`：tarot / iching / bazi / pillars（只给四柱时反查日期）/ taisui / astro。参考 `references/translation-and-plan.md`（互译表、21 天计划、引擎×身心×周易组合链路）。本文件中 `tools/`、`requirements.txt` 均指**仓库根目录**下的路径（即 `skills/` 的上一级），命令都在仓库根目录运行。依赖：安装本 skill 包时在仓库根目录执行 `pip install -r requirements.txt`。
 
 有子 agent 时：主 agent 负责 STEP 0-4、6-8 并统一取数；子 agent 各做一个维度的 STEP 5，不得自行取数。无子 agent 时单 agent 顺序执行（内部记录为 single_agent_mode，不写进回复）。
 

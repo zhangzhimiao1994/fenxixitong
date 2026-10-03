@@ -129,7 +129,8 @@ description: 弗洛伊德的发展全景：俄狄浦斯情结的集体版本（�
 | 性格模式来源、性心理 | `freud-sexuality-development` |
 | 「我控制不住」「说不出来」 | `freud-metapsychology` |
 | 「我不够好」、被批评崩溃、群体中被孤立 | `freud-narcissism-identification` |
-| 内心纠结、丧失后自我谴责、自杀意念 | `freud-mourning-structure` |
+| 丧失后自我谴责（只有丧失这一条主线） | `freud-mourning-melancholia` |
+| 内心纠结，或丧失与内心冲突交织、自杀意念 | `freud-mourning-structure` |
 | 反复陷入同样破坏模式 | `freud-death-drive-repetition` |
 | 焦虑、回避、系统性压迫 | `freud-anxiety-civilization` |
 | 禁忌冲动、与权威的关系 | 本 skill |
