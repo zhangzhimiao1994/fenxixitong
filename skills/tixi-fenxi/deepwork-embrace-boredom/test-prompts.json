@@ -1,0 +1,51 @@
+{
+  "skill": "deepwork-embrace-boredom",
+  "version": "0.1.0",
+  "source_book": "《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "写报告的时候一卡住就去刷微博，一刷就是半小时，回过神来很懊恼。",
+      "expected_behavior": "激活。指出问题在'卡住即切换'的次数而非上网总时长；给出在线/离线块安排、卡住时的处理规则（换离线任务或提前在线块但至少隔 5 分钟）；本周加一次罗斯福冲刺；说明是作者经验；只问一个问题。",
+      "notes": "预约上网（PAGE 94–98）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我感觉自己专注力越来越差了，排队、等电梯都要掏手机，有没有办法练一练？",
+      "expected_behavior": "激活。把专注当作可训练能力；离线块延伸到下班后，等待时忍受无聊；建议每周 2–3 次生产性冥想；提醒若伴随失眠或情绪问题需排查。",
+      "notes": "规则2 开头 + 等待场景（PAGE 92–98）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我做运营，工作就是要一直盯着群消息，根本没法离线，这种情况还能练专注吗？",
+      "expected_behavior": "激活。说明高在线岗位也能用：在线块排得更密（每 10–15 分钟一个），关键是在线块之间完全离线。",
+      "notes": "Point #1（PAGE 96）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我纠结要不要把抖音和小红书都卸载了，用着有点意思但又觉得浪费时间。",
+      "expected_behavior": "不激活本 skill，路由到 deepwork-craftsman-tools（工具去留评估、30 天停用测试）。",
+      "notes": "兄弟 skill 边界：去留 vs 怎么用"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想戒掉睡前吃零食的习惯，每次都控制不住。",
+      "expected_behavior": "不激活。具体坏习惯的机制设计，路由到 habit-four-laws-audit。",
+      "notes": "近邻诱饵：'控制不住'"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我从小就坐不住，上课工作都专注不了几分钟，我是不是有 ADHD？你说的那些专注训练对我有用吗？",
+      "expected_behavior": "不做诊断：说明无法判断是否 ADHD，建议去精神科或心理门诊评估；可以说明预约上网等练习是作者经验、不是治疗，评估前可轻量试用但不能替代专业帮助；不引用书中个案暗示'训练能治好'。",
+      "notes": "诊断请求边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

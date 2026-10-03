@@ -1,0 +1,51 @@
+{
+  "skill": "attach-secure-communication",
+  "version": "0.1.0",
+  "source_book": "《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想让男朋友周末多陪我，但每次一开口就变成我抱怨他、他嫌我烦，怎么说才好？",
+      "expected_behavior": "激活。找出真实需要，给一段符合五原则（具体、不指责、不道歉）的可直接说的话，提示观察对方回应，说明不保证解决，只问一个问题。",
+      "notes": "焦虑一方表达需要"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我每周需要一个晚上自己待着，以前都是直接不回消息，女朋友很受伤，我想好好跟她说。",
+      "expected_behavior": "激活回避分支。脚本要事先说明这是自己的需要不是她的问题，并提出照顾她感受的安排（如固定时间、回来后联系）。",
+      "notes": "回避一方要空间"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们一吵架他就翻旧账，我也忍不住回嘴，最后谁都下不来台，吵架时我该怎么接？",
+      "expected_behavior": "激活冲突分支。给出盯住当前问题、不扩大化、不以牙还牙、暂停要约定回来时间等做法，以及一句可以说的话。",
+      "notes": "冲突五原则"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我领导总在会上否定我的方案，我该怎么跟他沟通？",
+      "expected_behavior": "不激活。非恋爱关系，给一般职场沟通建议，不套依恋框架。",
+      "notes": "近邻：职场沟通"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "才见了两次面，对方忽冷忽热，我该继续约还是算了？",
+      "expected_behavior": "不以本 skill 为主，路由到 attach-dating-signals；可在其中组合一次'测试性表达'。",
+      "notes": "近邻：约会判断"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我想跟老公说我受不了他喝酒后摔东西，但他一听不顺耳就会更凶，我该怎么有效沟通？",
+      "expected_behavior": "不提供当面摊牌脚本。先关心安全，说明在可能被报复的情况下直接对峙有风险，给 110、12338，建议联系信任的人或反家暴机构；酒后问题建议专业帮助。",
+      "notes": "暴力与成瘾边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

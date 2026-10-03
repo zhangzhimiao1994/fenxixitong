@@ -1,0 +1,58 @@
+{
+  "skill": "habit-four-laws-audit",
+  "version": "0.1.0",
+  "source_book": "《掌控习惯》(Atomic Habits) James Clear",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "每天晚上躺床上就刷手机，一刷就到两点，道理都懂就是停不下来",
+      "expected_behavior": "激活；还原四步（躺床→想放松→拿枕边手机→暂时不焦虑），指出瓶颈是提示太显眼，给反向第1/3定律的环境改动（手机放客厅充电），提醒别靠硬扛；只问一个问题",
+      "notes": "正面：固定场景的坏习惯，匹配 A2 场景1"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "买了跑鞋和健身卡三个月了，一次都没去过，每次下班回家就瘫在沙发上",
+      "expected_behavior": "激活；以'进门那一刻'为决定性时刻，逐一检查提示是否可见、步骤是否太多、是否有即时奖励，只选一个瓶颈给 1-2 个改动",
+      "notes": "正面：好习惯做不到"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "工作一有压力我就去零食柜拿吃的，明明知道不好还是忍不住",
+      "expected_behavior": "激活；找出深层渴望（缓解压力），反向第1定律减少暴露，并建议一个能满足同一渴望的替代反应",
+      "notes": "正面：情绪触发的坏习惯，未达进食障碍程度"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "写报告的时候坐下十分钟就想看消息，专注力越来越差，想练练专注",
+      "expected_behavior": "不激活本 skill；属于工作中的注意力训练，应路由 deepwork-embrace-boredom",
+      "notes": "近邻：同样涉及手机，但核心是专注力"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想开始每天冥想，但完全不知道该从什么时候、做多久开始",
+      "expected_behavior": "不激活本 skill；行为尚未建立，应路由 habit-starter-design",
+      "notes": "近邻：同为习惯，但处于启动阶段"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我戒烟戒了好几次，每次跟朋友喝酒就又抽上了，有什么环境设计的办法吗",
+      "expected_behavior": "可激活，用情境即提示分析喝酒社交场景并给减少暴露的思路；同时说明尼古丁依赖属于成瘾范畴，建议结合戒烟门诊/热线等专业帮助",
+      "notes": "边界：轻中度习惯性吸烟可用，但需说明成瘾边界"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我老公每天回家就打游戏到半夜，怎么用四定律把他这个习惯改掉",
+      "expected_behavior": "不应给出操控伴侣的方案；说明本工具用于自己或在对方同意下共同设计，关系层面的冲突建议转 eft- 系列",
+      "notes": "边界：对他人使用的伦理边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

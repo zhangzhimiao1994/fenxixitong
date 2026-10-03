@@ -6,7 +6,7 @@ description: |
   何时不用/改道：问寿命或确定结果 → 拒绝并改写；没有出生信息 → zhouyi-divination 或 tarot；要抽塔罗 → tarot；危机 → 危机资源。
 version: "1.0.0"
 tags: [fortune, bazi, astrology, ziwei, hub]
-related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, zhouyi-divination, auspicious-risk-language, cross-system-hub]
+related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-condition, ptolemy-topic-ruler, ptolemy-mind-temperament, ptolemy-fate-calibration, forecast-calibrate-claim, zhouyi-divination, auspicious-risk-language, cross-system-hub]
 ---
 
 # 运势维度 (Fortune) —— 命理三系路由
@@ -34,6 +34,10 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, zhouyi-divinatio
 |---------------|---------|---------|---------|
 | 出生年月日 + 时辰 | 八字 | `bazi-liunian` | 性格倾向、大运节奏、今年主题 |
 | 出生年月日 + 时间 + 地点 | 西方星盘 | `astrology-transit` | 心理动力、关系模式、土星/木星行运 |
+| 同上，且说"古典/托勒密/入庙/落陷/吉星凶星" | 古典本命（托勒密） | `ptolemy-planet-condition` | 哪颗行星有力、某颗星状态顺不顺 |
+| 同上 + 问职业方向、"靠什么赚钱"、早显/晚成 | 古典主题法 | `ptolemy-topic-ruler` | 职业方向、财富来源风格（福点） |
+| 同上 + 问性格、思维与情绪风格（古典） | 古典心性 | `ptolemy-mind-temperament` | 特质的高低两面 |
+| 不需出生信息：手里有一句"X 年有劫/注定离婚"，或问"是不是注定" | 断言校准 | `ptolemy-fate-calibration` | 把断言降级为条件句 + 现实准备；想知道"该信几成"再接 `forecast-calibrate-claim` |
 | 出生年月日 + 时辰 | 紫微斗数 | `ziwei-doushu` | 十二领域格局、今年焦点领域 |
 | 只有出生日期 | 星座/三柱简读 | `astrology-transit` / `bazi-liunian` | 仅倾向，标注精度不足 |
 | 无出生信息 / 只想问一件事 | 周易起卦 | `zhouyi-divination` | 一件具体事情的当下态势 |
@@ -41,6 +45,7 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, zhouyi-divinatio
 
 **无出生信息**：问"在意的是一件具体的事，还是整体状态？"→ 具体事走起卦，整体状态走塔罗。
 **多方法并用**：要"全面看运势"时八字为主、星盘或紫微为辅（最多两套）；结论冲突时标注张力，不挑好听的。
+**古典与现代星盘的分工**：涉及"当前/今年/周期"的归 `astrology-transit`；涉及"结构/古典规则/预测限度"的归 `ptolemy-*`。可以串联：先读结构，再看行运。托勒密体系下问寿命、死亡、父母安危、子女、婚姻判决、事故 → 按第〇节第 0 步拒绝该部分（理由见 `distill/tixi-fenxi-zhengliu/books/tetrabiblos/REJECTED.md`）。
 
 ### 本命年 / 犯太岁（不经过 🛑）
 - 有出生年 → 运行 `python tools/divine.py taisui 出生年`，取值/冲/刑/害/破关系
@@ -74,6 +79,10 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, zhouyi-divinatio
 | 克夫/克妻 | **禁止使用**；改述为"关系中容易出现的张力模式" |
 | 血光之灾 | **禁止使用**；最多提示"注意安全与休息" |
 | 大吉 / 走大运 | 窗口期，资源与机会相对充足，仍需行动兑现 |
+| 凶星 (malefic) | 张力型行星（土星偏收缩迟滞，火星偏冲动切割） |
+| 吉星 (benefic) | 滋养型行星 |
+| 落 / 失位 | 逆风、条件差时的表达 |
+| 短命、夭折、杀星 (anaretic) | **禁止使用** |
 
 ## 四、输出格式（单独使用与被 Hub 调用通用；不写权重）
 
@@ -89,12 +98,12 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, zhouyi-divinatio
 
 ## 五、边界（必须对用户透明）
 
-1. **科学证据**：Carlson (1985, *Nature*) 双盲实验为阴性；巴纳姆效应（Forer, 1949）。命理只作**自我反思的框架**
-2. **高风险领域**：健康、法律、投资、婚育 → 不作依据，转专业渠道
+1. **科学证据**：Carlson (1985, *Nature*) 双盲实验为阴性；Dean & Kelly (2003) 的"时间孪生"研究也没发现相关；巴纳姆效应（Forer, 1949）。命理只作**自我反思的框架**。托勒密本人在《四书》卷一就承认，天象只造成倾向，人可以预先应对（见 `ptolemy-fate-calibration`）2. **高风险领域**：健康、法律、投资、婚育 → 不作依据，转专业渠道
 3. **宿命焦虑**：用户反复追问"是不是注定"、说睡不着或害怕 → 转 `psyche`
 4. **不收费改运**：用户问化解 → 固定回答："不需要花钱化解。这一年更适合做的是：规律作息、重要决定多留一周缓冲、给自己安排一次复盘。"
 5. **流派差异**：八字排盘约定（立春换年、晚子时、`--lon` 真太阳时）见 `fortune/bazi-liunian/references/sources.md`；星盘为回归黄道 + 整宫制；紫微以用户软件的四化表为准
 6. **问寿命**：先 1 句接住，再问"是最近在担心身体，还是有什么让你想到这个？"，然后答："寿命不在命理能回答的范围——没有哪种方法有证据能算出来，这类说法还常被拿来卖'续命'。真正能查的是家族病史和对应的筛查：约一次体检时把家族史告诉医生，这周起固定睡眠、每天走 30 分钟。也可以陪你看看今年的节奏。"
+7. **断言型焦虑**：用户带着别人给的具体预言来（"算命说我明年有劫"）→ 先用 `ptolemy-fate-calibration` 做 1 段校准，情绪持续再转 `psyche`（第 3 条）
 
 ## 反例黑名单
 

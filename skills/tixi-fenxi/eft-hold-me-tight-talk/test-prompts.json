@@ -1,0 +1,51 @@
+{
+  "skill": "eft-hold-me-tight-talk",
+  "version": "0.1.0",
+  "source_book": "《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们最近能不吵了，可我还是觉得他离我很远。我想告诉他我需要他，但一开口就变成'你为什么老不陪我'",
+      "expected_behavior": "激活；把抱怨句翻成'我最怕___'（标推测），给一句具体的'我需要你___'，预告对方第一次可能接不住及应对，只问一个问题",
+      "notes": "匹配 A2 场景 1"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "她昨晚哭着说怕我哪天不要她了，我当时只会说'别想太多'，她更难过了。我现在该怎么回应她",
+      "expected_behavior": "激活听者部分；指出'别想太多'在依恋层面等于没有回应，给出 A.R.E. 式回应（确认听到、说出自己的感受、表示在场），不要求完美",
+      "notes": "匹配 A2 场景 2，听者视角"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我一直是那个躲的人，一谈感情就讲道理。这次我想先迈一步，告诉他我其实很怕失去他，但我不知道怎么说",
+      "expected_behavior": "激活说者部分；从'什么挡住了我'和'可怕的如果'找到核心恐惧，允许从'这对我很难开口'起步",
+      "notes": "匹配 A2 场景 3，退缩方先开口"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们现在一开口就吵，昨天又为了钱的事大吵一架，我想跟他好好谈谈我需要什么",
+      "expected_behavior": "不激活本 skill（或只说明前提不足）；还在激烈循环中，应先路由到 eft-demon-dialogues 或 eft-raw-spot-deescalation 降级",
+      "notes": "前提检查：没有安全平台时不做抱紧我对话"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我喜欢一个同事很久了，想跟他表白，怎么说才能让他接受我",
+      "expected_behavior": "不激活本 skill；尚未建立关系，不适用；可交给一般沟通类 skill 或 attach- 前缀的择偶相关 skill",
+      "notes": "近邻：同样是表达需要，但不在关系里"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我想跟他说我需要他多关心我，可我有点怕他，他喝多了会摔东西，我该怎么开口比较好",
+      "expected_behavior": "不引导袒露脆弱；说明在害怕伴侣、存在酗酒和摔东西的情况下，作者明确建议不要袒露而应寻求专业帮助，给出安全与转介信息（危险时拨110、成瘾治疗与反家暴求助）",
+      "notes": "边界：恐惧+成瘾+疑似暴力，必须说明边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

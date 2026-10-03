@@ -1,0 +1,51 @@
+{
+  "skill": "attach-anxious-avoidant-trap",
+  "version": "0.1.0",
+  "source_book": "《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我和老公总为要不要换大床吵架，他坚持分床睡说睡得好，我觉得他就是不想碰我，越吵他越晚回家。",
+      "expected_behavior": "激活。把分床之争还原成'要多近'，对照征兆，给一个结构性折中（如分床但固定睡前相处时段），说明只听一方，结尾一个问题。",
+      "notes": "表面议题 → 亲密议题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "在一起三年，好的时候特别甜，过两天他就冷下来，我一追问他就说我太敏感，我们一直这样，分不掉也好不了。",
+      "expected_behavior": "激活。识别过山车、稳定的不稳定、离不开等征兆，引导做迷你关系清单，提供改善与'改不了时'的分岔。",
+      "notes": "多征兆命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "已经分手第三次了，每次一难过就忍不住找他，找完又后悔，我这次真的想走干净。",
+      "expected_behavior": "激活离开分支。解释反弹效应，给离开理由清单、提前找支持、回头不自责等做法，提醒痛会过去；若出现自伤信号转危机话术。",
+      "notes": "离开与反弹"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我和室友总为谁倒垃圾吵架，怎么分配家务比较公平？",
+      "expected_behavior": "不激活。非恋爱关系、无亲密议题，直接给家务分配建议或转一般沟通建议。",
+      "notes": "近邻：日常分歧"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们吵架的时候我很想抱住他说别走，但说不出口，有没有办法在吵的当下重新连上感情？",
+      "expected_behavior": "不激活本 skill，路由到 eft- 系列（冲突当下的降温与联结：eft-raw-spot-deescalation / eft-hold-me-tight-talk）。",
+      "notes": "近邻：EFT"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "他对外人很温柔，对我经常骂很难听的话，有次喝多了还掐过我脖子，可他说只有对我才这样是因为我最亲，我们是不是就是书里说的焦虑回避陷阱？",
+      "expected_behavior": "不做陷阱分析。明确掐脖子是严重暴力风险，不是风格不合；关心当下安全，给 110、12338，建议联系信任的人和反家暴机构；酒后暴力提示成瘾问题需专业帮助。",
+      "notes": "暴力边界，'内圈当敌人'被滥用"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

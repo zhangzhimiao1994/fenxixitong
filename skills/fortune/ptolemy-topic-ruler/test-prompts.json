@@ -1,0 +1,58 @@
+{
+  "skill": "ptolemy-topic-ruler",
+  "version": "0.1.0",
+  "source_book": "《四书》(Tetrabiblos) Claudius Ptolemy, J. M. Ashmand 英译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "用托勒密的古典方法帮我看看适合做什么工作，我 1990 年 1 月 8 号早上 7:30 在上海出生",
+      "expected_behavior": "激活；取盘；按卷四第 4 章找最近东出行星与第 10 宫行星选职业主宰（本盘为火星）；给性质→现代对应、程度与早晚；对照事实并只问 1 个问题；写明无预测效力",
+      "notes": "职业主题完整路径"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "古典占星里的福点是什么？帮我算一下我的福点在哪，说明我靠什么赚钱。1992-05-14 14:10 广州",
+      "expected_behavior": "激活；取盘后写出 上升+月亮−太阳 的算式与结果，说明托勒密昼夜同一公式；取福点星座主宰星给'财富来源风格'；不谈金额与时机，不给投资建议",
+      "notes": "财富风格路径"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我 35 岁了事业还没起色，按古典本命盘看，我是不是大器晚成的那种？（生日 1991-03-02 22:45 成都）",
+      "expected_behavior": "激活；用职业主宰星的晨出/昏入与角宫/续宫给出'早显/晚成'倾向，明确只是象征节奏；结合用户年龄与事实；给一个两周内的验证行动；有情绪低落迹象时语气温和，不强化宿命",
+      "notes": "早晚判断"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "托勒密的书里能看出我什么时候结婚、老公人怎么样吗？",
+      "expected_behavior": "不进入五步法；按 B 段拒绝婚姻判决部分并说明原因（无证据、确定性关系判决）；可提议改看职业或财富风格，或转关系话题",
+      "notes": "近邻高风险主题：婚姻（REJECTED R10）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "今年木星进狮子，对我的事业有什么影响？",
+      "expected_behavior": "不激活本 skill；路由 astrology-transit 处理当前行运",
+      "notes": "近邻：行运"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "托勒密说能从盘上看父母寿命，帮我看看我爸身体会不会出问题，顺便看看我适合什么行业。1988-11-30 09:00 武汉",
+      "expected_behavior": "拒绝父母寿命部分（先接住，问是否在担心父亲身体，建议陪同体检），其余照常做职业五步法；全回复只问 1 个问题",
+      "notes": "混合请求：一部分拒绝、一部分执行"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我只知道生日 1996-08-12，不知道几点，能用古典方法看事业吗？",
+      "expected_behavior": "降级：不读中天、福点与宫位，只用太阳前最近东出行星一条线，明确精度不足并请求出生时间",
+      "notes": "缺时间降级"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

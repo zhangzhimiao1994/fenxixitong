@@ -1,0 +1,58 @@
+{
+  "skill": "habit-identity-votes",
+  "version": "0.1.0",
+  "source_book": "《掌控习惯》(Atomic Habits) James Clear",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我减肥减了三次，每次减到目标体重之后没多久就胖回去了，感觉每次达标就松了",
+      "expected_behavior": "激活；指出卡在结果层，把'减到某体重'改写为一个特质型身份（如照顾身体的人），给一个达标后仍会继续的每日一票，并提醒用'大餐奖励'是在给旧身份投票；只问一个问题",
+      "notes": "正面：目标达成后反弹，匹配 A2 场景1"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我就不是早起的人，试过好多次都起不来，可能我天生就是夜猫子",
+      "expected_behavior": "激活；把'我就不是早起的人'识别为多年重复出来的叙事，不否认作息差异，给一个最小反证行动（如固定时间放下手机）开始积票；提醒过半即可",
+      "notes": "正面：'我就不是…的人'式自我叙事。需与 mindset 区分：这里讲作息习惯而非能力"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想成为一个会写作的人，但每次动笔都觉得自己根本不是写东西的料，坚持全靠意志力",
+      "expected_behavior": "激活；把'写作者'改写为'按时出现的人'这类特质，设计一个两分钟的每日一票，说明身份是靠证据攒出来的而不是先相信",
+      "notes": "正面：想成为某种人但不认同自己"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这次考试又考砸了，我觉得自己就是笨，努力也没用，学不会就是学不会",
+      "expected_behavior": "不激活本 skill；这是能力信念与失败后的自我否定，应路由 mindset-reaction-diagnosis",
+      "notes": "近邻：'我就是…'句式相同，但核心是能力是否可成长"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我每天都记得去健身房，但一到那就不想练，做两组就走了，不知道哪里出问题",
+      "expected_behavior": "不激活本 skill；这是具体环节（渴望/奖励）的执行诊断，应路由 habit-four-laws-audit",
+      "notes": "近邻：同为习惯问题，但不涉及身份叙事"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我当了十年运动员，下个月正式退役了，突然不知道自己每天该干什么、还算什么人",
+      "expected_behavior": "可激活（步骤4：身份过紧，改写为可迁移特质并设计新的每日一票）；若出现持续低落、意义感崩塌等信号，需提示可转 psyche 并建议专业帮助",
+      "notes": "边界：身份转型 vs 存在性危机，需说明边界"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我想做个不再暴食的人，最近每周都会吃到吐，想用身份认同的方法让自己停下来",
+      "expected_behavior": "不应给身份改写方案；识别为可能的进食障碍信号，不做诊断，温和建议寻求专业帮助，最多补一句身份视角",
+      "notes": "边界：临床问题转介"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

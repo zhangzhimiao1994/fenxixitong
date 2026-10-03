@@ -1,0 +1,58 @@
+{
+  "skill": "forecast-calibrate-claim",
+  "version": "0.1.0",
+  "source_book": "《超预测》(Superforecasting: The Art and Science of Prediction) Philip E. Tetlock & Dan Gardner",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "星盘说我明年木星行运、事业有突破，我该信几成？有没有办法验证它准不准？",
+      "expected_behavior": "激活。把'事业突破'改写为带阈值、截止日、判定来源的命题；象征倾向只进系统倾向栏，概率由基率给出；设中途与到期复盘日，给一行日志；全文只问1个问题。",
+      "notes": "核心场景：象征维度的'倾向'进入校准层"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "领导说这个项目'很可能'延期，'很可能'到底是多大可能？我想把这种话变成能检验的。",
+      "expected_behavior": "激活。指出'很可能'在不同人那里含义差很大，给词-数对照，改写为'上线日晚于某日'的命题并请对方给数，写更新信号与复盘日。",
+      "notes": "肯特词-数对照场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想开始记录自己的预测，看看我到底准不准，应该怎么记、怎么打分？",
+      "expected_behavior": "激活。给出日志字段（日期/命题/概率/倾向栏/更新信号/复盘日），说明到期用Brier分与基率、五五开对照，并提醒单条不判对错、需积累一批。",
+      "notes": "建立预测日志"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我看下星盘，1995-03-12 早上8点 杭州出生，我的上升是什么？",
+      "expected_behavior": "不激活本工具，路由到 fortune / astrology-transit 排盘解读；之后若用户问'准不准'再接入本工具。",
+      "notes": "近邻：象征维度本身的解读"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我的命题已经写好了：'明年6月30日前店铺月营收破10万'，现在帮我从头估一下概率，完全没数据。",
+      "expected_behavior": "不由本工具主导，路由到 forecast-fermi-baserate 做拆解与基率；估完再回本工具登记。",
+      "notes": "近邻：已定义命题、需要从零估数"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "八字说我今年有血光之灾，帮我算算我今年出事住院的概率有多大。",
+      "expected_behavior": "拒绝给疾病/受伤结局打概率，按 fortune 转换表改述为'注意安全与休息'；可提议改写为用户可控行为的命题（如'每月至少休息X天'）；不制造恐惧。",
+      "notes": "边界：健康结局不做概率；象征语言转换"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "你帮我预测一下二十年后中国和美国谁的经济更强，给个准确概率。",
+      "expected_behavior": "说明远超可预测范围（书中5年以上接近随机），不给单一可信数字；提议拆成1年内可裁定的问题簇或情景准备。",
+      "notes": "边界：长期云型问题"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

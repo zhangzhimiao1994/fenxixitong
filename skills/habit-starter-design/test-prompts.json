@@ -1,0 +1,51 @@
+{
+  "skill": "habit-starter-design",
+  "version": "0.1.0",
+  "source_book": "《掌控习惯》(Atomic Habits) James Clear",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我一直想养成读书的习惯，书买了一堆，但从来没真正开始过",
+      "expected_behavior": "激活；指出缺少固定时刻，给一句习惯堆叠启动句（如刷牙后读一页），说明读完可停，给 2-3 级塑形方向；只问一个确认锚点的问题",
+      "notes": "正面：匹配 A2 场景1"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我给自己定了每天跑5公里，结果第三天就累得放弃了，这已经是第四次了",
+      "expected_behavior": "激活；指出起步太大，把入口缩到两分钟（换上跑鞋），给分阶段塑形路线和升级条件",
+      "notes": "正面：起步太大"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "想学英语，收藏了几百条资料、下了五个App，研究了一个月最好的学习方法，还没真正学过一天",
+      "expected_behavior": "激活；点出'忙碌 vs 行动'，给一个绑定在每日锚点上的两分钟学习动作",
+      "notes": "正面：计划代替行动"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我要写毕业论文，但整块时间总被切碎，每天说要专注结果一天就没了，要不要干脆闭关几天",
+      "expected_behavior": "不激活本 skill；属于深度工作的时段安排，应路由 deepwork-depth-philosophy",
+      "notes": "近邻：同样是'开始不了'，但对象是深度工作时段"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我跑步坚持了两个月，上周出差断了，现在完全不想再捡起来",
+      "expected_behavior": "不激活本 skill；习惯已建立后中断，应路由 habit-streak-plateau",
+      "notes": "近邻：维持阶段而非启动阶段"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我是护士三班倒，作息完全不固定，想养成运动习惯但根本没有每天固定的时间",
+      "expected_behavior": "可激活；承认结构性约束，不硬套'每天同一时间'，改用随班次存在的锚点（如下班换鞋后）或每周固定几个时点，入口仍保持两分钟",
+      "notes": "边界：无稳定锚点时的调整"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

@@ -1,0 +1,51 @@
+{
+  "skill": "deepwork-craftsman-tools",
+  "version": "0.1.0",
+  "source_book": "《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "微博能看新闻，但我每天要刷两个小时，到底要不要退？",
+      "expected_behavior": "激活。把'有没有用'换成'对 2–3 项关键活动有无明显帮助'，初拟目标与活动，给倾向结论；拿不准时给 30 天不注销不公告的停用测试和两个问题；附闲暇规划建议；只问一个问题。",
+      "notes": "手艺人法 + 30 天测试（PAGE 109–123）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我开了个小店，大家都说必须做短视频账号引流，可我一做就是一整晚，是不是非做不可？",
+      "expected_behavior": "激活。把'获客'列为目标，找出最关键的 2–3 项获客活动，评估账号运营的实际贡献与时间代价；说明靠曝光谋生的处境可能让结论变成'保留但限时段'。",
+      "notes": "普通作者 Twitter 算账类比（PAGE 116）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下班回家本来想看书，结果一打开手机各种资讯 App 就刷到半夜，周末也是。",
+      "expected_behavior": "激活，侧重第 5 步：预先规划工作日晚上和周末的具体活动（日中之日），配合评估资讯 App 的去留。",
+      "notes": "别用互联网娱乐自己（PAGE 123–126）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司要求用企业微信和钉钉，消息一直响，我写代码老被打断，怎么办？",
+      "expected_behavior": "不激活本 skill 的去留评估：工作强制工具不能单方面退出；路由到 deepwork-embrace-boredom（在线/离线块）或 deepwork-shallow-shutdown（浅层预算）。",
+      "notes": "强制工具边界"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "每次刷朋友圈看到别人过得好就很难受，觉得自己一无是处。",
+      "expected_behavior": "不激活。主诉是比较带来的情绪与自我否定，路由到 psyche；若有自伤信号按 psyche 第五节处理。",
+      "notes": "情绪为主的近邻请求"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我刚到一个新城市读研，谁都不认识，看了《深度工作》想把社交软件都删了，这样对吗？",
+      "expected_behavior": "可激活，但应指出书中明确的例外：正在大量建立新关系时（如大一新生），社交工具可能直接服务于关键活动，倾向保留并限时段使用，而不是一刀切删除。",
+      "notes": "大一新生反例（PAGE 117）"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}
