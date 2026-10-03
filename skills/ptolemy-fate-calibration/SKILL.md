@@ -1,9 +1,7 @@
 ---
 name: ptolemy-fate-calibration
-description: |
-  命定说法校准工具：当用户拿着一句占星/算命的断言（"35 岁有大劫""星盘说我注定离婚""这颗凶星会害我"）或追问"占星准不准、是不是注定"时，用托勒密《四书》卷一第 1-3 章他自己定下的限度——规则不可能确定无误、只看天象而不顾其他原因的预判必然不完整、弱的倾向可被对冲、预知的用处是事先准备——把断言拆开、降级成条件句，再补上现代证据和一件现实中值得做的准备。
-  触发信号："算命的说我今年有劫，是真的吗""星盘是不是注定的""占星到底准不准""托勒密自己信宿命吗""有人说要花钱化解""这个预言让我很害怕"。
-  不触发场景：想要具体读盘（行星强弱、职业、性格）→ ptolemy-planet-condition / ptolemy-topic-ruler / ptolemy-mind-temperament；问今年行运 → astrology-transit；八字流年断语 → bazi-liunian（可借用本 skill 的校准步骤）；周易"吉凶"词义 → auspicious-risk-language；恐惧已影响睡眠或反复追问 → psyche；自伤念头 → psyche 第五节危机话术；问寿命 → fortune 第五节第 6 条；不害怕，只想把一句倾向变成能验证的概率、设复盘日 → forecast-calibrate-claim。
+version: "1.0.0"
+description: 命定说法校准工具：当用户拿着一句占星/算命的断言（"35 岁有大劫""星盘说我注定离婚""这颗凶星会害我"）或追问"占星准不准、是不是注定"时，用托勒密《四书》卷一第 1-3 章他自己定下的限度——规则不可能确定无误、只看天象而不顾其他原因的预判必然不完整、弱的倾向可被对冲、预知的用处是事先准备——把断言拆开、降级成条件句，再补上现代证据和一件现实中值得做的准备。 触发信号："算命的说我今年有劫，是真的吗""星盘是不是注定的""占星到底准不准""托勒密自己信宿命吗""有人说要花钱化解""这个预言让我很害怕"。 不触发场景：想要具体读盘（行星强弱、职业、性格）→ ptolemy-planet-condition / ptolemy-topic-ruler / ptolemy-mind-temperament；问今年行运 → astrology-transit；八字流年断语 → bazi-liunian（可借用本 skill 的校准步骤）；周易"吉凶"词义 → auspicious-risk-language；恐惧已影响睡眠或反复追问 → psyche；自伤念头 → psyche 第五节危机话术；问寿命 → fortune 第五节第 6 条；不害怕，只想把一句倾向变成能验证的概率、设复盘日 → forecast-calibrate-claim。
 source_book: 《四书》(Tetrabiblos) Claudius Ptolemy，J. M. Ashmand 英译
 source_chapter: 卷一第 1-3 章；卷四第 10 章；附录《百言集》第 1、5、8 条
 tags: [fortune, astrology, fatalism, prediction-limits, calibration, ptolemy]

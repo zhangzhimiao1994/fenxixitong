@@ -1,11 +1,8 @@
 ---
 name: deepwork-shallow-shutdown
-description: |
-  浅层工作封顶与收工工具：用"培训一个聪明应届生接手要几个月"给任务分深浅，给浅层定上限、定固定下班点，用纸面时间块安排每个工作小时（被打断就重排），再用收工前的固定清点动作让下班后不再想工作。用户一天被会议、消息、杂事塞满却没做成正事，或下班后停不下来、脑子一直转工作时激活。
-  触发信号："一天开了五个会，正事一点没动""忙了一整天不知道忙了啥""晚上躺床上还在想工作""周末总忍不住看工作消息""怎么跟老板说我杂事太多""想做时间块但总被打乱"
-  特殊激活：入门级或完全由他人派活 → 只用收工清点与轻量时间块，不谈浅层预算
-  不触发场景：选哪种方式安排整块深度时间 → deepwork-depth-philosophy；有时间但专注不住 → deepwork-embrace-boredom；纠结某个 App 去留 → deepwork-craftsman-tools；团队流程或组织制度改造 → 本 skill 只给个人做法，多问题交织先用 maodun-fenxi；违法用工、欺凌 → 拨 12333 或找当地劳动监察；已出现身心耗竭、情绪困扰 → psyche
-source_book: 《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport
+version: "1.1.0"
+description: 浅层工作封顶与收工工具：用"培训一个聪明应届生接手要几个月"给任务分深浅，给浅层定上限、定固定下班点，用纸面时间块安排每个工作小时（被打断就重排），再用收工前的固定清点动作让下班后不再想工作。用户一天被会议、消息、杂事塞满却没做成正事，或下班后停不下来、脑子一直转工作时激活。 触发信号："一天开了五个会，正事一点没动""忙了一整天不知道忙了啥""晚上躺床上还在想工作""周末总忍不住看工作消息""怎么跟老板说我杂事太多""想做时间块但总被打乱" 特殊激活：入门级或完全由他人派活 → 只用收工清点与轻量时间块，不谈浅层预算 不触发场景：选哪种方式安排整块深度时间 → deepwork-depth-philosophy；有时间但专注不住 → deepwork-embrace-boredom；纠结某个 App 去留 → deepwork-craftsman-tools；团队流程或组织制度改造 → 本 skill 只给个人做法，多问题交织先用 maodun-fenxi；违法用工、欺凌 → 拨 12333 或找当地劳动监察；已出现身心耗竭、情绪困扰 → psyche
+source_book: "《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport"
 source_chapter: 规则4 排干浅水（全部策略）；规则1 要懒（停工仪式）
 tags: [浅层工作, 时间块, 浅层预算, 固定日程, 停工仪式, 邮件]
 related_skills:

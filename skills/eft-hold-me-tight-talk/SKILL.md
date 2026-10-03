@@ -1,12 +1,9 @@
 ---
 name: eft-hold-me-tight-talk
-description: |
-  做什么：帮用户准备并进行“抱紧我”对话：说的人先说出“我最怕什么”，再直接说出“我最需要你什么”；听的人学会在场、回应、靠近，把对方的袒露接住。
-  何时激活：关系还隔着一层，用户想真正靠近、说出自己的需要，或想回应伴侣的一次袒露。
-  触发信号："我不知道怎么跟他说我需要他""一说到感情他就讲道理""我想让她知道我怕失去她，但说不出口""我们不吵了，可还是很远""他终于说了心里话，我不知道该怎么回""怎么才能让对方真的听进去"。
-  不触发 → 去哪：还在激烈的循环里、一开口就吵 → 先用 eft-demon-dialogues、eft-raw-spot-deescalation；一谈靠近就被某件旧伤卡住（“那次你丢下我”）→ eft-forgiving-injuries；想判断彼此依恋类型或要不要继续 → attach-style-reading；表白、追求还没在一起的人 → attach-dating-signals。有暴力、怕对方、严重成瘾、长期出轨 → 转介；自伤自杀信号 → psyche 第五节危机话术。
-source_book: 《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson
-source_chapter: Emotional Responsiveness — The Key to a Lifetime of Love; Conversation 4: Hold Me Tight — Engaging and Connecting
+version: "1.1.0"
+description: 做什么：帮用户准备并进行“抱紧我”对话：说的人先说出“我最怕什么”，再直接说出“我最需要你什么”；听的人学会在场、回应、靠近，把对方的袒露接住。 何时激活：关系还隔着一层，用户想真正靠近、说出自己的需要，或想回应伴侣的一次袒露。 触发信号："我不知道怎么跟他说我需要他""一说到感情他就讲道理""我想让她知道我怕失去她，但说不出口""我们不吵了，可还是很远""他终于说了心里话，我不知道该怎么回""怎么才能让对方真的听进去"。 不触发 → 去哪：还在激烈的循环里、一开口就吵 → 先用 eft-demon-dialogues、eft-raw-spot-deescalation；一谈靠近就被某件旧伤卡住（“那次你丢下我”）→ eft-forgiving-injuries；想判断彼此依恋类型或要不要继续 → attach-style-reading；表白、追求还没在一起的人 → attach-dating-signals。有暴力、怕对方、严重成瘾、长期出轨 → 转介；自伤自杀信号 → psyche 第五节危机话术。
+source_book: "《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson"
+source_chapter: "Emotional Responsiveness — The Key to a Lifetime of Love; Conversation 4: Hold Me Tight — Engaging and Connecting"
 tags: [EFT, 抱紧我对话, A.R.E., 表达需要, 情感回应, 亲密关系]
 related_skills:
   - slug: eft-demon-dialogues
@@ -42,7 +39,6 @@ related_skills:
       E10 换边留给两人当面做
 ```
 
-文中 slug 指 `skills/tixi-fenxi/<slug>/SKILL.md`（`skills/<slug>/` 是镜像）。
 
 ## 📥 输入与证据假设
 

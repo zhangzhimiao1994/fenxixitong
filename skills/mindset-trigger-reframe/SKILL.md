@@ -1,13 +1,9 @@
 ---
 name: mindset-trigger-reframe
-description: |
-  做什么：触发点转化。把某个情境触发的评判式内心独白改写成学习式，再落成"何时、何地、第一步"的具体计划，计划对准"从一次失误滑向全面放弃"的那个转折点，并写好挫折预案和维持条款。
-  何时激活：用户已经能说出某类情境（被比较、出错、被拒、看到别人更强、自控失败）会让自己反复切回"评判模式"，并想改掉。
-  触发信号："一看排名我就觉得自己不行，想改掉""每次被拒我脑子里就一个声音说你不配""节食一破戒就觉得自己没救然后放弃""一吵架我就控制不住骂对方蠢，想改掉自己这个反应""我知道问题在哪，就是改不了"。
-  不触发 → 去哪：还没弄清是哪个时刻出问题 → mindset-reaction-diagnosis；"道理都懂、方法也用过、又打回原形" → mindset-false-growth-check；想改对别人说的话 → mindset-process-praise；习惯系统设计 → habit-starter-design / habit-four-laws-audit；两人之间的争吵循环 → eft-demon-dialogues；持续抑郁、焦虑或自伤念头 → psyche 第五节；成瘾 → 成瘾医学科或精神科。
-  边界：肢体冲突、节食、霸凌话题先过安全筛查；不承诺性格改变。
-source_book: 《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck
-source_chapter: Ch8 Changing Mindsets: A Workshop（Beliefs / Internal Monologue / Taking the First Step / Willpower / Maintaining Change）; Ch2 Q&A（PAGE 29）
+version: "1.1.0"
+description: 做什么：触发点转化。把某个情境触发的评判式内心独白改写成学习式，再落成"何时、何地、第一步"的具体计划，计划对准"从一次失误滑向全面放弃"的那个转折点，并写好挫折预案和维持条款。 何时激活：用户已经能说出某类情境（被比较、出错、被拒、看到别人更强、自控失败）会让自己反复切回"评判模式"，并想改掉。 触发信号："一看排名我就觉得自己不行，想改掉""每次被拒我脑子里就一个声音说你不配""节食一破戒就觉得自己没救然后放弃""一吵架我就控制不住骂对方蠢，想改掉自己这个反应""我知道问题在哪，就是改不了"。 不触发 → 去哪：还没弄清是哪个时刻出问题 → mindset-reaction-diagnosis；"道理都懂、方法也用过、又打回原形" → mindset-false-growth-check；想改对别人说的话 → mindset-process-praise；习惯系统设计 → habit-starter-design / habit-four-laws-audit；两人之间的争吵循环 → eft-demon-dialogues；持续抑郁、焦虑或自伤念头 → psyche 第五节；成瘾 → 成瘾医学科或精神科。 边界：肢体冲突、节食、霸凌话题先过安全筛查；不承诺性格改变。
+source_book: "《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck"
+source_chapter: "Ch8 Changing Mindsets: A Workshop（Beliefs / Internal Monologue / Taking the First Step / Willpower / Maintaining Change）; Ch2 Q&A（PAGE 29）"
 tags: [触发点, 内心独白, 改变计划, 实施意图, 自控, 维持改变]
 related_skills:
   - slug: mindset-reaction-diagnosis

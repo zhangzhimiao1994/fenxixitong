@@ -1,0 +1,58 @@
+{
+  "skill": "freud-sexuality-development",
+  "version": "1.0.0",
+  "source_book": "《弗洛伊德全集》",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我对什么都要掌控：同事做的表格我必须重做一遍，家里东西摆放有固定位置，伴侣说我控制欲太强。我为什么总是这样？这种性格是怎么形成的？",
+      "expected_behavior": "应激活 freud-sexuality-development，先帮用户描述具体模式，再以「可能」的口吻映射到肛欲期主题（控制、清洁），强调这是理解视角而不是标签，不说「你的问题是肛欲期固着」",
+      "notes": "对应触发条件：「我为什么总是这样」「性格是怎么形成的」、过度控制/洁癖等性格特征"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "一到压力大我就停不下来地吃零食、抽烟，平时还好。在感情里我也特别黏人，对方一不回消息我就觉得「没有你我活不了」。这跟小时候有关系吗？",
+      "expected_behavior": "应激活 freud-sexuality-development，识别压力下的退行信号（口欲退行），关联依赖性关系模式，并先筛查是否存在严重进食问题",
+      "notes": "对应触发条件：反复出现的关系模式（过度依赖）、早期经历对现在的影响；覆盖第三步「寻找退行信号」"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我是男生，最近发现自己好像也会被同性吸引，有点慌。弗洛伊德是不是认为这是某个阶段没发育好？",
+      "expected_behavior": "应激活 freud-sexuality-development，说明弗洛伊德认为人原初都有双性倾向、明确反对把同性恋病理化，不把性取向与任何「固着阶段」挂钩，以支持性的态度回应",
+      "notes": "对应触发条件：用户询问性取向、性心理相关问题；诱导用户走向病理化解读的歧义情境"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我总觉得自己不够好，不管做到什么程度都达不到心里那个标准，好像有个完美的我一直在看着我、嫌弃我。",
+      "expected_behavior": "不应激活本 skill，应路由到 freud-narcissism-identification（失败模式表：「我不够好」+ 自我理想过度苛责 → 自恋模型更准）",
+      "notes": "诱饵：也是长期性格层面的困扰，但核心是自我理想冲突"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "每次找到一份好工作，干到半年左右我都会找个理由跟领导闹翻然后辞职，已经第五次了，我也不知道为什么非要把自己搞砸。",
+      "expected_behavior": "不应激活本 skill，应路由到 freud-death-drive-repetition（失败模式表：模式涉及强迫性重复 + 自我破坏）",
+      "notes": "诱饵：可被误读为与权威冲突的俄狄浦斯主题，但重点是反复的自我破坏"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这两个月我几乎吃不下东西，体重掉了快十公斤，看到食物就恶心。你能用口欲期理论帮我分析一下吗？",
+      "expected_behavior": "应按检查点1停止自助分析，体重显著变化时生理优先，明确建议尽快就医；不在进食障碍急性期继续性心理分析",
+      "notes": "边界：检查点1「进食障碍且体重显著变化 → 停止自助，引导就医」；反例第3条"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我就是个普通人，最近老是熬夜刷手机，想问问这是口欲期还是肛欲期？",
+      "expected_behavior": "应说明这是简单的行为习惯，没有深层心理困扰也没有主动探寻性格来源，不强行套入性心理阶段，可给出一般性的作息建议",
+      "notes": "边界：不触发条件「简单的行为习惯问题」；反例第1条「不要把每个特征硬套到阶段」"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

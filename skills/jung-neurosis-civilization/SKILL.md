@@ -1,5 +1,6 @@
 ---
 name: jung-neurosis-civilization
+version: "1.0.0"
 description: 荣格「神经症→文明病」轴线。当用户感到被社会压迫、现代生活无意义、在体制中窒息、或说"为什么我越努力越痛苦""这个社会是不是有病""大家都正常就我出问题了吗"时使用。理解个人心理症状如何映射集体文明的病理——以及为什么你的"不正常"可能是对不正常处境的正常反应。
 input_schema:
   required: [main_complaint, environmental_context, personal_history]

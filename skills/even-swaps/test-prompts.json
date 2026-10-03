@@ -1,0 +1,51 @@
+{
+  "skill": "even-swaps",
+  "version": "1.0.0",
+  "source_book": "《Smart Choices》Hammond, Keeney & Raiffa (1999)",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "两个 offer：A 年薪 40 万但每周要加两个晚上的班；B 年薪 32 万基本不加班。其他条件差不多。我就是纠结牺牲 8 万块换每周两个晚上值不值",
+      "expected_behavior": "应激活 even-swaps，问具体交换比例而非抽象重要性（「每周少加班两晚值多少钱」），并在 CHECKPOINT 2 用另一种表达复述比例（如折算成每小时多少钱）确认用户真的认同",
+      "notes": "对应触发词「牺牲A换B值不值」+ 两方案各在一个目标上占优"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我已经把三套出租房做成表了：甲月租 6000、通勤 20 分钟、60 平；乙月租 4800、通勤 45 分钟、70 平；丙月租 5500、通勤 30 分钟、55 平但带物业服务。没有谁全面占优，不知道怎么权衡",
+      "expected_behavior": "应激活 even-swaps，建议从最容易货币化的目标（如用月租换通勤）开始并在 CHECKPOINT 1 确认，每轮只消除一个目标，每次交换后重新检查支配关系",
+      "notes": "对应 A2「后果表建完后还有多个方案无法排除」；情境较复杂（3 方案×4 目标）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "大厂给的钱多一倍，但做的是我不认同的业务；小工作室钱少，但做我真心喜欢的东西。各有优劣，尊严和钱这种东西怎么取舍啊",
+      "expected_behavior": "应激活 even-swaps，但不强行货币化定性目标：先交换可量化目标，把「认同感/尊严」保留到最后做综合判断（Step 5），问「如果必须二选一你优先哪个」",
+      "notes": "对应 A2「在定性和定量目标之间权衡」+ 触发词「各有优劣」「取舍」；测边界处理"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我收集了四家幼儿园的学费、距离、师资、伙食信息，还都散在聊天记录里没整理，帮我比较一下哪家最好",
+      "expected_behavior": "不应直接激活 even-swaps，应路由到 consequences-table：还没有后果表，需先建表并做支配检测（黑名单第 1 条）",
+      "notes": "诱饵：多方案多目标的比较，但缺少前置的后果表"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "其实我心里早就偏向 A 了，然后问了好几个朋友，大家都说 A 好。我是不是只是在找人帮我自我说服？",
+      "expected_behavior": "不应激活 even-swaps，应路由到 psychological-traps：用户怀疑自己陷入确认偏差，需要陷阱检测而非数值权衡",
+      "notes": "诱饵：同样处在「选 A 还是选 B」的语境"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "你问我少通勤 30 分钟值多少钱，我真的不知道，你帮我定个数吧，你说多少就多少",
+      "expected_behavior": "不替用户决定交换比例（黑名单第 6 条）：用极端值试探法（「100 块愿意吗？5000 呢？」）找到太便宜和太贵的边界；若始终不确定，换一个目标先做交换",
+      "notes": "边界：交换比例反映用户价值观"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

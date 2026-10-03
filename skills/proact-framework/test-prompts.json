@@ -1,0 +1,58 @@
+{
+  "skill": "proact-framework",
+  "version": "1.0.0",
+  "source_book": "《Smart Choices》Hammond, Keeney & Raiffa (1999)",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我在北京国企干了五年，现在有杭州一家创业公司的offer，又在考虑要不要辞职读个全日制MBA，家里人意见也不一样，我真的做不出决定了，帮我分析一下",
+      "expected_behavior": "应激活 proact-framework，从 Step 1 问题定义开始并在 CHECKPOINT 1 向用户确认问题表述；方案池中主动加入「维持现状」，目标和方案超过 3×3 时分流到 consequences-table 建完整后果表",
+      "notes": "对应触发词「做不出决定」「帮我分析」+ 多方案复杂决策；测完整主干与向 consequences-table 的路由"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "两个offer我已经比较清楚了：A 月薪35k但单程通勤一个半小时，B 月薪25k走路十分钟就到。我纠结的就是多拿1万块换每天3小时通勤值不值",
+      "expected_behavior": "应激活 proact-framework 并按分流决策树跳过 Step 1-3，识别为「XX换YY值不值」，直接路由到 even-swaps 子 skill 做等价交换，而不是从问题定义重新开始",
+      "notes": "对应分流决策树第 1、3 条：已有清晰方案 + 权衡型表述 → even-swaps"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "那套学区房我基本决定买了，首付也凑齐了，中介说这是最后一套低价房。可我心里总觉得哪里不对，又说不上来，你帮我捋一捋这个决定",
+      "expected_behavior": "应激活 proact-framework，按分流树「我想好了但总觉得哪里不对」先路由到 psychological-traps 做陷阱检测（如锚定、确认偏差），再回到框架补问题定义或目标",
+      "notes": "带歧义：表面像要分析购房，实为已决定后的不安；测路由到 psychological-traps"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司现在一团乱：核心员工在离职、产品线索流失、回款越来越慢、技术债也堆着，每件事都很要命，我该先抓哪个？",
+      "expected_behavior": "不应激活 proact-framework，应路由到 maodun-fenxi：这是多问题交织中找主要矛盾（先抓哪个），不是在几个备选方案之间做选择",
+      "notes": "诱饵：「该先抓哪个」像选择题，但没有可比较的方案，属于主要矛盾诊断"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们新版本计划下个月15号上线，团队说没问题，但我想知道按时上线的概率到底有多大，完全没历史数据要怎么估？",
+      "expected_behavior": "不应激活 proact-framework，应路由到 forecast-fermi-baserate：用户只要一个概率估计（基率+拆解），不涉及在多个方案间做决策",
+      "notes": "诱饵：涉及不确定性和项目决策语境，但需求是纯概率估计"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "中午是吃楼下麻辣烫还是点个轻食沙拉？帮我用那个八要素框架完整分析一下",
+      "expected_behavior": "应说明这是轻量决策，不值得跑完整 8 要素（黑名单第 5 条），改用十问诊断快速版或直接给出 1-2 个关键考量",
+      "notes": "边界：分析深度应与决策重要性匹配"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "分析完了我还是不想动脑子，你直接告诉我：到底该不该接那个外派新加坡的机会？就一个字，去还是不去",
+      "expected_behavior": "不替用户做决定（CHECKPOINT 6 与黑名单第 1 条）：只呈现「根据分析某方案在你的目标上表现最优」及关键理由和最大风险，并追问驱动其犹豫的目标或风险",
+      "notes": "边界：框架是分析工具而非决策引擎"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

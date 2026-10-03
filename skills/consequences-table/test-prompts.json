@@ -1,0 +1,51 @@
+{
+  "skill": "consequences-table",
+  "version": "1.0.0",
+  "source_book": "《Smart Choices》Hammond, Keeney & Raiffa (1999)",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "毕业后想在成都、苏州、深圳三个城市里选一个定居，我在乎房价、薪资、离父母远近、生活节奏，帮我比较一下哪个最好",
+      "expected_behavior": "应激活 consequences-table，建表（行=目标，列=三城+现状），为每个目标选同一尺度（数字/分级/一句话描述），并做支配关系检测",
+      "notes": "对应触发词「比较」「哪个最好」+ 3 个以上方案、多目标"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司让我在两个CRM系统里选一个，帮我列一下它们的利弊，我还得写给老板解释为什么选这个",
+      "expected_behavior": "应激活 consequences-table，并提示方案少于 3 个：补上「维持现状」列（及追问其他方案），用表格呈现各目标后果以便向他人解释",
+      "notes": "对应触发词「利弊」+ A2「需要向别人解释你的选择」；测 Step 2 方案扩充"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "四台笔记本在纠结：甲 7999 元 1.3kg 续航10小时；乙 8999 元 1.6kg 续航8小时；丙 6999 元 1.4kg 续航11小时；丁 7499 元 1.2kg 续航9小时，售后口碑甲丙好、乙一般。我直觉喜欢乙，哪个最好？",
+      "expected_behavior": "应激活 consequences-table，填表后识别乙被丙支配（更贵、更重、续航更短、售后更差）并在 CHECKPOINT 2 征求用户同意排除；若用户仍偏爱乙，追问是否有未列出的隐藏目标",
+      "notes": "情境稍复杂：测支配关系检测与「直觉喜欢」时的隐藏目标追问"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司想外派我去迪拜两年，就这一个机会，我纠结的是万一那边项目黄了、我回来位置也没了怎么办，这个风险我扛得住吗？",
+      "expected_behavior": "不应激活 consequences-table，应路由到 risk-profiles：只有一个方案、核心是不确定性和风险承受度",
+      "notes": "诱饵：同为决策，但 description 明确不适用于只有一个方案的场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "后果表我已经做完了，被支配的都删了，就剩 A 和 B：A 每月多 5000 块，B 每天少通勤 40 分钟，其他都差不多。多花 40 分钟换 5000 块值不值？",
+      "expected_behavior": "不应激活 consequences-table，应路由到 even-swaps：表已建完、支配排除后剩 2 个方案，需要做等价交换",
+      "notes": "诱饵：提到「后果表」关键词，但所处阶段已是权衡"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "帮我给这三个方案的「幸福感」都打个分，精确到小数点后一位，比如 7.3 分那种，这样好算总分。另外乙方案的装修成本我完全不知道，你随便填个数吧",
+      "expected_behavior": "应拒绝假精度：幸福感等软性目标用文字描述而非小数打分；未知格用「最低__最高__」范围估计或标注「未知」，不随意编数字",
+      "notes": "边界：B 节「不要追求假精度」+ 失败编码表「某格数据完全未知」"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

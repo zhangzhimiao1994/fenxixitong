@@ -1,0 +1,58 @@
+{
+  "skill": "mao-thought",
+  "version": "1.0.0",
+  "source_book": "《毛泽东选集》第1-5卷 毛泽东",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我手上同时挂着5个项目，老板说每个都重要，我天天在几个群里救火，没有一件能推进到底，人也快崩了",
+      "expected_behavior": "应激活 mao-thought，并路由到 tan-gangqin：帮用户分出中心工作与配合工作，给出一个节奏安排而不是平均用力",
+      "notes": "触发词『弹钢琴』『优先级』；对应子 skill 触发场景『多任务忙不过来』"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们是个8人的小团队做本地生活SaaS，对手是行业巨头，融资是我们的20倍，正面打肯定打不过，还有没有路",
+      "expected_behavior": "应激活 mao-thought，并路由到 buduicheng-zhanlue（可配合 xingxingzhihuo-genjudi）：引导用户找到巨头顾不到的细分阵地，重新定义竞争方式",
+      "notes": "触发词『不对称』『根据地』；对应『对方比我强太多怎么打』『从零开始怎么破局』"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "组里一个骨干把客户报价单误发给了竞品，损失不小。好几个人要求开除他，可他平时最靠谱；我更担心的是这事之后大家都不敢做事了",
+      "expected_behavior": "应激活 mao-thought，主路由到 chengqianbihou-zhibing-jiuren 处理犯错者（揭错误 + 帮改正），并视需要组合 zuzhi-jiupian-zhenduan 看团队风气",
+      "notes": "触发词『惩前毖后』『团队』『组织纠偏』；情境带歧义：个人处理与组织文化两层交织"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这阵子压力特别大，胃隐隐作痛、肩颈硬得像石头，晚上睡不着，白天脾气很冲，我该怎么调",
+      "expected_behavior": "不应激活 mao-thought，应路由到 huangdi-neijing（如 emotion-organ-proxy / body-mind-integration）做身心调节",
+      "notes": "诱饵：『压力太大』与 zhanlue-miaoshi-zhanshu-zhongshi 的触发句相近，但用户问的是身体与情绪调理"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我和合伙人吵翻了，团队分成两派，现在走也不是留也不是，想起一卦看看我该进还是该退",
+      "expected_behavior": "不应激活 mao-thought，应路由到 zhouyi（起卦走 zhouyi-divination，解读配合 conflict-coalition-diagnosis / advance-retreat-boundary）",
+      "notes": "诱饵：含『冲突』『团队』等毛选触发词，但用户点名起卦、问进退时机"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "中午吃什么好纠结啊，麻辣烫还是轻食沙拉？用矛盾分析法帮我分析一下",
+      "expected_behavior": "按『3 秒检查』判断问题不够复杂，不启用子 skill 框架，直接给简单建议即可",
+      "notes": "SKILL.md 反例『午餐吃什么 → 过度使用贬值』；用户点名『矛盾分析法』作诱饵"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "你就直接告诉我，我现在的主要矛盾到底是什么？",
+      "expected_behavior": "信息不足，不凭空给结论；按 diaocha-yanjiu 先问清用户当前面临哪些具体问题、从何时开始、影响了什么，再路由到 maodun-fenxi",
+      "notes": "边界：信息不足；对应『先诊断后行动』与『没有调查就没有发言权』"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

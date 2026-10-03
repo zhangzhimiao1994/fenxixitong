@@ -1,7 +1,7 @@
 ---
 name: tarot-draw-protocol
-description: |
-  用于用户想要抽塔罗牌之前：把问题改写成可被象征回应的开放式问题，选择牌阵，并确保抽牌随机来源真实。触发信号："帮我抽张牌""用塔罗看看""用什么牌阵好""我想问感情/事业"。不用于解释已抽出的牌（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）、起卦（→ zhouyi-divination）；医疗/法律/投资的"做不做"不抽，只允许 stakes 牌阵。
+version: "1.0.0"
+description: 用于用户想要抽塔罗牌之前：把问题改写成可被象征回应的开放式问题，选择牌阵，并确保抽牌随机来源真实。触发信号："帮我抽张牌""用塔罗看看""用什么牌阵好""我想问感情/事业"。不用于解释已抽出的牌（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）、起卦（→ zhouyi-divination）；医疗/法律/投资的"做不做"不抽，只允许 stakes 牌阵。
 source_book: Waite《The Pictorial Key to the Tarot》Part III（占卜方法部分）+ 通行牌阵实践
 source_scope: 牌阵结构与提问方式；随机性规则为本体系新增约束
 tags: [tarot, spread, question-framing, randomness]

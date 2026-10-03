@@ -1,5 +1,6 @@
 ---
 name: freud-classic-hub
+version: "1.0.0"
 description: 弗洛伊德经典三模型 Hub。当用户的问题属于「内心冲突/纠结」「丧失后走不出来」「焦虑回避」三大经典领域时，由此 Hub 路由到对应的原始蒸馏 skill。当用户说「弗洛伊德经典模型」「用最基础的那个」等触发词时激活。
 ---
 
@@ -75,9 +76,9 @@ if 三个维度均分:
 | 1 | 用户原始消息 | 按「判别标准」四维度打分 | 三个分数（各0-4） |
 | 2 | 三个分数 | **🔴 CHECKPOINT**：输出路由决策 `→ freud-{target}（{原因}，得分 {X}/4）` | 等待用户确认 |
 | 3 | 确认后的 target | `read` 对应子 skill 的 SKILL.md | 子 skill 内容 |
-|  |  | `freud-structural-model` → `freud-zhengliu/skills/freud-structural-model/SKILL.md` |  |
-|  |  | `freud-mourning-melancholia` → `freud-zhengliu/skills/freud-mourning-melancholia/SKILL.md` |  |
-|  |  | `freud-anxiety-defense` → `freud-zhengliu/skills/freud-anxiety-defense/SKILL.md` |  |
+|  |  | `freud-structural-model` → `skills/freud-structural-model/SKILL.md` |  |
+|  |  | `freud-mourning-melancholia` → `skills/freud-mourning-melancholia/SKILL.md` |  |
+|  |  | `freud-anxiety-defense` → `skills/freud-anxiety-defense/SKILL.md` |  |
 | 4 | 子 skill 执行结果 | 检查用户反馈 | 满意 → 结束；不满意 → fallback 表 |
 
 ## 不触发（路由到其他架构）

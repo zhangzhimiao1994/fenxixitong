@@ -1,10 +1,8 @@
 ---
 name: deepwork-embrace-boredom
-description: |
-  专注力训练工具：把"能专注多久"当作需要练的能力，用预约上网时段（在线/离线分块、离线块内不碰网络）、罗斯福冲刺（人为压缩截止时间）、生产性冥想（走路通勤时只想一个难题）三种练习，减少"一无聊就切走"的次数。用户已经有时间做事，却一坐下就想看手机、专注撑不过几分钟时激活。
-  触发信号："一无聊就忍不住刷手机""坐下十分钟就想看消息""感觉专注力越来越差""想练练专注力""排队等人都要掏手机""写着写着就去搜别的东西"
-  不触发场景：挤不出整块时间、不知道怎么排深度工作 → deepwork-depth-philosophy；纠结要不要卸载某个 App → deepwork-craftsman-tools；日程被会议邮件塞满 → deepwork-shallow-shutdown；具体坏习惯的机制设计（提示、阻力、奖励）→ habit-four-laws-audit；问"我是不是 ADHD" → 不做诊断，去精神科或心理门诊评估；刷手机已严重影响睡眠、工作或关系 → 去医院精神心理科或成瘾医学门诊
-source_book: 《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport
+version: "1.1.0"
+description: 专注力训练工具：把"能专注多久"当作需要练的能力，用预约上网时段（在线/离线分块、离线块内不碰网络）、罗斯福冲刺（人为压缩截止时间）、生产性冥想（走路通勤时只想一个难题）三种练习，减少"一无聊就切走"的次数。用户已经有时间做事，却一坐下就想看手机、专注撑不过几分钟时激活。 触发信号："一无聊就忍不住刷手机""坐下十分钟就想看消息""感觉专注力越来越差""想练练专注力""排队等人都要掏手机""写着写着就去搜别的东西" 不触发场景：挤不出整块时间、不知道怎么排深度工作 → deepwork-depth-philosophy；纠结要不要卸载某个 App → deepwork-craftsman-tools；日程被会议邮件塞满 → deepwork-shallow-shutdown；具体坏习惯的机制设计（提示、阻力、奖励）→ habit-four-laws-audit；问"我是不是 ADHD" → 不做诊断，去精神科或心理门诊评估；刷手机已严重影响睡眠、工作或关系 → 去医院精神心理科或成瘾医学门诊
+source_book: "《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport"
 source_chapter: 规则2 拥抱无聊（Don't Take Breaks from Distraction / Work Like Teddy Roosevelt / Meditate Productively / Memorize a Deck of Cards）
 tags: [专注力训练, 分心, 预约上网, 罗斯福冲刺, 生产性冥想, 注意力]
 related_skills:

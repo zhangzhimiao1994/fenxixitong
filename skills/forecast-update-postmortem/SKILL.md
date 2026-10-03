@@ -1,12 +1,8 @@
 ---
 name: forecast-update-postmortem
-description: |
-  做什么：三种用法——①已登记的预测来了新消息：按诊断力定幅度，小步改，强证据敢跳，锚证据失效就重置；②到期复盘：按日志记 Brier 分、与基准比、区分运气与判断；③多人合成一个数：先独立估再讨论。
-  何时激活：用户手里有一个带数字的预测，且出现了新信息、已到期，或团队意见不一。
-  触发信号："出了个新消息，我之前的判断要不要改""我是不是改得太猛了""事情已经有结果了，帮我复盘""我那次说中了，是不是我判断对了""团队对这件事意见不一，怎么合""我总是事后觉得早就知道"。关键词：更新概率、Brier、校准、复盘。
-  不触发 → 去哪：判断还没写成可检验命题 → forecast-calibrate-claim；还没有初始数字 → forecast-fermi-baserate；复盘一段关系里的争吵与情绪 → psyche 或 eft-demon-dialogues；复盘习惯坚持 → habit-streak-plateau；组织纠错与路线问题 → zuzhi-jiupian-zhenduan。
-  边界：亲密暴力、成瘾复发、自伤风险不做概率估计或更新，先谈安全，去 110 / 12338 妇女维权热线；自伤信号按 psyche 第五节。
-source_book: 《超预测》(Superforecasting: The Art and Science of Prediction) Philip E. Tetlock & Dan Gardner
+version: "1.1.0"
+description: 做什么：三种用法——①已登记的预测来了新消息：按诊断力定幅度，小步改，强证据敢跳，锚证据失效就重置；②到期复盘：按日志记 Brier 分、与基准比、区分运气与判断；③多人合成一个数：先独立估再讨论。 何时激活：用户手里有一个带数字的预测，且出现了新信息、已到期，或团队意见不一。 触发信号："出了个新消息，我之前的判断要不要改""我是不是改得太猛了""事情已经有结果了，帮我复盘""我那次说中了，是不是我判断对了""团队对这件事意见不一，怎么合""我总是事后觉得早就知道"。关键词：更新概率、Brier、校准、复盘。 不触发 → 去哪：判断还没写成可检验命题 → forecast-calibrate-claim；还没有初始数字 → forecast-fermi-baserate；复盘一段关系里的争吵与情绪 → psyche 或 eft-demon-dialogues；复盘习惯坚持 → habit-streak-plateau；组织纠错与路线问题 → zuzhi-jiupian-zhenduan。 边界：亲密暴力、成瘾复发、自伤风险不做概率估计或更新，先谈安全，去 110 / 12338 妇女维权热线；自伤信号按 psyche 第五节。
+source_book: "《超预测》(Superforecasting: The Art and Science of Prediction) Philip E. Tetlock & Dan Gardner"
 source_chapter: 第7章 Supernewsjunkies?；第8章 Perpetual Beta；第9章 Superteams；第4章 运气与回归均值；附录 十诫 (4)(7)(8)(9)
 tags: [信念更新, 贝叶斯, 反应不足, 反应过度, 复盘, Brier评分, 后见之明, 团队预测]
 related_skills:

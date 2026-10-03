@@ -1,9 +1,9 @@
 ---
 name: tarot-projective-dialogue
-description: |
-  用于把用户对塔罗牌的情绪反应和直觉联想转化为自我觉察（荣格投射/积极想象），让牌成为镜子而非裁判。触发信号："看到这张牌好难受""太准了""我不想要这张""这张牌让我想到…"。不用于标准释义（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）；有危机信号 → cross-system-hub C5。
+version: "1.0.0"
+description: 用于把用户对塔罗牌的情绪反应和直觉联想转化为自我觉察（荣格投射/积极想象），让牌成为镜子而非裁判。触发信号："看到这张牌好难受""太准了""我不想要这张""这张牌让我想到…"。不用于标准释义（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）；有危机信号 → cross-system-hub C5。
 source_book: Waite 牌面图像（Pamela Colman Smith 绘）+ 荣格积极想象/投射理论（本仓库 jung-complex-archetype、jung-experiment-synchronicity）
-source_scope: 塔罗与荣格的桥接为本体系的整合设计（evidence: inference），非 Waite 或荣格原著直接主张
+source_scope: "塔罗与荣格的桥接为本体系的整合设计（evidence: inference），非 Waite 或荣格原著直接主张"
 tags: [tarot, projection, jung, active-imagination, dialogue]
 related_skills: [tarot-card-meaning, tarot-spread-synthesis, psyche, jung-complex-archetype, jung-experiment-synchronicity, freud-anxiety-defense]
 ---

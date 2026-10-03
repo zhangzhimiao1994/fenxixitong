@@ -1,11 +1,8 @@
 ---
 name: attach-secure-communication
-description: |
-  有效沟通工具。做什么：帮用户找出真实需要，写一段可以直接说出口的话，并说清对方怎样回应算接住；吵架当下给一句不升级的接法；对方难过时给一句陪伴的话。
-  何时激活：恋爱或婚姻里，想说出一个具体的亲密需要（多陪伴、每天联系、要独处时间），或吵架时不想跑题、翻旧账，或对方难过时想知道怎么回应。
-  触发信号："我想让他多陪我但不知道怎么说才不显得黏人""每次一开口就变成我抱怨""我想要空间又怕伤到她""吵架时他翻旧账我该怎么接""她难过的时候我该怎么回应"
-  不触发：一追一逃、在考虑去留 → attach-anxious-avoidant-trap；约会初期要不要继续 → attach-dating-signals；说出深层恐惧 → eft-hold-me-tight-talk；职场等非恋爱沟通 → 一般沟通方法；对方有暴力 → 先按步骤 1 安全转介，不给摊牌脚本。
-source_book: 《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller
+version: "1.1.0"
+description: 有效沟通工具。做什么：帮用户找出真实需要，写一段可以直接说出口的话，并说清对方怎样回应算接住；吵架当下给一句不升级的接法；对方难过时给一句陪伴的话。 何时激活：恋爱或婚姻里，想说出一个具体的亲密需要（多陪伴、每天联系、要独处时间），或吵架时不想跑题、翻旧账，或对方难过时想知道怎么回应。 触发信号："我想让他多陪我但不知道怎么说才不显得黏人""每次一开口就变成我抱怨""我想要空间又怕伤到她""吵架时他翻旧账我该怎么接""她难过的时候我该怎么回应" 不触发：一追一逃、在考虑去留 → attach-anxious-avoidant-trap；约会初期要不要继续 → attach-dating-signals；说出深层恐惧 → eft-hold-me-tight-talk；职场等非恋爱沟通 → 一般沟通方法；对方有暴力 → 先按步骤 1 安全转介，不给摊牌脚本。
+source_book: "《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller"
 source_chapter: 第11章 有效沟通；第12章 化解冲突的五条安全原则；第7章 安全型特质与安全基地；第2章 依赖悖论
 tags: [有效沟通, 表达需求, 冲突处理, 安全型原则, 安全基地]
 related_skills:

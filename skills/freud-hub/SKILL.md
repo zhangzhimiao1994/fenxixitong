@@ -1,5 +1,6 @@
 ---
 name: freud-hub
+version: "1.0.0"
 description: 弗洛伊德全集技能中心。当用户的问题涉及弗洛伊德相关领域但不确定用哪个具体技能时，由此 Hub 进行路由。当用户说「弗洛伊德怎么说」「精神分析怎么看」等笼统触发词时激活。
 ---
 
@@ -85,17 +86,17 @@ if 命中 3+ 个主题:
 
 | Skill | 路径 |
 |-------|------|
-| `freud-trauma-hysteria` | `freud-zhengliu/skills/freud-trauma-hysteria/SKILL.md` |
-| `freud-dreams-parapraxes` | `freud-zhengliu/skills/freud-dreams-parapraxes/SKILL.md` |
-| `freud-sexuality-development` | `freud-zhengliu/skills/freud-sexuality-development/SKILL.md` |
-| `freud-metapsychology` | `freud-zhengliu/skills/freud-metapsychology/SKILL.md` |
-| `freud-narcissism-identification` | `freud-zhengliu/skills/freud-narcissism-identification/SKILL.md` |
-| `freud-mourning-structure` | `freud-zhengliu/skills/freud-mourning-structure/SKILL.md` |
-| `freud-death-drive-repetition` | `freud-zhengliu/skills/freud-death-drive-repetition/SKILL.md` |
-| `freud-anxiety-civilization` | `freud-zhengliu/skills/freud-anxiety-civilization/SKILL.md` |
-| `freud-development-overview` | `freud-zhengliu/skills/freud-development-overview/SKILL.md` |
-| `freud-classic-hub` | `freud-zhengliu/skills/freud-classic-hub/SKILL.md` |
-| `freud-complete` | `freud-zhengliu/skills/freud-complete/SKILL.md` |
+| `freud-trauma-hysteria` | `skills/freud-trauma-hysteria/SKILL.md` |
+| `freud-dreams-parapraxes` | `skills/freud-dreams-parapraxes/SKILL.md` |
+| `freud-sexuality-development` | `skills/freud-sexuality-development/SKILL.md` |
+| `freud-metapsychology` | `skills/freud-metapsychology/SKILL.md` |
+| `freud-narcissism-identification` | `skills/freud-narcissism-identification/SKILL.md` |
+| `freud-mourning-structure` | `skills/freud-mourning-structure/SKILL.md` |
+| `freud-death-drive-repetition` | `skills/freud-death-drive-repetition/SKILL.md` |
+| `freud-anxiety-civilization` | `skills/freud-anxiety-civilization/SKILL.md` |
+| `freud-development-overview` | `skills/freud-development-overview/SKILL.md` |
+| `freud-classic-hub` | `skills/freud-classic-hub/SKILL.md` |
+| `freud-complete` | `skills/freud-complete/SKILL.md` |
 
 ## 快速参考
 

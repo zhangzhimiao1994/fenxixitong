@@ -1,12 +1,8 @@
 ---
 name: mindset-process-praise
-description: |
-  做什么：把"给特质打分"的表扬、安慰、批评改成"关注过程和下一步"的话；按对方的具体状态预判这句话会被听成什么、在哪一刻反转，给可直接说的替换句和一个"说完后看什么"的观察信号，并守住"高标准 + 关怀 + 教方法"。
-  何时激活：家长、老师、教练、管理者想调整自己对别人（孩子、学生、队员、下属）说的一句具体的话。
-  触发信号："我总夸孩子聪明，这样对吗""孩子比赛输了我该怎么安慰""考前怎么给孩子打气""怎么表扬才不会让他骄傲""下属交的东西很烂，怎么说不伤人又有用""新人老出错，一对一怎么开口""队员连着失误，赛前怎么谈"。
-  不触发 → 去哪：诊断自己的挫折反应 → mindset-reaction-diagnosis；"我们已经在夸努力了但没效果" → mindset-false-growth-check；改自己脑中的批评声 → mindset-trigger-reframe；伴侣之间的指责循环 → eft-demon-dialogues；孩子有自伤信号 → psyche 第五节。
-  边界：涉及打骂、羞辱、家暴时先过安全筛查，不只做话术优化。
-source_book: 《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck
+version: "1.1.0"
+description: 做什么：把"给特质打分"的表扬、安慰、批评改成"关注过程和下一步"的话；按对方的具体状态预判这句话会被听成什么、在哪一刻反转，给可直接说的替换句和一个"说完后看什么"的观察信号，并守住"高标准 + 关怀 + 教方法"。 何时激活：家长、老师、教练、管理者想调整自己对别人（孩子、学生、队员、下属）说的一句具体的话。 触发信号："我总夸孩子聪明，这样对吗""孩子比赛输了我该怎么安慰""考前怎么给孩子打气""怎么表扬才不会让他骄傲""下属交的东西很烂，怎么说不伤人又有用""新人老出错，一对一怎么开口""队员连着失误，赛前怎么谈"。 不触发 → 去哪：诊断自己的挫折反应 → mindset-reaction-diagnosis；"我们已经在夸努力了但没效果" → mindset-false-growth-check；改自己脑中的批评声 → mindset-trigger-reframe；伴侣之间的指责循环 → eft-demon-dialogues；孩子有自伤信号 → psyche 第五节。 边界：涉及打骂、羞辱、家暴时先过安全筛查，不只做话术优化。
+source_book: "《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck"
 source_chapter: Ch3 The Danger of Praise and Positive Labels; Ch7 Parents, Teachers, and Coaches; Ch8 Changing Your Child's Mindset
 tags: [表扬, 反馈, 育儿, 教学, 管理, 建设性批评]
 related_skills:

@@ -1,10 +1,7 @@
 ---
 name: ptolemy-planet-condition
-description: |
-  托勒密古典"行星状态"评估工具：用《四书》卷一的四性、吉凶、昼夜派别、五种尊贵（庙/三分性/旺/界/相位）和强弱规则，判断本命盘里某颗行星是"在主场"还是"在客场"、表达得顺还是要绕路。用户已有星盘数据、想用古典规则看某颗行星或整体结构时激活；也是 ptolemy-topic-ruler 与 ptolemy-mind-temperament 的底层步骤。
-  触发信号："用古典占星看看我的土星""我的金星是入庙还是落陷""托勒密怎么看我的盘""哪颗行星在我盘里最有力""我的火星是不是很凶""吉星凶星是什么意思"。
-  不触发场景：只想看太阳/月亮/上升三要素或土星回归、今年行运 → astrology-transit；问职业/财富/友谊某一主题 → ptolemy-topic-ruler；问性格心性 → ptolemy-mind-temperament；问"是不是注定" → ptolemy-fate-calibration；问寿命、疾病、事故、择日 → 拒绝该部分（fortune 第五节），其余照常；没有出生数据 → fortune 路由（周易/塔罗）。
-  降级：只有出生日期、没有时间 → 只读星座层尊贵，不读宫位与昼夜派别，并注明精度不足。
+version: "1.0.0"
+description: 托勒密古典"行星状态"评估工具：用《四书》卷一的四性、吉凶、昼夜派别、五种尊贵（庙/三分性/旺/界/相位）和强弱规则，判断本命盘里某颗行星是"在主场"还是"在客场"、表达得顺还是要绕路。用户已有星盘数据、想用古典规则看某颗行星或整体结构时激活；也是 ptolemy-topic-ruler 与 ptolemy-mind-temperament 的底层步骤。 触发信号："用古典占星看看我的土星""我的金星是入庙还是落陷""托勒密怎么看我的盘""哪颗行星在我盘里最有力""我的火星是不是很凶""吉星凶星是什么意思"。 不触发场景：只想看太阳/月亮/上升三要素或土星回归、今年行运 → astrology-transit；问职业/财富/友谊某一主题 → ptolemy-topic-ruler；问性格心性 → ptolemy-mind-temperament；问"是不是注定" → ptolemy-fate-calibration；问寿命、疾病、事故、择日 → 拒绝该部分（fortune 第五节），其余照常；没有出生数据 → fortune 路由（周易/塔罗）。 降级：只有出生日期、没有时间 → 只读星座层尊贵，不读宫位与昼夜派别，并注明精度不足。
 source_book: 《四书》(Tetrabiblos) Claudius Ptolemy，J. M. Ashmand 英译
 source_chapter: 卷一第 4-8 章、第 13-27 章；卷三第 4 章
 tags: [fortune, astrology, classical, dignity, sect, ptolemy]

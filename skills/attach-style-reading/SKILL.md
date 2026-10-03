@@ -1,11 +1,8 @@
 ---
 name: attach-style-reading
-description: |
-  依恋倾向粗判工具。做什么：用"亲密回避 × 关系焦虑"两个维度和五条观察法则，帮用户看清自己或伴侣在亲密关系里偏安全、偏焦虑还是偏回避，说明依据、什么证据会改变判断，并讲清这只是倾向，不是诊断，人也会变。
-  何时激活：用户想知道"我/他是什么类型"，要解读自己或一个已经交往一段时间的人，或做了依恋测试不知道怎么看。
-  触发信号："我是不是焦虑型依恋""我老公是不是回避型""测了依恋类型不知道准不准""我好像焦虑和回避都有""为什么我一谈恋爱就患得患失""在一起两年了，他一亲近就躲"
-  不触发：约会初期、核心是"要不要继续"→ attach-dating-signals；已知一追一逃、想打破循环 → attach-anxious-avoidant-trap；想知道怎么开口说需求 → attach-secure-communication；要人格障碍或心理诊断 → 不做诊断（psyche 第五节）；有打、推、控制 → 先安全转介。
-source_book: 《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller
+version: "1.1.0"
+description: 依恋倾向粗判工具。做什么：用"亲密回避 × 关系焦虑"两个维度和五条观察法则，帮用户看清自己或伴侣在亲密关系里偏安全、偏焦虑还是偏回避，说明依据、什么证据会改变判断，并讲清这只是倾向，不是诊断，人也会变。 何时激活：用户想知道"我/他是什么类型"，要解读自己或一个已经交往一段时间的人，或做了依恋测试不知道怎么看。 触发信号："我是不是焦虑型依恋""我老公是不是回避型""测了依恋类型不知道准不准""我好像焦虑和回避都有""为什么我一谈恋爱就患得患失""在一起两年了，他一亲近就躲" 不触发：约会初期、核心是"要不要继续"→ attach-dating-signals；已知一追一逃、想打破循环 → attach-anxious-avoidant-trap；想知道怎么开口说需求 → attach-secure-communication；要人格障碍或心理诊断 → 不做诊断（psyche 第五节）；有打、推、控制 → 先安全转介。
+source_book: "《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller"
 source_chapter: 第1章 解码关系行为；第3章 我是什么风格；第4章 对方是什么风格（五条黄金法则）；第7章 风格从哪来
 tags: [依恋风格, 亲密关系, 自我觉察, 伴侣解读, 非诊断]
 related_skills:

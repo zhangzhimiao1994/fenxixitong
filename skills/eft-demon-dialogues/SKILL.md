@@ -1,12 +1,9 @@
 ---
 name: eft-demon-dialogues
-description: |
-  做什么：识别伴侣之间反复出现的冲突循环（互相指责 / 一追一退 / 双方都退开），把“谁的错”改写成“我们被同一个循环困住”，给出循环句、候选名和一句当场叫停循环的话。
-  何时激活：用户已在一段关系里，描述一次又一次同样的吵法或冷战，但还没看清整体模式。
-  触发信号："我们每次都吵成这样""我越说他越躲""他一不理我我就炸""现在连架都不吵了，像室友""吵来吵去都在翻旧账""明明是小事怎么又吵起来了"。
-  不触发 → 去哪：问依恋类型、要不要分手、该找什么样的人 → attach-style-reading / attach-anxious-avoidant-trap；已看清循环、想弄明白自己为什么一碰就炸 → eft-raw-spot-deescalation；想对伴侣说出深层需要 → eft-hold-me-tight-talk；某一次具体伤害过不去 → eft-forgiving-injuries；暴力、怕对方、成瘾、长期出轨 → 反家暴求助 / 咨询师；自伤自杀（含拿“不想活了”当筹码）→ psyche 第五节。
-source_book: 《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson
-source_chapter: Where Did Our Love Go? Losing Connection; Conversation 1: Recognizing the Demon Dialogues
+version: "1.1.0"
+description: 做什么：识别伴侣之间反复出现的冲突循环（互相指责 / 一追一退 / 双方都退开），把“谁的错”改写成“我们被同一个循环困住”，给出循环句、候选名和一句当场叫停循环的话。 何时激活：用户已在一段关系里，描述一次又一次同样的吵法或冷战，但还没看清整体模式。 触发信号："我们每次都吵成这样""我越说他越躲""他一不理我我就炸""现在连架都不吵了，像室友""吵来吵去都在翻旧账""明明是小事怎么又吵起来了"。 不触发 → 去哪：问依恋类型、要不要分手、该找什么样的人 → attach-style-reading / attach-anxious-avoidant-trap；已看清循环、想弄明白自己为什么一碰就炸 → eft-raw-spot-deescalation；想对伴侣说出深层需要 → eft-hold-me-tight-talk；某一次具体伤害过不去 → eft-forgiving-injuries；暴力、怕对方、成瘾、长期出轨 → 反家暴求助 / 咨询师；自伤自杀（含拿“不想活了”当筹码）→ psyche 第五节。
+source_book: "《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson"
+source_chapter: "Where Did Our Love Go? Losing Connection; Conversation 1: Recognizing the Demon Dialogues"
 tags: [EFT, 伴侣冲突, 追逃循环, 恶魔对话, 关系修复, 依恋]
 related_skills:
   - slug: eft-raw-spot-deescalation
@@ -44,7 +41,6 @@ related_skills:
       └── 双方都安静、客气、没有触碰     → 冻结逃跑（最危险，优先处理）
 ```
 
-文中 slug 指 `skills/tixi-fenxi/<slug>/SKILL.md`（`skills/<slug>/` 是镜像）。
 
 ## 📥 输入与证据假设
 

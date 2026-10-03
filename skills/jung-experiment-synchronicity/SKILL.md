@@ -1,5 +1,6 @@
 ---
 name: jung-experiment-synchronicity
+version: "1.0.0"
 description: 荣格「实验→共时性」轴线。当用户经历"太巧了""仿佛冥冥中注定"的事件、对"偶然"感到震撼、寻找因果解释但解释不通、或问"这个世界有没有看不见的秩序"时使用。理解荣格如何从实验室测量走向有意义的巧合——一个在因果律之外的意义连接原则。
 input_schema:
   required: [coincidence_description, inner_state_at_time, meaning_impact]

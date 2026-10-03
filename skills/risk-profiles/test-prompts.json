@@ -1,0 +1,58 @@
+{
+  "skill": "risk-profiles",
+  "version": "1.0.0",
+  "source_book": "《Smart Choices》Hammond, Keeney & Raiffa (1999)",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "官司对方给了 30 万和解。律师说上庭有七成把握能拿到 60 万以上，但三成可能一分没有。这 30 万够我还清债务。我能承受这个风险吗？",
+      "expected_behavior": "应激活 risk-profiles，建立风险画像表（不确定性/结果/概率/后果，概率合计 100%），后果用「数量变化+对生活意味着什么」描述；并提示风险容忍度只能用户自己定，不能由律师替代",
+      "notes": "对应触发词「承受」「风险」+ A1 Karen 案例结构；测 Part A + Part B"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我打算拿出 40 万积蓄在小区门口开家奶茶店，就这一个方案。最坏情况是什么？万一半年就亏完了怎么办？",
+      "expected_behavior": "应激活 risk-profiles，识别 1-3 个关键不确定性（客流、竞争、自身经营能力），列出好/中/差结果及概率范围，并在下行风险过大时给出五条风险管理路径（分担、试点获取信息、分散、对冲、保险）",
+      "notes": "对应触发词「最坏情况」「万一」+ 单方案要不要做（proact 分流到本 skill 的场景）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "朋友们都说年轻就该冒险，劝我辞职全职做独立开发。我自己算了下存款够撑一年，但心里一直犹豫，是我太怂了吗？",
+      "expected_behavior": "应激活 risk-profiles，把「概率判断」和「风险容忍度」分开呈现：概率可参考他人，容忍度只能自己定；可用期望曲线自测三问帮助定位，不评判用户「怂不怂」",
+      "notes": "带歧义（像情绪/自我评价问题）；对应失败编码表「别人在替我做风险决策」"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "不涉及要做什么决定，我就是好奇：我们这款 App 明年日活破 100 万的概率大概多少？完全没有可参考的数据，怎么估？",
+      "expected_behavior": "不应激活 risk-profiles，应路由到 forecast-fermi-baserate：纯概率估计（拆解+基率+调整），不涉及方案选择与风险容忍度",
+      "notes": "诱饵：含「概率」触发词，但无决策"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "领导在会上说新产品「很可能」会成功。这个「很可能」到底是几成？我想把它变成一个到时候能验证对错的判断",
+      "expected_behavior": "不应激活 risk-profiles，应路由到 forecast-calibrate-claim：把含糊说法改写成可检验的概率命题并设复盘点",
+      "notes": "诱饵：涉及成功/失败的不确定性，但需求是校准与可检验化"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "两家公司的合同我都看过了，都是固定年薪、签三年、没有任何浮动和变数。帮我给两个 offer 各做一份风险画像吧",
+      "expected_behavior": "应说明后果确定时不需要风险画像（黑名单第 6 条），建议改用 consequences-table 比较两个方案",
+      "notes": "边界：description「不适用于所有后果确定的决策」"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "你看了我的情况，就直接替我判断：我到底属于能冒险的那种人，还是应该求稳？",
+      "expected_behavior": "不替用户判断风险容忍度（黑名单第 2 条）：只展示风险画像并引导用户做期望曲线自测、回顾过去类似情况的选择，若仍无法确定才默认按风险厌恶给保守参考",
+      "notes": "边界：风险容忍度是用户的价值观"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

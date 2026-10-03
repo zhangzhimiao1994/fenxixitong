@@ -1,5 +1,6 @@
 ---
 name: jung-complex-archetype
+version: "1.0.0"
 description: 荣格「情结→原型」轴线。当用户发现自己反复陷入同样的心理模式、被某些情境过度触发、或说"我不知道为什么我老是……""每次遇到这类人都……""我控制不住这些反应"时使用。解决从个人潜意识到集体无意识的纵向连接——你的个人情结背后有什么原型在运作？
 input_schema:
   required: [trigger_description, emotional_intensity, situational_context]

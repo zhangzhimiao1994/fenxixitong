@@ -1,10 +1,7 @@
 ---
 name: fangxia-baofu-kaidong-jiqi
 version: 1.0.0
-description: |
-  卸掉认知包袱 + 主动深度思考的认知重启框架。当用户感觉脑子里太多事转不动、越想越焦虑时激活。
-  不调用场景：情绪正常、思绪清晰无需重启的场景。
-  来源：《毛泽东选集第1-5卷》毛泽东
+description: 卸掉认知包袱 + 主动深度思考的认知重启框架。当用户感觉脑子里太多事转不动、越想越焦虑时激活。 不调用场景：情绪正常、思绪清晰无需重启的场景。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['认知重启', '心态管理', '思考方法', '减负']
 related_skills:
   - slug: cong-zhanzheng-xuexi-zhanzheng

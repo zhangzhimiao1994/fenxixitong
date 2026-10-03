@@ -1,5 +1,6 @@
 ---
 name: jung-libido-individuation
+version: "1.0.0"
 description: 荣格「力比多→个体化」轴线。当用户面临人生方向迷茫、中年危机、能量枯竭、或问"我这辈子到底在干什么""下半辈子该怎么活""为什么越努力越空虚"时使用。理解心理能量从生物驱力→对外成就→向内整合的转化过程，找到属于你自己的个体化之路。
 input_schema:
   required: [current_life_stage, main_complaint, age_range]

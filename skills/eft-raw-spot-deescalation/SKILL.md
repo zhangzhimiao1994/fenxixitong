@@ -1,12 +1,9 @@
 ---
 name: eft-raw-spot-deescalation
-description: |
-  做什么：找到伴侣冲突里一碰就失衡的“雷区”，把表层的愤怒或麻木拆到底层的恐惧、悲伤、羞耻，再用“重温低谷”七步把一次刚发生的争吵复盘、降温。
-  何时激活：用户已在关系里、大致能看到两人的吵法，但一到某个点就失控，或想复盘最近一次争吵。
-  触发信号："他那个语气一出来我就炸了""明明是小事我反应特别大""我知道不该，可就是控制不住""昨天那次吵完还没缓过来，想复盘一下""他一皱眉我就僵住""我也不知道自己为什么那么生气"。
-  不触发 → 去哪：还没看清两人在怎么吵 → eft-demon-dialogues；想直接说出自己需要什么 → eft-hold-me-tight-talk；某次重大伤害放不下（生病、流产、外遇被告知的方式）→ eft-forgiving-injuries；想知道雷区背后的依恋类型 → attach-style-reading；与伴侣无关的情绪按钮 → psyche。严重创伤史 → 轻量识别 + 个体创伤治疗师；暴力、怕对方、成瘾、长期出轨 → 咨询师 / 反家暴求助；自伤自杀 → psyche 第五节。
-source_book: 《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson
-source_chapter: Conversation 2: Finding the Raw Spots; Conversation 3: Revisiting a Rocky Moment
+version: "1.1.0"
+description: 做什么：找到伴侣冲突里一碰就失衡的“雷区”，把表层的愤怒或麻木拆到底层的恐惧、悲伤、羞耻，再用“重温低谷”七步把一次刚发生的争吵复盘、降温。 何时激活：用户已在关系里、大致能看到两人的吵法，但一到某个点就失控，或想复盘最近一次争吵。 触发信号："他那个语气一出来我就炸了""明明是小事我反应特别大""我知道不该，可就是控制不住""昨天那次吵完还没缓过来，想复盘一下""他一皱眉我就僵住""我也不知道自己为什么那么生气"。 不触发 → 去哪：还没看清两人在怎么吵 → eft-demon-dialogues；想直接说出自己需要什么 → eft-hold-me-tight-talk；某次重大伤害放不下（生病、流产、外遇被告知的方式）→ eft-forgiving-injuries；想知道雷区背后的依恋类型 → attach-style-reading；与伴侣无关的情绪按钮 → psyche。严重创伤史 → 轻量识别 + 个体创伤治疗师；暴力、怕对方、成瘾、长期出轨 → 咨询师 / 反家暴求助；自伤自杀 → psyche 第五节。
+source_book: "《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson"
+source_chapter: "Conversation 2: Finding the Raw Spots; Conversation 3: Revisiting a Rocky Moment"
 tags: [EFT, 雷区, 情绪拆解, 冲突复盘, 降级, 伴侣关系]
 related_skills:
   - slug: eft-demon-dialogues
@@ -39,7 +36,6 @@ related_skills:
       └── 想把一次具体争吵复盘、降温      → 模块二：重温低谷（E1 → E7–E12；E13 当面做）
 ```
 
-文中 slug 指 `skills/tixi-fenxi/<slug>/SKILL.md`（`skills/<slug>/` 是镜像）。
 
 ## 📥 输入与证据假设
 

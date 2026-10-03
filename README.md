@@ -13,7 +13,7 @@
 | 🌟 **运势**（八字 / 星盘 / 紫微 / 托勒密古典） | 象征 | `skills/fortune/` | 7 |
 | 🏛️ **周易**（义理诊断 + 起卦） | 象征 | `skills/zhouyi/` | 13 |
 | 🚩 **毛选·矛盾-行动引擎** | 贯穿 | `skills/mao-thought/` | 26 |
-| 🎯 **预测校准层**（超预测） | 贯穿 | `skills/tixi-fenxi/forecast-calibrate-claim/` | — |
+| 🎯 **预测校准层**（超预测） | 贯穿 | `skills/forecast-calibrate-claim/` | — |
 | 🔗 **跨体系 Hub** | — | `skills/cross-system-hub/` | — |
 
 **体系分析的六本来源书**：《关系依恋》(Attached)、《依恋与亲密关系》(Hold Me Tight)、《终身成长》(Mindset)、《掌控习惯》(Atomic Habits)、《深度工作》(Deep Work)、《超预测》(Superforecasting)。运势维度的古典部分来自托勒密《四书》(Tetrabiblos)。
@@ -52,6 +52,18 @@ python tools/divine.py bazi 1996-08-12 15:20 --gender f
 
 每个 skill 目录内含 `SKILL.md` 与 `test-prompts.json`。将本仓库克隆到 OpenClaw workspace 的 `skills/` 目录下即可使用。
 
+**目录约定**：
+- 每个 skill 只在 `skills/<slug>/` 放一份，入口 skill（`psyche`、`tixi-fenxi`、`fortune`、`mao-thought` 等）只按 slug 路由，不在自己目录下放子 skill 副本。
+- frontmatter 必须是合法 YAML，并带 `name`、`description`、`version`；值里有冒号时要加引号。
+
+改动 skill 后、提交前运行：
+
+```bash
+python tools/check_skills.py
+```
+
+脚本检查四项：有没有嵌套副本、frontmatter 是否合法、`test-prompts.json` 是否存在且有用例、`related_skills` 引用的 slug 是否存在。任何一项不过，退出码为 1。
+
 ## ⚠️ 声明
 
 塔罗、命理与起卦的预测效力缺乏科学证据支持，本系统将其用作自我反思与叙事的框架。任何分析都不替代医疗、心理咨询、法律或财务专业意见。
@@ -60,6 +72,7 @@ python tools/divine.py bazi 1996-08-12 15:20 --gender f
 
 | Tag | 说明 |
 |-----|------|
+| `v3.1.1` | 删除入口目录下 153 份子 skill 重复副本；补齐 version 与 test-prompts；修 20 个非法 YAML frontmatter；新增 `tools/check_skills.py` |
 | `v3.1.0` | 新增体系分析维度（行为科学六书）与预测校准层；运势补托勒密古典本命 |
 | `v3.0.0` | 体系重构：心理合并、新增塔罗/运势、毛选改为引擎 |
 | `v2.0.0` | 跨体系五维分析器 v2.0 |

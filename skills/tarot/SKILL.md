@@ -1,9 +1,6 @@
 ---
 name: tarot
-description: |
-  塔罗象征分析系统。4 个子 skill，覆盖抽牌协议、单牌释义、牌阵综合、投射式对话。把塔罗当作"让潜意识说话的象征镜子"，而不是确定性预言。
-  触发：塔罗、抽张牌、帮我看看牌、这张牌什么意思、牌阵、正位逆位、我抽到了XX。
-  NOT trigger: 八字/星盘/紫微 → fortune；起卦 → zhouyi-divination；医疗/法律/投资的"做不做" → 只允许 stakes 牌阵看心态；紧急危机 → cross-system-hub C5。确定预测类问题会触发，但先改写。
+description: "塔罗象征分析系统。4 个子 skill，覆盖抽牌协议、单牌释义、牌阵综合、投射式对话。把塔罗当作\"让潜意识说话的象征镜子\"，而不是确定性预言。 触发：塔罗、抽张牌、帮我看看牌、这张牌什么意思、牌阵、正位逆位、我抽到了XX。 NOT trigger: 八字/星盘/紫微 → fortune；起卦 → zhouyi-divination；医疗/法律/投资的\"做不做\" → 只允许 stakes 牌阵看心态；紧急危机 → cross-system-hub C5。确定预测类问题会触发，但先改写。"
 version: "1.0.0"
 source_book: A. E. Waite《The Pictorial Key to the Tarot》(1910，公有领域) + Rider-Waite-Smith 牌组通行释义
 tags: [tarot, symbol, projection, hub]

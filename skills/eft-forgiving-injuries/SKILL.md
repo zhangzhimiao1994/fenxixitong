@@ -1,12 +1,9 @@
 ---
 name: eft-forgiving-injuries
-description: |
-  做什么：处理最需要对方时被丢下、否定或背叛后留下的“再也不向你求助”的伤。用六步宽恕对话帮受伤方说清伤在哪里，帮伤人方给出不敷衍的道歉，最后一起写修复的故事。
-  何时激活：双方仍在关系里、想修复，用户提到某一次具体的伤害至今放不下，或想为自己造成的伤害真心道歉。
-  触发信号："那件事过去好几年了，我还是放不下""我生病的时候他转身就走了""他道过歉了，可我就是不信""每次想靠近就想起那天""他说早就过去了让我别提""我伤了她，怎么道歉才有用"。
-  不触发 → 去哪：日常小摩擦、反复的吵法 → eft-demon-dialogues；某句话一碰就炸 → eft-raw-spot-deescalation；伤口已愈合、想说出需要 → eft-hold-me-tight-talk；外遇仍在继续或长期隐瞒、要不要离婚 → 伴侣治疗师；与伴侣无关的创伤（事故、侵害、丧亲）→ psyche + 专业创伤治疗；暴力、怕对方、严重成瘾 → 反家暴求助 / 咨询师；自伤自杀 → psyche 第五节。
-source_book: 《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson
-source_chapter: Conversation 5: Forgiving Injuries
+version: "1.1.0"
+description: 做什么：处理最需要对方时被丢下、否定或背叛后留下的“再也不向你求助”的伤。用六步宽恕对话帮受伤方说清伤在哪里，帮伤人方给出不敷衍的道歉，最后一起写修复的故事。 何时激活：双方仍在关系里、想修复，用户提到某一次具体的伤害至今放不下，或想为自己造成的伤害真心道歉。 触发信号："那件事过去好几年了，我还是放不下""我生病的时候他转身就走了""他道过歉了，可我就是不信""每次想靠近就想起那天""他说早就过去了让我别提""我伤了她，怎么道歉才有用"。 不触发 → 去哪：日常小摩擦、反复的吵法 → eft-demon-dialogues；某句话一碰就炸 → eft-raw-spot-deescalation；伤口已愈合、想说出需要 → eft-hold-me-tight-talk；外遇仍在继续或长期隐瞒、要不要离婚 → 伴侣治疗师；与伴侣无关的创伤（事故、侵害、丧亲）→ psyche + 专业创伤治疗；暴力、怕对方、严重成瘾 → 反家暴求助 / 咨询师；自伤自杀 → psyche 第五节。
+source_book: "《依恋与亲密关系》(Hold Me Tight: Seven Conversations for a Lifetime of Love) Sue Johnson"
+source_chapter: "Conversation 5: Forgiving Injuries"
 tags: [EFT, 依恋伤害, 宽恕, 道歉, 信任修复, 伴侣关系]
 related_skills:
   - slug: eft-hold-me-tight-talk
@@ -42,7 +39,6 @@ related_skills:
       E5、E6、E9–E11 两人当面做，单轮不输出
 ```
 
-文中 slug 指 `skills/tixi-fenxi/<slug>/SKILL.md`（`skills/<slug>/` 是镜像）。
 
 ## 📥 输入与证据假设
 

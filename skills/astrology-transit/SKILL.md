@@ -1,7 +1,7 @@
 ---
 name: astrology-transit
-description: |
-  用于基于西方星盘（本命盘）和当前行运做心理动力与周期解读：太阳/月亮/上升三要素、行星落座落宫、主要相位，以及土星回归、木星回归、外行星行运等人生周期。触发信号："帮我看星盘""我是XX座""上升星座""水逆""土星回归""今年行运"。不用于心算行星位置、事件日期预言、医疗/投资决策；问八字 → bazi-liunian；问紫微、命宫 → ziwei-doushu。
+version: "1.0.0"
+description: 用于基于西方星盘（本命盘）和当前行运做心理动力与周期解读：太阳/月亮/上升三要素、行星落座落宫、主要相位，以及土星回归、木星回归、外行星行运等人生周期。触发信号："帮我看星盘""我是XX座""上升星座""水逆""土星回归""今年行运"。不用于心算行星位置、事件日期预言、医疗/投资决策；问八字 → bazi-liunian；问紫微、命宫 → ziwei-doushu。
 source_book: 托勒密《四书》(Tetrabiblos，2 世纪) 传统框架；Dane Rudhyar《The Astrology of Personality》(1936) 心理占星转向；现代心理占星通行实践
 source_scope: 本命盘三要素、行星/星座/宫位/主要相位、慢速行星行运周期；不含择时占星、卜卦占星、医疗占星
 tags: [fortune, astrology, natal-chart, transit, saturn-return]

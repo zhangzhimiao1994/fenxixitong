@@ -1,0 +1,58 @@
+{
+  "skill": "freud-dreams-parapraxes",
+  "version": "1.0.0",
+  "source_book": "《弗洛伊德全集》",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个月我老是梦见回到高中考场，卷子一个字都看不懂，铃声一响就醒。我早就毕业十年了，现在在准备升职答辩。这个梦想说什么？",
+      "expected_behavior": "应激活 freud-dreams-parapraxes，先做创伤梦鉴别（确认不是真实创伤场景），再逐元素拆解显梦并引导自由联想、寻找日间残余（升职答辩）；用「一个可能性是……」的口吻，不用梦典式断言",
+      "notes": "对应触发条件：反复做同一类型的梦、触发词「老是梦见」"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "开会的时候我本来想说「欢迎王总加入」，结果嘴一滑说成了「欢迎王总离开」，全场都笑了。我真的只是口误吧？",
+      "expected_behavior": "应激活 freud-dreams-parapraxes，以邀请而非审判的方式问「这个词有没有可能恰恰是你真正在想的」，并允许用户不同意",
+      "notes": "对应触发条件：口误/说错话并感到困惑"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "说来也怪，我前任送的那串钥匙扣，这半年已经弄丢三次了，每次都是在我准备见新男友之前。还有，我老是忘记回我妈的消息，别人的都记得。是巧合吗？",
+      "expected_behavior": "应激活 freud-dreams-parapraxes，分别探索丢东西（「这个东西在象征什么」）与选择性遗忘（「如果忘记是一种选择」）的潜意识含义，并保持「这不是判决」的开放姿态",
+      "notes": "对应触发条件：丢东西、「我老是忘记给某人回信息」、「这太巧了」；多种失误行为并存，情境稍复杂"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "地震那晚之后，我几乎每周都会梦见房子塌下来、自己被压在下面喊不出声，梦里的场景跟那天一模一样。",
+      "expected_behavior": "不应激活本 skill，应路由到 freud-death-drive-repetition——创伤梦是强迫重复，不做愿望满足解读",
+      "notes": "诱饵：明确的「梦」触发词，但属于创伤后反复噩梦，SKILL.md 的 CHECKPOINT 要求 STOP 并转走"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我经常梦见自己胃里塞满了石头，醒来胃真的在疼，去医院做了胃镜什么都没查出来，医生说我没事，可我就是难受。",
+      "expected_behavior": "不应激活本 skill，应路由到 freud-trauma-hysteria，围绕查无实据的躯体症状做排除器质性和症状—情感映射",
+      "notes": "诱饵：提到梦，但内容以身体症状/躯体化为主，SKILL.md 不触发条件明确指向 freud-trauma-hysteria"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这三天熬夜赶项目每天只睡三小时，今天把会议时间记错了，还把钥匙落在公司。你帮我分析一下，我是不是潜意识里不想干这份工作了？",
+      "expected_behavior": "应说明有明确生理原因（严重睡眠不足）的遗忘不适用失误行为分析，不强行做潜意识解读；建议先补觉，必要时再看",
+      "notes": "边界：不触发条件「明确有生理原因的遗忘（如睡眠不足、药物影响）」，且「不是所有巧合都需要分析」"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "你刚说我梦见老同学可能跟愿望有关，我顺着想下去，突然想起小时候被关在储藏室的事，现在手在发抖，有点不知道自己在哪儿。",
+      "expected_behavior": "应立即停止自由联想与解析，不再追问，转为安抚与稳定化（回到当下、身体落地），并建议在专业人员陪伴下处理该材料",
+      "notes": "边界：自由联想后 CHECKPOINT「强烈焦虑/解离 → STOP，不强行推」"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

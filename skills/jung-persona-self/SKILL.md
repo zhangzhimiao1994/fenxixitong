@@ -1,5 +1,6 @@
 ---
 name: jung-persona-self
+version: "1.0.0"
 description: 荣格「Persona→Self」轴线。当用户面临身份危机、"不知道真实的自己是谁"、感觉戴着面具生活、在不同场合切换人格感到疲惫、或说"别人喜欢的是我演的人，不是我"时使用。理解人格的四层结构，从社会面具到完整自性的旅程。
 input_schema:
   required: [identity_complaint, primary_roles, sense_of_authenticity]

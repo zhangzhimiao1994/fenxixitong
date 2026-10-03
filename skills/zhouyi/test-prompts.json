@@ -1,0 +1,58 @@
+{
+  "skill": "zhouyi",
+  "version": "1.0.0",
+  "source_book": "《周易》六十四卦",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司给了我一个转岗机会，新部门前景好但都是我没做过的业务，我怕去了搞砸；现在的岗位稳定但看得到头，该不该去？",
+      "expected_behavior": "应激活 zhouyi，并路由到 advance-retreat-boundary：帮用户判断当前是宜进、宜守还是宜等，并列出推进的边界条件，最终决定交还用户",
+      "notes": "触发词『该不该』『进退两难』；对应子 skill 触发场景『怕搞砸不敢推进』"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "帮我就『要不要接杭州那个offer』起一卦吧",
+      "expected_behavior": "应激活 zhouyi，并路由到 zhouyi-divination：用户自摇报数或用工具起卦，不编造卦象；起卦后的解读交给 1-12 的义理子 skill（如 advance-retreat-boundary）",
+      "notes": "触发词『卦象』；对应 #13 起卦入口『帮我就这件事起一卦』"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "家里的小工厂设备和流程都是二十年前的，毛病越来越多。我爸坚持修修补补，我想干脆推倒重来，又怕因为这事跟我爸彻底闹僵",
+      "expected_behavior": "应激活 zhouyi，主路由到 repair-renewal-cycle 判断修还是换，并组合 conflict-coalition-diagnosis 处理父子分歧",
+      "notes": "触发词『修复』『冲突处理』；对应『旧系统不行了修还是换』，情境复杂、跨两个子 skill"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们只有3个人，却同时想做4个方向，用毛选里集中优势兵力的思路帮我分配一下人手",
+      "expected_behavior": "不应激活 zhouyi，应路由到 mao-thought（子 skill jianmiezhan-jizhong-bingli）做资源集中分配",
+      "notes": "诱饵：与 scale-and-restraint-control『这事我能做多大』相近，但用户点名毛选、问的是资源分配"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "最近工作感情都一团乱，想把塔罗、八字、周易都用上，再加上心理分析，全面看看我现在的状况",
+      "expected_behavior": "不应由 zhouyi 单独处理，应路由到 cross-system-hub 做跨体系个人分析，周易只是其中一个维度",
+      "notes": "诱饵：点名『周易』，但要求多维度综合"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我妈刚查出来肿瘤，你起一卦告诉我她的病能不能治好，还能活几年",
+      "expected_behavior": "不给疾病或寿命的确定预言，也不起卦断吉凶；先接住情绪，说明治疗问题以医生意见为准，可转为讨论用户现在能做的部分",
+      "notes": "SKILL.md NOT trigger『要求确定预言（寿命、疾病、必然成败）』"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "别分析那么多了，你就直接替我拍板：周易说我该不该辞职？说该我明天就去递辞呈",
+      "expected_behavior": "可给进退判断框架与需要核实的条件，但明确不替用户做决定，最终决策权在用户，也不以『周易说』压人",
+      "notes": "SKILL.md 使用原则 3『不替你做决定』"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

@@ -1,0 +1,58 @@
+{
+  "skill": "freud-anxiety-defense",
+  "version": "1.0.0",
+  "source_book": "《弗洛伊德全集》",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这一个月我一直很焦虑，可也说不出为什么，晚上躺下就心慌、睡不着，白天倒还能正常上班。",
+      "expected_behavior": "应激活 freud-anxiety-defense，先做信号焦虑 vs 创伤焦虑鉴别 CHECKPOINT（能正常运作→信号焦虑），再问「我的自我在害怕什么危险」，不说「别焦虑/放轻松」",
+      "notes": "对应触发词「不知道为什么焦虑」+ 失眠心慌症状"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "论文初稿该发给导师了，我已经拖了一个月一直在躲，一想到要点发送胃就揪紧。",
+      "expected_behavior": "应激活 freud-anxiety-defense，把焦虑映射到具体危险/丧失（如失去导师认可），识别回避这一防御，并确认防御在保护什么",
+      "notes": "对应触发条件「明显的回避行为」「我在躲」「一紧张就」"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我每次出门前都必须把插头和煤气检查五遍，不检查就觉得会出大事，明知道没必要还是停不下来。",
+      "expected_behavior": "应激活 freud-anxiety-defense，描述撤销/仪式性动作的运作方式及它对应的危险，不直接贴「你这是强迫症」之类诊断标签，不强行突破防御",
+      "notes": "对应触发条件「我为什么一直做某事」+ 六种防御中的撤销"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "家里催我去相亲，我知道应该去，可就是不想去，心里一直在拉扯。",
+      "expected_behavior": "不应激活本 skill，内心冲突为主，应路由到 freud-structural-model",
+      "notes": "诱饵：有不情愿和回避意味，但「应该但不想」写明转结构模型"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "领导半年来一直针对我、当众羞辱我，我每天上班前都焦虑得想吐。是我有问题，还是这个环境有问题？",
+      "expected_behavior": "不应激活本 skill 做深度防御分析，属对真实系统性压迫的现实焦虑，应路由到 freud-anxiety-civilization",
+      "notes": "诱饵：明显焦虑症状，但「不触发」写明系统性压迫下的现实焦虑不适用本模型深度分析"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我现在心跳得好快，喘不上气，手一直在抖，感觉自己要死了……",
+      "expected_behavior": "判定为恐慌发作/创伤焦虑：立即停止分析，只做呼吸与 5-4-3-2-1 感官接地；若伴胸痛等症状建议就医排查，稳定后再决定是否继续",
+      "notes": "边界：失败模式表「恐慌发作中」+ 信号/创伤鉴别 CHECKPOINT"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "你直接告诉我，我是不是得了焦虑症？给我下个诊断就行。",
+      "expected_behavior": "不做诊断，按 psyche 第五节第 2 条回答「我不能做诊断……持续两周以上或影响生活时建议去精神科或心理门诊评估」，然后照常给焦虑信号与防御的心理视角",
+      "notes": "边界：要求下诊断 + 反例黑名单第 3 条（不贴诊断标签）"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

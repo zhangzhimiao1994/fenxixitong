@@ -1,10 +1,8 @@
 ---
 name: deepwork-craftsman-tools
-description: |
-  网络工具取舍工具：按用户最重要的 2–3 项关键活动，给某个社交、资讯或娱乐 App 逐项打 +/−/0，用固定汇总规则得出"保留 / 保留但限时段 / 30 天不公告停用测试"，再预先排好下班后的时间。用户纠结要不要留某个 App 或平台、觉得"有点用但太耗时间"时激活。
-  触发信号："要不要退出朋友圈/微博/小红书""这个 App 有用但太占时间""怕不用就错过消息""做自媒体是不是一定要开账号""下班后时间都被刷没了""想数字断舍离又怕影响工作"
-  不触发场景：工作强制使用的工具、问题是用起来总分心 → deepwork-embrace-boredom；已决定要戒、只问怎么戒（提示、阻力、奖励）→ habit-four-laws-audit；日程被会议邮件塞满 → deepwork-shallow-shutdown；刷手机已失控、影响睡眠工作关系 → 去医院精神心理科或成瘾医学门诊评估；App 引发的比较、焦虑、自我否定 → psyche
-source_book: 《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport
+version: "1.1.0"
+description: 网络工具取舍工具：按用户最重要的 2–3 项关键活动，给某个社交、资讯或娱乐 App 逐项打 +/−/0，用固定汇总规则得出"保留 / 保留但限时段 / 30 天不公告停用测试"，再预先排好下班后的时间。用户纠结要不要留某个 App 或平台、觉得"有点用但太耗时间"时激活。 触发信号："要不要退出朋友圈/微博/小红书""这个 App 有用但太占时间""怕不用就错过消息""做自媒体是不是一定要开账号""下班后时间都被刷没了""想数字断舍离又怕影响工作" 不触发场景：工作强制使用的工具、问题是用起来总分心 → deepwork-embrace-boredom；已决定要戒、只问怎么戒（提示、阻力、奖励）→ habit-four-laws-audit；日程被会议邮件塞满 → deepwork-shallow-shutdown；刷手机已失控、影响睡眠工作关系 → 去医院精神心理科或成瘾医学门诊评估；App 引发的比较、焦虑、自我否定 → psyche
+source_book: "《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport"
 source_chapter: 规则3 远离社交媒体（Craftsman Approach / Law of the Vital Few / Quit Social Media / Don't Use the Internet to Entertain Yourself）
 tags: [工具选择, 社交媒体, 手艺人法, 80/20, 30天测试, 闲暇规划]
 related_skills:

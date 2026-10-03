@@ -1,12 +1,8 @@
 ---
 name: mindset-reaction-diagnosis
-description: |
-  做什么：判断用户在失败、需要努力、被批评、看到别人成功这四个时刻用的是"证明自己"还是"发展自己"的读法，点出这种读法让他付出的代价，并给一个今天能做的可改行为。
-  何时激活：用户描述自己（或孩子、下属）在某个具体时刻的想法和做法，或问"这算不算固定型"。
-  触发信号："一被批评就炸""考砸了就觉得自己是废物""明明需要却找借口不报名""看到同事升职我很难受""孩子一考差就说自己笨""我是不是固定型思维"。
-  不触发 → 去哪：想改内心独白、定计划 → mindset-trigger-reframe；改怎么夸/批评别人 → mindset-process-praise；"早就是成长型了但没用" → mindset-false-growth-check；伴侣冲突循环 → eft-demon-dialogues；持续低落、不想活 → psyche 第五节。
-  边界：外部结构因素（裁员、歧视、贫困）为主时先承认外部因素；不承诺换心态就有好结果。
-source_book: 《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck
+version: "1.1.0"
+description: 做什么：判断用户在失败、需要努力、被批评、看到别人成功这四个时刻用的是"证明自己"还是"发展自己"的读法，点出这种读法让他付出的代价，并给一个今天能做的可改行为。 何时激活：用户描述自己（或孩子、下属）在某个具体时刻的想法和做法，或问"这算不算固定型"。 触发信号："一被批评就炸""考砸了就觉得自己是废物""明明需要却找借口不报名""看到同事升职我很难受""孩子一考差就说自己笨""我是不是固定型思维"。 不触发 → 去哪：想改内心独白、定计划 → mindset-trigger-reframe；改怎么夸/批评别人 → mindset-process-praise；"早就是成长型了但没用" → mindset-false-growth-check；伴侣冲突循环 → eft-demon-dialogues；持续低落、不想活 → psyche 第五节。 边界：外部结构因素（裁员、歧视、贫困）为主时先承认外部因素；不承诺换心态就有好结果。
+source_book: "《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck"
 source_chapter: Ch1 The Mindsets; Ch2 Inside the Mindsets; Ch3 The Truth About Ability（标签部分）; Ch4 What Is Success / Failure
 tags: [成长型思维, 固定型思维, 挫折反应, 批评, 社会比较, 自我诊断]
 related_skills:

@@ -1,12 +1,8 @@
 ---
 name: mindset-false-growth-check
-description: |
-  做什么：审计自称成长型的做法是否只是口头化、只夸努力、见效即停，或努力在为"证明自己"服务，给一个最先改的替换动作。
-  何时激活：个人、家长、学校或团队自认为已是成长型或在推行，但行为、结果或气氛没变。
-  触发信号："我早就是成长型思维了，可还是一失败就崩""我们一直夸孩子努力，但没用""公司天天讲成长型文化，可谁犯错谁倒霉""我很努力，但其实是怕被看不起""用了那些方法见效后就又打回原形""我是不是假成长型"。
-  不触发 → 去哪：还没识别自己在哪个时刻出问题 → mindset-reaction-diagnosis；只想改一句具体的表扬或批评 → mindset-process-praise；想针对某个触发点定改变计划 → mindset-trigger-reframe；用来指责别人"你这是假成长型" → 不配合，改为讨论具体行为；职业倦怠、过劳伴身体症状 → psyche。
-  边界：躯体症状或失眠≥2 周先转 psyche；资源、考核、歧视等结构问题不归因到心态；不承诺换做法就见效。
-source_book: 《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck
+version: "1.1.0"
+description: 做什么：审计自称成长型的做法是否只是口头化、只夸努力、见效即停，或努力在为"证明自己"服务，给一个最先改的替换动作。 何时激活：个人、家长、学校或团队自认为已是成长型或在推行，但行为、结果或气氛没变。 触发信号："我早就是成长型思维了，可还是一失败就崩""我们一直夸孩子努力，但没用""公司天天讲成长型文化，可谁犯错谁倒霉""我很努力，但其实是怕被看不起""用了那些方法见效后就又打回原形""我是不是假成长型"。 不触发 → 去哪：还没识别自己在哪个时刻出问题 → mindset-reaction-diagnosis；只想改一句具体的表扬或批评 → mindset-process-praise；想针对某个触发点定改变计划 → mindset-trigger-reframe；用来指责别人"你这是假成长型" → 不配合，改为讨论具体行为；职业倦怠、过劳伴身体症状 → psyche。 边界：躯体症状或失眠≥2 周先转 psyche；资源、考核、歧视等结构问题不归因到心态；不承诺换做法就见效。
+source_book: "《终身成长》(Mindset: The New Psychology of Success) Carol S. Dweck"
 source_chapter: Ch2 Turning Knowledge into Action / Q&A; Ch8 Effort Gone Awry; Ch8 Maintaining Change
 tags: [假成长型思维, 口号化, 组织文化, 努力误用, 改变维持]
 related_skills:

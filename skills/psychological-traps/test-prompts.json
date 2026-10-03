@@ -1,0 +1,58 @@
+{
+  "skill": "psychological-traps",
+  "version": "1.0.0",
+  "source_book": "《Smart Choices》Hammond, Keeney & Raiffa (1999)",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个项目已经做了两年，烧了 200 万，现在数据一直起不来。团队有人建议停掉，可我觉得都投入这么多了，现在放弃太可惜，我是不是该再坚持半年？",
+      "expected_behavior": "应激活 psychological-traps，按信号映射优先检测沉没成本：问「如果今天从零开始你会怎么选」，只看未来收益与未来成本，并建议听没参与早期决策的人的意见",
+      "notes": "对应信号「我已经花了/投入了」与触发词「沉没成本」类场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "中介说这套房原价 800 万，现在业主急售只要 650 万，加上最近新闻都在说房价要反弹了，我觉得挺划算想尽快签。有没有陷阱？",
+      "expected_behavior": "应激活 psychological-traps，命中锚定（原价 800 万）与可回忆性（最近新闻）两个陷阱并逐个深挖：去查独立于锚点的真实价值，用统计数据替代近期印象",
+      "notes": "对应信号「原价/报价」「最近看到/新闻说」+ 触发词「有没有陷阱」；多陷阱命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我问了三个好朋友，他们都支持我辞职创业，我自己也 95% 确定能成，就是半夜偶尔会觉得不对劲。我是不是想多了？",
+      "expected_behavior": "应激活 psychological-traps，速查后只深挖命中的确认偏差（只问支持者）与过度自信（95% 确定），给出对策：找最可能反对的人、列出 3 种让估计出错的情景；不强迫用户走完 8 个陷阱",
+      "notes": "带歧义（像情绪困扰）；对应信号「我问过XX他也觉得」「我确定」+ 触发词「我觉得不对劲」"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "有个经济学家在节目里说「明年大概率降息」，这句话到底准不准？我该信几成，能不能变成一个到时候能验证的判断？",
+      "expected_behavior": "不应激活 psychological-traps，应路由到 forecast-calibrate-claim：需求是把他人含糊判断改写为可检验概率命题，而非排查自己的决策偏差",
+      "notes": "诱饵：涉及对判断的怀疑（类似过度自信话题）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "上个月我预测主队夺冠概率 70%，结果决赛输了。现在已经有结果了，帮我复盘一下：是我判断错了还是运气不好？",
+      "expected_behavior": "不应激活 psychological-traps，应路由到 forecast-update-postmortem：已到期预测的复盘（Brier 分、区分运气与判断）；本 skill 激活前自检要求用户正在做决策，事后分析不满足",
+      "notes": "诱饵：「判断错了」容易联想到决策偏差"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这八个陷阱我一个都没中，你说的沉没成本跟我完全没关系！跳过吧，直接告诉我结论",
+      "expected_behavior": "不争论、不强迫逐条过；追问「如果必须挑一个最可能中招的，是哪个」，并对用户最抗拒的沉没成本额外追问一句；仍全部否认时可切换到 problem-definition 重新定义问题",
+      "notes": "边界：用户否认；对应激活前自检与失败回退表"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "你说的锚定、确认偏差我都承认，但我还是决定选原来那个方案",
+      "expected_behavior": "尊重用户选择，不重复说教；只问一个问题：「去掉所有和陷阱相关的理由后还剩什么？」若给不出独立理由，建议用 consequences-table 重新比较方案",
+      "notes": "边界：知道陷阱仍坚持原选择的处理"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

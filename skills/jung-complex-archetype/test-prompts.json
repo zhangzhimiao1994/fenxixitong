@@ -1,0 +1,58 @@
+{
+  "skill": "jung-complex-archetype",
+  "version": "1.0.0",
+  "source_book": "《荣格全集》Vol 1-4, 8, 9.1",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我都30岁了，可只要我妈说一句'你看看人家孩子'，我立刻像回到12岁，不是摔门就是哭，事后又特别后悔。",
+      "expected_behavior": "应激活 jung-complex-archetype，先判断情绪强度和当下情境不匹配，据此认定是情结被触发；再顺着家庭模式这条线追溯源头，提出一个具体的早期经历假设",
+      "notes": "触发信号：有某个'按钮'一碰就炸；A2'父母一句话让你回到 12 岁'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我已经换了四份工作，每次都是觉得领导在控制我才辞的职。我也搞不懂自己为什么老这样，跟中了邪似的。",
+      "expected_behavior": "应激活 jung-complex-archetype，把'被控制'识别为反复出现的情结模式，对照映射表找背后可能的原型（比如父亲情结），并说明原型是光谱不是盒子，不强行套",
+      "notes": "触发信号：重复出现的行为模式 +'我好像中了邪一样'；A2'每次换工作都因同样原因离开'"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我发现自己总忍不住要去救别人：朋友失恋我陪到半夜，同事出错我替他加班，男朋友缺钱我帮他还债。累到崩溃也停不下来。这是不是某种原型在作怪？",
+      "expected_behavior": "应激活 jung-complex-archetype，把这个模式对应到'必须拯救别人 → 英雄/救世主原型'，接着用三问法和情结对话（'你想保护我什么'）；推荐'在安全范围内故意让人失望一次'这个仪式前，先评估用户有没有足够的自我支撑",
+      "notes": "带歧义：用户主动问'是什么原型'，但附了大量亲身经历，不属于灰色地带 8 那种纯分类请求，应该激活"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我是女生，为什么总被那种有才华但冷冰冰的男人吸引？每次都被伤得很惨，我爸也是那样的人。",
+      "expected_behavior": "不应激活本 skill，应路由到 jung-mother-anima：这是亲密关系里反复出现的吸引模式，和父母形象有关，属于阿尼姆斯投射",
+      "notes": "诱饵：同样是'老是这样'的重复模式，但发生在亲密关系的吸引和投射上，兄弟 skill 更专"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想养成每天早上六点起床跑步的习惯，但每次坚持不了三天，有什么好办法吗？",
+      "expected_behavior": "不应激活本 skill，应路由到 habit-starter-design：这是简单的习惯养成问题，停留在行为层面，用不着原型分析",
+      "notes": "诱饵：'总是坚持不了'像重复模式；不触发条件里写了简单的习惯养成或技能学习不用"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我总是很焦虑，你直接帮我分析一下这是哪个情结吧。",
+      "expected_behavior": "信息不足，不能直接给情结命名；应先追问最近一次具体发生的情境（发生了什么、当时什么感觉、别人什么反应）；如果回答还是泛泛的，就说明这种泛化情绪不适合套情结框架",
+      "notes": "边界：步骤 1 CHECKPOINT（描述过于简略），以及 B 节的'过度原型化日常'"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "说到我爸……我想起小时候他一喝醉就打我。我现在手在抖，脑子一片空白，说不下去了。",
+      "expected_behavior": "应立即停止追溯，转入安全容器模式（'我们不需要一次挖到底，今天就到这里'）；说明这已经不是情结层面的事，建议找专业创伤治疗师；如出现自伤信号，按 psyche 第五节处理",
+      "notes": "边界：B 节'追溯触发创伤闪回'/'独自面对深水区'，不能替代创伤治疗"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

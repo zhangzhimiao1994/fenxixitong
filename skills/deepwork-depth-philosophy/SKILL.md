@@ -1,10 +1,8 @@
 ---
 name: deepwork-depth-philosophy
-description: |
-  深度工作排程工具：按用户的岗位产出、日程自主度和熟练度，从禁欲/双峰/节奏/新闻记者四种方式里选一种把整块专注时间放进日程，再配上开工仪式和"深度小时"记分板（4DX）让它持续。用户有一项需要长时间专注的产出（论文、写书、编程、备考、方案），却总挤不出或守不住整块时间时激活。
-  触发信号："想写论文/写书但整块时间总被切碎""每天都说要专注结果一天就没了""要不要干脆闭关几天""我适合每天早起固定写两小时吗""想记录深度工作时长但坚持不下去""开工前总要磨蹭很久才进入状态"
-  不触发场景：一般日常习惯（运动、早起、阅读）→ habit-starter-design，断了想捡回 → habit-streak-plateau；坐下也专注不住 → deepwork-embrace-boredom；会议邮件塞满、下班停不下 → deepwork-shallow-shutdown；纠结 App 去留 → deepwork-craftsman-tools；高管、销售等价值来自随时在线的角色 → 先说明本方法可能不适用；长期少睡、心慌失眠 → 先降量并去医院就诊；情绪耗竭、不想活 → psyche
-source_book: 《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport
+version: "1.1.0"
+description: 深度工作排程工具：按用户的岗位产出、日程自主度和熟练度，从禁欲/双峰/节奏/新闻记者四种方式里选一种把整块专注时间放进日程，再配上开工仪式和"深度小时"记分板（4DX）让它持续。用户有一项需要长时间专注的产出（论文、写书、编程、备考、方案），却总挤不出或守不住整块时间时激活。 触发信号："想写论文/写书但整块时间总被切碎""每天都说要专注结果一天就没了""要不要干脆闭关几天""我适合每天早起固定写两小时吗""想记录深度工作时长但坚持不下去""开工前总要磨蹭很久才进入状态" 不触发场景：一般日常习惯（运动、早起、阅读）→ habit-starter-design，断了想捡回 → habit-streak-plateau；坐下也专注不住 → deepwork-embrace-boredom；会议邮件塞满、下班停不下 → deepwork-shallow-shutdown；纠结 App 去留 → deepwork-craftsman-tools；高管、销售等价值来自随时在线的角色 → 先说明本方法可能不适用；长期少睡、心慌失眠 → 先降量并去医院就诊；情绪耗竭、不想活 → psyche
+source_book: "《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport"
 source_chapter: 规则1 深度工作（Decide on Your Depth Philosophy / Ritualize / Make Grand Gestures / Execute Like a Business）
 tags: [深度工作, 排程哲学, 仪式, 4DX, 领先指标, 知识工作]
 related_skills:

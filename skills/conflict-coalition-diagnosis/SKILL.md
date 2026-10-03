@@ -1,7 +1,7 @@
 ---
 name: conflict-coalition-diagnosis
-description: |
-  用于用户处理争端、团队协作、联盟、组织动员、分裂、和解或共同体问题时。触发信号包括"讼卦怎么处理冲突""师卦是不是要组织起来""比和同人有什么区别""这段关系是睽还是萃""联盟有没有孚"。不用于单纯个人情绪安慰。
+version: "1.0.0"
+description: 用于用户处理争端、团队协作、联盟、组织动员、分裂、和解或共同体问题时。触发信号包括"讼卦怎么处理冲突""师卦是不是要组织起来""比和同人有什么区别""这段关系是睽还是萃""联盟有没有孚"。不用于单纯个人情绪安慰。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, conflict, coalition, trust, organization]

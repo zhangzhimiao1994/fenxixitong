@@ -1,11 +1,8 @@
 ---
 name: attach-anxious-avoidant-trap
-description: |
-  焦虑-回避陷阱工具。做什么：把表面的生活争吵（分床、周末、同居）还原成"我们要多近"，对照六个陷阱征兆，用迷你关系清单找触发点，设计一个双方都能接受的结构性折中；改不了时帮用户在"接受单方面妥协"和"离开"之间做决定，并撑过分开后的反弹期。
-  何时激活：已确立的恋爱或婚姻里，一方长期要更近、一方长期要更多空间，反复为同类事吵，或已经试过没用、在想去留，或分了又回头。
-  触发信号："我们总为分床、周末、搬不搬一起住吵""好的时候特别好，过几天又冷下来""他对外人很好，对我最差""明知道不合适就是离不开""分了又忍不住回去"
-  不触发：倾向没看清 → attach-style-reading；约会初期 → attach-dating-signals；吵架当下降温 → eft-raw-spot-deescalation；失恋哀伤 → psyche；有打骂、威胁、控制 → 先安全转介，不做关系分析。
-source_book: 《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller
+version: "1.1.0"
+description: 焦虑-回避陷阱工具。做什么：把表面的生活争吵（分床、周末、同居）还原成"我们要多近"，对照六个陷阱征兆，用迷你关系清单找触发点，设计一个双方都能接受的结构性折中；改不了时帮用户在"接受单方面妥协"和"离开"之间做决定，并撑过分开后的反弹期。 何时激活：已确立的恋爱或婚姻里，一方长期要更近、一方长期要更多空间，反复为同类事吵，或已经试过没用、在想去留，或分了又回头。 触发信号："我们总为分床、周末、搬不搬一起住吵""好的时候特别好，过几天又冷下来""他对外人很好，对我最差""明知道不合适就是离不开""分了又忍不住回去" 不触发：倾向没看清 → attach-style-reading；约会初期 → attach-dating-signals；吵架当下降温 → eft-raw-spot-deescalation；失恋哀伤 → psyche；有打骂、威胁、控制 → 先安全转介，不做关系分析。
+source_book: "《关系依恋》(Attached: The New Science of Adult Attachment) Amir Levine & Rachel Heller"
 source_chapter: 第8章 焦虑-回避陷阱；第9章 逃出陷阱；第10章 分手指南
 tags: [焦虑回避陷阱, 追逃循环, 关系清单, 亲密冲突, 分手决策]
 related_skills:

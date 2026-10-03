@@ -1,0 +1,58 @@
+{
+  "skill": "problem-definition",
+  "version": "1.0.0",
+  "source_book": "《Smart Choices》Hammond, Keeney & Raiffa (1999)",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板突然让我三个月内在两家外包供应商里定一家，说这事我全权负责。可我总觉得这根本不该我来定，我也不知道这个问题到底是什么",
+      "expected_behavior": "应激活 problem-definition，执行 CHECKPOINT 1 被强加问题检测（「如果没人要求你，你还会考虑这件事吗」），并挑战「三个月」「只能二选一」等隐含约束",
+      "notes": "对应触发词「不该我来定」「问题到底是什么」+ 触发因素来自别人"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "换房这件事我纠结快半年了，前后看了二十多套，每套都有不满意的地方，感觉一直在原地打转，越看越想不出好方案",
+      "expected_behavior": "应激活 problem-definition，把问题按窄/中/宽至少三种方式重新表述（如「买哪套房」→「如何解决居住空间不足」→「如何改善家庭生活质量」），并比较不同表述带来的方案差异",
+      "notes": "对应 A2 触发场景：原地打转、方案都不满意、决策拖了很久"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "最近就是觉得工作哪里不对劲，有时候想辞职，有时候又觉得是不是该换个城市，或者干脆去读书。我都不知道该从哪里开始想",
+      "expected_behavior": "应激活 problem-definition 而非直接比较方案：先识别触发因素（「是什么让你现在在考虑这件事」「不做这个决定会怎样」），再用范围试探法把问题收敛到 3-8 个可操作方案的范围",
+      "notes": "带歧义：像 proact 的入口，但核心是问题本身没定义清楚；对应触发词「从哪里开始」「感觉不对劲」"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "问题我已经想清楚了：就在 A、B、C 三个办公室里选一个，我在乎的是月租、通勤时间和面积，数据我都有，帮我列个表对比一下",
+      "expected_behavior": "不应激活 problem-definition，应路由到 consequences-table：问题已清晰定义、只需执行比较分析",
+      "notes": "诱饵：决策语境相同，但 description 明确不适用于问题已清晰定义的场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "部门现在招聘招不到人、预算又被砍了三成、两个项目交付延期、团队士气也很低，这几件事缠在一起，我不知道从哪里下手",
+      "expected_behavior": "不应激活 problem-definition，应路由到 maodun-fenxi：多个相互关联的问题并发，需要找主要矛盾，而非重新定义一个决策问题",
+      "notes": "诱饵：「不知道从哪里下手」与本 skill 触发词「从哪里开始」高度相似"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们已经把问题重新定义了四次了，你每次说的我都觉得还是不对，要不再换个说法试试？",
+      "expected_behavior": "不再无限重新定义（黑名单第 5 条）：按失败编码表暂停，问「不管最终决定什么，你现在最焦虑的是什么」从焦虑点反推；若仍无新方案产生，接受当前定义并标注「可能不完整」继续往下走",
+      "notes": "边界：反复重新定义可能成为拖延"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "医生让我明天之前决定我妈是做手术还是保守治疗，我脑子很乱，想先把问题彻底想清楚再说",
+      "expected_behavior": "应提示决策有时间窗口、问题定义不能无限花时间；只做简短的问题澄清，不给医疗专业判断，建议向主治医生确认关键信息",
+      "notes": "边界：B 节「不要忽视紧迫性」（医疗决策时间窗）"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}
