@@ -142,4 +142,4 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 | 3 | 凶牌只讲负面 | 给出转化面 |
 | 4 | 回复里讲逆位方法（"按 X 读逆位"） | 内部选好读法，只用白话说意思（"这股劲还没放出来"） |
 | 5 | 用书面义否定用户直觉 | 转 `tarot-projective-dialogue` |
-| 6 | 回复里出现"本 skill""本体系"等内部用语 | "这里按韦特塔罗来读" |
+| 6 | 回复里出现"本 skill""本体系"等内部用语 | 直接讲牌；问其他牌组时开头就做对比，不先声明按韦特读 |

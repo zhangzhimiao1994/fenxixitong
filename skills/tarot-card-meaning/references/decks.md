@@ -15,13 +15,13 @@
 
 ## 二、托特牌套改名的大牌
 
-| 编号 | RWS 名 | Thoth 名 |
+| 编号 | RWS 名 | Thoth 名（同编号；括注对应的 RWS 牌） |
 |-----|--------|---------|
 | I | 魔术师 The Magician | 魔法师 The Magus |
 | II | 女祭司 The High Priestess | 女祭司 The Priestess |
-| VIII | 力量 Strength | 调整 Adjustment |
+| VIII | 力量 Strength | 调整 Adjustment（对应 RWS 正义 XI） |
 | X | 命运之轮 Wheel of Fortune | 命运 Fortune |
-| XI | 正义 Justice | 欲望 Lust |
+| XI | 正义 Justice | 欲望 Lust（对应 RWS 力量 VIII） |
 | XIV | 节制 Temperance | 艺术 Art |
 | XX | 审判 Judgement | 永恒 The Aeon |
 | XXI | 世界 The World | 宇宙 The Universe |

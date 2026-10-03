@@ -326,14 +326,20 @@ def find_pillars(year_p, month_p, day_p, hour_p=None, start=1900, end=2050):
         print("输入不是合法干支（应为 甲子…癸亥）。")
         return
     branches = "子丑寅卯辰巳午未申酉戌亥"
-    hits = []
+    stems = "甲乙丙丁戊己庚辛壬癸"
+    hits, ymd_hits, near = [], [], []
     for y in range(start, end + 1):
         if gz[(y - 4) % 60] != year_p:
             continue
         d = dt.date(y, 1, 25)
         while d <= dt.date(y + 1, 2, 10):
             ec = Solar.fromYmdHms(d.year, d.month, d.day, 12, 0, 0).getLunar().getEightChar()
+            if ec.getYear() == year_p and ec.getMonth() == month_p and ec.getDay() != day_p:
+                dp = ec.getDay()
+                if dp[0] == day_p[0] or dp[1] == day_p[1]:  # 只差一个字的日柱，可能是抄错
+                    near.append(f"{d.isoformat()}（{dp}）")
             if ec.getYear() == year_p and ec.getMonth() == month_p and ec.getDay() == day_p:
+                ymd_hits.append(d)
                 if hour_p:
                     for i, br in enumerate(branches):
                         h = (i * 2) % 24
@@ -347,7 +353,24 @@ def find_pillars(year_p, month_p, day_p, hour_p=None, start=1900, end=2050):
             d += dt.timedelta(days=1)
     label = " ".join(x for x in [year_p, month_p, day_p, hour_p] if x)
     if not hits:
-        print(f"反查 {label}（{start}-{end}）：不存在这样的组合。年、月、日柱至少有一个记错了，请提供公历生日用 bazi 重排。")
+        print(f"反查 {label}（{start}-{end}）：不存在这样的组合。")
+        # 诊断最可能记错的是哪一柱（五虎遁：年干定月干；五鼠遁：日干定时干）
+        m_stem = stems[(2 * (stems.index(year_p[0]) % 5) + 2 + (branches.index(month_p[1]) - 2) % 12) % 10]
+        if month_p[1] in branches and m_stem != month_p[0]:
+            print(f"  诊断: 月柱和年柱对不上——{year_p[0]}年的{month_p[1]}月应是 {m_stem}{month_p[1]}，月柱或年柱很可能记错。")
+        elif ymd_hits and hour_p:
+            h_stem = stems[(2 * (stems.index(day_p[0]) % 5) + branches.index(hour_p[1])) % 10]
+            print(f"  诊断: 年月日能对上（{', '.join(x.isoformat() for x in ymd_hits[:3])}），时柱不对——{day_p[0]}日的{hour_p[1]}时应是 {h_stem}{hour_p[1]}。")
+        elif near:
+            print(f"  诊断: 年柱、月柱能对上，日柱最可能记错。同月里只差一个字的日柱（候选）：")
+            per_year = {}
+            for n in near:
+                per_year.setdefault(n[:4], []).append(n)
+            for items in per_year.values():
+                print("    " + "；".join(items[:3]))
+        else:
+            print("  诊断: 年柱与月柱在此范围内没有同时出现，年柱可能记错。")
+        print("  请提供公历生日，用 bazi 重排。")
         return
     print(f"反查 {label}（{start}-{end}）：可能的公历日期 {len(hits)} 个")
     for h in hits:
