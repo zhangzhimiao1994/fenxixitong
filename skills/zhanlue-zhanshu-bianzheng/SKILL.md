@@ -1,6 +1,6 @@
 ---
 name: zhanlue-zhanshu-bianzheng
-version: "1.0.0"
+version: "1.1.0"
 description: 当用户处于整体被动但需要在局部制造主动时激活此skill。 典型触发信号：公司整体在收缩但士气低落、资源劣势下不知如何破局、宏观被动中需要找到微观突破口。 不调用场景：双方实力相当正常竞争、已有整体优势只需执行、问题不在攻守转换层面。 与"十六字诀"skill的区别：本skill解决"宏观被动中如何制造微观主动"（攻守辩证），后者解决"根据对手状态选择节奏"（时机判断）。
 source_book: 《毛泽东选集第1-5卷》 毛泽东
 source_chapter: 论持久战(1938); 中国革命战争的战略问题(1936); 抗日游击战争的战略问题(1938)
@@ -17,6 +17,8 @@ related_skills:
   - slug: zhanlue-miaoshi-zhanshu-zhongshi
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## R — 原文 (Reading)
 

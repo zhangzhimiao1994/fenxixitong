@@ -1,6 +1,6 @@
 ---
 name: biao-ben-priority
-version: "1.0.0"
+version: "1.1.0"
 description: "用户面对多个需要同时处理的问题, 不确定优先级时; 当表面症状和根本原因交织 在一起, 不确定该先解决哪个时; 当问题有\"先发的\"和\"后发的\"之分时。 不适用于: 只有一个明确问题的场景; 问题之间没有因果关联的独立问题集合; 紧急危机处理(需要先稳住再分析)。"
 source_book: 《黄帝内经·素问》 黄帝与岐伯等
 source_chapter: 标本病传论篇第六十五、至真要大论篇第七十四
@@ -9,6 +9,8 @@ related_skills:
   - slug: prevention-strategy
     relation: contrasts-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 标本缓急决策框架
 

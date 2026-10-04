@@ -1,6 +1,6 @@
 ---
 name: seasonal-regimen
-version: "1.0.0"
+version: "1.1.0"
 description: "用户询问如何根据季节调整作息饮食运动时激活;当需要做年度健康计划或生活节奏调整时; 当感到身体状态与季节不匹配时(如冬天精力过旺无法安眠、春天却萎靡不振)。 典型触发信号: 用户提到\"最近换季身体不太对\"\"想调整作息适应季节\"\"一年四季怎么安排生活\"。 不适用于: 与季节无关的即时性问题(如突发外伤、急性感染),或已有明确西医诊断只需遵医嘱的场景。"
 source_book: 《黄帝内经·素问》
 source_chapter: 四气调神大论篇第二
@@ -11,6 +11,8 @@ related_skills:
   - slug: five-flavors-balance
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 四时调养法 (Seasonal Regimen)
 

@@ -1,12 +1,14 @@
 ---
 name: relationship-assembly
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户处理亲密关系、情感联结、长期合作稳定性、群体聚合、以及分裂后重建时。触发信号包括"这段感情能不能长久""咸卦怎么理解情感""恒卦的不恒其德是什么意思""家人卦怎么用在家庭管理""睽卦的分裂怎么处理""萃卦的聚集怎么搞""我们团队散了一地怎么办"。不用于单纯情绪抱怨不涉及具体关系诊断的场景、对方身份/关系本质尚未明确的情况。
 source_book: 《周易》
 source_scope: 六十四卦经文，PDF 23页
 tags: [zhouyi, relationship, bonding, family, assembly, connection]
 related_skills: [conflict-coalition-diagnosis, advance-retreat-boundary, repair-renewal-cycle]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Relationship Assembly
 

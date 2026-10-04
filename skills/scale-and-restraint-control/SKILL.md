@@ -1,12 +1,14 @@
 ---
 name: scale-and-restraint-control
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户需要判断一件事是"小事可做、大事不可做"，资源是否足以承载目标，承诺是否过大，扩张是否该节制时。触发信号包括"小过可小事不可大事""大过栋挠""小畜/大畜怎么判断蓄积""损益怎么用在资源配置"。不用于单纯时机判断。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, scale, restraint, capacity, resources]
 related_skills: [advance-retreat-boundary, humility-overreach-check, repair-renewal-cycle, reversal-cycle]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Scale And Restraint Control
 

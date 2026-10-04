@@ -1,12 +1,14 @@
 ---
 name: tarot-spread-synthesis
-version: "1.0.0"
+version: "1.1.0"
 description: 用于把一个牌阵中的多张塔罗牌整合成一条叙事线：位置关系、元素分布、大牌比例、数字重复、正逆比例，最终输出"象征主线 + 镜子问题 + 最小行动"。触发信号："这几张牌连起来怎么看""整体是什么意思""帮我综合解读"。不用于单张牌解释（→ tarot-card-meaning）、还没抽牌（→ tarot-draw-protocol）、对某张牌的恐惧（→ tarot-projective-dialogue）；不输出确定性结论。
 source_book: Waite《The Pictorial Key to the Tarot》Part III 占法部分 + 通行牌阵综合实践
 source_scope: 元素统计、大牌比例等综合技巧属通行实践，非 Waite 原文明确提出（标注 inference）
 tags: [tarot, spread, synthesis, narrative]
 related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Tarot Spread Synthesis — 牌阵综合
 
@@ -55,7 +57,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 6. 输出（自然段落；前提假设最多 1 行）：
    - 象征主线 1-2 句（逐张简读织在里面）→ 关键张及原因 → 元素提示
    - 结尾只有 1 个提问：镜子问题（元素缺席时优先问这个领域）
-   - 5 分钟可开始的最小行动 → "这是象征叙事，不是预测"
+   - 5 分钟可开始的最小行动（交给总入口的行动）；免责只在总入口收尾行
 7. 🔴 **CHECKPOINT**：本轮结尾的唯一提问就是镜子问题；用户回应后的下一轮再问"哪张牌让你最有感觉？"→ 进入 `tarot-projective-dialogue`
 
 ## B — 边界与 Fallback

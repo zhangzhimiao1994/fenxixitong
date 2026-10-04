@@ -1,6 +1,6 @@
 ---
 name: cascade-prediction
-version: "1.0.0"
+version: "1.1.0"
 description: "用户需要预测某个局部问题会如何扩散到其他部分时;当系统中一个环节出了问题需要评估连锁影响时; 当需要提前在传变路径上设防时;当用户说\"这个问题会不会引发其他问题\"或\"如果不处理会怎样\"时。 不适用于: 孤立问题不会产生连锁反应的场景;各环节完全独立的松耦合系统。"
 source_book: 《黄帝内经·素问》
 source_chapter: 玉机真藏论篇第十九、标本病传论篇第六十五、痹论篇第四十三
@@ -11,6 +11,8 @@ related_skills:
   - slug: prevention-strategy
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Cascade Prediction — 脏腑传变预测法
 

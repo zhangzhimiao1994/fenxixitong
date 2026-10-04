@@ -1,6 +1,6 @@
 ---
 name: root-cause-priority
-version: "1.0.0"
+version: "1.1.0"
 description: "用户面对多个相互关联的问题, 不知道先解决哪个时; 当需要区分根本原因 与表面症状时; 当问题有先后因果链需要追溯源头时。 不适用于: 只有一个简单问题的场景、问题之间没有因果关系的场景。"
 source_book: 《黄帝内经·灵枢》 黄帝与岐伯等
 source_chapter: 病本第二十五、卫气第五十二、根结第五
@@ -11,6 +11,8 @@ related_skills:
   - slug: timing-opportunity
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 标本根结定位法
 

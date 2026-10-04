@@ -1,12 +1,14 @@
 ---
 name: youxiao-goutong-wenti-jiuej
-version: 1.0.0
+version: "1.1.0"
 description: 反八股清单 + 观察提出分析解决四步法。当用户沟通效率低、写的东西没人看、会议又臭又长时激活。 不调用场景：非文字沟通问题（面对面吵架等情绪场景）、已经有成熟沟通范式的场景。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['沟通方法', '反八股', '问题解决', '表达清晰']
 related_skills:
   - slug: maodun-fenxi
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

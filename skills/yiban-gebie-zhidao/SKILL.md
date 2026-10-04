@@ -1,12 +1,14 @@
 ---
 name: yiban-gebie-zhidao
-version: 1.0.0
+version: "1.1.0"
 description: 先试点再推广的双螺旋验证-推行模型。当用户需要在全公司推行新方案但担心风险时激活。 不调用场景：小团队（<5人）不需要试点直接推行、紧急情况来不及试点。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['试点推广', '验证方法', '推行策略', '领导方法']
 related_skills:
   - slug: qunzhong-luxian
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

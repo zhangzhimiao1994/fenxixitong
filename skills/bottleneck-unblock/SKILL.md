@@ -1,6 +1,6 @@
 ---
 name: bottleneck-unblock
-version: "1.0.0"
+version: "1.1.0"
 description: "用户面对系统阻塞/瓶颈问题, 需要找到阻塞点并疏通时; 当系统\"上实下虚\" 或\"上虚下实\"等方向性阻塞时; 当直接在问题点干预无效, 需要另辟蹊径时。 不适用于: 没有阻塞的问题、可以简单修复的场景、纯资源不足(非阻塞型)的场景。"
 source_book: 《黄帝内经·灵枢》 黄帝与岐伯等
 source_chapter: 刺节真邪第七十五、九针十二原第一
@@ -11,6 +11,8 @@ related_skills:
   - slug: observe-infer
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 解结通滞法
 

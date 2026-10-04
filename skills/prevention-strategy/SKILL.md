@@ -1,6 +1,6 @@
 ---
 name: prevention-strategy
-version: "1.0.0"
+version: "1.1.0"
 description: "用户想预防某个潜在风险或问题时; 当系统出现早期预警信号但尚未爆发时; 当已出现问题需要防止恶化和扩散时; 当需要建立长期防护机制时。 不适用于: 紧急危机处理(系统正在崩溃, 需要急救而非预防); 纯历史回顾 (分析过去发生了什么但不涉及未来预防)。"
 source_book: 《黄帝内经·素问》 黄帝与岐伯等
 source_chapter: 四气调神大论篇第二、八正神明论篇第二十六、刺法论篇第七十二
@@ -11,6 +11,8 @@ related_skills:
   - slug: cascade-prediction
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 治未病预防策略
 

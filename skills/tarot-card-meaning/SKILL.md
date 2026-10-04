@@ -1,12 +1,14 @@
 ---
 name: tarot-card-meaning
-version: "1.0.0"
+version: "1.1.0"
 description: 用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义，用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、多张牌整体叙事（→ tarot-spread-synthesis）、解释后仍害怕或讲起个人联想（→ tarot-projective-dialogue）。
 source_book: Waite《The Pictorial Key to the Tarot》(1910) Part II "The Doctrine Behind the Veil" + Part III 各牌释义；Pamela Colman Smith 牌面图像
 source_scope: Rider-Waite-Smith 体系；托特牌、马赛牌只给编号与命名对照（references/decks.md）
 tags: [tarot, card-meaning, major-arcana, minor-arcana]
 related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-dialogue]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Tarot Card Meaning — 单牌释义（结构推导法）
 
@@ -118,9 +120,9 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 3. 结合**牌阵位置**（如"阻碍"位置的太阳 = "过度乐观可能是阻碍"）；没说位置 → 按所问领域读，不猜位置
 4. 结合**用户问题领域**落地成一句具体的话
 5. 凶牌 → 必须输出"转化面"
-6. **输出每张牌**（1-2 句自然的话，不用竖线模板，不照抄表格关键词）：牌名·正逆 → 原型 + 画面里 1 个具体细节 → 在此位置意味着什么（不列"岗位调整""离职"这类具体事件）→ 一个贴合用户处境的问题
-7. **单张收尾**：用户带着害怕问（"是不是很糟"）→ 第一句先答"不是坏事的预告"；再用 2-3 句讲这张牌落在所问领域里的具体样子（写成心态或感受，如"对这份工作的热情已经到期"，不写事件）；结尾 1 个今天能做的小行动 + 唯一 1 个问题（没说正逆时合并成"你第一眼的感觉是什么？抽到的是正位还是逆位？"）
-8. 🛑 **多张收尾**：单独使用时给 1 句整体线索 + 1 个小行动，最后问"哪张牌让你最有感觉？"（与 `tarot-draw-protocol` 一致）；从 `tarot` 链路进来时不停，直接进 `tarot-spread-synthesis`
+6. **输出每张牌**（1-2 句自然的话，不用竖线模板，不照抄表格关键词）：牌名·正逆 → 原型 + 画面里 1 个具体细节 → 在此位置意味着什么（不列"岗位调整""离职"这类具体事件）；不逐张提问
+7. **单张收尾**：用户带着害怕问（"是不是很糟"）→ 第一句先答"不是坏事的预告"，没表现出害怕就不写这句；再讲这张牌落在所问领域里的具体样子（写成心态或感受，如"对这份工作的热情已经到期"，不写事件）；没给领域 → 逆位给"受阻"和"释放"两种读法，各落到一种常见心态；候选问题交给 `tarot` 契约（没说正逆时候选是"抽到的是正位还是逆位"）
+8. **多张**：不停，直接进 `tarot-spread-synthesis`；候选问题见 `tarot` 契约
 
 ## B — 边界与 Fallback
 

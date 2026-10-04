@@ -1,12 +1,14 @@
 ---
 name: bianzheng-pingheng
-version: 1.0.0
+version: "1.1.0"
 description: 多目标动态平衡而非零和取舍的思维模型。当用户面对两个以上相互冲突的目标需要统筹时激活。 不调用场景：只有单一目标不需要平衡的场景、零和博弈无法兼顾的场景。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['辩证思维', '多目标平衡', '统筹兼顾', '系统思维']
 related_skills:
   - slug: jianmiezhan-jizhong-bingli
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

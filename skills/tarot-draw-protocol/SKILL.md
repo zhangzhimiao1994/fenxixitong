@@ -1,12 +1,14 @@
 ---
 name: tarot-draw-protocol
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户想要抽塔罗牌之前：把问题改写成可被象征回应的开放式问题，选择牌阵，并确保抽牌随机来源真实。触发信号："帮我抽张牌""用塔罗看看""用什么牌阵好""我想问感情/事业"。不用于解释已抽出的牌（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）、起卦（→ zhouyi-divination）；医疗/法律/投资的"做不做"不抽，只允许 stakes 牌阵。
 source_book: Waite《The Pictorial Key to the Tarot》Part III（占卜方法部分）+ 通行牌阵实践
 source_scope: 牌阵结构与提问方式；随机性规则为本体系新增约束
 tags: [tarot, spread, question-framing, randomness]
 related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, tarot-projective-dialogue]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Tarot Draw Protocol — 抽牌协议
 
@@ -24,7 +26,6 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 | 他会回来吗？ | 在这段关系里，我现在最需要看见什么？ |
 | 我能升职吗？ | 在晋升这件事上，我的优势和盲点分别是什么？ |
 | 这个月运气好不好？ | 这个月我最值得投入精力的方向是什么？ |
-| 我该不该辞职？ | 关于去留，我还没正视的那个因素是什么？ |
 
 改写原则：**主语是"我"、动词是"看见/理解/投入"、不含时间点承诺、不含他人内心的读取**。
 
@@ -35,7 +36,7 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 | 三张（过去-现在-趋势） | 3 | 默认；一件事的来龙去脉 | `--spread three` |
 | 关系五张 | 5 | 两人关系、合作 | `--spread relation` |
 | 凯尔特十字 | 10 | 重大人生议题（人生方向、换城市/行业、关系去留）、L3/L4 | `--spread cross` |
-| 态度三张 | 3 | 医疗、法律、投资、人身安全（只看心态，**此类问题唯一可用**） | `--spread stakes` |
+| 态度三张 | 3 | 高风险问题：医疗、法律、投资借贷、辞职创业转行换工作、婚育、人身安全、亲密暴力、经济施压（只看心态，**此类问题唯一可用**） | `--spread stakes` |
 
 **各牌阵的位置**（与 `tools/divine.py` 一致）
 - 三张：过去/根源 → 现在/处境 → 趋势/可能走向
@@ -67,19 +68,19 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 ## E — 执行步骤
 
 1. **收问题**：用户原话记录为 `raw_question`
-2. **高风险过滤**（先过滤，再改写）：医疗、法律、投资、人身安全 → 不为"做不做"抽牌；用户仍想看自己的心态 → 只能用 `--spread stakes`，开头声明"这三张只照见你的情绪，不作决策依据"
+2. **高风险过滤**（先过滤，再改写）：医疗、法律、投资借贷、辞职创业转行换工作、婚育、人身安全（即 `cross-system-hub` STEP 0 的 ⚖️ 与暴力行）→ 不为"做不做"抽牌；用户仍想看自己的心态 → 只能用 `--spread stakes`，开头声明"这三张只照见你的情绪，不作决策依据"
 3. **改写检测**：含"会不会/能不能/什么时候/他怎么想" → 改写并征得同意；开放问题跳过本步；开放 + 封闭混合（"我的工作状态，以及会不会升职"）→ 只改写封闭部分，与开放部分合成一个问题再确认
-   🔴 **CHECKPOINT**：改写后的问题需用户确认
+   🔴 **CHECKPOINT**：单独使用时改写后的问题请用户确认；被入口调用时不等，直接抽
 4. **选牌阵**（全仓库唯一的选阵规则，按顺序取第一条成立的）：
    ① 高风险问题 → stakes
    ② 用户说了张数 → 一张 single / 三张 three / 五张 relation / 十张 cross；其他张数取最接近的并说明
    ③ 被 cross-system-hub 调用 → 按其深度等级：L1 single、L2 three、L3/L4 cross
-   ④ 每日指引/简单看看 → single；已知有对象的两人关系 → relation（单身或不清楚 → three，开头说"按你目前的状态来看"）；人生方向/换城市或行业/关系去留 → cross；其余 → three
+   ④ 每日指引/简单看看 → single；已知有对象的两人关系 → relation（单身或不清楚 → three，开头说"按你目前的状态来看"）；人生方向、换城市 → cross；其余 → three
    开放问题即使不需改写，也在抽牌前用 1 句写明"这次看的是：…"
    用户只问"用什么牌阵" → 推荐 1 个牌阵并列出位置，把改写后的问题和关系状态的假设并进最后一问"就按这个问题现在抽吗？"，不自动抽
 5. **确定随机来源**：用户说"帮我抽/帮我看看/用塔罗看看"或已表明没有牌 → 直接运行工具，不再询问；用户没有表态 → 问一次"你手边有牌吗？"
-6. **记录牌面**：工具抽牌时附 1 行原始输出，并用白话说一句"这几张是随机工具抽的，不是我挑的"；牌面只列这一次。逆位怎么读只在内部决定，回复里不出现"按 X 读逆位"这类说法
-7. 🛑 **抽牌结束，交接解读**：本 skill 不再抽牌；同一轮接 `tarot-card-meaning` 逐张解读（陈述句，不逐张提问），本 skill 只补 1-2 句整体线索（落到用户这周的具体处境）+ 1 个小行动，全文唯一的提问是"哪张牌让你最有感觉？"；不要只给牌面清单，也不要用"要不要连起来看"结尾
+6. **记录牌面**：工具抽牌时附 1 行原始输出；牌面只列这一次，不加"不是我挑的"一类说明。逆位怎么读只在内部决定，回复里不出现"按 X 读逆位"这类说法
+7. 🛑 **抽牌结束，交接解读**：本 skill 不再抽牌；同一轮接 `tarot-card-meaning` 逐张解读（陈述句，不逐张提问），本 skill 只补 1-2 句整体线索素材（落到用户这周的具体处境）；提问只作为候选交给 `tarot` 契约（多张 = `tarot-spread-synthesis` 第 7 步的镜子问题）；不要只给牌面清单
 
 ## B — 边界与 Fallback
 

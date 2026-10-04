@@ -1,6 +1,6 @@
 ---
 name: zhudongxing-linghuoxing-jihuaxing
-version: "1.0.0"
+version: "1.1.0"
 description: 当用户的团队执行力出了问题——OKR完不成、计划总变、团队被动等指令——时激活此skill。 典型触发信号：目标定好了但执行走样、计划赶不上变化、团队只做被分配的事不主动思考。 不调用场景：执行良好只需微调、问题在战略层面而非执行层面、单人工作不需要团队执行力框架。 与"战略-战术辩证法"skill的区别：本skill解决"执行力的三个维度如何平衡"（执行层），后者解决"攻守层级的辩证设计"（策略层）。
 source_book: 《毛泽东选集第1-5卷》 毛泽东
 source_chapter: 论持久战(1938); 抗日游击战争的战略问题(1938); 中国革命战争的战略问题(1936)
@@ -11,6 +11,8 @@ related_skills:
   - slug: shiliuzijue
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## R — 原文 (Reading)
 

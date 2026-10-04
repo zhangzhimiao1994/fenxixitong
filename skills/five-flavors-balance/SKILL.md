@@ -1,6 +1,6 @@
 ---
 name: five-flavors-balance
-version: "1.0.0"
+version: "1.1.0"
 description: "用户询问饮食搭配或营养方案时激活;当出现偏食或特定味觉偏好时(如长期嗜甜、无辣不欢); 当需要通过饮食调节身体状态时(如体虚该吃什么味)。 典型触发信号: 用户说\"我最近特别想吃XX味的\"\"饮食上怎么搭配比较均衡\"\"某个脏腑虚该怎么食疗\"。 不适用于: 与饮食无关的问题,或已有专业营养师定制方案只需执行的场景。"
 source_book: 《黄帝内经·素问》
 source_chapter: 生气通天论篇第三; 五藏生成篇第十; 宣明五气篇第二十三; 藏气法时论篇第二十二
@@ -9,6 +9,8 @@ related_skills:
   - slug: five-elements-network
     relation: depends-on
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 五味调和原则 (Five Flavors Balance)
 

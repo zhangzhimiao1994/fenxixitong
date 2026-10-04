@@ -1,6 +1,6 @@
 ---
 name: zheng-xie-assessment
-version: "1.0.0"
+version: "1.1.0"
 description: "用户需要评估一个系统中\"自身能力vs外部压力\"的力量对比时; 当面对一个需要判断是\"加强自身\"还是\"消除障碍\"的场景时; 当问题反复出现需要判断是能力不足还是负担过重时; 当用户纠结于\"是该加强还是该精简\"时。 不适用于: 可以直接用数据量化评估的场景(如财务报表分析);纯客观测量即可得出结论的技术场景。"
 source_book: 《黄帝内经·素问》
 source_chapter: 通评虚实论篇第二十八、评热病论篇第三十三、刺法论篇第七十二、调经论篇第六十二
@@ -11,6 +11,8 @@ related_skills:
   - slug: observation-inference
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Zheng-Xie Assessment — 正邪虚实判断框架
 

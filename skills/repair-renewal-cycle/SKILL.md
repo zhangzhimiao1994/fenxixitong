@@ -1,12 +1,14 @@
 ---
 name: repair-renewal-cycle
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户面对组织腐坏、基础剥落、旧系统失灵、需要修复或改革时。触发信号包括"蛊卦怎么修旧账""剥和复怎么用""井卦是不是基础设施""革鼎是不是改革后立新制""现在该修复还是推新"。不用于普通情绪低落或没有实际系统问题的场景。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, repair, renewal, reform, system]
 related_skills: [hexagram-situation-diagnosis, advance-retreat-boundary, scale-and-restraint-control, reversal-cycle]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Repair Renewal Cycle
 

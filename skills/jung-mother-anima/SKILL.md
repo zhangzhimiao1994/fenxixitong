@@ -1,6 +1,6 @@
 ---
 name: jung-mother-anima
-version: "1.0.0"
+version: "1.1.0"
 description: 荣格「母亲→阿尼玛」轴线。当用户面临亲密关系困境、性别角色冲突、与异性相处困难、或说"我每次恋爱的感觉都一样""我为什么总被某一类人吸引""我搞不懂女人/男人在想什么"时使用。从母亲情结到内在异性意象（阿尼玛/阿尼姆斯），理解你投射在伴侣身上的是什么。
 input_schema:
   required: [relationship_pattern, gender, key_complaint]
@@ -9,6 +9,8 @@ output_schema:
   primary: {mother_template: string, anima_animus_stage: string, projection_pattern: string}
   secondary: [inner_dialogue_record, projection_reclamation_exercise, follow_up_prompts]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 母亲→阿尼玛：你爱的是面前的人还是心里的影子
 

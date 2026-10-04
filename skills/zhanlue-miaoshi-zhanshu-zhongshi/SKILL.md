@@ -1,6 +1,6 @@
 ---
 name: zhanlue-miaoshi-zhanshu-zhongshi
-version: "1.0.0"
+version: "1.1.0"
 description: 当用户在信心与谨慎之间摇摆不定时激活此skill——要么盲目乐观冒进，要么过度焦虑畏缩。 典型触发信号：团队在困难面前丧失信心、或者反之在顺利时过度膨胀、决策时忽左忽右。 不调用场景：团队状态健康（既有信心又够谨慎）、纯执行任务不需要心理调节、问题在技术层面而非心态层面。 与"战略-战术辩证法"skill的区别：本skill解决"执行者的心理状态管理"（心态层），后者解决"攻守层级的战略设计"（策略层）。
 source_book: 《毛泽东选集第1-5卷》 毛泽东
 source_chapter: 在莫斯科共产党和工人党代表会议上的发言(1957); 论持久战(1938); 星星之火可以燎原(1930)
@@ -13,6 +13,8 @@ related_skills:
   - slug: chijiuzhan-san-jieduan
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## R — 原文 (Reading)
 

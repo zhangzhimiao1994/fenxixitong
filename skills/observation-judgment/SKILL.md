@@ -1,12 +1,14 @@
 ---
 name: observation-judgment
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户需要判断信息真伪、外观与实质的差距、在不确定环境中如何观察决策时。触发信号包括"这件事表面和本质是不是不一样""怎么看穿表象""在信息不清的情况下应该怎么办""明夷是不是黑暗中的智慧""贲卦讲的是什么""观和看有什么区别"。不用于已有充足数据的纯量化分析，不用于算命预测。
 source_book: 《周易》
 source_scope: 六十四卦经文，PDF 23页
 tags: [zhouyi, observation, judgment, perception, truth, discernment]
 related_skills: [auspicious-risk-language, hexagram-situation-diagnosis, advance-retreat-boundary]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Observation Judgment
 

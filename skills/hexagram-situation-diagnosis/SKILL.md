@@ -1,12 +1,14 @@
 ---
 name: hexagram-situation-diagnosis
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户想借《周易》整理一个复杂处境，而不是求一个神秘断语时。触发信号包括"这个局面像什么卦""现在到底是什么处境""我该先看哪一类问题""用周易帮我分析这件事"。适合先做局面归类，再决定后续调用进退、时位、风险或关系类 skill。不用于起卦、算命、随机占卜或替代专业判断。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, hexagram, situation, diagnosis, decision]
 related_skills: [line-position-timing, advance-retreat-boundary, auspicious-risk-language, conflict-coalition-diagnosis, observation-judgment, response-action, relationship-assembly, reversal-cycle]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Hexagram Situation Diagnosis
 
@@ -136,7 +138,7 @@ related_skills: [line-position-timing, advance-retreat-boundary, auspicious-risk
 
 1. **填表诊断**：输出 `主导处境：[卦名] | 中心矛盾：[X] | 最危险误判：[Y]`（Y 来自主观倾向与客观卦象的冲突）
 2. **匹配候选卦象**：给出 2-3 个候选局面，说明为什么主导卦象比其他的更贴切。
-   🔴 **CHECKPOINT**：展示诊断+候选对比，等待确认。
+   🔴 **CHECKPOINT**：展示诊断+候选对比；单独使用时等待确认，被入口调用时不停。
 3. **输出诊断卡**：
    ```
    卦象：[X] | 阶段：[初/中/末]
@@ -145,7 +147,7 @@ related_skills: [line-position-timing, advance-retreat-boundary, auspicious-risk
    不推荐动作：[Z]
    不确定性：[高/中/低]
    ```
-4. 🛑 **STOP**：诊断卡输出后不自行调用其他 skill，等用户确认。
+4. 🛑 **STOP**（单独使用时）：诊断卡输出后不自行调用其他 skill，等用户确认；被入口调用时只交回素材，不停。
 
 ## B — 边界与 Fallback
 

@@ -1,6 +1,6 @@
 ---
 name: negative-feedback
-version: "1.0.0"
+version: "1.1.0"
 description: "用户观察到某个力量/趋势/行为过度亢盛需要引入制衡时; 当系统出现\"越用力越糟糕\"的过冲现象时; 当需要设计自我调节机制防止系统走向极端时; 当用户说\"物极必反\"或\"用力过猛反而坏事\"时。 不适用于: 需要持续单向推进不需要制衡的场景(如创业初期的全力冲刺); 问题本身就是力量不足而非亢盛的场景。"
 source_book: 《黄帝内经·素问》
 source_chapter: 六微旨大论篇第六十八、至真要大论篇第七十四、五常政大论篇第七十
@@ -11,6 +11,8 @@ related_skills:
   - slug: cascade-prediction
     relation: contrasts-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Negative Feedback — 亢害承制调控法
 

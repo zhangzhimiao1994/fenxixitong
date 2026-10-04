@@ -1,6 +1,6 @@
 ---
 name: personalize-by-constitution
-version: "1.0.0"
+version: "1.1.0"
 description: "用户需要为不同的人/场景定制方案时; 当\"一刀切\"方案失效时; 当需要根据个体差异(体质/能力/偏好)调整参数时。 不适用于: 标准化流程不需要定制的场景、群体层面的统一方案。"
 source_book: 《黄帝内经·灵枢》 黄帝与岐伯等
 source_chapter: 逆顺肥瘦第三十八、通天第七十二、根结第五、寿夭刚柔第六
@@ -11,6 +11,8 @@ related_skills:
   - slug: observe-infer
     relation: depends-on
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 因人施术原则
 

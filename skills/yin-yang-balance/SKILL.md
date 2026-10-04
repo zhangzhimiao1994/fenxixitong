@@ -1,6 +1,6 @@
 ---
 name: yin-yang-balance
-version: "1.0.0"
+version: "1.1.0"
 description: "用户需要分析某系统/身体/组织的失衡状态时; 当问题表现为对立面的冲突 (热vs冷, 快vs慢, 强vs弱, 兴奋vs抑制)时; 当需要判断失衡方向并找到纠正 方向时。 不适用于: 纯信息查询、不需要分析的场景、只有单一变量没有对立面的情况。"
 source_book: 《黄帝内经·素问》 黄帝与岐伯等
 source_chapter: 阴阳应象大论篇第五、生气通天论篇第三、调经论篇第六十二
@@ -11,6 +11,8 @@ related_skills:
   - slug: seasonal-regimen
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 阴阳平衡分析框架
 

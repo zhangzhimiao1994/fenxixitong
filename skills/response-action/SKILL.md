@@ -1,12 +1,14 @@
 ---
 name: response-action
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户面对突发冲击、危机事态、需要立即判断响应级别和决断方式时。触发信号包括"突然出事了我该怎么办""这件事该怎么回应才算恰当""震卦怎么理解危机应对""夬卦是决断还是鲁莽""噬嗑的刑罚智慧怎么用在管理里""履卦的踩虎尾是什么意思"。不用于缓慢的战略规划或没有时间压力的日常决策。
 source_book: 《周易》
 source_scope: 六十四卦经文，PDF 23页
 tags: [zhouyi, crisis, response, action, decision, urgency]
 related_skills: [advance-retreat-boundary, line-position-timing, humility-overreach-check]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Response Action
 

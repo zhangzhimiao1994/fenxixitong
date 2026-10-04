@@ -1,6 +1,6 @@
 ---
 name: excess-deficiency-decision
-version: "1.0.0"
+version: "1.1.0"
 description: "用户面临\"该加强还是该削减\"\"该投入还是该撤出\"的二元方向决策时; 当系统出现某方面过强某方面过弱的失衡时; 当需要判断失衡方向并确定 纠正方向时。不适用于: 没有失衡的分析场景、纯信息查询、 问题只有单一变量没有对立面的情况。"
 source_book: 《黄帝内经·灵枢》 黄帝与岐伯等
 source_chapter: 九针十二原第一、终始第九、根结第五
@@ -11,6 +11,8 @@ related_skills:
   - slug: root-cause-priority
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 虚实补泻决策框架
 

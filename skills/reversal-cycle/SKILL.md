@@ -1,12 +1,14 @@
 ---
 name: reversal-cycle
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户处在进程的拐点——该进却受阻、该退却不甘、上升遇瓶颈、下降要反弹、或是减/增的节奏出了问题。触发信号包括"现在是不是该退了""上升遇到瓶颈怎么办""进退两难的死局怎么破""遁卦的隐退怎么判断时机""大壮是不是力量用到头了""晋卦的晋升受阻怎么办""损和益怎么配合用""无妄为什么说无妄之灾"。不用于单纯的"该进还是该退"二元选择（转用 advance-retreat-boundary）、尚未进入任何进程的初期阶段、或拐点信号不明确仍在正常轨道运行的情况。
 source_book: 《周易》
 source_scope: 六十四卦经文，PDF 23页
 tags: [zhouyi, reversal, cycle, advance, retreat, transition]
 related_skills: [advance-retreat-boundary, line-position-timing, humility-overreach-check, scale-and-restraint-control]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Reversal Cycle
 

@@ -1,12 +1,14 @@
 ---
 name: auspicious-risk-language
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户遇到《周易》里的"吉、凶、悔、吝、无咎、厉、贞、亨、孚"等判断词，想转成现代风险语言时。触发信号包括"无咎是不是好""悔和吝有什么区别""吉是不是一定成功""这句凶该怎么理解"。不用于只背术语表，也不用于神秘化吉凶。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, risk, language, auspicious, judgment]
 related_skills: [advance-retreat-boundary, line-position-timing, hexagram-situation-diagnosis, conflict-coalition-diagnosis]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Auspicious Risk Language
 
@@ -123,7 +125,7 @@ related_skills: [advance-retreat-boundary, line-position-timing, hexagram-situat
 
 1. **逐词填表**：每个判断词一行，绑定条件不能空（如「吉→因为有孚」「凶→因为征」）。
 2. **展示核对**：输出填完的表。
-   🔴 **CHECKPOINT**：展示结果，等待确认。
+   🔴 **CHECKPOINT**：展示结果；单独使用时等待确认，被入口调用时不停。
 3. **输出行动**：悔/吝 → 给可补救动作；厉 → 给警戒清单；凶 → 给必须停止的动作 + 可重试条件。
 
 ## B — 边界与 Fallback

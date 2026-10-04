@@ -1,6 +1,6 @@
 ---
 name: chengqianbihou-zhibing-jiuren
-version: 1.0.0
+version: "1.1.0"
 description: 不讲情面揭发错误 + 完全为了救人的建设性纠偏方法。当用户需要处理团队成员的严重错误但又不忍心处罚时激活。 不调用场景：对方恶意破坏且不可转化的场景（用两类矛盾skill中的对抗性处理）、小事不需要严肃纠偏。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['纠偏方法', '建设性批评', '团队管理', '治病救人']
 related_skills:
@@ -9,6 +9,8 @@ related_skills:
   - slug: zuzhi-jiupian-zhenduan
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

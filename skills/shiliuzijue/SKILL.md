@@ -1,6 +1,6 @@
 ---
 name: shiliuzijue
-version: "1.0.0"
+version: "1.1.0"
 description: 当用户需要根据竞争对手的状态选择自己的行动节奏时激活此skill。 典型触发信号：面对强势对手不知该攻还是守、节奏被对手带跑、被动应对总慢一步。 不调用场景：没有明确对手的蓝海市场、竞争态势稳定不需要节奏调整、用户需要的是战略规划而非行动节奏。 与"不对称战略"skill的区别：本skill解决"此刻该攻还是守"（节奏层），后者解决"用什么范式竞争"（战略层）。
 source_book: 《毛泽东选集第1-5卷》 毛泽东
 source_chapter: 中国革命战争的战略问题(1936); 抗日游击战争的战略问题(1938); 论持久战(1938)
@@ -13,6 +13,8 @@ related_skills:
   - slug: zhudongxing-linghuoxing-jihuaxing
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## R — 原文 (Reading)
 

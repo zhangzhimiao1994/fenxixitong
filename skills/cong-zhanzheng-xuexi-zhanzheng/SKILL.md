@@ -1,6 +1,6 @@
 ---
 name: cong-zhanzheng-xuexi-zhanzheng
-version: 1.0.0
+version: "1.1.0"
 description: 行动优先、干起来再学习的行动哲学。当用户陷入'没准备好不敢开始'的分析瘫痪时激活。 不调用场景：已有成熟方法论且在有效运转的场景、纯理论学习需求无行动意图。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['行动哲学', '干中学', '反拖延', '实践优先']
 related_skills:
@@ -9,6 +9,8 @@ related_skills:
   - slug: fangxia-baofu-kaidong-jiqi
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

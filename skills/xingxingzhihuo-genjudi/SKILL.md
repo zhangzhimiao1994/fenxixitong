@@ -1,6 +1,6 @@
 ---
 name: xingxingzhihuo-genjudi
-version: "1.0.0"
+version: "1.1.0"
 description: 当用户处于早期弱小阶段、需要规划从0到1的扩张路径时激活此skill。 典型触发信号：资源有限但野心大、面临"全面铺开还是聚焦突破"的选择、团队出现"流寇"倾向（追风口不深耕）。 不调用场景：已有稳固基本盘只需优化、市场规模有限无需扩张、问题在执行层面而非战略路径。 与"不对称战略"skill的区别：本skill解决"在哪打、怎样扩张"（路径层），后者解决"用什么范式竞争"（战略层）。
 source_book: 《毛泽东选集第1-5卷》 毛泽东
 source_chapter: 星星之火可以燎原(1930); 关于纠正党内的错误思想(1929); 抗日游击战争的战略问题(1938)
@@ -11,6 +11,8 @@ related_skills:
   - slug: jianmiezhan-jizhong-bingli
     relation: contrasts-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## R — 原文 (Reading)
 

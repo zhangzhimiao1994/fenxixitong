@@ -1,6 +1,6 @@
 ---
 name: observe-infer
-version: "1.0.0"
+version: "1.1.0"
 description: "用户需要从外部可观测信号推断内部隐藏状态时; 当需要\"从表象看本质\"时; 当直接观测不可行, 必须通过间接指标推断时。 不适用于: 可以直接观测内部的场景、纯数据查询、不需要推断的场景。"
 source_book: 《黄帝内经·灵枢》 黄帝与岐伯等
 source_chapter: 外揣第四十五、本藏第四十七、论疾诊尺第七十四
@@ -11,6 +11,8 @@ related_skills:
   - slug: four-seas-regulation
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 司外揣内诊断术
 

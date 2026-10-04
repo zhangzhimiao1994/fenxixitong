@@ -5,7 +5,8 @@
   2. frontmatter 是合法 YAML，且有 name、description、version；不用块标量（| 或 >）
   3. 每个 skill 有可解析的 test-prompts.json，且至少有一条用例
   4. related_skills 里引用的 slug 都存在
-警告（不影响退出码）：frontmatter 的 name 与目录名不一致
+  5. 总入口维度表里每个入口 skill 都存在，且含"## 被总入口调用时：段落契约"一节（自动识别新加的维度行）
+警告（不影响退出码）：frontmatter 的 name 与目录名不一致；维度入口里出现字数配额（数字 + 字）
 """
 import json
 import re
@@ -80,6 +81,46 @@ for p in sorted(SKILLS.glob("*/SKILL.md")):
             len(data.get(k) or []) for k in ("should_trigger", "should_not_trigger", "edge_case", "edge_cases"))
     if n == 0:
         errors.append(f"{slug}: test-prompts.json 里没有用例")
+
+# 5. 总入口维度表：每行的入口 skill 存在、含段落契约；入口里出现字数配额 → 警告
+#    维度表 = cross-system-hub/SKILL.md 里第一张表头同时含"层"和"入口"的表；新加的行自动被检查
+HUB = SKILLS / "cross-system-hub" / "SKILL.md"
+CONTRACT = "## 被总入口调用时：段落契约"
+if HUB.exists():
+    hub_lines = HUB.read_text(encoding="utf-8").replace("\r\n", "\n").split("\n")
+    cols, entries = None, []
+    for i, line in enumerate(hub_lines):
+        cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.strip().startswith("|") else None
+        if cols is None:
+            if cells and "层" in cells and "入口" in cells:
+                cols = cells
+            continue
+        if not cells:
+            break
+        if set("".join(cells)) <= set("-: "):
+            continue
+        if len(cells) != len(cols):
+            errors.append(f"cross-system-hub: 维度表第 {i + 1} 行列数 {len(cells)} 与表头 {len(cols)} 不一致")
+            continue
+        m = re.search(r"`([\w-]+)`", cells[cols.index("入口")])
+        if not m:
+            errors.append(f"cross-system-hub: 维度表第 {i + 1} 行（{cells[0]}）的入口列没有 `slug`")
+            continue
+        entries.append((cells[0], m.group(1)))
+    if cols is None:
+        errors.append("cross-system-hub: 找不到维度表（表头需含'层'和'入口'两列）")
+    for dim, slug in entries:
+        ep = SKILLS / slug / "SKILL.md"
+        if not ep.exists():
+            errors.append(f"维度表 {dim}: 入口 {slug} 不存在")
+            continue
+        et = ep.read_text(encoding="utf-8")
+        if CONTRACT not in et:
+            errors.append(f"维度表 {dim}: 入口 {slug} 缺少一节'{CONTRACT[3:]}'")
+        for n, line in enumerate(et.split("\n"), 1):
+            if re.search(r"\d+ ?字", line):
+                warnings.append(f"{slug}:{n}: 入口里出现字数配额（字数只在总入口深度表）：{line.strip()[:40]}")
+    print(f"维度表：{len(entries)} 个维度入口已检查")
 
 for w in warnings:
     print("WARN ", w)

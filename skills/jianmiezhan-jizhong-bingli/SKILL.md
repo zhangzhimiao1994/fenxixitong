@@ -1,6 +1,6 @@
 ---
 name: jianmiezhan-jizhong-bingli
-version: "1.0.0"
+version: "1.1.0"
 description: 当用户资源有限但面临多个机会/威胁，需要在多个方向间做取舍时激活。典型触发信号： "5个客户机会同时出现""要不要同时做ToB和ToC""资源不够分怎么办"。 不调用场景：资源充裕可以多线并进、已经确定主攻方向只需执行、单一目标不存在取舍。 与"矛盾分析法"的区别：本skill解决"知道瓶颈后如何集中资源彻底解决"，后者解决"找到瓶颈在哪"。
 source_book: 《毛泽东选集第1-5卷》 毛泽东
 source_chapter: 中国革命战争的战略问题(1936); 集中优势兵力各个歼灭敌人(1946); 目前形势和我们的任务(1947)
@@ -15,6 +15,8 @@ related_skills:
   - slug: zhanlue-zhanshu-bianzheng
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## R — 原文 (Reading)
 

@@ -1,6 +1,6 @@
 ---
 name: four-seas-regulation
-version: "1.0.0"
+version: "1.1.0"
 description: "用户需要管理一个复杂系统的核心枢纽时; 当\"面面俱到\"策略失效, 需要找到关键节点集中管理时; 当系统有多个核心功能区域需要分别监测时。 不适用于: 只有一个中心节点的简单系统、不需要分层管理的场景。"
 source_book: 《黄帝内经·灵枢》 黄帝与岐伯等
 source_chapter: 海论第三十三、卫气第五十二
@@ -11,6 +11,8 @@ related_skills:
   - slug: qi-regulation
     relation: depends-on
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 四海调节法: 核心枢纽管理
 

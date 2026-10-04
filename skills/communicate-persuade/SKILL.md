@@ -1,6 +1,6 @@
 ---
 name: communicate-persuade
-version: "1.0.0"
+version: "1.1.0"
 description: "用户需要说服不配合的人接受具体方案时; 当面对\"骄恣从欲\"的强势对象时; 当需要将复杂方案转化为对方愿意接受的执行步骤时; 当需要在\"尊重对方意愿\"和\"坚持正确方向\"之间找平衡时。 不适用于: 纯信息传递不需要说服的场景、对方已完全配合的场景。"
 source_book: 《黄帝内经·灵枢》 黄帝与岐伯等
 source_chapter: 师传第二十九、官能第七十三
@@ -9,6 +9,8 @@ related_skills:
   - slug: personalize-by-constitution
     relation: depends-on
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # 师传顺志法: 四步沟通术
 

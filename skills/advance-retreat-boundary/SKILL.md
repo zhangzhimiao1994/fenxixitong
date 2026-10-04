@@ -1,12 +1,14 @@
 ---
 name: advance-retreat-boundary
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户在一个处境中纠结该进、该退、该守、该等、该涉险还是该停止时。触发信号包括"利有攸往吗""要不要涉大川""现在该推进还是暂停""勿用是什么意思""征凶但利涉大川怎么理解"。不用于无条件鼓励行动，也不用于替代专业风险评估。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, decision, advance, retreat, boundary]
 related_skills: [hexagram-situation-diagnosis, line-position-timing, auspicious-risk-language, scale-and-restraint-control, reversal-cycle]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Advance Retreat Boundary
 

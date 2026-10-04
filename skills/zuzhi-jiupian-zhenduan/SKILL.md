@@ -1,12 +1,14 @@
 ---
 name: zuzhi-jiupian-zhenduan
-version: 1.0.0
+version: "1.1.0"
 description: 表现→根源→处方的组织健康度诊断三步法。当用户感觉团队文化出问题但不知道根在哪时激活。 不调用场景：个人层面问题而非组织系统问题、组织太小（<5人）无法形成系统性症状。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['组织诊断', '问题溯源', '系统思维', '团队健康']
 related_skills:
   - slug: chengqianbihou-zhibing-jiuren
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

@@ -1,6 +1,6 @@
 ---
 name: tongyi-zhanxian-duli
-version: 1.0.0
+version: "1.1.0"
 description: 合作中保持独立立场的博弈框架。当用户需要与其他方合作但担心失去自主权时激活。 不调用场景：完全独立不需要合作的场景、不需要保持独立性的纯粹外包关系。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['合作博弈', '独立性', '统一战线', '联盟策略']
 related_skills:
@@ -9,6 +9,8 @@ related_skills:
   - slug: bianzheng-pingheng
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

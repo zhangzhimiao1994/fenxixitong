@@ -1,12 +1,14 @@
 ---
 name: lianglei-maodun
-version: 1.0.0
+version: "1.1.0"
 description: 对抗性 vs 非对抗性冲突的区分与分级响应。当用户面对人际/组织冲突需要判断该对抗还是协商时激活。 不调用场景：问题已经明确且对立性质清晰的场景、非人际/组织冲突的纯技术问题。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['矛盾分类', '冲突处理', '敌我判断', '组织管理']
 related_skills:
   - slug: chengqianbihou-zhibing-jiuren
     relation: composes-with
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 
 ## R — 原文 (Reading)

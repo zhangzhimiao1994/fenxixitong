@@ -1,12 +1,14 @@
 ---
 name: line-position-timing
-version: "1.0.0"
+version: "1.1.0"
 description: 用于用户需要判断一件事处在"初、二、三、四、五、上"哪种阶段，是否过早、过迟、过高、临门或过度时。触发信号包括"现在该不该动""是不是还没到时候""为什么同一件事有时吉有时凶""我在这个局面第几爻"。不用于计算具体爻变或替代起卦算法。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, timing, line-position, stage, action]
 related_skills: [hexagram-situation-diagnosis, advance-retreat-boundary, humility-overreach-check, reversal-cycle]
 ---
+
+> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Line Position Timing
 
