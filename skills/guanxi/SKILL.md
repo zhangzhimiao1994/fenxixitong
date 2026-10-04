@@ -1,6 +1,6 @@
 ---
 name: guanxi
-version: "1.3.0"
+version: "1.3.1"
 description: 关系维度总路由（依恋 + 情绪聚焦）：用户的痛苦来自和某个具体伴侣/对象的互动时激活，先做关系安全筛查，再按原话路由到 8 个子 skill（attach-×4 看倾向、合不合适、怎么说；eft-×4 看已在关系里的冲突循环怎么拆、怎么修复）。触发：我是不是焦虑型、他是不是回避型、忽冷忽热要不要继续、我们每次都吵成这样、我越说他越躲、像室友、那个语气一出来我就炸、那件事过去几年还是放不下。不触发：关系模式的童年成因、与伴侣无关的情绪按钮 → psyche；还同时有拖延、自我否定等别的困扰 → cross-system-hub；问"我们会不会分手"这类确定结果 → panduan 改写成可检验命题。有暴力、害怕对方、严重成瘾、长期出轨 → 只给安全场景格式；自伤信号 → psyche 第五节危机话术。
 tags: [guanxi, relationship, attachment, eft, hub]
 related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avoidant-trap, attach-secure-communication, eft-demon-dialogues, eft-raw-spot-deescalation, eft-hold-me-tight-talk, eft-forgiving-injuries, psyche, cross-system-hub]
@@ -22,6 +22,7 @@ related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avo
    - 命中亲密暴力、害怕对方、严重成瘾、长期出轨 → 只用第三节"安全场景格式"：
      - 单独调用：本轮结束
      - 被 `cross-system-hub` 调用：只返回安全场景格式，由 hub 置顶；其他维度照常写，但不得出现"好好沟通"一类建议，也不写双方循环
+   - 命中经济施压（反复催要钱、要求取公积金/贷款/替其还债、控制工资卡或收入），且没有暴力、害怕 → 只用第三节"经济施压格式"，不做沟通练习，不回答"他是不是真心"
    - 拿不准时按失败表第 1 行处理
 3. **选子 skill**
    - 输入：用户原话
@@ -91,6 +92,14 @@ related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avo
   - 转折类牌（命运之轮、死神、高塔、宝剑八）只读成此刻的感受（"你心里一直绷着"），不写"事情在变/该走"
 - 用户问"还能不能过下去"：只在塔罗段写半句"牌给不出能不能过下去的答案"
 
+**经济施压格式**（反复催钱、要你动公积金/贷款/替他还债、控制收入；没有暴力和害怕时用）：
+1. 1 句中性接住，同上第 1 条
+2. 风险信号：逐条点出原话里出现的（反复催促、要你动公积金或贷款、只给口头承诺、不给账单、控制收入）
+3. 事实核对：按 hub 参考文件 `references/translation-and-plan.md` 第四节"替伴侣还债 / 取公积金"清单
+4. 他人内心不答：不回答"他是不是真心""我该信他吗"，只看能核对的事实（"真不真心看不出来，账单和借条看得出来"）
+5. 需要时（对方威胁、用分手或伤害相逼、你开始害怕）→ 转上面的安全场景格式，并给妇女维权热线 12338
+
+不给沟通练习和"怎么跟他谈"的话术；可以给 1 句只为核对事实的话（请对方提供账单和借条）。被 hub 调用时，这段放在主要矛盾之后，问题名额按 hub 优先规则第 2 条。
 
 ## 四、边界
 
