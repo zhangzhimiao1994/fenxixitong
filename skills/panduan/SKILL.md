@@ -1,6 +1,6 @@
 ---
 name: panduan
-version: "1.4.0"
+version: "1.3.0"
 description: 判断维度总路由（超预测）：用户要概率、问准不准、该信几成、要复盘，或其他维度（塔罗、星盘、八字、卦象）给出了需要检验的"倾向"时激活（被 cross-system-hub 调用时，只有用户自己问概率才完整展开，象征倾向只走 hub 的 C9 / STEP 8 固定调用、不单独成段）；把判断写成"事件 + 截止日 + 判定方式 + 几成把握"，路由到 3 个 forecast- 子 skill。触发：这件事有几成把握、概率大概多少、没数据怎么估、星盘说是窗口期该信几成、"很可能"是多大可能、新消息要不要改判断、帮我复盘、那次说中了是不是我判断对。不触发：只想看牌面或命盘本身怎么读 → tarot / fortune；多方案比优劣 → consequences-table；找主要矛盾 → mao-thought；还同时有其他困扰 → cross-system-hub。寿命、疾病结局、投资买卖时点、他人会不会伤害自己 → 不给概率，改写为可控的行为命题。
 tags: [panduan, judgment, forecasting, calibration, hub]
 related_skills: [forecast-calibrate-claim, forecast-fermi-baserate, forecast-update-postmortem, fortune, tarot, consequences-table, cross-system-hub]
@@ -30,7 +30,10 @@ related_skills: [forecast-calibrate-claim, forecast-fermi-baserate, forecast-upd
    - 用户只想看牌面、命盘本身 → 转 `tarot` / `fortune`
 4. **交给子 skill**
    - 用户单独来问 → 用子 skill 自己的输出格式回复
-   - 被 `cross-system-hub` 调用 → 写法按 hub STEP 5 判断条；覆盖 `forecast-calibrate-claim` 的第 5 步给数和第 7 步日志，结尾提问由 hub 分配
+   - 被 `cross-system-hub` 调用 → 返回 3 句，每句 ≤60 字：
+     1. 为什么报不出确定数 + 数从哪来。有来源（用户给的、可核对的公开统计）→ 写数和来源；没有来源 → 不写比例和多寡（"不少""多数""头几年关掉很多"都算凭记忆的统计），只写"同类情况差别很大，取决于[按用户领域写 1-2 个条件，如有没有付费客户、钱能撑几个月]，具体比例要去查[对应来源]"，不照抄示例
+     2. 命题："到[截止日]，[事件]，以[判定方式]为准"，请用户写下自己的几成
+     3. 象征一栏："[象征原说法]记一栏，你自己的几成记另一栏，[复盘日]对照"。复盘日早于截止日时写明"中途看一次"，截止日当天做终判   - 被 hub 调用时覆盖 `forecast-calibrate-claim` 的第 5 步"给数"和第 7 步"一行日志"：不报暂估概率；日志改成一句可抄进备忘录的命题；子 skill 自带的"唯一问题"交给 hub 统一分配
 
 **hub 的两个固定调用**（判断维度不激活时也用）：
 - C9：用户要确定预言 → `forecast-calibrate-claim`
@@ -39,7 +42,7 @@ related_skills: [forecast-calibrate-claim, forecast-fermi-baserate, forecast-upd
 ### 失败处理
 | 触发条件 | 一线修复 | 仍失败兜底 |
 |---------|---------|-----------|
-| 用户坚持"你就给我一个数" | 被 hub 调用时按 hub STEP 5；单独调用时：按 `forecast-calibrate-claim` 第 5 步给"暂估"并写明取法 | 仍坚持 → 只给"你能做的部分" |
+| 用户坚持"你就给我一个数" | 被 hub 调用时：说明数要由用户自己写下，给出拆解（几个条件同时成立）和同类情况参考；单独调用时：按 `forecast-calibrate-claim` 第 5 步给"暂估"并写明取法 | 仍坚持 → 只给"你能做的部分" |
 | 判断含糊（"他很可能会回来"） | 用 `forecast-calibrate-claim` 先补事件、截止日、判定方式 | 写不出判定方式 → 说明这句话目前无法检验 |
 | 远期大问题（5 年以上） | 拆成 1 年内可以裁定的小问题 | — |
 | 感情去留（"我们最后在一起的概率"） | 不算高风险：帮用户拆解，让用户写下自己的概率，但不由我报数字 | — |
@@ -68,4 +71,4 @@ related_skills: [forecast-calibrate-claim, forecast-fermi-baserate, forecast-upd
 | 3 | 在寿命、疾病、投资时点上给概率 | 伤害大且无依据 | 改写为可控的行为命题 |
 | 4 | 用概率替用户做决定（"三成，别辞职了"） | 越过了用户的选择权 | 给命题与复盘日，选择交还用户 |
 | 5 | 只给数不定复盘日 | 无法检验，判断永远不会变准 | 每个命题都写截止日和判定方式 |
-| 6 | 凭记忆报统计数字（"新企业两成撑不过第一年"） | 来源无法核对，看着像事实 | 只写用户给的或可核对的数；没有就不点名机构、数据集，只写"同类情况的公开统计"这类泛称，或只给拆解 |
+| 6 | 凭记忆报统计数字（"新企业两成撑不过第一年"） | 来源无法核对，看着像事实 | 只写有来源的数，否则写"具体数要去查" |
