@@ -1,6 +1,6 @@
 ---
 name: xingdong
-version: "1.3.0"
+version: "1.4.0"
 description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → psyche 第五节危机话术。
 tags: [xingdong, action, habits, deep-work, hub]
 related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-design, habit-streak-plateau, deepwork-depth-philosophy, deepwork-embrace-boredom, deepwork-craftsman-tools, deepwork-shallow-shutdown, chengzhang, huangdi-neijing, cross-system-hub]
@@ -26,12 +26,10 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 3. 🔴 **CHECKPOINT**
    - 核对卡点在"做"（启动、坚持、环境、时间），而不在"怎么看自己"
    - 用户把它说成"我就是不自律 / 没天赋" → 行动为主，再交给 `chengzhang` 写 1 句拆掉标签
-   - 对不上任何行 → 问 1 句"通常是卡在开始前、开始后，还是断了之后？"，等用户回答；被 hub 调用时不等，问题交给 hub 作为候选
+   - 对不上任何行 → 问 1 句"通常是卡在开始前、开始后，还是断了之后？"，等用户回答；被 hub 调用时不等，按 hub 优先规则
 4. **交给子 skill**
    - 用户单独来问 → 用子 skill 自己的输出格式回复
-   - 被 `cross-system-hub` 调用 → 只返回"卡住的环节链 + 卡在哪一环"（如"打开电脑 → 先点短视频 → 精力只剩一点"），行动交给 hub 的 STEP 8；hub 的第 1 个行动起步太大时缩成两分钟版（生活习惯用 `habit-starter-design`，工作交付物用 `deepwork-depth-philosophy` 的本次小目标）；子 skill 自带的结尾提问（如"锚点是什么"）不出，提问名额由 hub 统一分配
-   - 关系、成长、行动同时激活时，入口只返回链，书写顺序由 hub STEP 3 决定（主要矛盾在行动 → 行动段排在三者最前）
-   - 主要矛盾在成长时，行动段只写 1 句卡住的环节（"打开文件 → 想到要一次写好 → 关掉"），不重复成长段对"怕做不好"的解释
+   - 被 `cross-system-hub` 调用 → 只返回卡住的环节链；句数、书写顺序、两分钟版按 hub STEP 3、STEP 5、STEP 8
 
 ### 失败处理
 | 触发条件 | 一线修复 | 仍失败兜底 |
