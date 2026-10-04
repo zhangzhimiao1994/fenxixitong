@@ -1,6 +1,6 @@
 ---
 name: guanxi
-version: "1.3.1"
+version: "1.3.2"
 description: 关系维度总路由（依恋 + 情绪聚焦）：用户的痛苦来自和某个具体伴侣/对象的互动时激活，先做关系安全筛查，再按原话路由到 8 个子 skill（attach-×4 看倾向、合不合适、怎么说；eft-×4 看已在关系里的冲突循环怎么拆、怎么修复）。触发：我是不是焦虑型、他是不是回避型、忽冷忽热要不要继续、我们每次都吵成这样、我越说他越躲、像室友、那个语气一出来我就炸、那件事过去几年还是放不下。不触发：关系模式的童年成因、与伴侣无关的情绪按钮 → psyche；还同时有拖延、自我否定等别的困扰 → cross-system-hub；问"我们会不会分手"这类确定结果 → panduan 改写成可检验命题。有暴力、害怕对方、严重成瘾、长期出轨 → 只给安全场景格式；自伤信号 → psyche 第五节危机话术。
 tags: [guanxi, relationship, attachment, eft, hub]
 related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avoidant-trap, attach-secure-communication, eft-demon-dialogues, eft-raw-spot-deescalation, eft-hold-me-tight-talk, eft-forgiving-injuries, psyche, cross-system-hub]
@@ -35,6 +35,7 @@ related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avo
    - 用户单独来问 → 用子 skill 自己的输出格式回复
    - 被 `cross-system-hub` 调用 → 只返回"一条扣住原话的循环链 + 卡在哪一步"（如"他退 → 你追 → 他更退，卡在你追的那一下"），由 hub 写成 2–3 句；行动交给 hub 的 STEP 8；子 skill 自带的结尾提问不出，提问名额由 hub 统一分配
    - 只听到一方的行为、用户没说自己那一步（"他一句话不说"）→ 半条链只写原话里有的环节，用户那一环用原话填，填不出就省略这一环，不写占位词（"你那一步""__"）。模板："[原话里他的行为] → [原话里家里或你感到的变化]；[他的行为]之后你接下来怎么做，决定这个循环往哪转。"槽位全部用原话填，不照抄模板外的词。不写"这是推测""我还不清楚"；"那一刻你做了什么"交给 hub 作为问题候选，落选时段落照样读得通
+   - 双方行为都没给（只说"老吵架"）→ 只写"吵架反复出现"+"最近一次从哪句话开始，决定先停哪一环"，不写"谁先开头说不清""两边都有份"这类泛化句
    - **不推测对方动机**：不写"他可能是怕一开口又吵起来""他心里其实在乎"；只写他做了什么、用户怎么感受
    - `eft-demon-dialogues` 的"每句标'推测'"和冻结型结尾"长期走不出来就去伴侣咨询"，被 hub 调用时都不出；转介由 hub 收尾行处理
 
@@ -95,8 +96,8 @@ related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avo
 **经济施压格式**（反复催钱、要你动公积金/贷款/替他还债、控制收入；没有暴力和害怕时用）：
 1. 1 句中性接住，同上第 1 条
 2. 风险信号：逐条点出原话里出现的（反复催促、要你动公积金或贷款、只给口头承诺、不给账单、控制收入）
-3. 事实核对：按 hub 参考文件 `references/translation-and-plan.md` 第四节"替伴侣还债 / 取公积金"清单
-4. 他人内心不答：不回答"他是不是真心""我该信他吗"，只看能核对的事实（"真不真心看不出来，账单和借条看得出来"）
+3. 事实核对：清单内容见 hub 参考文件 `references/translation-and-plan.md` 第四节"替伴侣还债 / 取公积金"；放在回复哪里由 hub 统一规定，本段只写风险信号和第 4 条
+4. 他人内心不答（也不激活判断维度）：不回答"他是不是真心""我该信他吗"，只看能核对的事实（"真不真心看不出来，账单和借条看得出来"）
 5. 需要时（对方威胁、用分手或伤害相逼、你开始害怕）→ 转上面的安全场景格式，并给妇女维权热线 12338
 
 不给沟通练习和"怎么跟他谈"的话术；可以给 1 句只为核对事实的话（请对方提供账单和借条）。被 hub 调用时，这段放在主要矛盾之后，问题名额按 hub 优先规则第 2 条。
