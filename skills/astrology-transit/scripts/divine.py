@@ -228,31 +228,10 @@ def bazi(date, time, gender, no_hour=False, lon=None):
     this_year = date.today().year
     years = []
     for yr in range(this_year, this_year + 3):
-        # 取当年 6 月 1 日（已过立春）的年柱作为流年；括号里是流年天干对日主的十神
+        # 取当年 6 月 1 日（已过立春）的年柱作为流年
         gz = Solar.fromYmd(yr, 6, 1).getLunar().getYearInGanZhiByLiChun()
-        years.append(f"{yr} {gz}（{shishen(ec.getDayGan(), gz[0])}）")
-    print("流年（立春换年，括号内为流年天干十神）: " + " / ".join(years))
-
-
-GAN = "甲乙丙丁戊己庚辛壬癸"
-GAN_WX = dict(zip(GAN, "木木火火土土金金水水"))
-
-
-def shishen(day_gan, other_gan):
-    """天干十神：按五行生克 + 阴阳同异，确定性查表，不依赖第三方库。"""
-    gen = {"木": "火", "火": "土", "土": "金", "金": "水", "水": "木"}
-    ke = {"木": "土", "土": "水", "水": "火", "火": "金", "金": "木"}
-    a, b = GAN_WX[day_gan], GAN_WX[other_gan]
-    same = GAN.index(day_gan) % 2 == GAN.index(other_gan) % 2
-    if a == b:
-        return "比肩" if same else "劫财"
-    if gen[a] == b:
-        return "食神" if same else "伤官"
-    if ke[a] == b:
-        return "偏财" if same else "正财"
-    if ke[b] == a:
-        return "七杀" if same else "正官"
-    return "偏印" if same else "正印"
+        years.append(f"{yr} {gz}")
+    print("流年（立春换年）: " + " / ".join(years))
 
 
 # ---------------- 太岁 ----------------
