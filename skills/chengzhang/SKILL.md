@@ -1,6 +1,6 @@
 ---
 name: chengzhang
-version: "1.1.0"
+version: "1.2.0"
 description: 成长维度总路由（心态）：用户的痛苦来自对自己能力的评判时激活——失败、被批评、看到别人成功的那一刻，把它解释成"证明我不行"还是"我还能学"——再路由到 4 个 mindset- 子 skill。触发：一被批评就炸、考砸了就觉得自己是废物、看到同事升职很难受、我是不是固定型、被拒就听到"你不配"、怎么夸孩子、下属做得烂怎么说、早就是成长型了还是崩。不触发："我是谁"、童年成因、持续低落 → psyche；只是想养成或戒掉某个习惯 → xingdong；还同时有关系、拖延等别的困扰 → cross-system-hub。自伤信号 → psyche 第五节危机话术。
 tags: [chengzhang, growth, mindset, hub]
 related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-process-praise, mindset-false-growth-check, psyche, xingdong, cross-system-hub]
@@ -18,6 +18,7 @@ related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-pr
    - 输入：用户原话
    - 命中自伤/自杀信号 → 只执行 `psyche` 第五节危机话术，本轮结束
    - 低落持续 2 周以上或影响睡眠、饮食 → 回复里加 1 句"去医院心理科或精神科评估"，然后照常进行
+   - 判据："我什么都做不好""越来越觉得自己不行"这类能力自评本身不算情绪低落；同时说了低落、提不起劲、没兴趣、睡不好，才按情绪低落处理。能力自评没说持续多久时，只在成长段写 1 句陈述式门槛（"如果这种感觉已经超过两周或影响睡眠，去医院心理门诊评估"），不占 hub 的提问名额
    - 输出：危机话术，或进入第 2 步
 2. **选子 skill**
    - 输入：用户原话

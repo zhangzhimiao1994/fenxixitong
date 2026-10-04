@@ -1,6 +1,6 @@
 ---
 name: panduan
-version: "1.1.0"
+version: "1.2.0"
 description: 判断维度总路由（超预测）：用户要概率、问准不准、该信几成、要复盘，或其他维度（塔罗、星盘、八字、卦象）给出了需要检验的"倾向"时激活（被 cross-system-hub 调用时，只有用户自己问概率才完整展开，象征倾向只走 hub 的 C9 / STEP 8 固定调用、不单独成段）；把判断写成"事件 + 截止日 + 判定方式 + 几成把握"，路由到 3 个 forecast- 子 skill。触发：这件事有几成把握、概率大概多少、没数据怎么估、星盘说是窗口期该信几成、"很可能"是多大可能、新消息要不要改判断、帮我复盘、那次说中了是不是我判断对。不触发：只想看牌面或命盘本身怎么读 → tarot / fortune；多方案比优劣 → consequences-table；找主要矛盾 → mao-thought；还同时有其他困扰 → cross-system-hub。寿命、疾病结局、投资买卖时点、他人会不会伤害自己 → 不给概率，改写为可控的行为命题。
 tags: [panduan, judgment, forecasting, calibration, hub]
 related_skills: [forecast-calibrate-claim, forecast-fermi-baserate, forecast-update-postmortem, fortune, tarot, consequences-table, cross-system-hub]
@@ -32,7 +32,7 @@ related_skills: [forecast-calibrate-claim, forecast-fermi-baserate, forecast-upd
    - 用户单独来问 → 用子 skill 自己的输出格式回复
    - 被 `cross-system-hub` 调用 → 返回 ≤3 句：
      - 现在为什么报不出确定数
-     - 数从哪来：同类情况一般多少 → 本案怎么调整。同类数字只写有来源的（用户给的、可核对的公开统计）；凭记忆的统计不写具体百分比，写成"同类情况多数撑不过前几年，具体数要去查（如当地统计局）"
+     - 数从哪来：同类情况一般多少 → 本案怎么调整。同类数字只写有来源的（用户给的、可核对的公开统计）；凭记忆的统计不写具体百分比，按模板"同类情况[按用户的领域写大致走向]，具体数要去查[对应来源]"改写，不照抄任何示例句
      - 把用户最在意的"会不会"写成"事件 + 截止日 + 判定方式"，请用户写下自己的几成
      - 象征倾向和用户的数分两栏记
    - 被 hub 调用时覆盖 `forecast-calibrate-claim` 的第 5 步"给数"和第 7 步"一行日志"：不报暂估概率；日志改成一句可抄进备忘录的命题；子 skill 自带的"唯一问题"交给 hub 统一分配
@@ -54,7 +54,7 @@ related_skills: [forecast-calibrate-claim, forecast-fermi-baserate, forecast-upd
 
 | 信号 | 路由 |
 |------|------|
-| "这个说法准不准""星盘说是窗口期该信几成""'很可能'是多大可能" | `forecast-calibrate-claim` |
+| "这个说法准不准""星盘说是窗口期该信几成""'很可能'是多大可能"；结合塔罗、星盘、八字问"有几成把握" | `forecast-calibrate-claim`（同时问"概率大概多少"时仍以它为主，`forecast-fermi-baserate` 只提供同类参考那一句） |
 | "概率大概多少""没数据怎么估""这次不一样" | `forecast-fermi-baserate` |
 | "新消息要不要改判断""帮我复盘""那次说中了是不是我判断对" | `forecast-update-postmortem` |
 

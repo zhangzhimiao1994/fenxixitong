@@ -1,6 +1,6 @@
 ---
 name: guanxi
-version: "1.1.0"
+version: "1.2.0"
 description: 关系维度总路由（依恋 + 情绪聚焦）：用户的痛苦来自和某个具体伴侣/对象的互动时激活，先做关系安全筛查，再按原话路由到 8 个子 skill（attach-×4 看倾向、合不合适、怎么说；eft-×4 看已在关系里的冲突循环怎么拆、怎么修复）。触发：我是不是焦虑型、他是不是回避型、忽冷忽热要不要继续、我们每次都吵成这样、我越说他越躲、像室友、那个语气一出来我就炸、那件事过去几年还是放不下。不触发：关系模式的童年成因、与伴侣无关的情绪按钮 → psyche；还同时有拖延、自我否定等别的困扰 → cross-system-hub；问"我们会不会分手"这类确定结果 → panduan 改写成可检验命题。有暴力、害怕对方、严重成瘾、长期出轨 → 只给安全场景格式；自伤信号 → psyche 第五节危机话术。
 tags: [guanxi, relationship, attachment, eft, hub]
 related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avoidant-trap, attach-secure-communication, eft-demon-dialogues, eft-raw-spot-deescalation, eft-hold-me-tight-talk, eft-forgiving-injuries, psyche, cross-system-hub]
@@ -53,6 +53,7 @@ related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avo
 | 长期一追一逃，吵分床、周末、同居，在考虑去留 | `attach-anxious-avoidant-trap` |
 | 想把一个具体需要说出口，不显得黏人 | `attach-secure-communication` |
 | "每次都吵成这样""我越说他越躲""像室友" | `eft-demon-dialogues` |
+| "冷战""他一句话不说""谁也不理谁" | `eft-demon-dialogues`，按冻结型（双方退开）写；只听到对方沉默时按第一节第 5 步写半条链 |
 | "那个语气一出来我就炸"，想复盘刚吵完的那次 | `eft-raw-spot-deescalation` |
 | 不吵了但还是很远，想说"我怕失去你" | `eft-hold-me-tight-talk` |
 | "那件事过去几年还是放不下"，想道歉 | `eft-forgiving-injuries` |
@@ -61,7 +62,7 @@ related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avo
 
 ## 三、🛑 安全场景格式（原书作者也声明这些情形不适用关系练习）
 
-1. 1 句中性接住：只接住发生的事和用户的感受，不对去留表态。示例："听你说他喝醉会摔东西、还推了你，这些事压在你身上，一定很难受。"
+1. 1 句中性接住：只接住发生的事和用户的感受，不对去留表态。模板："听你说[原话里的具体事件]，[用户自己的感受词或'这些事压在你身上']，一定很难受。" 事件和感受词都从原话里取，不套用别的例子（如"他一生气就砸手机"→"听你说他一生气就砸手机，你每次都提心吊胆，一定很难受"）
    - 禁用（带立场，会被读成鼓励留下或替对方开脱）："看得出你很在意这个家""你一直在努力撑着这个家""想好好过下去的心意很珍贵""他可能只是压力大""两个人都有责任"
 2. 1 句定性，比如"喝酒砸东西、推人已经是暴力，不是你说得不够好"
 3. 3 条安全计划：
