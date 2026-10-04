@@ -1,6 +1,6 @@
 ---
 name: xingdong
-version: "1.6.0"
+version: "1.6.1"
 description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → cross-system-hub C5。
 tags: [xingdong, action, habits, deep-work, hub]
 related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-design, habit-streak-plateau, deepwork-depth-philosophy, deepwork-embrace-boredom, deepwork-craftsman-tools, deepwork-shallow-shutdown, chengzhang, huangdi-neijing, cross-system-hub]
@@ -15,14 +15,14 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
   1. 卡住的环节链，每一环来自原话（"打开电脑 → 先点短视频 → 精力只剩一点"）
   2. 卡在哪一环（提示、渴望、反应、奖励；工作上是整块时间被切碎）
   3. 第一环之前的设计问题（提示、阻力、起步大小），不归因于不自律
-- 一句带过时写什么：原话里那一个卡点本身被拖住了这件事（不重复原话的数字和时长），不补环节、不写做法；和能力自评那段说的意思重复时不写
+- 一句带过时写什么：判据和写不出时的去向都按总入口 4.4；本维只规定细节取原话里那一个卡点（不重复原话的数字和时长）
 - 主要矛盾落在行动 → 一律按完整写，环节只用原话里有的
 - 篇幅：完整约占全文 1 成（主要矛盾在行动时约 1.5 成）；一句带过 1 句
 - L1 保留：卡住的那一环，并成 1 句
-- 可提交的候选问题：④"通常是卡在开始前、开始后，还是断了之后？"（对不上路由表时）；⑤ 子 skill 的待问项（如"锚点是什么"）
+- 可提交的候选问题：④"是卡在开始前、开始后，还是断了之后？"（对不上路由表、原话也没说卡在哪时）；⑤ 子 skill 的待问项（如"锚点是什么"）
 - 本段禁止：再引主要矛盾段引过的原话；补原话没有的环节或内心活动（"一想到它就先搁着"）；重复能力自评那段对"怕做不好"的解释；做法和两分钟版（交给总入口的步骤）；"不自律"一类评判；评论方法本身
 - 本维度特有的失败分支：
-  - 原话只给一个环节（"方案拖了两周没动"）→ 降为一句带过，不补环节
+  - 原话只给一个环节（"方案拖了两周没动"），主要矛盾又不在行动 → 降为一句带过，不补环节
   - 主要矛盾在能力自评、用户说"怕做出来被否" → 本段只写环节，解释交给 `chengzhang` 那段
   - 物质/赌博成瘾、进食障碍 → 不做习惯设计，转医院精神科或成瘾医学科
   - 加班源于违法用工或欺凌 → 先承认外部因素；劳动维权打 12333 或找当地劳动监察
@@ -56,7 +56,7 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 |------|------|
 | "道理都懂就是做不到""戒不掉睡前刷手机" | `habit-four-laws-audit` |
 | "我就不是早起的人"，减下来又反弹 | `habit-identity-votes` |
-| 生活习惯"一直没开始""目标定太大"（运动、阅读、早起） | `habit-starter-design` |
+| 生活习惯"一直没开始""目标定太大"（运动、阅读、早起）；生活里单件事一直拖着（回消息、打电话、交材料） | `habit-starter-design` |
 | 工作交付物（方案、论文、报告）"拖了两周没动""开工前总要磨蹭很久" | `deepwork-depth-philosophy`（开工仪式 + 本次小目标） |
 | "断了不想捡""练了没效果""做腻了" | `habit-streak-plateau` |
 | 论文/写书/备考的整块时间总被切碎 | `deepwork-depth-philosophy` |
@@ -68,7 +68,7 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 
 ## 三、单独使用时
 
-内容按段落契约写，再加 1 个两分钟能开始的动作作为步骤；格式、篇幅、提问、收尾见总入口全局契约。
+内容按段落契约写；步骤数按总入口深度表，第 1 个用两分钟能开始的版本；格式、篇幅、提问、收尾见总入口全局契约。总入口里只剩本维完整时不转到这里，见总入口 STEP 1。
 
 ## 四、边界
 
