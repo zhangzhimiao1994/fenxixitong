@@ -1,6 +1,6 @@
 ---
 name: tarot-spread-synthesis
-version: "1.2.1"
+version: "1.3.0"
 description: 用于把一个牌阵中的多张塔罗牌整合成一条叙事线：位置关系、元素分布、大牌比例、数字重复、正逆比例，最终输出"象征主线 + 镜子问题 + 最小行动"。触发信号："这几张牌连起来怎么看""整体是什么意思""帮我综合解读"。不用于单张牌解释（→ tarot-card-meaning）、还没抽牌（→ tarot-draw-protocol）、对某张牌的恐惧（→ tarot-projective-dialogue）；不输出确定性结论。
 source_book: Waite《The Pictorial Key to the Tarot》Part III 占法部分 + 通行牌阵综合实践
 source_scope: 元素统计、大牌比例等综合技巧属通行实践，非 Waite 原文明确提出（标注 inference）
@@ -44,7 +44,7 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 | 凯尔特十字 | 第 2"交叉"、第 7"自我态度"、第 10"将来" |
 | 态度三张（stakes） | 三个位置都可以；按下面 ①② 挑，仍并列 → 第 3"我忽略了什么"（它最靠近用户能着手的事）；暴力、经济施压时，原因只写此刻的感受和需要 |
 
-在候选中按顺序挑：① 逆位优先 ② 元素与问题领域一致（问"整体状态"时跳过）③ 仍并列 → 用户现在最能着手改变的那张。给用户只讲这张牌为什么关键，不讲挑选规则。
+在候选中按顺序挑：① 逆位优先 ② 元素与问题领域一致（问"整体状态"、"我该怎么办"时跳过；大牌没有花色，这一步不算一致；问题同时涉及两个领域 → 取用户最后落在的那个问句的领域）③ 仍并列 → 用户现在最能着手改变的那张。给用户只讲这张牌为什么关键，不讲挑选规则。
 
 ## A1 — 应用案例
 

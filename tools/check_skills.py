@@ -5,7 +5,8 @@
   2. frontmatter 是合法 YAML，且有 name、description、version；不用块标量（| 或 >）
   3. 每个 skill 有可解析的 test-prompts.json，且至少有一条用例
   4. related_skills 里引用的 slug 都存在
-  5. 总入口维度表里每个入口 skill 都存在，且含"## 被总入口调用时：段落契约"一节（自动识别新加的维度行）
+  5. 总入口维度表里每个入口 skill 都存在，且含"## 被总入口调用时：段落契约"一节（自动识别新加的维度行）；
+     "层"只取观察/象征/校准；"顺序"是数字且不重复；互译表的列名都在维度表里
   6. 提到 divine.py 的 skill：有 scripts/divine.py 且与 tools/divine.py 哈希一致、有 scripts/requirements.txt、
      SKILL.md 有 divine-tool 标记块、标记块外不再写死 tools/divine.py
 警告（不影响退出码）：frontmatter 的 name 与目录名不一致；维度入口里出现字数配额（数字 + 字）
@@ -90,7 +91,8 @@ HUB = SKILLS / "cross-system-hub" / "SKILL.md"
 CONTRACT = "## 被总入口调用时：段落契约"
 if HUB.exists():
     hub_lines = HUB.read_text(encoding="utf-8").replace("\r\n", "\n").split("\n")
-    cols, entries = None, []
+    cols, entries, orders = None, [], {}
+    LAYERS = ("观察", "象征", "校准")
     for i, line in enumerate(hub_lines):
         cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.strip().startswith("|") else None
         if cols is None:
@@ -109,8 +111,38 @@ if HUB.exists():
             errors.append(f"cross-system-hub: 维度表第 {i + 1} 行（{cells[0]}）的入口列没有 `slug`")
             continue
         entries.append((cells[0], m.group(1)))
+        layer = cells[cols.index("层")]
+        if layer not in LAYERS:
+            errors.append(f"cross-system-hub: 维度表 {cells[0]} 的'层'是 {layer!r}，只能取 {'/'.join(LAYERS)}")
+        if "顺序" in cols:
+            order = cells[cols.index("顺序")]
+            try:
+                order = float(order)
+            except ValueError:
+                errors.append(f"cross-system-hub: 维度表 {cells[0]} 的'顺序'不是数字：{order!r}")
+            else:
+                if order in orders:
+                    errors.append(f"cross-system-hub: 维度表 {cells[0]} 的'顺序' {order:g} 与 {orders[order]} 重复")
+                orders[order] = cells[0]
     if cols is None:
         errors.append("cross-system-hub: 找不到维度表（表头需含'层'和'入口'两列）")
+    elif "顺序" not in cols:
+        errors.append("cross-system-hub: 维度表缺'顺序'列")
+    # 互译表的列名（除"主题"和最后的翻译列）都必须是维度表里的维度名；缺列 → 警告（该维度不参与共振）
+    ref = SKILLS / "cross-system-hub" / "references" / "translation-and-plan.md"
+    if ref.exists():
+        head = next((l for l in ref.read_text(encoding="utf-8").split("\n") if l.startswith("| 主题 |")), None)
+        if head is None:
+            errors.append("translation-and-plan.md: 找不到互译表（表头以'| 主题 |'开头）")
+        else:
+            tcols = [c.strip() for c in head.strip().strip("|").split("|")][1:]
+            tcols = [c for c in tcols if not c.endswith("翻译")]
+            dims = {d for d, _ in entries}
+            for c in tcols:
+                if c not in dims:
+                    errors.append(f"translation-and-plan.md: 互译表列 {c!r} 不在维度表里")
+            for d in sorted(dims - set(tcols)):
+                warnings.append(f"translation-and-plan.md: 互译表没有维度 {d!r} 的列（该维度不参与共振）")
     for dim, slug in entries:
         ep = SKILLS / slug / "SKILL.md"
         if not ep.exists():
