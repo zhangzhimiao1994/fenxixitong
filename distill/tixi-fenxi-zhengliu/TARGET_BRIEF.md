@@ -9,13 +9,13 @@
 
 | key | 书 | 作者 | 页数 | 文本层 | 产出位置 |
 |-----|----|------|:---:|-------|---------|
-| attached | Attached: The New Science of Adult Attachment | Amir Levine, Rachel Heller | 268 | 原生 | `skills/tixi-fenxi/attach-*` |
-| mindset | Mindset: The New Psychology of Success | Carol S. Dweck | 147 | 原生 | `skills/tixi-fenxi/mindset-*` |
-| hold-me-tight | Hold Me Tight | Sue Johnson | 209 | 原生 | `skills/tixi-fenxi/eft-*` |
-| atomic-habits | Atomic Habits | James Clear | 289 | 原生 | `skills/tixi-fenxi/habit-*` |
-| deep-work | Deep Work | Cal Newport | 190 | 原生 | `skills/tixi-fenxi/deepwork-*` |
-| superforecasting | Superforecasting | Philip E. Tetlock, Dan Gardner | 360 | 扫描 + OCR | `skills/tixi-fenxi/forecast-*` |
-| tetrabiblos | Tetrabiblos（J. M. Ashmand 英译） | Claudius Ptolemy | 200 | archive.org 扫描 + OCR | `skills/fortune/ptolemy-*` |
+| attached | Attached: The New Science of Adult Attachment | Amir Levine, Rachel Heller | 268 | 原生 | `skills/attach-*` |
+| mindset | Mindset: The New Psychology of Success | Carol S. Dweck | 147 | 原生 | `skills/mindset-*` |
+| hold-me-tight | Hold Me Tight | Sue Johnson | 209 | 原生 | `skills/eft-*` |
+| atomic-habits | Atomic Habits | James Clear | 289 | 原生 | `skills/habit-*` |
+| deep-work | Deep Work | Cal Newport | 190 | 原生 | `skills/deepwork-*` |
+| superforecasting | Superforecasting | Philip E. Tetlock, Dan Gardner | 360 | 扫描 + OCR | `skills/forecast-*` |
+| tetrabiblos | Tetrabiblos（J. M. Ashmand 英译） | Claudius Ptolemy | 200 | archive.org 扫描 + OCR | `skills/ptolemy-*` |
 
 ## 已知局限
 

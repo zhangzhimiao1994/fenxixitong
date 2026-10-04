@@ -18,7 +18,7 @@
 | 🚩 **毛选·矛盾-行动引擎** | 贯穿 | `skills/mao-thought/` | 26 |
 | 🔗 **跨体系 Hub** | — | `skills/cross-system-hub/` | — |
 
-关系、成长、行动、判断四个维度共用内部路由 `skills/tixi-fenxi/`：hub 激活这些维度时用它选子 skill、做关系安全筛查；它本身不是维度，也不直接面向用户触发。
+关系、成长、行动、判断四个维度激活时，hub 查 `skills/cross-system-hub/references/behavior-dimensions.md` 选子 skill；关系安全场景格式和这四个维度的边界也在那里。用户只问其中一类单一问题时，由对应子 skill 直接触发。
 
 **这四个维度的六本来源书**：《关系依恋》(Attached)、《依恋与亲密关系》(Hold Me Tight)、《终身成长》(Mindset)、《掌控习惯》(Atomic Habits)、《深度工作》(Deep Work)、《超预测》(Superforecasting)。运势维度的古典部分来自托勒密《四书》(Tetrabiblos)。
 
@@ -57,7 +57,7 @@ python tools/divine.py bazi 1996-08-12 15:20 --gender f
 每个 skill 目录内含 `SKILL.md` 与 `test-prompts.json`。将本仓库克隆到 OpenClaw workspace 的 `skills/` 目录下即可使用。
 
 **目录约定**：
-- 每个 skill 只在 `skills/<slug>/` 放一份，入口 skill（`psyche`、`tixi-fenxi`、`fortune`、`mao-thought` 等）只按 slug 路由，不在自己目录下放子 skill 副本。
+- 每个 skill 只在 `skills/<slug>/` 放一份，入口 skill（`psyche`、`fortune`、`mao-thought` 等）只按 slug 路由，不在自己目录下放子 skill 副本。
 - frontmatter 必须是合法 YAML，并带 `name`、`description`、`version`；值里有冒号时要加引号。
 
 改动 skill 后、提交前运行：
@@ -76,6 +76,7 @@ python tools/check_skills.py
 
 | Tag | 说明 |
 |-----|------|
+| `v3.2.1` | 删除 `tixi-fenxi`：选子 skill 的路由表、关系安全场景格式、边界并入 `cross-system-hub/references/behavior-dimensions.md` |
 | `v3.2.0` | 关系、成长、行动、判断升为 hub 一级维度（6 维 → 9 维）；`tixi-fenxi` 退为内部路由；hub 安全筛查补亲密暴力 |
 | `v3.1.2` | 删除 `three-kingdoms-skill`（与 `cross-system-hub` 重复），其组合链路并入 hub 参考文件第三节；写明 `freud-mourning-melancholia` / `freud-mourning-structure` 分界 |
 | `v3.1.1` | 删除入口目录下 153 份子 skill 重复副本；补齐 version 与 test-prompts；修 20 个非法 YAML frontmatter；新增 `tools/check_skills.py` |
