@@ -1,6 +1,6 @@
 ---
 name: xingdong
-version: "1.6.1"
+version: "1.6.2"
 description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → cross-system-hub C5。
 tags: [xingdong, action, habits, deep-work, hub]
 related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-design, habit-streak-plateau, deepwork-depth-philosophy, deepwork-embrace-boredom, deepwork-craftsman-tools, deepwork-shallow-shutdown, chengzhang, huangdi-neijing, cross-system-hub]
@@ -20,7 +20,7 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 - 篇幅：完整约占全文 1 成（主要矛盾在行动时约 1.5 成）；一句带过 1 句
 - L1 保留：卡住的那一环，并成 1 句
 - 可提交的候选问题：④"是卡在开始前、开始后，还是断了之后？"（对不上路由表、原话也没说卡在哪时）；⑤ 子 skill 的待问项（如"锚点是什么"）
-- 本段禁止：再引主要矛盾段引过的原话；补原话没有的环节或内心活动（"一想到它就先搁着"）；重复能力自评那段对"怕做不好"的解释；做法和两分钟版（交给总入口的步骤）；"不自律"一类评判；评论方法本身
+- 本段禁止：再引主要矛盾段引过的原话；补原话没有的环节或内心活动（"一想到它就先搁着""想放松一下"这类动机都不写，环节只写原话里的动作）；重复能力自评那段对"怕做不好"的解释；做法和两分钟版（交给总入口的步骤）；"不自律"一类评判；评论方法本身
 - 本维度特有的失败分支：
   - 原话只给一个环节（"方案拖了两周没动"），主要矛盾又不在行动 → 降为一句带过，不补环节
   - 主要矛盾在能力自评、用户说"怕做出来被否" → 本段只写环节，解释交给 `chengzhang` 那段
