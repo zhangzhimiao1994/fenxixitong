@@ -1,6 +1,6 @@
 ---
 name: chengzhang
-version: "1.2.0"
+version: "1.3.0"
 description: 成长维度总路由（心态）：用户的痛苦来自对自己能力的评判时激活——失败、被批评、看到别人成功的那一刻，把它解释成"证明我不行"还是"我还能学"——再路由到 4 个 mindset- 子 skill。触发：一被批评就炸、考砸了就觉得自己是废物、看到同事升职很难受、我是不是固定型、被拒就听到"你不配"、怎么夸孩子、下属做得烂怎么说、早就是成长型了还是崩。不触发："我是谁"、童年成因、持续低落 → psyche；只是想养成或戒掉某个习惯 → xingdong；还同时有关系、拖延等别的困扰 → cross-system-hub。自伤信号 → psyche 第五节危机话术。
 tags: [chengzhang, growth, mindset, hub]
 related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-process-praise, mindset-false-growth-check, psyche, xingdong, cross-system-hub]
@@ -33,7 +33,7 @@ related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-pr
    - 用户单独来问 → 用子 skill 自己的输出格式回复
    - 被 `cross-system-hub` 调用 → 只返回"那一刻的解释链 + 卡在哪一步"（如"方案被否 → 读成'我不行' → 不再改"）；子 skill 自带的结尾提问（如"脑中第一句话"）不出，提问名额由 hub 统一分配
    - 用户没给具体时刻（"我什么都做不好"）→ 用他提到的最近一件具体事当那一刻（如"方案两周没动"），不追问
-   - 自我评价横跨 2 件以上的事（"什么都做不好"同时盖住工作和家里）→ 告诉 hub 作贯穿解释；只由 1 件事引出 → 告诉 hub 只写 1 句拆掉标签
+   - **贯穿解释**：一句自我判决被用户拿来解释 2 件以上的事（"什么都做不好"同时盖住方案没动和冷战）→ 返回一条盖住两件事的解释链（"方案没动、他不说话 → 都读成\"我不行\" → 两边都不动"），并标为主要矛盾候选（hub STEP 2 平局规则②）；成长段第 1 句写成"这句判决把[事 A]和[事 B]都当成了证据"。只由 1 件事引出 → 只写 1 句拆掉标签
 
 ### 失败处理
 | 触发条件 | 一线修复 | 仍失败兜底 |
