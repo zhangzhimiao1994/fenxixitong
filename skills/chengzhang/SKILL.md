@@ -1,6 +1,6 @@
 ---
 name: chengzhang
-version: "1.0.0"
+version: "1.1.0"
 description: 成长维度总路由（心态）：用户的痛苦来自对自己能力的评判时激活——失败、被批评、看到别人成功的那一刻，把它解释成"证明我不行"还是"我还能学"——再路由到 4 个 mindset- 子 skill。触发：一被批评就炸、考砸了就觉得自己是废物、看到同事升职很难受、我是不是固定型、被拒就听到"你不配"、怎么夸孩子、下属做得烂怎么说、早就是成长型了还是崩。不触发："我是谁"、童年成因、持续低落 → psyche；只是想养成或戒掉某个习惯 → xingdong；还同时有关系、拖延等别的困扰 → cross-system-hub。自伤信号 → psyche 第五节危机话术。
 tags: [chengzhang, growth, mindset, hub]
 related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-process-praise, mindset-false-growth-check, psyche, xingdong, cross-system-hub]
@@ -27,10 +27,11 @@ related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-pr
    - 核对用户说的是对**自己能力**的评判
    - 是"我想做却做不到"→ 转 `xingdong`
    - 是"我是谁 / 为什么总是这样"→ 转 `psyche`
-   - 两边都不像 → 问 1 句"让你最难受的，是哪一刻你对自己的那句评价？"，等用户回答
+   - 两边都不像 → 问 1 句"让你最难受的，是哪一刻你对自己的那句评价？"，等用户回答；被 hub 调用时不等，问题交给 hub 作为候选
 4. **交给子 skill**
    - 用户单独来问 → 用子 skill 自己的输出格式回复
-   - 被 `cross-system-hub` 调用 → 只返回"那一刻的解释链 + 卡在哪一步"（如"方案被否 → 读成'我不行' → 不再改"）
+   - 被 `cross-system-hub` 调用 → 只返回"那一刻的解释链 + 卡在哪一步"（如"方案被否 → 读成'我不行' → 不再改"）；子 skill 自带的结尾提问（如"脑中第一句话"）不出，提问名额由 hub 统一分配
+   - 用户没给具体时刻（"我什么都做不好"）→ 用他提到的最近一件具体事当那一刻（如"方案两周没动"），不追问
    - 自我评价横跨 2 件以上的事（"什么都做不好"同时盖住工作和家里）→ 告诉 hub 作贯穿解释；只由 1 件事引出 → 告诉 hub 只写 1 句拆掉标签
 
 ### 失败处理
@@ -46,6 +47,7 @@ related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-pr
 | 信号 | 路由 |
 |------|------|
 | "一被批评就炸""看到同事升职很难受""我是不是固定型" | `mindset-reaction-diagnosis` |
+| "我什么都做不好""我就是不行"这类笼统总判决，没有具体时刻 | `mindset-reaction-diagnosis`（按第一节第 4 步，用最近一件具体事当那一刻） |
 | 已知触发点："被拒就听到你不配""破戒就放弃" | `mindset-trigger-reframe` |
 | "怎么夸孩子""下属做得烂怎么说" | `mindset-process-praise` |
 | "早就是成长型了还是崩""一直夸努力没用" | `mindset-false-growth-check` |
@@ -53,7 +55,7 @@ related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-pr
 ## 三、边界
 
 1. **不是诊断**：固定型/成长型是"在这件事上的此刻倾向"，不是人格标签
-2. **证据强度**（第一次用到时说一次）：成长型思维干预的效应量，在大规模研究中很小，不承诺"换个心态就会好"
+2. **证据强度**：只在用户问"有没有用、有没有依据"时说一句——成长型思维干预的效应量在大规模研究中很小。其余时候不评论方法本身（不写"调心态研究里效果不大"一类元评论），也不承诺"换个心态就会好"
 3. **结构因素优先**：外部压力造成的问题，不归因到心态
 4. **节食、体重相关**：先筛"催吐、暴食后补偿、体重快速下降、月经停止"，命中 → 建议去医院心理科或进食障碍门诊评估
 
@@ -66,3 +68,4 @@ related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-pr
 | 3 | 喊口号（"相信自己就能做到"） | 没有落到具体那一刻 | 引用用户那句评价，改写成下一步 |
 | 4 | 持续低落只谈心态 | 可能延误就医 | 2 周以上或影响睡眠饮食 → 先建议评估 |
 | 5 | 一次推 2 个以上子 skill | 用户不知道先做哪个 | 只选 1 个 |
+| 6 | 回复里评论方法的证据（"调心态效果其实不大"） | 削弱正文，外露内部推理 | 删掉；用户问到才说 |

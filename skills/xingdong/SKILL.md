@@ -1,7 +1,7 @@
 ---
 name: xingdong
-version: "1.0.0"
-description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和单件事的拖延，deepwork-×4 管工作专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → psyche 第五节危机话术。
+version: "1.1.0"
+description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → psyche 第五节危机话术。
 tags: [xingdong, action, habits, deep-work, hub]
 related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-design, habit-streak-plateau, deepwork-depth-philosophy, deepwork-embrace-boredom, deepwork-craftsman-tools, deepwork-shallow-shutdown, chengzhang, huangdi-neijing, cross-system-hub]
 ---
@@ -26,10 +26,10 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 3. 🔴 **CHECKPOINT**
    - 核对卡点在"做"（启动、坚持、环境、时间），而不在"怎么看自己"
    - 用户把它说成"我就是不自律 / 没天赋" → 行动为主，再交给 `chengzhang` 写 1 句拆掉标签
-   - 对不上任何行 → 问 1 句"通常是卡在开始前、开始后，还是断了之后？"，等用户回答
+   - 对不上任何行 → 问 1 句"通常是卡在开始前、开始后，还是断了之后？"，等用户回答；被 hub 调用时不等，问题交给 hub 作为候选
 4. **交给子 skill**
    - 用户单独来问 → 用子 skill 自己的输出格式回复
-   - 被 `cross-system-hub` 调用 → 只返回"卡住的环节链 + 卡在哪一环"（如"打开电脑 → 先点短视频 → 精力只剩一点"），行动交给 hub 的 STEP 8；hub 的第 1 个行动起步太大时，用 `habit-starter-design` 缩成两分钟版
+   - 被 `cross-system-hub` 调用 → 只返回"卡住的环节链 + 卡在哪一环"（如"打开电脑 → 先点短视频 → 精力只剩一点"），行动交给 hub 的 STEP 8；hub 的第 1 个行动起步太大时缩成两分钟版（生活习惯用 `habit-starter-design`，工作交付物用 `deepwork-depth-philosophy` 的本次小目标）；子 skill 自带的结尾提问（如"锚点是什么"）不出，提问名额由 hub 统一分配
 
 ### 失败处理
 | 触发条件 | 一线修复 | 仍失败兜底 |
@@ -46,18 +46,19 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 |------|------|
 | "道理都懂就是做不到""戒不掉睡前刷手机" | `habit-four-laws-audit` |
 | "我就不是早起的人"，减下来又反弹 | `habit-identity-votes` |
-| "一直没开始""目标定太大""拖了两周没动" | `habit-starter-design` |
+| 生活习惯"一直没开始""目标定太大"（运动、阅读、早起） | `habit-starter-design` |
+| 工作交付物（方案、论文、报告）"拖了两周没动""开工前总要磨蹭很久" | `deepwork-depth-philosophy`（开工仪式 + 本次小目标） |
 | "断了不想捡""练了没效果""做腻了" | `habit-streak-plateau` |
 | 论文/写书/备考的整块时间总被切碎 | `deepwork-depth-philosophy` |
 | "一无聊就刷手机""专注撑不过十分钟" | `deepwork-embrace-boredom` |
 | "要不要退微博/朋友圈""下班时间被刷没了" | `deepwork-craftsman-tools` |
 | "一天五个会正事没动""躺床上还在想工作" | `deepwork-shallow-shutdown` |
 
-**分界**：前 4 行管生活习惯（含戒除）和单件事的拖延；后 4 行管工作专注与时间结构。
+**分界**：前 4 行管生活习惯（含戒除）和生活里单件事的拖延；后 5 行管工作交付物的开工拖延、工作专注与时间结构（与 `habit-starter-design` 的不触发条款一致）。
 
 ## 三、边界
 
-1. **证据强度**（第一次用到时说一次）：执行意图有较多研究支持；四定律、深度工作的具体方法以作者经验和案例为主
+1. **证据强度**：只在用户问"有没有依据、有没有用"时说一句——执行意图有较多研究支持；四定律、深度工作的具体方法以作者经验和案例为主。其余时候不评论方法本身
 2. **不归因于不自律**：先查设计——提示、阻力、起步大小
 3. **领域常识**：涉及减重、运动、睡眠时，补 1 句相关常识，如热量缺口、运动加量每周不超过 10%、固定起床时间
 4. **结构因素优先**：岗位要求随时在线、违法用工造成的问题，先承认外部因素
