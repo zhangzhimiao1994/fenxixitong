@@ -23,7 +23,7 @@
 - 基本体系：托勒密《四书》（Tetrabiblos，2 世纪）
 - "人格潜能图谱"的心理占星取向：Dane Rudhyar《The Astrology of Personality》(1936)
 - 周期时长是天文事实；其心理意义属于解释层（inference）
-- 工具 `tools/divine.py astro`：回归黄道 + 整宫制，PyEphem 计算；上升公式已用"日出时上升 ≈ 太阳黄经"校验
+- 工具 `scripts/divine.py astro`：回归黄道 + 整宫制，PyEphem 计算；上升公式已用"日出时上升 ≈ 太阳黄经"校验
 
 ## 四、水逆期间签合同：按合同类型的核对项
 先直说"可以签，水逆没有证据会影响结果"，再挑 3-4 条：

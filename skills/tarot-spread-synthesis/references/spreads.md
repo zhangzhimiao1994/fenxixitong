@@ -1,6 +1,6 @@
 # 牌阵位置与"先看哪里"（tarot-spread-synthesis 参考）
 
-位置名与 `tools/divine.py tarot --spread ...` 的输出一致。凯尔特十字采用 Waite《The Pictorial Key to the Tarot》Part III §7 的位置名。
+位置名与 `scripts/divine.py tarot --spread ...` 的输出一致。凯尔特十字采用 Waite《The Pictorial Key to the Tarot》Part III §7 的位置名。
 
 ## 一、各牌阵位置
 

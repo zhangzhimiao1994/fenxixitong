@@ -1,6 +1,6 @@
 ---
 name: astrology-transit
-version: "1.1.0"
+version: "1.1.1"
 description: 用于基于西方星盘（本命盘）和当前行运做心理动力与周期解读：太阳/月亮/上升三要素、行星落座落宫、主要相位，以及土星回归、木星回归、外行星行运等人生周期。触发信号："帮我看星盘""我是XX座""上升星座""水逆""土星回归""今年行运"。不用于心算行星位置、事件日期预言、医疗/投资决策；问八字 → bazi-liunian；问紫微、命宫 → ziwei-doushu。
 source_book: 托勒密《四书》(Tetrabiblos，2 世纪) 传统框架；Dane Rudhyar《The Astrology of Personality》(1936) 心理占星转向；现代心理占星通行实践
 source_scope: 本命盘三要素、行星/星座/宫位/主要相位、慢速行星行运周期；不含择时占星、卜卦占星、医疗占星
@@ -11,6 +11,14 @@ related_skills: [fortune, bazi-liunian, psyche, jung-libido-individuation, jung-
 > 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Astrology & Transit — 星盘与行运
+
+<!-- divine-tool:begin -->
+**运行抽牌/排盘工具**（路径相对于本 SKILL.md 所在目录）：
+1. 找脚本，按顺序取第一个存在的：`scripts/divine.py` → `../<任一同仓 skill>/scripts/divine.py` → 仓库根 `tools/divine.py`。
+2. 运行：`python3 <脚本路径> <子命令> <参数>`；`python3` 不可用时换 `python`。
+3. 输出 `[DEPENDENCY_MISSING]` → 执行 `pip install -r <脚本所在目录>/requirements.txt` 后重跑一次；仍失败 → 按下面第 4 步。
+4. 找不到脚本 / 环境不能执行代码 / 安装失败 → 不编造任何牌面、卦象、命盘：塔罗请用户自己抽牌并报出牌名和正逆位；周易请用户掷三枚硬币六次，按"背=3、字=2"报出每次三枚之和（6/7/8/9，共 6 个数）；八字、星盘请用户贴出排盘结果。
+<!-- divine-tool:end -->
 
 ## R — 来源
 托勒密《四书》+ Rudhyar 1936 心理占星取向（转述）；周期时长是天文事实，心理意义属解释层。详见 `references/houses-and-sources.md`（含十二宫领域表、通用周期）
@@ -47,7 +55,7 @@ related_skills: [fortune, bazi-liunian, psyche, jung-libido-individuation, jung-
 - ❌ "我和他星座合不合"（→ 不做配对判决）；"哪天动手术好"（→ 不择日、转医生）
 
 ## E — 执行步骤
-1. **取盘**：运行 `python tools/divine.py astro YYYY-MM-DD HH:MM --tz 8 --lat 纬度 --lon 经度`（出生城市中心坐标，如成都 30.67/104.07，第 2 步一并展示供核对）。输出含落座、上升、相位、**当前木星/土星行运**。**禁止心算行星位置**。
+1. **取盘**：运行 `scripts/divine.py astro YYYY-MM-DD HH:MM --tz 8 --lat 纬度 --lon 经度`（出生城市中心坐标，如成都 30.67/104.07，第 2 步一并展示供核对）。输出含落座、上升、相位、**当前木星/土星行运**。**禁止心算行星位置**。
    工具不可用时，请用户从 astro.com 粘贴：`太阳/月亮/上升/水金火木土 各 __座 __°；主要相位；宫制`
 2. 🛑 **硬关卡**：出生日期不确定，或用户说盘不对 → 停下核对，不解读
    🔴 **CHECKPOINT（软核对，不空停）**：同一轮完成第 3-8 步（给了精确时间 + 城市 → 上升也读）；末尾 1 行请用户核对时间与坐标，并说明上升的敏感度（"时间差 1 小时，上升可能变成相邻星座"）
@@ -67,7 +75,7 @@ related_skills: [fortune, bazi-liunian, psyche, jung-libido-individuation, jung-
 
 | 触发条件 | 一线处理 | 仍失败 → 兜底 |
 |---------|---------|-------------|
-| `[DEPENDENCY_MISSING]` | agent 执行 `pip install -r requirements.txt` 后重跑 | 禁止安装 → 请用户从 astro.com 粘贴；不愿排盘 → 只做太阳星座 + 年龄周期 |
+| `[DEPENDENCY_MISSING]` | agent 执行 `pip install -r scripts/requirements.txt` 后重跑 | 禁止安装 → 请用户从 astro.com 粘贴；不愿排盘 → 只做太阳星座 + 年龄周期 |
 | 工具输出缺行星或上升为空 | 检查参数后重跑 1 次 | 仍缺 → 只读已有项，注明缺什么 |
 | 没说出生城市 | 补问 1 次 | 不说 → 用 `--lat 30 --lon 114` 运行，**不读上升与宫位** |
 | 问水逆能不能签合同 | 直说"可以签，水逆没有证据会影响结果"，再给 3-4 条按合同类型的核对项（references 第四节） | — |

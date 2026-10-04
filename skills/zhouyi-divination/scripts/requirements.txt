@@ -1,0 +1,3 @@
+# divine.py 的依赖：tarot、iching、taisui 子命令只用标准库，不需要安装
+lunar_python>=1.3   # bazi（八字排盘）、pillars（四柱反查）子命令需要
+ephem>=4.1          # astro（星盘与行运）子命令需要

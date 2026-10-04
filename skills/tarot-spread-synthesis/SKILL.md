@@ -1,6 +1,6 @@
 ---
 name: tarot-spread-synthesis
-version: "1.2.0"
+version: "1.2.1"
 description: 用于把一个牌阵中的多张塔罗牌整合成一条叙事线：位置关系、元素分布、大牌比例、数字重复、正逆比例，最终输出"象征主线 + 镜子问题 + 最小行动"。触发信号："这几张牌连起来怎么看""整体是什么意思""帮我综合解读"。不用于单张牌解释（→ tarot-card-meaning）、还没抽牌（→ tarot-draw-protocol）、对某张牌的恐惧（→ tarot-projective-dialogue）；不输出确定性结论。
 source_book: Waite《The Pictorial Key to the Tarot》Part III 占法部分 + 通行牌阵综合实践
 source_scope: 元素统计、大牌比例等综合技巧属通行实践，非 Waite 原文明确提出（标注 inference）
@@ -11,6 +11,14 @@ related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub
 > 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Tarot Spread Synthesis — 牌阵综合
+
+<!-- divine-tool:begin -->
+**运行抽牌/排盘工具**（路径相对于本 SKILL.md 所在目录）：
+1. 找脚本，按顺序取第一个存在的：`scripts/divine.py` → `../<任一同仓 skill>/scripts/divine.py` → 仓库根 `tools/divine.py`。
+2. 运行：`python3 <脚本路径> <子命令> <参数>`；`python3` 不可用时换 `python`。
+3. 输出 `[DEPENDENCY_MISSING]` → 执行 `pip install -r <脚本所在目录>/requirements.txt` 后重跑一次；仍失败 → 按下面第 4 步。
+4. 找不到脚本 / 环境不能执行代码 / 安装失败 → 不编造任何牌面、卦象、命盘：塔罗请用户自己抽牌并报出牌名和正逆位；周易请用户掷三枚硬币六次，按"背=3、字=2"报出每次三枚之和（6/7/8/9，共 6 个数）；八字、星盘请用户贴出排盘结果。
+<!-- divine-tool:end -->
 
 ## R — 来源
 - Waite 凯尔特法按位置逐张读、以第 10 张为汇总点（Part III §7）；先浏览整体再细读（§8）✅

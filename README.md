@@ -27,22 +27,29 @@
 
 ## 📥 安装（给 agent 的指令）
 
-把本仓库放进你的 agent 的 skills 目录后，**立即执行一次依赖安装**：
+两种方式都能用：
+
+- **整个仓库克隆**到 agent 的 skills 目录；
+- **单独拷某个 skill 文件夹**（如只拷 `skills/tarot/`）。
+
+抽牌、起卦、排盘工具已随 skill 打包：每个用到工具的 skill 自带 `scripts/divine.py`，依赖清单在该 skill 的 `scripts/requirements.txt`。SKILL.md 里的"运行抽牌/排盘工具"标记块写明找脚本、运行、缺依赖、失败时的做法，任何能执行命令的 agent 照做即可：
 
 ```bash
-pip install -r requirements.txt
+python3 scripts/divine.py tarot --spread three          # 在 skill 目录下运行；python3 不可用时换 python
+pip install -r scripts/requirements.txt                 # 输出 [DEPENDENCY_MISSING] 时执行，再重跑
 ```
 
-运行时若 `tools/divine.py` 输出 `[DEPENDENCY_MISSING]`，agent 应先执行上述安装命令再重试；只有在环境禁止安装时，才改为请用户粘贴排盘结果。
+tarot、iching、taisui 只用标准库；bazi、pillars 需要 lunar_python；astro 需要 ephem。
 
 ## 🎲 工具
 
-`tools/divine.py`：用操作系统级随机源抽塔罗、三钱法起卦，以及八字排盘，避免模型"心算随机"或"心算排盘"。
+源码只有一份：`tools/divine.py`（单文件，不读写其他文件，不依赖当前工作目录）。用操作系统级随机源抽塔罗、三钱法起卦，以及八字排盘、星盘，避免模型"心算随机"或"心算排盘"。子命令见 `python tools/divine.py --help`。
+
+**维护者**：改了 `tools/divine.py`，或新 skill 开始用到它之后，运行
 
 ```bash
-python tools/divine.py tarot --spread three        # single | three | relation | cross
-python tools/divine.py iching                      # 本卦 / 变爻 / 之卦
-python tools/divine.py bazi 1996-08-12 15:20 --gender f
+python tools/sync_scripts.py           # 同步到各 skill 的 scripts/，并更新标记块与写死的路径
+python tools/sync_scripts.py --check   # 只检查，必须 0 差异
 ```
 
 ## 🧪 蒸馏记录
@@ -65,7 +72,7 @@ python tools/divine.py bazi 1996-08-12 15:20 --gender f
 python tools/check_skills.py
 ```
 
-脚本检查四项：有没有嵌套副本、frontmatter 是否合法、`test-prompts.json` 是否存在且有用例、`related_skills` 引用的 slug 是否存在。任何一项不过，退出码为 1。
+脚本检查：有没有嵌套副本、frontmatter 是否合法、`test-prompts.json` 是否存在且有用例、`related_skills` 引用的 slug 是否存在、维度入口是否齐全，以及用到工具的 skill 是否自带与源码一致的 `scripts/divine.py`、`scripts/requirements.txt` 和标记块。任何一项不过，退出码为 1。
 
 ## ⚠️ 声明
 

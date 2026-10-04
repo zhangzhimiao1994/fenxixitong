@@ -1,20 +1,28 @@
 ---
 name: fortune
 description: 运势维度总路由：把八字、星盘、紫微的命盘翻译为"性格倾向 + 周期节奏 + 关注领域"，不做吉凶判决。 何时用：用户说"帮我看看今年运势""我的八字怎么样""看下星盘""水逆能签合同吗""是不是土星回归""我的紫微命盘""本命年/犯太岁怎么办"。 何时不用/改道：问寿命或确定结果 → 拒绝并改写；没有出生信息 → zhouyi 或 tarot；同时还有心理、关系等困扰 → cross-system-hub；要抽塔罗 → tarot；转述"算命说我有劫" → panduan；危机 → cross-system-hub C5。
-version: "1.2.0"
+version: "1.2.1"
 tags: [fortune, bazi, astrology, ziwei, hub]
 related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-condition, ptolemy-topic-ruler, ptolemy-mind-temperament, ptolemy-fate-calibration, forecast-calibrate-claim, zhouyi-divination, auspicious-risk-language, panduan, cross-system-hub]
 ---
 
 # 运势维度 (Fortune) —— 命理三系路由
 
+<!-- divine-tool:begin -->
+**运行抽牌/排盘工具**（路径相对于本 SKILL.md 所在目录）：
+1. 找脚本，按顺序取第一个存在的：`scripts/divine.py` → `../<任一同仓 skill>/scripts/divine.py` → 仓库根 `tools/divine.py`。
+2. 运行：`python3 <脚本路径> <子命令> <参数>`；`python3` 不可用时换 `python`。
+3. 输出 `[DEPENDENCY_MISSING]` → 执行 `pip install -r <脚本所在目录>/requirements.txt` 后重跑一次；仍失败 → 按下面第 4 步。
+4. 找不到脚本 / 环境不能执行代码 / 安装失败 → 不编造任何牌面、卦象、命盘：塔罗请用户自己抽牌并报出牌名和正逆位；周易请用户掷三枚硬币六次，按"背=3、字=2"报出每次三枚之和（6/7/8/9，共 6 个数）；八字、星盘请用户贴出排盘结果。
+<!-- divine-tool:end -->
+
 ## 被总入口调用时：段落契约
 
 - 输入：用户原话、深度等级、出生信息（日期、时间、城市、性别）或用户粘贴的盘、总入口 STEP 0 的结果（普通 / ⚖️）
 - 取数（禁止心算，只引用工具输出）：
-  - 八字：`python tools/divine.py bazi YYYY-MM-DD HH:MM --gender m|f`；城市在 hub 参考文件第七节经度表里 → 加 `--lon 经度`，表外城市不加；不知道时辰 → `python tools/divine.py bazi YYYY-MM-DD --no-hour --gender m|f`；时辰模糊、整点、交界 → 只按 hub 参考文件第五节（全仓唯一的时辰规则）
-  - 星盘：`python tools/divine.py astro YYYY-MM-DD HH:MM --tz 8 --lat 纬度 --lon 经度`；表外城市按 `astrology-transit` 的默认坐标，不读上升与宫位
-  - 太岁：`python tools/divine.py taisui 出生年`；只有四柱：`python tools/divine.py pillars 年柱 月柱 日柱 [时柱]` 反查
+  - 八字：`scripts/divine.py bazi YYYY-MM-DD HH:MM --gender m|f`；城市在 hub 参考文件第七节经度表里 → 加 `--lon 经度`，表外城市不加；不知道时辰 → `scripts/divine.py bazi YYYY-MM-DD --no-hour --gender m|f`；时辰模糊、整点、交界 → 只按 hub 参考文件第五节（全仓唯一的时辰规则）
+  - 星盘：`scripts/divine.py astro YYYY-MM-DD HH:MM --tz 8 --lat 纬度 --lon 经度`；表外城市按 `astrology-transit` 的默认坐标，不读上升与宫位
+  - 太岁：`scripts/divine.py taisui 出生年`；只有四柱：`scripts/divine.py pillars 年柱 月柱 日柱 [时柱]` 反查
   - 紫微：用户按 `ziwei-doushu` 模板粘贴
   - 象征规模按深度表：最小 = 1 行摘录 + 1 句底色；标准 = 底色 + 当前大运 + 流年一步推断；最大 = 标准 + 1 句原局十神性格读法
 - 本段必须包含（八字）：
@@ -33,7 +41,7 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-c
 - 可提交的候选问题：② 出生信息"方便告诉我出生日期、时间和城市吗"；④ 用户说盘不对时的核对项。排盘核对写进总入口收尾行，不作问题
 - 本段禁止：心算或补全工具没输出的柱；引用工具没给的内容（流年/大运十神、神煞、刑冲合害细断）；顺逆禁令里的词；起运岁数、大运岁数段、"子平法"等方法名；推荐化解；评论命理的证据（用户问"准不准"时才说一句）；免责句
 - 本维度特有的失败分支：
-  - `[DEPENDENCY_MISSING]` → `pip install -r requirements.txt` 后重跑；禁止安装 → 请用户粘贴排盘；也无法粘贴 → 只按出生年做年柱简读，不补全其他柱
+  - `[DEPENDENCY_MISSING]` → `pip install -r scripts/requirements.txt` 后重跑；禁止安装 → 请用户粘贴排盘；也无法粘贴 → 只按出生年做年柱简读，不补全其他柱
   - 用户说盘不对（C7）→ 核对公历/农历、时区、真太阳时、早晚子时后重排；仍有分歧 → 以用户软件的盘为准
   - 出生日期不确定 → 本维度不激活
   - 无时辰且无性别 → 按 `bazi-liunian` B 表两种性别各跑一次
@@ -78,7 +86,7 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-c
 **古典与现代星盘的分工**：涉及"当前/今年/周期"的归 `astrology-transit`；涉及"结构/古典规则/预测限度"的归 `ptolemy-*`。托勒密体系下问寿命、死亡、父母安危、子女、婚姻判决、事故 → 按第〇节第 0 步拒绝该部分（理由见 `distill/tixi-fenxi-zhengliu/books/tetrabiblos/REJECTED.md`）。
 
 ### 本命年 / 犯太岁（不经过 🛑）
-- 有出生年 → 运行 `python tools/divine.py taisui 出生年`，取值/冲/刑/害/破关系
+- 有出生年 → 运行 `scripts/divine.py taisui 出生年`，取值/冲/刑/害/破关系
 - 只说"今年本命年" → 不跑工具，关系 = 值太岁（辰午酉亥年另有"自刑"）
 - 写法：今年地支、你的生年地支、关系 → 第三节转译；不给年份定好坏
 

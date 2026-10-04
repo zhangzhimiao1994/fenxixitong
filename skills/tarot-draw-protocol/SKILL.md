@@ -1,6 +1,6 @@
 ---
 name: tarot-draw-protocol
-version: "1.1.0"
+version: "1.1.1"
 description: 用于用户想要抽塔罗牌之前：把问题改写成可被象征回应的开放式问题，选择牌阵，并确保抽牌随机来源真实。触发信号："帮我抽张牌""用塔罗看看""用什么牌阵好""我想问感情/事业"。不用于解释已抽出的牌（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）、起卦（→ zhouyi-divination）；医疗/法律/投资的"做不做"不抽，只允许 stakes 牌阵。
 source_book: Waite《The Pictorial Key to the Tarot》Part III（占卜方法部分）+ 通行牌阵实践
 source_scope: 牌阵结构与提问方式；随机性规则为本体系新增约束
@@ -11,6 +11,14 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 > 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Tarot Draw Protocol — 抽牌协议
+
+<!-- divine-tool:begin -->
+**运行抽牌/排盘工具**（路径相对于本 SKILL.md 所在目录）：
+1. 找脚本，按顺序取第一个存在的：`scripts/divine.py` → `../<任一同仓 skill>/scripts/divine.py` → 仓库根 `tools/divine.py`。
+2. 运行：`python3 <脚本路径> <子命令> <参数>`；`python3` 不可用时换 `python`。
+3. 输出 `[DEPENDENCY_MISSING]` → 执行 `pip install -r <脚本所在目录>/requirements.txt` 后重跑一次；仍失败 → 按下面第 4 步。
+4. 找不到脚本 / 环境不能执行代码 / 安装失败 → 不编造任何牌面、卦象、命盘：塔罗请用户自己抽牌并报出牌名和正逆位；周易请用户掷三枚硬币六次，按"背=3、字=2"报出每次三枚之和（6/7/8/9，共 6 个数）；八字、星盘请用户贴出排盘结果。
+<!-- divine-tool:end -->
 
 ## R — 来源
 - 凯尔特十字：Waite Part III §7；"提问前明确表述问题"：Part III §8（均已对照原文）
@@ -38,7 +46,7 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 | 凯尔特十字 | 10 | 重大人生议题（人生方向、换城市/行业、关系去留）、L3/L4 | `--spread cross` |
 | 态度三张 | 3 | 高风险问题：医疗、法律、投资借贷、辞职创业转行换工作、婚育、人身安全、亲密暴力、经济施压（只看心态，**此类问题唯一可用**） | `--spread stakes` |
 
-**各牌阵的位置**（与 `tools/divine.py` 一致）
+**各牌阵的位置**（与 `scripts/divine.py` 一致）
 - 三张：过去/根源 → 现在/处境 → 趋势/可能走向
 - 关系五张：我的状态 → 对方/环境的状态 → 关系的连接点 → 阻碍 → 建议方向
 - 态度三张：我在怕什么 → 我在期待什么 → 我忽略了什么；不设趋势/结果位
@@ -46,7 +54,7 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 
 ### 随机来源优先级
 1. **用户自己抽**（实体牌/App），报牌名与正逆 —— 首选，仪式感本身有价值
-2. **工具随机**：`python tools/divine.py tarot --spread <名称>`（OS 级随机源）
+2. **工具随机**：`scripts/divine.py tarot --spread <名称>`（OS 级随机源）
 3. 两者都不可用 → **不抽牌**，改用 `tarot-projective-dialogue` 让用户从意象中自选一张"最像现在的自己"的牌，并明确标注"这是自选，不是抽牌"
 
 ## A1 — 应用案例

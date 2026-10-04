@@ -1,6 +1,6 @@
 ---
 name: ptolemy-planet-condition
-version: "1.1.0"
+version: "1.1.1"
 description: 托勒密古典"行星状态"评估工具：用《四书》卷一的四性、吉凶、昼夜派别、五种尊贵（庙/三分性/旺/界/相位）和强弱规则，判断本命盘里某颗行星是"在主场"还是"在客场"、表达得顺还是要绕路。用户已有星盘数据、想用古典规则看某颗行星或整体结构时激活；也是 ptolemy-topic-ruler 与 ptolemy-mind-temperament 的底层步骤。 触发信号："用古典占星看看我的土星""我的金星是入庙还是落陷""托勒密怎么看我的盘""哪颗行星在我盘里最有力""我的火星是不是很凶""吉星凶星是什么意思"。 不触发场景：只想看太阳/月亮/上升三要素或土星回归、今年行运 → astrology-transit；问职业/财富/友谊某一主题 → ptolemy-topic-ruler；问性格心性 → ptolemy-mind-temperament；问"是不是注定" → ptolemy-fate-calibration；问寿命、疾病、事故、择日 → 拒绝该部分（fortune 第五节），其余照常；没有出生数据 → fortune 路由（周易/塔罗）。 降级：只有出生日期、没有时间 → 只读星座层尊贵，不读宫位与昼夜派别，并注明精度不足。
 source_book: 《四书》(Tetrabiblos) Claudius Ptolemy，J. M. Ashmand 英译
 source_chapter: 卷一第 4-8 章、第 13-27 章；卷三第 4 章
@@ -22,6 +22,14 @@ related_skills:
 
 # 托勒密行星状态评估（Planet Condition）
 
+<!-- divine-tool:begin -->
+**运行抽牌/排盘工具**（路径相对于本 SKILL.md 所在目录）：
+1. 找脚本，按顺序取第一个存在的：`scripts/divine.py` → `../<任一同仓 skill>/scripts/divine.py` → 仓库根 `tools/divine.py`。
+2. 运行：`python3 <脚本路径> <子命令> <参数>`；`python3` 不可用时换 `python`。
+3. 输出 `[DEPENDENCY_MISSING]` → 执行 `pip install -r <脚本所在目录>/requirements.txt` 后重跑一次；仍失败 → 按下面第 4 步。
+4. 找不到脚本 / 环境不能执行代码 / 安装失败 → 不编造任何牌面、卦象、命盘：塔罗请用户自己抽牌并报出牌名和正逆位；周易请用户掷三枚硬币六次，按"背=3、字=2"报出每次三枚之和（6/7/8/9，共 6 个数）；八字、星盘请用户贴出排盘结果。
+<!-- divine-tool:end -->
+
 ## 🧭 决策树
 
 ```
@@ -40,7 +48,7 @@ related_skills:
 
 ## 📥 输入与证据假设
 
-- **数据来源**（禁止心算行星位置）：`python tools/divine.py astro YYYY-MM-DD HH:MM --tz 8 --lat 纬度 --lon 经度`（回归黄道 + 整宫制，输出各行星黄经与上升）；或用户从排盘软件粘贴。
+- **数据来源**（禁止心算行星位置）：`scripts/divine.py astro YYYY-MM-DD HH:MM --tz 8 --lat 纬度 --lon 经度`（回归黄道 + 整宫制，输出各行星黄经与上升）；或用户从排盘软件粘贴。
 - 工具**不给**：中天精确度数、逆行状态、界（terms）。处理：中天用第 10 宫星座近似并注明；逆行/速度若用户软件有就用，没有就写"未核对"；界只在用户软件提供时计入。（原书界表在本扫描本 OCR 中无法可靠辨认，PAGE 61-64，故不内置。）
 - 回归黄道与托勒密一致：他明确规定星座从二分二至点起算（卷一第 25 章，PAGE 65）。
 - 证据假设：这是**古典象征规则的内部一致应用**，不是经验验证过的预测；现代科学不支持占星预测效力（Carlson 1985, *Nature*；Dean & Kelly 2003）。
@@ -105,7 +113,7 @@ related_skills:
 
 | 触发条件 | 一线修复 | 兜底 |
 |---|---|---|
-| 工具 `[DEPENDENCY_MISSING]` | 执行 `pip install -r requirements.txt` 后重跑 | 请用户从 astro.com 粘贴行星星座与上升；仍无 → 只做第 3 步星座尊贵，注明未读宫位 |
+| 工具 `[DEPENDENCY_MISSING]` | 执行 `pip install -r scripts/requirements.txt` 后重跑 | 请用户从 astro.com 粘贴行星星座与上升；仍无 → 只做第 3 步星座尊贵，注明未读宫位 |
 | 行星恰在星座边界（0°-1° 或 29°-30°） | 写出两个星座的判定并列 | 请用户用软件核对精确度数 |
 | 用户软件用分宫制（Placidus 等）结果不同 | 说明本 skill 用整宫制，并列两种宫位 | 以用户软件为准，只改第 5 步 |
 | 多颗行星都"主场" | 用显眼度（第 5 步）排序 | 并列报告，不硬挑 |

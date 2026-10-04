@@ -1,7 +1,7 @@
 ---
 name: tarot
 description: "塔罗象征分析系统。4 个子 skill，覆盖抽牌协议、单牌释义、牌阵综合、投射式对话。把塔罗当作\"让潜意识说话的象征镜子\"，而不是确定性预言。 触发：塔罗、抽张牌、帮我看看牌、这张牌什么意思、牌阵、正位逆位、我抽到了XX。 不触发：八字/星盘/紫微 → fortune；起卦 → zhouyi；还同时有心理、关系等困扰 → cross-system-hub；医疗/法律/投资的\"做不做\" → 只允许 stakes 牌阵看心态；紧急危机 → cross-system-hub C5。确定预测类问题会触发，但先改写。"
-version: "1.2.0"
+version: "1.2.1"
 source_book: A. E. Waite《The Pictorial Key to the Tarot》(1910，公有领域) + Rider-Waite-Smith 牌组通行释义
 tags: [tarot, symbol, projection, hub]
 related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis, tarot-projective-dialogue, psyche, cross-system-hub]
@@ -9,10 +9,18 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 
 # 塔罗象征系统 (Tarot)
 
+<!-- divine-tool:begin -->
+**运行抽牌/排盘工具**（路径相对于本 SKILL.md 所在目录）：
+1. 找脚本，按顺序取第一个存在的：`scripts/divine.py` → `../<任一同仓 skill>/scripts/divine.py` → 仓库根 `tools/divine.py`。
+2. 运行：`python3 <脚本路径> <子命令> <参数>`；`python3` 不可用时换 `python`。
+3. 输出 `[DEPENDENCY_MISSING]` → 执行 `pip install -r <脚本所在目录>/requirements.txt` 后重跑一次；仍失败 → 按下面第 4 步。
+4. 找不到脚本 / 环境不能执行代码 / 安装失败 → 不编造任何牌面、卦象、命盘：塔罗请用户自己抽牌并报出牌名和正逆位；周易请用户掷三枚硬币六次，按"背=3、字=2"报出每次三枚之和（6/7/8/9，共 6 个数）；八字、星盘请用户贴出排盘结果。
+<!-- divine-tool:end -->
+
 ## 被总入口调用时：段落契约
 
 - 输入：用户原话、深度等级、工具摘录（或用户报的牌）、总入口 STEP 0 的结果（普通 / ⚖️ / 暴力 / 经济施压 / 被动厌世）
-- 取数：`python tools/divine.py tarot --spread <牌阵>`（仓库根目录运行），或用户自抽报牌；禁止模型自己"想"出牌。牌阵按深度表的象征规模对应：最小 = `single`、标准 = `three`、最大 = `cross`；用户说了张数以用户为准；已知有对象的两人关系 → `relation`；⚖️、暴力、经济施压 → 一律 `--spread stakes`
+- 取数：`scripts/divine.py tarot --spread <牌阵>`，或用户自抽报牌；禁止模型自己"想"出牌。牌阵按深度表的象征规模对应：最小 = `single`、标准 = `three`、最大 = `cross`；用户说了张数以用户为准；已知有对象的两人关系 → `relation`；⚖️、暴力、经济施压 → 一律 `--spread stakes`
 - 本段必须包含：
   1. 段首固定顺序（可以并成一句）：摘录行（"工具抽到：…"；用户自抽写"你抽到：…"；原样，不计正文；十字也把 10 张全列）→ 改写后的问题半句（"这次看的是：…"）→ 场景半句（`stakes`："这几张只照见心态，不给方向"；暴力场景问"能不能过下去"："牌给不出能不能过下去的答案"）
   2. 逐张读法，按牌阵：
@@ -64,7 +72,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 ## 使用原则
 
 1. **问题先行**：封闭问题先改写再抽（"会不会" → "我需要看见什么"）
-2. **随机必须真实**：用户自抽 > `python tools/divine.py tarot` > 不抽。**禁止模型自己"想"出牌面**
+2. **随机必须真实**：用户自抽 > `scripts/divine.py tarot` > 不抽。**禁止模型自己"想"出牌面**
 3. **一事一抽**：同一问题不重复抽（《蒙》："初筮告，再三渎，渎则不告"），想重抽本身就是心理材料
 4. **用户的解读优先**：用户对牌面的直觉联想 > 书本释义
 

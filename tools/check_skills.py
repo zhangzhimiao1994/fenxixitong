@@ -6,6 +6,8 @@
   3. 每个 skill 有可解析的 test-prompts.json，且至少有一条用例
   4. related_skills 里引用的 slug 都存在
   5. 总入口维度表里每个入口 skill 都存在，且含"## 被总入口调用时：段落契约"一节（自动识别新加的维度行）
+  6. 提到 divine.py 的 skill：有 scripts/divine.py 且与 tools/divine.py 哈希一致、有 scripts/requirements.txt、
+     SKILL.md 有 divine-tool 标记块、标记块外不再写死 tools/divine.py
 警告（不影响退出码）：frontmatter 的 name 与目录名不一致；维度入口里出现字数配额（数字 + 字）
 """
 import json
@@ -121,6 +123,34 @@ if HUB.exists():
             if re.search(r"\d+ ?字", line):
                 warnings.append(f"{slug}:{n}: 入口里出现字数配额（字数只在总入口深度表）：{line.strip()[:40]}")
     print(f"维度表：{len(entries)} 个维度入口已检查")
+
+# 6. 工具打包：提到 divine.py 的 skill（SKILL.md 或 references/*.md）必须自带工具，单独拷走也能运行
+import hashlib  # noqa: E402
+
+TOOL_SRC = SKILLS.parent / "tools" / "divine.py"
+TOOL_BLOCK = re.compile(r"<!-- divine-tool:begin -->.*?<!-- divine-tool:end -->", re.S)
+src_hash = hashlib.sha256(TOOL_SRC.read_bytes()).hexdigest() if TOOL_SRC.exists() else None
+if src_hash is None:
+    errors.append("tools/divine.py 不存在")
+for p in sorted(SKILLS.glob("*/SKILL.md")):
+    d, slug = p.parent, p.parent.name
+    text = p.read_text(encoding="utf-8")
+    refs = [f.read_text(encoding="utf-8") for f in sorted((d / "references").glob("*.md"))]
+    if "divine.py" not in text and not any("divine.py" in r for r in refs):
+        continue
+    packed = d / "scripts" / "divine.py"
+    if not packed.exists():
+        errors.append(f"{slug}: 提到 divine.py 但缺 scripts/divine.py（运行 python tools/sync_scripts.py）")
+    elif src_hash and hashlib.sha256(packed.read_bytes()).hexdigest() != src_hash:
+        errors.append(f"{slug}: scripts/divine.py 与 tools/divine.py 哈希不一致（运行 python tools/sync_scripts.py）")
+    if not (d / "scripts" / "requirements.txt").exists():
+        errors.append(f"{slug}: 缺 scripts/requirements.txt（运行 python tools/sync_scripts.py）")
+    if not TOOL_BLOCK.search(text):
+        errors.append(f"{slug}: SKILL.md 缺 <!-- divine-tool:begin/end --> 标记块（运行 python tools/sync_scripts.py）")
+    outside = TOOL_BLOCK.sub("", text)  # 标记块内第 1 步的回退顺序不算
+    for line in outside.split("\n"):
+        if "tools/divine.py" in line:
+            errors.append(f"{slug}: SKILL.md 仍写死 tools/divine.py 路径（改成 scripts/divine.py）：{line.strip()[:40]}")
 
 for w in warnings:
     print("WARN ", w)

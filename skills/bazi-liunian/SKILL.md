@@ -1,6 +1,6 @@
 ---
 name: bazi-liunian
-version: "1.2.0"
+version: "1.2.1"
 description: 用于基于用户提供或工具排出的八字（四柱）做性格倾向、十年大运节奏、当年流年主题的解读，并翻译为可执行的周期策略。触发信号："帮我看看八字""今年流年怎么样""我在走什么大运""五行缺什么""日主强还是弱""本命年""犯太岁"。不用于心算排盘、不用于寿命/疾病/婚姻成败的断语、不用于投资择时；问上升星座、星盘 → astrology-transit；问紫微 → ziwei-doushu；起卦 → zhouyi-divination。
 source_book: 《渊海子平》（宋，徐子平法，徐大升编）、《三命通会》（明，万民英）、《子平真诠》（清，沈孝瞻）、《滴天髓》
 source_scope: 子平法基础结构（日主、十神、五行旺衰、大运流年、刑冲合会）；神煞体系不纳入核心（流派分歧大、可检验性最低）
@@ -11,6 +11,14 @@ related_skills: [fortune, ziwei-doushu, five-elements-network, seasonal-regimen,
 > 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 # Bazi & Liunian — 八字与流年
+
+<!-- divine-tool:begin -->
+**运行抽牌/排盘工具**（路径相对于本 SKILL.md 所在目录）：
+1. 找脚本，按顺序取第一个存在的：`scripts/divine.py` → `../<任一同仓 skill>/scripts/divine.py` → 仓库根 `tools/divine.py`。
+2. 运行：`python3 <脚本路径> <子命令> <参数>`；`python3` 不可用时换 `python`。
+3. 输出 `[DEPENDENCY_MISSING]` → 执行 `pip install -r <脚本所在目录>/requirements.txt` 后重跑一次；仍失败 → 按下面第 4 步。
+4. 找不到脚本 / 环境不能执行代码 / 安装失败 → 不编造任何牌面、卦象、命盘：塔罗请用户自己抽牌并报出牌名和正逆位；周易请用户掷三枚硬币六次，按"背=3、字=2"报出每次三枚之和（6/7/8/9，共 6 个数）；八字、星盘请用户贴出排盘结果。
+<!-- divine-tool:end -->
 
 ## R — 来源
 子平法（《渊海子平》《子平真诠》《滴天髓》，转述）；出处、计分规则与排盘约定见 `references/sources.md`
@@ -46,7 +54,7 @@ related_skills: [fortune, ziwei-doushu, five-elements-network, seasonal-regimen,
 - ❌ "什么时候结婚"（→ 改写为感情领域的节奏）；"会不会出大病"（→ 拒绝，转就医）
 
 ## E — 执行步骤
-1. **取盘**：用户粘贴四柱+大运，或运行 `python tools/divine.py bazi YYYY-MM-DD HH:MM --gender m|f`（有出生城市加 `--lon 经度`）；**禁止心算**。只有四柱 → 先用 `pillars` 子命令反查是否真实存在（见 B 表）
+1. **取盘**：用户粘贴四柱+大运，或运行 `scripts/divine.py bazi YYYY-MM-DD HH:MM --gender m|f`（有出生城市加 `--lon 经度`）；**禁止心算**。只有四柱 → 先用 `pillars` 子命令反查是否真实存在（见 B 表）
 2. 🛑 **硬关卡**：出生日期不确定、公历/农历不明，或用户说盘不对 → 停下核对，不解读
 3. **读盘四步**（内部分析）。时辰模糊、整点、交界 → 只按 `cross-system-hub` 参考文件第五节（全仓唯一的时辰规则）
 4. **定位周期**：当前大运 + 今年流年（取 `divine.py` 的"流年"行；问本命年/犯太岁时另跑 `divine.py taisui 出生年`），用"季节"类比，只标"变动/转换期"，不标顺逆（`fortune` 契约顺逆禁令）
@@ -64,9 +72,9 @@ related_skills: [fortune, ziwei-doushu, five-elements-network, seasonal-regimen,
 | 触发条件 | 一线处理 | 仍失败 → 兜底 |
 |---------|---------|-------------|
 | 没给出生信息 | 一次问齐公历生日、出生时间、性别 | 不给 → 改走 `zhouyi-divination` 或 `tarot` |
-| `divine.py` 输出 `[DEPENDENCY_MISSING]` | agent 执行 `pip install -r requirements.txt`，成功后重跑 | 环境禁止安装 → 请用户从排盘软件粘贴四柱+大运；仍无 → 只按出生年做年柱简读，**不补全其他柱** |
+| `divine.py` 输出 `[DEPENDENCY_MISSING]` | agent 执行 `pip install -r scripts/requirements.txt`，成功后重跑 | 环境禁止安装 → 请用户从排盘软件粘贴四柱+大运；仍无 → 只按出生年做年柱简读，**不补全其他柱** |
 | 无时辰 | 运行 `divine.py bazi YYYY-MM-DD --no-hour --gender m|f`（只排三柱，旺衰与喜用不含时柱）；标注"缺时柱，子女/晚年层面不解读" | 出生日期也不确定 → 只做年柱简读 |
-| 只有四柱、没有性别或生日 | 先跑 `python tools/divine.py pillars 年柱 月柱 日柱 [时柱]` 反查：查不到 → 直说"这组四柱在 1900-2050 年里对不上"，不读盘；同轮转述工具"诊断"行（哪柱最可能记错 + 候选日期）+ 1 句"大运从月柱起排，阳年男、阴年女顺排"，再请用户给公历生日；查到 → 列出对应日期请用户确认，并补问性别 | 不给 → 只读原局（已确认存在的盘），不排大运 |
+| 只有四柱、没有性别或生日 | 先跑 `scripts/divine.py pillars 年柱 月柱 日柱 [时柱]` 反查：查不到 → 直说"这组四柱在 1900-2050 年里对不上"，不读盘；同轮转述工具"诊断"行（哪柱最可能记错 + 候选日期）+ 1 句"大运从月柱起排，阳年男、阴年女顺排"，再请用户给公历生日；查到 → 列出对应日期请用户确认，并补问性别 | 不给 → 只读原局（已确认存在的盘），不排大运 |
 | 无时辰且无性别 | 用 `--no-hour` 分别以 `--gender m` 和 `--gender f` 各跑一次：原局与今年流年两盘相同，照常读；大运两盘不同 → 各用 1 句写"如果你是男/女，现在走的是 X 运（…）"；末尾 1 行一起问性别，并提示找回时辰的办法（出生证明、问长辈） | — |
 | 时辰模糊 | 按 `cross-system-hub` 参考文件第五节（全仓唯一的时辰规则） | — |
 | 用户说盘排错了 | 核对公历/农历、时区、真太阳时、早晚子时后重排 | 仍有分歧 → 以用户软件为准 |
