@@ -1,12 +1,13 @@
 ---
 name: neiyin-juedinglun
-version: 1.0.0
+version: "1.0.1"
 description: 外因通过内因起作用的归因优先级框架。当用户纠结'到底是我自己的问题还是环境的问题'时激活。 不调用场景：外部环境完全不可控的极端场景（如政策突变、自然灾害）。 来源：《毛泽东选集第1-5卷》毛泽东
 tags: ['归因分析', '内因外因', '自我反思', '责任判断']
 related_skills:
   - slug: maodun-fenxi
     relation: composes-with
 ---
+> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 
 ## R — 原文 (Reading)

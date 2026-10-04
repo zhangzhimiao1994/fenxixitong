@@ -1,12 +1,13 @@
 ---
 name: hexagram-situation-diagnosis
-version: "1.0.0"
+version: "1.0.1"
 description: 用于用户想借《周易》整理一个复杂处境，而不是求一个神秘断语时。触发信号包括"这个局面像什么卦""现在到底是什么处境""我该先看哪一类问题""用周易帮我分析这件事"。适合先做局面归类，再决定后续调用进退、时位、风险或关系类 skill。不用于起卦、算命、随机占卜或替代专业判断。
 source_book: 《周易》
 source_scope: 六十四卦经文（卦辞+爻辞），PDF 完整原文
 tags: [zhouyi, hexagram, situation, diagnosis, decision]
 related_skills: [line-position-timing, advance-retreat-boundary, auspicious-risk-language, conflict-coalition-diagnosis, observation-judgment, response-action, relationship-assembly, reversal-cycle]
 ---
+> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # Hexagram Situation Diagnosis
 

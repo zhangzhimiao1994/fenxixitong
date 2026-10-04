@@ -1,10 +1,11 @@
 ---
 name: xingdong
-version: "1.3.0"
-description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → psyche 第五节危机话术。
+version: "1.3.1"
+description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → cross-system-hub C5。
 tags: [xingdong, action, habits, deep-work, hub]
 related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-design, habit-streak-plateau, deepwork-depth-philosophy, deepwork-embrace-boredom, deepwork-craftsman-tools, deepwork-shallow-shutdown, chengzhang, huangdi-neijing, cross-system-hub]
 ---
+> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # 行动维度 (Xingdong) —— 习惯 × 深度工作 路由
 
@@ -16,7 +17,7 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 
 1. 🛑 **STOP 安全筛查**
    - 输入：用户原话
-   - 命中自伤/自杀信号 → 只执行 `psyche` 第五节危机话术，本轮结束
+   - 命中自伤/自杀信号 → 只执行 `cross-system-hub` C5，本轮结束
    - 涉及极端节食、带伤训练、过劳伴心慌失眠 → 先叫停，建议去医院或营养科，然后只给安全范围内的调整
    - 输出：危机话术，或进入第 2 步
 2. **选子 skill**
@@ -29,9 +30,9 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
    - 对不上任何行 → 问 1 句"通常是卡在开始前、开始后，还是断了之后？"，等用户回答；被 hub 调用时不等，问题交给 hub 作为候选
 4. **交给子 skill**
    - 用户单独来问 → 用子 skill 自己的输出格式回复
-   - 被 `cross-system-hub` 调用 → 只返回"卡住的环节链 + 卡在哪一环"（如"打开电脑 → 先点短视频 → 精力只剩一点"），行动交给 hub 的 STEP 8；hub 的第 1 个行动起步太大时缩成两分钟版（生活习惯用 `habit-starter-design`，工作交付物用 `deepwork-depth-philosophy` 的本次小目标）；子 skill 自带的结尾提问（如"锚点是什么"）不出，提问名额由 hub 统一分配
+   - 被 `cross-system-hub` 调用 → 只返回"卡住的环节链 + 卡在哪一环"（如"打开电脑 → 先点短视频 → 精力只剩一点"），行动交给 hub 的 STEP 8；hub 的第 1 个行动起步太大时缩成两分钟版（生活习惯用 `habit-starter-design`，工作交付物用 `deepwork-depth-philosophy` 的本次小目标）
    - 关系、成长、行动同时激活时，入口只返回链，书写顺序由 hub STEP 3 决定（主要矛盾在行动 → 行动段排在三者最前）
-   - 主要矛盾在成长时，行动段只写 1 句卡住的环节（"打开文件 → 想到要一次写好 → 关掉"），不重复成长段对"怕做不好"的解释
+   - 主要矛盾在成长时，行动段按 hub 三档写，不重复成长段对"怕做不好"的解释；原话没给环节 → 只写"[原话事实]"一句，不补环节
 
 ### 失败处理
 | 触发条件 | 一线修复 | 仍失败兜底 |

@@ -1,6 +1,6 @@
 ---
 name: five-elements-network
-version: "1.0.0"
+version: "1.0.1"
 description: "用户需要分析多个要素之间的相互作用和连锁效应时; 当某个局部变化可能引发 系统性连锁反应时; 当需要理解复杂系统中\"牵一发动全身\"的传导机制时。 不适用于: 简单的线性因果分析(一个原因一个结果); 只有2个要素的场景 (用 yin-yang-balance 更合适)。"
 source_book: 《黄帝内经·素问》 黄帝与岐伯等
 source_chapter: 藏气法时论篇第二十二、玉机真藏论篇第十九、阴阳应象大论篇第五
@@ -15,6 +15,7 @@ related_skills:
   - slug: five-flavors-balance
     relation: composes-with
 ---
+> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # 五行生克网络思维
 

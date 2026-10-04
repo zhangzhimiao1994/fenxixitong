@@ -1,11 +1,12 @@
 ---
 name: tarot
 description: "塔罗象征分析系统。4 个子 skill，覆盖抽牌协议、单牌释义、牌阵综合、投射式对话。把塔罗当作\"让潜意识说话的象征镜子\"，而不是确定性预言。 触发：塔罗、抽张牌、帮我看看牌、这张牌什么意思、牌阵、正位逆位、我抽到了XX。 NOT trigger: 八字/星盘/紫微 → fortune；起卦 → zhouyi-divination；医疗/法律/投资的\"做不做\" → 只允许 stakes 牌阵看心态；紧急危机 → cross-system-hub C5。确定预测类问题会触发，但先改写。"
-version: "1.0.0"
+version: "1.0.1"
 source_book: A. E. Waite《The Pictorial Key to the Tarot》(1910，公有领域) + Rider-Waite-Smith 牌组通行释义
 tags: [tarot, symbol, projection, hub]
 related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis, tarot-projective-dialogue, psyche, cross-system-hub]
 ---
+> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # 塔罗象征系统 (Tarot)
 
@@ -20,7 +21,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（选阵规则只在 `tarot-draw-protocol` 第 4 步，这里不重复） | 🔴 **CHECKPOINT**：仅封闭问题（会不会/能不能）需用户确认改写；开放问题直接第 2 步 |
 | 2 | `tarot-draw-protocol` | 确认的问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源标注 | 🛑 抽完不解读，直接进入第 3 步 |
 | 3 | `tarot-card-meaning` | 牌面列表 + 问题领域 | 每张 1 句：原型/公式 → 在此位置意味着 | — |
-| 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动（统计结论最多 1 句，篇幅留给用户处境） | 🔴 **CHECKPOINT**：问"哪张牌让你最有感觉？" |
+| 4 | `tarot-spread-synthesis` | 第 3 步结果 | 象征主线 + 关键张 + 镜子问题 + 最小行动（统计结论最多 1 句，篇幅留给用户处境） | 🔴 **CHECKPOINT**：唯一提问按 `tarot-spread-synthesis` 第 7 步 |
 | 5 | `tarot-projective-dialogue` | 用户对某张牌的反应 | 用户自己说出的洞察 | 每轮只问一个问题 |
 
 - 用户说"帮我看看/用塔罗看看" = 请你代抽，直接运行工具
@@ -35,21 +36,14 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | 缺正逆或位置 | 追问一次 | 仍缺 → 按正位、默认顺序读 |
 | 用户问托特/马赛牌 | 交给 `tarot-card-meaning`，声明体系差异 | — |
 | 用户带着别人/App 的"确定结论"或恐惧而来 | 顺序：① 1 句承接情绪 ② 每张凶牌 1 句转化面；用户还没报牌时，先给最常被怕的几张各半句（高塔 = 旧结构松动，死神 = 某个阶段结束，宝剑十 = 最糟已过）③ 用反例第 1 行话术改写为态势 ④ 给 1 个现实中能做的事；不重抽 | 恐惧持续 → `tarot-projective-dialogue` |
-| 出现自杀/自伤信号 | 停止抽牌与解读，先问"你现在安全吗？"，给出热线 12356，再执行 `cross-system-hub` C5 | — |
+| 出现自杀/自伤信号 | 停止抽牌与解读，执行 `cross-system-hub` C5 | — |
 
 ## 单独使用时的输出（自然段落，全文约 250-400 字）
-1 行工具原始输出（牌面只在这里列一次）→ 每张牌 1-2 句（并入故事线，扣用户处境，不讲方法术语）→ 1 句整体线索 → 1 个镜子问题 → 1 个小行动 → "这是象征，不是预测"
+只问牌义 → 按 `tarot-card-meaning` 第 7 步；其余：1 行工具原始输出（牌面只在这里列一次）→ 每张牌 1-2 句（并入故事线，扣用户处境，不讲方法术语）→ 1 句整体线索 → 1 个镜子问题 → 1 个小行动 → "这是象征，不是预测"
 
 ## 在 cross-system-hub 中的输出格式
 
-```
-【塔罗】权重=X/5 | 牌阵: [名称] | 抽牌来源: 用户自抽 / 工具随机
-  牌面: [位置] 牌名·正逆 ...
-  象征主线: [1-2 句，牌阵讲了一个什么故事]
-  镜子问题: [这组牌邀请用户追问自己的一个问题]
-  行动: [1 个最小行动]
-  ⚠️ 象征提示: 塔罗呈现的是可能性与内在态度，不是既定结果
-```
+被 hub 调用时只返回牌面行 + 每张一个短语 + 一句读法。
 
 ## 使用原则
 
