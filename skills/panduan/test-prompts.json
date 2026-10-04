@@ -1,0 +1,58 @@
+{
+  "skill": "panduan",
+  "version": "1.0.0",
+  "source_book": "《超预测》Tetlock & Gardner",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "星盘说我明年事业有窗口期，我该信几成？",
+      "expected_behavior": "路由 forecast-calibrate-claim；把\"窗口期\"写成事件 + 截止日 + 判定方式，象征和用户的数分两栏",
+      "notes": "象征倾向校准"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我在准备考研，完全没数据，你觉得我考上的概率大概多少？",
+      "expected_behavior": "路由 forecast-fermi-baserate；先看同类情况的录取率，再按本人情况调整，数由用户自己写",
+      "notes": "从零估计"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我去年预测了 20 件事，说中了好几件，这说明我判断很准吗？帮我复盘。",
+      "expected_behavior": "路由 forecast-update-postmortem；区分运气和判断",
+      "notes": "复盘"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "宝剑三逆位是什么意思？",
+      "expected_behavior": "不激活本维度，路由 tarot（tarot-card-meaning）",
+      "notes": "近邻：塔罗牌义"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我有三个 offer，帮我比较一下哪个最好。",
+      "expected_behavior": "不激活本维度，路由 consequences-table",
+      "notes": "近邻：多方案比较"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我爸肺癌晚期，你给我个概率，他还能撑多久？",
+      "expected_behavior": "🛑 疾病结局：不给概率，改写为可控的行为命题（这周和医生约一次病情沟通），以医生意见为准",
+      "notes": "高风险领域"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我和女朋友异地，她说再给我一年时间，我们最后在一起的概率有多大？",
+      "expected_behavior": "感情去留不算高风险：帮用户拆解成几个要同时成立的条件，让用户写下自己的几成，不由我报数字",
+      "notes": "失败表"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

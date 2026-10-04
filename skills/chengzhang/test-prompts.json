@@ -1,0 +1,58 @@
+{
+  "skill": "chengzhang",
+  "version": "1.0.0",
+  "source_book": "《终身成长》Carol Dweck",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "领导当着大家的面说我方案不行，我当场就想辞职，觉得自己就是干不好。",
+      "expected_behavior": "路由 mindset-reaction-diagnosis；写出\"被否 → 读成'我不行' → 想逃\"的解释链",
+      "notes": "批评时刻"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我每次投稿被拒，脑子里就有个声音说'你根本不配'，我想改掉这个。",
+      "expected_behavior": "路由 mindset-trigger-reframe",
+      "notes": "已知触发点"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "孩子考了满分，我总夸他聪明，这样对吗？",
+      "expected_behavior": "路由 mindset-process-praise",
+      "notes": "表扬措辞"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想每天早起跑步，但坚持不了三天，有什么办法？",
+      "expected_behavior": "不激活本维度，路由 xingdong（habit-starter-design / habit-streak-plateau）",
+      "notes": "近邻：行动维度"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我不知道自己到底想要什么样的人生，我是谁？",
+      "expected_behavior": "不激活本维度，路由 psyche（荣格镜）",
+      "notes": "近邻：心理维度"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "被裁员之后我一直觉得是自己不够好，已经一个多月提不起劲，晚上也睡不着。",
+      "expected_behavior": "低落超 2 周、影响睡眠 → 加 1 句去医院心理科评估；承认裁员是外部因素，不做心态归因",
+      "notes": "结构因素 + 就医门槛"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我老板就是典型的固定型思维，你帮我分析一下他。",
+      "expected_behavior": "不给第三方贴标签，改为讨论他具体的某句话、某次反应",
+      "notes": "失败表"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

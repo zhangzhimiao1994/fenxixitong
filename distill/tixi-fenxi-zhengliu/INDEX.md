@@ -54,7 +54,7 @@
 
 ## 跨维度接口
 
-- `cross-system-hub` v4.3.0 起，关系、成长、行动、判断是四个一级维度（关系/成长/行动属观察层，判断属校准层）；选子 skill 的路由表、关系安全格式与边界在 `cross-system-hub/references/behavior-dimensions.md`（`tixi-fenxi` 已删除）。C9 → `forecast-calibrate-claim`；STEP 8 → `habit-starter-design`、`forecast-calibrate-claim`
+- `cross-system-hub` v4.3.0 起，关系、成长、行动、判断是四个一级维度（关系/成长/行动属观察层，判断属校准层）；四个维度各有入口 skill：`guanxi`、`chengzhang`、`xingdong`、`panduan`（`tixi-fenxi` 已删除）。C9 → `forecast-calibrate-claim`；STEP 8 → `habit-starter-design`、`forecast-calibrate-claim`
 - `psyche` ⇄ 关系/成长/行动：心理维度讲成因，这三个维度讲"从哪一环下手"
 - `mao-thought/maodun-fenxi` 定主要矛盾 → 主要矛盾所在的行为科学维度提供下手的具体工具
 - （历史）v4.2.0 时这四类合为一个"体系分析"维度，入口是 `tixi-fenxi`
