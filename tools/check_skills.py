@@ -143,14 +143,24 @@ if HUB.exists():
                     errors.append(f"translation-and-plan.md: 互译表列 {c!r} 不在维度表里")
             for d in sorted(dims - set(tcols)):
                 warnings.append(f"translation-and-plan.md: 互译表没有维度 {d!r} 的列（该维度不参与共振）")
+    dim_names = [d for d, _ in entries]
+    PROPER = ("心理援助热线", "心理危机", "心理门诊", "心理咨询", "心理科", "心理学")  # 热线、机构名不算点名维度
     for dim, slug in entries:
         ep = SKILLS / slug / "SKILL.md"
         if not ep.exists():
             errors.append(f"维度表 {dim}: 入口 {slug} 不存在")
             continue
-        et = ep.read_text(encoding="utf-8")
+        et = ep.read_text(encoding="utf-8").replace("\r\n", "\n")
         if CONTRACT not in et:
             errors.append(f"维度表 {dim}: 入口 {slug} 缺少一节'{CONTRACT[3:]}'")
+        else:
+            # 段落契约里点名其他维度的中文名 → 警告（新增维度时这些条款要跟着改，应改成按层或按维度表的列写）
+            body = re.split(r"\n(?:## |> )", et.split(CONTRACT, 1)[1], maxsplit=1)[0]
+            for e in PROPER:
+                body = body.replace(e, "")
+            for other in dim_names:
+                if other != dim and other in body:
+                    warnings.append(f"{slug}: 段落契约里点名了其他维度'{other}'（改成按层或按维度表的列写）")
         for n, line in enumerate(et.split("\n"), 1):
             if re.search(r"\d+ ?字", line):
                 warnings.append(f"{slug}:{n}: 入口里出现字数配额（字数只在总入口深度表）：{line.strip()[:40]}")

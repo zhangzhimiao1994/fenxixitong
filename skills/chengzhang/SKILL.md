@@ -1,6 +1,6 @@
 ---
 name: chengzhang
-version: "1.6.0"
+version: "1.7.0"
 description: 成长维度总路由（心态）：用户的痛苦来自对自己能力的评判时激活——失败、被批评、看到别人成功的那一刻，把它解释成"证明我不行"还是"我还能学"——再路由到 4 个 mindset- 子 skill。触发：一被批评就炸、考砸了就觉得自己是废物、看到同事升职很难受、我是不是固定型、被拒就听到"你不配"、怎么夸孩子、下属做得烂怎么说、早就是成长型了还是崩。不触发："我是谁"、童年成因、持续低落 → psyche；只是想养成或戒掉某个习惯 → xingdong；还同时有关系、拖延等别的困扰 → cross-system-hub。自伤信号 → cross-system-hub C5。
 tags: [chengzhang, growth, mindset, hub]
 related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-process-praise, mindset-false-growth-check, psyche, xingdong, cross-system-hub]
@@ -18,8 +18,9 @@ related_skills: [mindset-reaction-diagnosis, mindset-trigger-reframe, mindset-pr
 - 一句带过时写什么：一句拆掉标签——那句评价是那一刻的解释，不是结论；不复述用户的事，不写"说明的是……"一类填充句
 - 主要矛盾落在成长 → 一律按完整写
 - 篇幅：完整约占全文 1 成（主要矛盾在成长时约 1.5 成）；一句带过 1 句
+- L1 保留：解释链，并成 1 句
 - 可提交的候选问题：④"让你最难受的，是哪一刻你对自己的那句评价？"（对不上路由表时）；⑤ 子 skill 的待问项
-- 本段禁止：再引主要矛盾段引过的原话（已点出判决时，直接从解释链写起）；同一句式连用两次；门槛句（能力自评不算情绪低落，门槛只由总入口 STEP 0 写）；`mindset-reaction-diagnosis` 的槽位句和对照句（"把它当信息的人会先问……"）；做法；"固定型/成长型"标签；评论方法本身
+- 本段禁止：写给用户时用"判决"这个词（说"那句对自己的评价"）；解释自己写法的句子（"虽然那边你只讲到他的反应"）；再引主要矛盾段引过的原话（已点出判决时，直接从解释链写起）；同一句式连用两次；门槛句（能力自评不算情绪低落，门槛只由总入口 STEP 0 写）；`mindset-reaction-diagnosis` 的槽位句和对照句（"把它当信息的人会先问……"）；做法；"固定型/成长型"标签；评论方法本身
 - 本维度特有的失败分支：
   - 没给具体时刻（"我什么都做不好"）→ 用他提到的最近一件具体事当那一刻，不追问
   - 只由 1 件事引出、原话只有一个环节 → 降为一句带过
