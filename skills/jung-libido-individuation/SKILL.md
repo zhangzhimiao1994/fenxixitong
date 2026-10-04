@@ -1,6 +1,6 @@
 ---
 name: jung-libido-individuation
-version: "1.0.1"
+version: "1.0.0"
 description: 荣格「力比多→个体化」轴线。当用户面临人生方向迷茫、中年危机、能量枯竭、或问"我这辈子到底在干什么""下半辈子该怎么活""为什么越努力越空虚"时使用。理解心理能量从生物驱力→对外成就→向内整合的转化过程，找到属于你自己的个体化之路。
 input_schema:
   required: [current_life_stage, main_complaint, age_range]
@@ -9,7 +9,6 @@ output_schema:
   primary: {libido_direction: string, stage_diagnosis: string, individuation_progress: string}
   secondary: [riverbed_action_plan, personal_myth_draft, follow_up_prompts]
 ---
-> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # 力比多→个体化：从奔跑到了悟
 

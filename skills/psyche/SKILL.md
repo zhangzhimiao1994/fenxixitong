@@ -1,11 +1,10 @@
 ---
 name: psyche
-description: "心理维度总路由（荣格 + 弗洛伊德）。用户的困扰需要从情绪、关系模式、自我认同角度理解时激活，先判断回溯成因（弗洛伊德）还是面向成长（荣格），再路由到 19 个子 skill。 触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、关系里总受伤。 NOT trigger: 当下的伴侣追逃循环、依恋类型 → guanxi；对自己能力的评判 → chengzhang；习惯/专注/时间管理 → xingdong；\"准不准/概率多大\" → panduan；同时有多类困扰 → cross-system-hub；运势/八字 → fortune；塔罗 → tarot；身体症状为主 → huangdi-neijing；事实查询直接回答。自杀/自伤信号 → 只执行 cross-system-hub C5。"
-version: "1.0.1"
+description: "心理维度总路由（荣格 + 弗洛伊德）。用户的困扰需要从情绪、关系模式、自我认同角度理解时激活，先判断回溯成因（弗洛伊德）还是面向成长（荣格），再路由到 19 个子 skill。 触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、关系里总受伤。 NOT trigger: 当下的伴侣追逃循环、依恋类型 → guanxi；对自己能力的评判 → chengzhang；习惯/专注/时间管理 → xingdong；\"准不准/概率多大\" → panduan；同时有多类困扰 → cross-system-hub；运势/八字 → fortune；塔罗 → tarot；身体症状为主 → huangdi-neijing；事实查询直接回答。自杀/自伤信号仍会接住，只输出第五节危机话术。"
+version: "1.0.0"
 tags: [psyche, jung, freud, hub]
 related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-archetype, cross-system-hub]
 ---
-> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # 心理维度 (Psyche) —— 荣格 × 弗洛伊德 合并路由
 
@@ -28,9 +27,9 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 4. 其余（命中差 ≤1）→ 双镜并用，顺序固定为 **弗洛伊德（成因）→ 荣格（方向）**
 
 ### 执行顺序
-1. **安全筛查**：出现"不想活/想消失/结束一切/伤害自己"等信号 → 🛑 **STOP**，执行 `cross-system-hub` C5，不进入第 2 步
+1. **安全筛查**：出现"不想活/想消失/结束一切/伤害自己"等信号 → 🛑 **STOP**，执行第五节危机话术，不进入第 2 步
 2. **双镜判别**（内部判断，不写进回复）：按上表定 `主镜 + 依据（用户原文）`
-3. **选子 skill**：查第二节路由表，选 1 个（双镜时最多 2 个；被 hub 调用且主要矛盾不在心理 → 只取 1 个）；用户要求诊断 → 先输出第五节第 2 条
+3. **选子 skill**：查第二节路由表，选 1 个（双镜时最多 2 个）；用户要求诊断 → 先输出第五节第 2 条
 4. 🔴 **CHECKPOINT**：命中 3 个以上主题时，先问用户"最想先谈哪一个？"，等回答再继续
 5. 按第三节格式输出
 
@@ -66,7 +65,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 | 角色窒息、"戴着面具活""不像自己" | `jung-persona-self` |
 | 反复的情绪按钮、被某类人强烈触发 | `jung-complex-archetype` |
 | 与母亲/伴侣的投射、理想化后幻灭 | `jung-mother-anima` |
-| 动力枯竭、中年转折、"接下来去哪" | `jung-libido-individuation`（年龄不明或 25-35 岁 → 只取"给力比多一条河床"一步） |
+| 动力枯竭、中年转折、"接下来去哪" | `jung-libido-individuation` |
 | 有意义的巧合、"冥冥之中" | `jung-experiment-synchronicity`（**塔罗/周易联动入口**） |
 | 时代焦虑、集体情绪 | `jung-neurosis-civilization` |
 
@@ -96,7 +95,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 
 ## 五、边界
 
-1. 🛑 **自杀/自伤意念 → 立即停止分析**，原样执行 `cross-system-hub` C5（单独使用时也按它执行），之后不做分析
+1. 🛑 **自杀/自伤意念 → 立即停止分析**，按 `cross-system-hub` 的 C5 四要素回应：温暖接住 → 问"你现在安全吗？有没有想过具体怎么做、身边有没有可能伤害自己的东西？"（有就请对方先放远、别独处）→ 全国心理援助热线 12356、希望24热线 400-161-9995、北京心理危机干预中心 010-82951332，紧急拨 120/110（大陆以外用当地热线）→ 给一句可直接发给信任的人的话（"我现在状态很差，能来陪我一下吗？"）→ 1 句希望（"这种感觉会变，先撑过这一刻"）→ "愿意的话跟我说说最近发生了什么，我在。" 之后不做分析；答"不安全"或说出方法 → 重复 120/110，请对方现在就打给身边的人，陪着聊到对方说已联系上
 2. 用户要求诊断（"我是不是抑郁症"）→ 原样回答："我不能做诊断。你描述的这些值得认真对待，持续两周以上或影响生活时，建议去精神科或心理门诊评估。" 然后照常给心理视角
 3. 双镜冲突（回溯 vs 前行）不强行调和，按"先松绑、再前行"分阶段写
 
@@ -105,7 +104,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 | # | 反模式 | 替代做法 |
 |---|-------|---------|
 | 1 | 贴"抑郁症"等诊断标签 | 第五节第 2 条固定回答 |
-| 2 | 危机后继续分析 | `cross-system-hub` C5 |
+| 2 | 危机后继续分析 | 第五节话术 |
 | 3 | 一次推 3 个以上子 skill | ≤2 个 |
 | 4 | 替用户下结论（"你就是恨你父亲"） | 用问题把洞察交还 |
 | 5 | 套话（"你需要爱自己"） | 引用原话细节 |

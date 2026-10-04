@@ -1,13 +1,12 @@
 ---
 name: tarot-spread-synthesis
-version: "1.0.1"
+version: "1.0.0"
 description: 用于把一个牌阵中的多张塔罗牌整合成一条叙事线：位置关系、元素分布、大牌比例、数字重复、正逆比例，最终输出"象征主线 + 镜子问题 + 最小行动"。触发信号："这几张牌连起来怎么看""整体是什么意思""帮我综合解读"。不用于单张牌解释（→ tarot-card-meaning）、还没抽牌（→ tarot-draw-protocol）、对某张牌的恐惧（→ tarot-projective-dialogue）；不输出确定性结论。
 source_book: Waite《The Pictorial Key to the Tarot》Part III 占法部分 + 通行牌阵综合实践
 source_scope: 元素统计、大牌比例等综合技巧属通行实践，非 Waite 原文明确提出（标注 inference）
 tags: [tarot, spread, synthesis, narrative]
 related_skills: [tarot-card-meaning, tarot-projective-dialogue, cross-system-hub]
 ---
-> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # Tarot Spread Synthesis — 牌阵综合
 

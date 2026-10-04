@@ -1,13 +1,12 @@
 ---
 name: tarot-projective-dialogue
-version: "1.0.1"
+version: "1.0.0"
 description: 用于把用户对塔罗牌的情绪反应和直觉联想转化为自我觉察（荣格投射/积极想象），让牌成为镜子而非裁判。触发信号："看到这张牌好难受""太准了""我不想要这张""这张牌让我想到…"。不用于标准释义（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）；有危机信号 → cross-system-hub C5。
 source_book: Waite 牌面图像（Pamela Colman Smith 绘）+ 荣格积极想象/投射理论（本仓库 jung-complex-archetype、jung-experiment-synchronicity）
 source_scope: "塔罗与荣格的桥接为本体系的整合设计（evidence: inference），非 Waite 或荣格原著直接主张"
 tags: [tarot, projection, jung, active-imagination, dialogue]
 related_skills: [tarot-card-meaning, tarot-spread-synthesis, psyche, jung-complex-archetype, jung-experiment-synchronicity, freud-anxiety-defense]
 ---
-> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # Tarot Projective Dialogue — 投射式对话
 
@@ -43,7 +42,7 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, psyche, jung-comple
    🔴 **CHECKPOINT 🛑**：问完即停，等用户回答；**一轮只问一个问题**，最多进行 3 轮
 3. 复述用户的话（用用户的词，不换成术语）
 4. 指出"这是你自己看见的"，把洞察归属给用户
-5. 触及深层议题（童年、丧失、创伤，或同一情绪 2 轮反复出现）→ 单独使用时问"这部分值得从心理角度（`psyche`）继续看，要接着聊吗？"
+5. 触及深层议题（童年、丧失、创伤，或同一情绪 2 轮反复出现）→ 单独使用时问"这部分值得从心理角度（`psyche`）继续看，要接着聊吗？"；被 Hub 调用时输出 `心理权重+1`
 6. 危机信号（提到不想活、想消失、伤害自己、"一切都没意义了"）→ 立即停止，执行 `cross-system-hub` 的 C5 危机话术
 7. **结束**：满 3 轮或用户说出了洞察 → 输出"你今天自己看见的是：[用户原话]"，然后结束
 

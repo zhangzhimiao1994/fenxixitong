@@ -1,6 +1,6 @@
 ---
 name: deepwork-embrace-boredom
-version: "1.1.1"
+version: "1.1.0"
 description: 专注力训练工具：把"能专注多久"当作需要练的能力，用预约上网时段（在线/离线分块、离线块内不碰网络）、罗斯福冲刺（人为压缩截止时间）、生产性冥想（走路通勤时只想一个难题）三种练习，减少"一无聊就切走"的次数。用户已经有时间做事，却一坐下就想看手机、专注撑不过几分钟时激活。 触发信号："一无聊就忍不住刷手机""坐下十分钟就想看消息""感觉专注力越来越差""想练练专注力""排队等人都要掏手机""写着写着就去搜别的东西" 不触发场景：挤不出整块时间、不知道怎么排深度工作 → deepwork-depth-philosophy；纠结要不要卸载某个 App → deepwork-craftsman-tools；日程被会议邮件塞满 → deepwork-shallow-shutdown；具体坏习惯的机制设计（提示、阻力、奖励）→ habit-four-laws-audit；问"我是不是 ADHD" → 不做诊断，去精神科或心理门诊评估；刷手机已严重影响睡眠、工作或关系 → 去医院精神心理科或成瘾医学门诊
 source_book: "《深度工作》(Deep Work: Rules for Focused Success in a Distracted World) Cal Newport"
 source_chapter: 规则2 拥抱无聊（Don't Take Breaks from Distraction / Work Like Teddy Roosevelt / Meditate Productively / Memorize a Deck of Cards）
@@ -23,7 +23,7 @@ related_skills:
 ```
 用户：有时间，但专注不住 / 一无聊就去找刺激
 │
-├── 🛑 自伤或自杀信号 → 立即停止，按 cross-system-hub C5回应
+├── 🛑 自伤或自杀信号 → 立即停止，按 psyche 第五节危机话术回应
 ├── 🛑 刷手机已失控（通宵、影响工作/关系、想停停不下来） → 去医院精神心理科或成瘾医学门诊，本 skill 只作辅助
 ├── 情绪低落、焦虑、失眠为主 → ❌ psyche
 ├── 问"我是不是 ADHD/注意缺陷" → ⚠️ 不做诊断，去精神科或心理门诊评估；评估前可轻量试用步骤 2
@@ -114,7 +114,7 @@ related_skills:
 - **证据强度**：三种练习都来自作者经验与个别案例，没有对照实验；Nass 的结论后续重复不一致；"重新布线"是比喻。对用户说"值得试"，不说"科学证明"。
 - **不是要你少上网**：作者明说重点不是减少上网总时长，而是减少"一无聊就切换"的次数；把它变成上网时长的道德评判是误读。
 - **安全**：开车、骑车时的生产性冥想只做轻量思考，路况复杂即停；强度过大的冲刺可能加重压力，起步每周一次。
-- **自伤或自杀信号** → 立即停止，按 cross-system-hub C5回应。
+- **自伤或自杀信号** → 立即停止，按 psyche 第五节危机话术回应。
 
 ## 💬 输出格式
 

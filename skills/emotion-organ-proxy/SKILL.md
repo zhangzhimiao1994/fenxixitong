@@ -1,6 +1,6 @@
 ---
 name: emotion-organ-proxy
-version: "1.0.1"
+version: "1.0.0"
 description: "用户长期处于某种强烈情绪中想了解对健康的影响时激活;当出现不明原因的身体症状可能与情绪相关时; 当需要用一种情绪来调节另一种情绪时(以情胜情)。 典型触发信号: 用户说\"我最近一直在生气/焦虑/悲伤\"\"情绪不好身体也跟着出问题了\"\"怎么缓解这种情绪\"。 不适用于: 急性外伤或感染类问题,或需要专业心理咨询/精神科干预的严重心理疾病。"
 source_book: 《黄帝内经·素问》
 source_chapter: 阴阳应象大论篇第五; 举痛论篇第三十九
@@ -9,7 +9,6 @@ related_skills:
   - slug: five-elements-network
     relation: depends-on
 ---
-> 被 `cross-system-hub` 调用时：只返回读法素材（机制链 / 取数结果 / 白话释义）；输出格式、字数、提问、停下确认、免责与证据说明、转介句、高风险清单、危机话术一律按 hub，本文件同类条款不执行。
 
 # 情志脏腑关联模型 (Emotion-Organ Proxy)
 

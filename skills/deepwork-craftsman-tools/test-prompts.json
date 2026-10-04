@@ -36,7 +36,7 @@
       "id": "should-not-trigger-02",
       "type": "should_not_trigger",
       "prompt": "每次刷朋友圈看到别人过得好就很难受，觉得自己一无是处。",
-      "expected_behavior": "不激活。主诉是比较带来的情绪与自我否定，路由到 psyche；若有自伤信号按 cross-system-hub C5。",
+      "expected_behavior": "不激活。主诉是比较带来的情绪与自我否定，路由到 psyche；若有自伤信号按 psyche 第五节处理。",
       "notes": "情绪为主的近邻请求"
     },
     {
