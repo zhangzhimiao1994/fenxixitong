@@ -1,6 +1,6 @@
 ---
 name: tarot-card-meaning
-version: "1.4.0"
+version: "1.5.0"
 description: 用于解释具体塔罗牌（78 张任意一张）的象征含义、正逆位、在牌阵位置中的意义，用"大阿卡纳旅程 + 小阿卡纳 元素×数字×宫廷"结构法推导。触发信号："XX 牌什么意思""逆位怎么理解""我抽到了死神是不是很糟"。不用于抽牌（→ tarot-draw-protocol）、多张牌整体叙事（→ tarot-spread-synthesis）、解释后仍害怕或讲起个人联想（→ tarot-projective-dialogue）。
 source_book: Waite《The Pictorial Key to the Tarot》(1910) Part II "The Doctrine Behind the Veil" + Part III 各牌释义；Pamela Colman Smith 牌面图像
 source_scope: Rider-Waite-Smith 体系；托特牌、马赛牌只给编号与命名对照（references/decks.md）
@@ -80,7 +80,7 @@ related_skills: [tarot-draw-protocol, tarot-spread-synthesis, tarot-projective-d
 
 推导结果是现代读法。Waite 原书小牌释义多为事件性词语，可作对照（已核对原文）：宝剑五 "Degradation, destruction… loss"；星币四 "surety of possessions, cleaving to that which one has"；宝剑四 "Vigilance, retreat, solitude"；宝剑十 "pain, affliction, tears"。
 
-**公式例外**（RWS 通行释义与公式差距大，以下表为准）：
+**公式例外**（RWS 通行释义与公式差距大，以下表为准；表里的牌逆位时，按第 3 节读法套在"释义"上：读法 1 = 这份感受还压着没出来，读法 2 = 它正在心里慢慢消化，如宝剑三逆 = 刺痛还没说出口 / 正在慢慢愈合）：
 | 牌 | 释义 | 转化面（凶牌） |
 |----|------|-------------|
 | 宝剑三 | 心碎、被刺痛 | 痛被说出来，才开始愈合 |

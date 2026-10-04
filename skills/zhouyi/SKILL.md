@@ -1,6 +1,6 @@
 ---
 name: zhouyi
-version: "1.4.0"
+version: "1.5.0"
 description: "周易维度入口：起卦（三钱法，真随机）和卦理处境诊断，路由到 13 个子 skill，读成当下态势和可以下手的地方，不给成败。触发：帮我起一卦、摇个卦、我摇到了某卦、进退两难、是不是还没到时候、无咎是不是好事。不触发：同时还有心理、关系等别的困扰 → cross-system-hub；要确定预言（寿命、疾病、必然成败）→ 改写；技术问题、事实查询、闲聊；自伤信号 → cross-system-hub C5。"
 not_trigger: 纯技术故障排查、单一事实查询、紧急生命安全危机、闲聊无关话题、纯娱乐性对话
 ---
@@ -36,7 +36,7 @@ not_trigger: 纯技术故障排查、单一事实查询、紧急生命安全危�
   - 要重起、换方法算同一件事（C8）→ 不重起：1 句共情 + 总入口 C8 那句白话（不点书名）+ 回到第一卦的出路；事情本身变了才另起一卦并注明
   - 得到"凶"辞、用户害怕 → 讲清"凶"是对某种做法的风险提示，指出该卦的出路
   - 用户要"占一辈子的命"、问寿命 → "周易占事不占命"，按总入口 C9
-- 选用哪些子 skill：起卦 → `zhouyi-divination`；本卦 → `hexagram-situation-diagnosis`；变爻 → `line-position-timing`（只定位"取辞"行那一爻）；之卦 → `advance-retreat-boundary`（⚖️ 时不用）；吉凶词 → `auspicious-risk-language`（只在用户报了辞文时）
+- 选用哪些子 skill：起卦 → `zhouyi-divination`；本卦 → `hexagram-situation-diagnosis`（本卦不在它的局面表里 → 按卦名到第 13 个子 skill 目录表里其他子 skill 查白话，如大过在 `scale-and-restraint-control`；都没有 → 只写卦名 + 摘录行里上下卦的白话，如"山上天下"）；变爻 → `line-position-timing`（只定位"取辞"行那一爻）；之卦 → `advance-retreat-boundary`（⚖️ 时不用）；吉凶词 → `auspicious-risk-language`（只在用户报了辞文时）
 - 格式、篇幅、提问、收尾、危机话术：见总入口全局契约（单独使用时也一样）
 
 > 《周易》六十四卦 → 12 个可执行 skill + 1 个起卦入口
