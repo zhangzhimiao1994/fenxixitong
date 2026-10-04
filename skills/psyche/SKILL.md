@@ -1,6 +1,6 @@
 ---
 name: psyche
-description: "心理维度总路由（荣格 + 弗洛伊德）。用户的困扰需要从情绪、关系模式、自我认同角度理解时激活，先判断回溯成因（弗洛伊德）还是面向成长（荣格），再路由到 19 个子 skill。 触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、关系里总受伤。 NOT trigger: 当下的伴侣追逃循环、依恋类型、习惯/专注/时间管理、\"准不准/概率多大\" → tixi-fenxi；运势/八字 → fortune；塔罗 → tarot；身体症状为主 → huangdi-neijing；事实查询直接回答。自杀/自伤信号仍会接住，只输出第五节危机话术。"
+description: "心理维度总路由（荣格 + 弗洛伊德）。用户的困扰需要从情绪、关系模式、自我认同角度理解时激活，先判断回溯成因（弗洛伊德）还是面向成长（荣格），再路由到 19 个子 skill。 触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、关系里总受伤。 NOT trigger: 当下的伴侣追逃循环、依恋类型 → attach-/eft- 子 skill；对自己能力的评判 → mindset- 子 skill；习惯/专注/时间管理 → habit-/deepwork- 子 skill；\"准不准/概率多大\" → forecast- 子 skill；同时有多类困扰 → cross-system-hub；运势/八字 → fortune；塔罗 → tarot；身体症状为主 → huangdi-neijing；事实查询直接回答。自杀/自伤信号仍会接住，只输出第五节危机话术。"
 version: "1.0.0"
 tags: [psyche, jung, freud, hub]
 related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-archetype, cross-system-hub]
