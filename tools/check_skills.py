@@ -22,7 +22,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 SKILLS = Path(__file__).resolve().parent.parent / "skills"
 # 平台自带的 skill / 参考文档，不按本仓库约定维护
-VENDORED = {"find-skills", "kimiim", "skillhub-preference", "time-awareness", "worker-safety"}
+VENDORED: set = set()  # 本仓库为通用 agent 技能包，不内置任何平台 skill
 
 errors, warnings = [], []
 slugs = {p.parent.name for p in SKILLS.glob("*/SKILL.md")}
