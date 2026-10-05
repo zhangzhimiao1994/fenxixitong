@@ -1,7 +1,7 @@
 ---
 name: tarot
 description: "塔罗象征分析系统。4 个子 skill，覆盖抽牌协议、单牌释义、牌阵综合、投射式对话。把塔罗当作\"让潜意识说话的象征镜子\"，而不是确定性预言。 触发：塔罗、抽张牌、帮我看看牌、这张牌什么意思、牌阵、正位逆位、我抽到了XX。 不触发：八字/星盘/紫微 → fortune；起卦 → zhouyi；还同时有心理、关系等困扰 → cross-system-hub；医疗/法律/投资的\"做不做\" → 只允许 stakes 牌阵看心态；紧急危机 → cross-system-hub C5。确定预测类问题会触发，但先改写。"
-version: "1.4.1"
+version: "1.4.2"
 source_book: A. E. Waite《The Pictorial Key to the Tarot》(1910，公有领域) + Rider-Waite-Smith 牌组通行释义
 tags: [tarot, symbol, projection, hub]
 related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis, tarot-projective-dialogue, psyche, cross-system-hub]
@@ -20,7 +20,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 ## 被总入口调用时：段落契约
 
 - 输入：用户原话、深度等级、工具摘录（或用户报的牌）、总入口 STEP 0 的结果（普通 / ⚖️ / 暴力 / 经济施压 / 被动厌世）
-- 取数：`scripts/divine.py tarot --spread <牌阵>`，或用户自抽报牌；禁止模型自己"想"出牌。牌阵按深度表的象征规模对应：最小 = `single`、标准 = `three`、最大 = `cross`；用户说了张数以用户为准；问的是已知对象的两人之间 → `relation`；⚖️、暴力、经济施压 → 一律 `--spread stakes`
+- 取数：`scripts/divine.py tarot --spread <牌阵>`，或用户自抽报牌；禁止模型自己"想"出牌。牌阵按 `tarot-draw-protocol` 第 4 步（深度表的象征规模：最小 = `single`、标准 = `three`、最大 = `cross`；用户给的张数、问两人之间的例外也在那里）；⚖️、暴力、经济施压 → 一律 `--spread stakes`
 - 本段必须包含：
   1. 段首固定顺序（可以并成一句）：摘录行（"工具抽到：…"；用户自抽写"你抽到：…"；原样，不计正文；十字也把 10 张全列）→ 改写后的问题半句（"这次看的是：…"）→ 场景半句（`stakes`："这几张只照见心态，不给方向"；暴力场景问"能不能过下去"："牌给不出能不能过下去的答案"）
   2. 逐张读法，按牌阵：
@@ -44,7 +44,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
   - 要重抽、换方法算同一件事（C8）→ 不重抽：1 句接住 + 总入口 C8 那句白话（不点书名）+ 已有那张牌的转化面；问题真正变了 → 抽一次并注明"新问题"
   - "刚才那几张牌"不在上下文（C11）→ 请用户贴出，不凭记忆重建
   - `divine.py` 运行失败 → 请用户用实体牌或 App 自抽报牌；也无法抽 → 本段不写
-  - 坚持问"会不会" → 可抽，场景半句写"牌面呈现态势，不给是/否"；只要是/否 → 不抽
+  - 封闭问题（会不会/能不能）→ 按标准链路第 1 步改写后抽；改写后仍坚持问"会不会" → 可抽，场景半句写"牌面呈现态势，不给是/否"；用户拒绝改写、明说只要是/否 → 不抽（两条同时成立时按不抽）
   - 只问牌义（"宝剑三逆位什么意思"）→ 不走总入口，直接 `tarot-card-meaning`；用户带着害怕问 → 第一句先答"不是坏事的预告"；没有候选问题就不提问，收尾行用总入口 4.6 的"只问牌义"版
 - 选用哪些子 skill：改写问题、选牌阵 → `tarot-draw-protocol`；逐张 → `tarot-card-meaning`；三张以上的关键张和读法 → `tarot-spread-synthesis`；恐惧、强烈反应 → `tarot-projective-dialogue`
 - 格式、篇幅、提问、收尾、危机话术：见总入口全局契约（单独使用时也一样）
@@ -58,7 +58,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 | 步 | 子 skill | 输入 | 输出 | 关卡 |
 |---|---------|------|------|------|
 | 1 | `tarot-draw-protocol` | 用户原问题 | 改写后的问题 + 牌阵名（选阵规则只在 `tarot-draw-protocol` 第 4 步） | 封闭问题（会不会/能不能）改写后直接抽，不等确认 |
-| 2 | `tarot-draw-protocol` | 问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源 | 🛑 抽完不停，直接进入第 3 步 |
+| 2 | `tarot-draw-protocol` | 问题 + 牌阵 | `[位置] 牌名·正逆` 列表 + 来源 | 抽完同轮进入第 3 步 |
 | 3 | `tarot-card-meaning` | 牌面列表 + 问题领域 | 每张一个短语素材 | — |
 | 4 | `tarot-spread-synthesis` | 第 3 步结果 | 关键张 + 读法 + 镜子问题素材 | 单张跳过本步 |
 | 5 | `tarot-projective-dialogue` | 用户对某张牌的反应 | 用户自己说出的洞察 | 下一轮才进入 |
@@ -84,7 +84,7 @@ related_skills: [tarot-draw-protocol, tarot-card-meaning, tarot-spread-synthesis
 |------|-------|---------|
 | "塔罗说你们会分手"（确定预言） | 宿命化、制造恐惧 | "这组牌照见的是关系里的 X 张力" |
 | 模型直接"抽"出牌，或提出"我随机给你几张" | 等于模型挑牌 | 用户自抽或运行工具 |
-| 同一问题第 3 次抽 | 在找想要的答案 | 停止抽牌，按 C8 |
+| 同一问题再抽（第 2 次起） | 在找想要的答案 | 不重抽，按 C8 |
 | 用塔罗判断是否就医/投资 | 高风险决策 | 只允许 `stakes` 看心态 |
 | 凶牌只讲负面 | 加重恐惧 | 讲转化面 |
 | 危机信号下照常抽牌 | 安全优先 | `cross-system-hub` C5 |

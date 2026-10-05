@@ -1,6 +1,6 @@
 ---
 name: tarot-draw-protocol
-version: "1.1.1"
+version: "1.1.2"
 description: 用于用户想要抽塔罗牌之前：把问题改写成可被象征回应的开放式问题，选择牌阵，并确保抽牌随机来源真实。触发信号："帮我抽张牌""用塔罗看看""用什么牌阵好""我想问感情/事业"。不用于解释已抽出的牌（→ tarot-card-meaning）、多张综合（→ tarot-spread-synthesis）、起卦（→ zhouyi-divination）；医疗/法律/投资的"做不做"不抽，只允许 stakes 牌阵。
 source_book: Waite《The Pictorial Key to the Tarot》Part III（占卜方法部分）+ 通行牌阵实践
 source_scope: 牌阵结构与提问方式；随机性规则为本体系新增约束
@@ -82,7 +82,7 @@ related_skills: [tarot-card-meaning, tarot-spread-synthesis, zhouyi-divination, 
 4. **选牌阵**（全仓库唯一的选阵规则，按顺序取第一条成立的）：
    ① 高风险问题 → stakes
    ② 用户说了张数 → 一张 single / 三张 three / 五张 relation / 十张 cross；其他张数取最接近的并说明
-   ③ 被 cross-system-hub 调用 → 按其深度等级：L1 single、L2 three、L3/L4 cross
+   ③ 被 cross-system-hub 调用 → 按其深度等级：L1 single、L2 three、L3/L4 cross；L2 起问的是已知有对象的两人关系 → relation
    ④ 每日指引/简单看看 → single；已知有对象的两人关系 → relation（单身或不清楚 → three，开头说"按你目前的状态来看"）；人生方向、换城市 → cross；其余 → three
    开放问题即使不需改写，也在抽牌前用 1 句写明"这次看的是：…"
    用户只问"用什么牌阵" → 推荐 1 个牌阵并列出位置，把改写后的问题和关系状态的假设并进最后一问"就按这个问题现在抽吗？"，不自动抽

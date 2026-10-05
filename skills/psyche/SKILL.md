@@ -1,7 +1,7 @@
 ---
 name: psyche
-description: "心理维度总路由（荣格 + 弗洛伊德）。用户的困扰需要从情绪、关系模式、自我认同角度理解时激活，先判断回溯成因（弗洛伊德）还是面向成长（荣格），再路由到 19 个子 skill。 触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、关系里总受伤。 不触发：当下的伴侣追逃循环、依恋类型 → guanxi；对自己能力的评判 → chengzhang；习惯/专注/时间管理 → xingdong；\"准不准/概率多大\" → panduan；同时有多类困扰 → cross-system-hub；运势/八字 → fortune；塔罗 → tarot；身体症状为主 → huangdi-neijing；事实查询直接回答。自杀/自伤信号 → 只执行 cross-system-hub C5。"
-version: "1.4.1"
+description: "心理维度总路由（荣格 + 弗洛伊德）。用户的困扰需要从情绪、关系模式、自我认同角度理解时激活，先判断回溯成因（弗洛伊德）还是面向成长（荣格），再路由到 19 个子 skill。 触发：为什么总是这样、控制不住、自我否定、反复模式、空虚迷茫、我是谁、做梦、失去后走不出来、每段关系都受伤（跨多段关系的模式）。 不触发：当下和某一个人的互动、伴侣追逃循环、依恋类型 → guanxi；对自己能力的评判 → chengzhang；习惯/专注/时间管理 → xingdong；\"准不准/概率多大\" → panduan；同时有多类困扰 → cross-system-hub；运势/八字 → fortune；塔罗 → tarot；身体症状为主 → huangdi-neijing；事实查询直接回答。自杀/自伤信号 → 只执行 cross-system-hub C5。"
+version: "1.4.2"
 tags: [psyche, jung, freud, hub]
 related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-archetype, cross-system-hub]
 ---
@@ -114,7 +114,7 @@ related_skills: [freud-hub, freud-classic-hub, jung-persona-self, jung-complex-a
 ## 五、边界
 
 1. 自杀/自伤 → `cross-system-hub` C5（危机话术只在那里，本文件不另写）
-2. 用户要求诊断（"我是不是抑郁症"）→ 原样回答："我不能做诊断。你描述的这些值得认真对待，持续两周以上或影响生活时，请去精神科或心理门诊评估。" 然后照常给心理视角（这句与总入口门槛句同义，同一回复里只出现一次）
+2. 用户要求诊断（"我是不是抑郁症"）→ 原样回答："我不能做诊断。你描述的这些值得认真对待。" 然后照常给心理视角；就医门槛只用总入口 STEP 0 的门槛句，写法和位置按那里（单独使用时也一样）
 3. 双镜冲突（回溯 vs 前行）不强行调和，按"先松绑、再前行"分阶段写
 
 ## 反例黑名单
