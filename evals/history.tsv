@@ -13,3 +13,4 @@ protocol	round	judge_A	judge_B	judge_C	mean	kept	note
 30x3	R12	75.07	75.14	74.34	74.85	baseline	
 30x3	R14	78.1	75.37	76.51	76.66	yes	current main
 30x3	R15	75.24	76.27	76.73	76.08	no	
+30x3	R16	74.68	75.08	72.71	74.16	no	consensus fixes + check_reply.py; symbol-length cap squeezed tarot to card names
