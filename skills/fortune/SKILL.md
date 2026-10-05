@@ -1,6 +1,6 @@
 ---
 name: fortune
-version: "1.4.3"
+version: "1.4.4"
 description: 运势维度总路由：把八字、星盘、紫微的命盘翻译为"性格倾向 + 周期节奏 + 关注领域"，不做吉凶判决。 何时用：用户说"帮我看看今年运势""我的八字怎么样""看下星盘""水逆能签合同吗""是不是土星回归""我的紫微命盘""本命年/犯太岁怎么办"。 何时不用/改道：问寿命或确定结果 → 拒绝并改写；没有出生信息 → zhouyi 或 tarot；同时还有心理、关系等困扰 → cross-system-hub；要抽塔罗 → tarot；转述"算命说我有劫" → panduan；危机 → cross-system-hub C5。
 tags: [fortune, bazi, astrology, ziwei, hub]
 related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-condition, ptolemy-topic-ruler, ptolemy-mind-temperament, ptolemy-fate-calibration, forecast-calibrate-claim, zhouyi-divination, auspicious-risk-language, panduan, cross-system-hub]
@@ -36,7 +36,7 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-c
   1. 摘录行："工具星盘："+ 太阳、月亮、上升的星座和度数（表外城市没有上升，不写），不计正文
   2. 底色 1 句：太阳、月亮（有上升时加上升）各写"星座名 + 这一要素在 `astrology-transit` 三要素表里看的是什么"（"月亮在天蝎，这套说法用它看你的情绪需求"），不加工具和表里都没有的星座性格词
   3. 行运 1 句（标准规模起）：工具"当前行运"里有紧密相位的那一项，用 `astrology-transit` 行星行的词（土星 = 结构与责任，木星 = 扩张与机会，不用"窗口"）读成节奏或心态主题；工具写"无紧密相位"的不读；不写顺逆，不写决定倾向，不推落宫
-  4. 上升度数在星座的前 2° 或后 2° 内 → 上升换成核对请求写进总入口收尾行（"出生时间差一点上升就会换座，有出入告诉我"），本段不读上升
+  4. 上升度数在星座的前 2° 或后 2° 内 → 上升换成核对项写进总入口 4.6 收尾行方括号里（"出生时间差一点上升就会换座"），本段不读上升
   - 象征规模：最小 = 摘录行 + 太阳那一词；标准 = 第 2、3 项；最大 = 标准 + 1 句工具列出的本命主要相位白话。星座名、行星名不计术语；相位、宫位各计 1
 - ⚖️ 场景：只写摘录行 + 1 句"这套说法对[用户所问年份]的[该年流年干支]只读到心态层面：那一年的主题是[流年十神的白话]，可以留意自己在这件事上的心态；不给[原话里的决定]的倾向；[底色白话]"（用户没说年份 = 今年；问"明年"就写明年的干支）。[流年十神]取工具"流年"行该年括号里的十神，白话只用 `bazi-liunian` 十神表的"白话"列（十神名不写出来；正官、七杀 → 官杀那一行，以此类推），写成节奏或心态主题，不写顺逆、不写决定倾向；工具输出没有括号里的十神 → 删去"那一年的主题是……心态"这半句。⚖️ 时用户问"那一年对我意味着什么"也只用这一句回应，前面加"这套说法不给年份定好坏"，不写第 4 项；缺出生信息 → 按总入口 STEP 1 不单列档（那句陈述可写"有出生日期和时间也可以排，排出来同样只读心态"）
 - 非 ⚖️ 时用户问"今年对我意味着什么""是不是走背运" → 正面回应：这套说法不给年份定好坏，接第 4 项或第 5 项的事实句
@@ -51,7 +51,7 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-c
   - `[DEPENDENCY_MISSING]` → `pip install -r scripts/requirements.txt` 后重跑；禁止安装 → 请用户粘贴排盘；也无法粘贴 → 本段不写，按总入口 C10
   - 用户说盘不对（C7）→ 核对公历/农历、时区、真太阳时、早晚子时后重排；仍有分歧 → 以用户软件的盘为准
   - 出生日期不确定 → 本维度不激活
-  - 无时辰且无性别 → 按 `bazi-liunian` B 表两种性别各跑一次
+  - 无时辰且无性别 → 按 `bazi-liunian` B 表两种性别各跑一次；如果有时辰、没说性别，就带时辰按同一做法各跑一次
   - 转述的预言（"算命说我 35 岁有一劫"）→ 不排盘、不解读，交给 `panduan` 契约（完整还是一句带过按那里）
 - 选用哪些子 skill：第一节方法路由表选 1 个（八字为主时 `bazi-liunian`）
 - 格式、篇幅、提问、收尾、危机话术：见总入口全局契约（单独使用时也一样）
@@ -88,7 +88,6 @@ related_skills: [bazi-liunian, astrology-transit, ziwei-doushu, ptolemy-planet-c
 | 无出生信息 / 只想问一件事 | 周易起卦 | `zhouyi-divination` | 一件具体事情的当下态势 |
 | 无出生信息 / 想看心态或状态 | 塔罗 | `tarot` | 当下的内在态度与关注点 |
 
-**无出生信息**：具体事走起卦，心态或状态走塔罗（C10）。
 **多方法并用**：要"全面看运势"时八字为主、星盘或紫微为辅（最多两套）；结论冲突时标注张力，不挑好听的。
 **古典与现代星盘的分工**：涉及"当前/今年/周期"的归 `astrology-transit`；涉及"结构/古典规则/预测限度"的归 `ptolemy-*`。托勒密体系下问寿命、死亡、父母安危、子女、婚姻判决、事故 → 按第〇节第 0 步拒绝该部分（理由见 `distill/tixi-fenxi-zhengliu/books/tetrabiblos/REJECTED.md`）。
 
