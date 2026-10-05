@@ -1,6 +1,6 @@
 ---
 name: xingdong
-version: "1.6.1"
+version: "1.6.2"
 description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → cross-system-hub C5。
 tags: [xingdong, action, habits, deep-work, hub]
 related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-design, habit-streak-plateau, deepwork-depth-philosophy, deepwork-embrace-boredom, deepwork-craftsman-tools, deepwork-shallow-shutdown, chengzhang, huangdi-neijing, cross-system-hub]
@@ -26,7 +26,7 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
   - 主要矛盾在能力自评、用户说"怕做出来被否" → 本段只写环节，解释交给 `chengzhang` 那段
   - 物质/赌博成瘾、进食障碍 → 不做习惯设计，转医院精神科或成瘾医学科
   - 加班源于违法用工或欺凌 → 先承认外部因素；劳动维权打 12333 或找当地劳动监察
-  - 极端节食、带伤训练、过劳伴心慌失眠 → 先叫停，去医院或营养科
+  - 暴力场景 → 按 `guanxi` 契约"各层的边界"
 - 选用哪些子 skill：第二节路由表取最靠上的 1 行；总入口的第 1 个步骤起步太大时（主要矛盾不在行动也一样），生活习惯用 `habit-starter-design` 的两分钟版，工作交付物用 `deepwork-depth-philosophy` 的本次小目标
 - 格式、篇幅、提问、收尾、危机话术：见总入口全局契约（单独使用时也一样）
 
@@ -64,7 +64,7 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 | "要不要退微博/朋友圈""下班时间被刷没了" | `deepwork-craftsman-tools` |
 | "一天五个会正事没动""躺床上还在想工作" | `deepwork-shallow-shutdown` |
 
-**分界**：前 4 行管生活习惯（含戒除）和生活里单件事的拖延；后 5 行管工作交付物的开工拖延、工作专注与时间结构（与 `habit-starter-design` 的不触发条款一致）。
+**分界**：`habit-` 各行管生活习惯（含戒除）和生活里单件事的拖延；`deepwork-` 各行管工作交付物的开工拖延、工作专注与时间结构（与 `habit-starter-design` 的不触发条款一致）。
 
 ## 三、单独使用时
 

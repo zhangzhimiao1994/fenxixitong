@@ -1,6 +1,6 @@
 ---
 name: guanxi
-version: "1.7.2"
+version: "1.7.3"
 description: 关系维度总路由（依恋 + 情绪聚焦）：用户的痛苦来自和某个具体的人（伴侣、家人、上级或同事、室友或朋友、暗恋对象）的互动时激活，先做关系安全筛查，再按关系对象分流；伴侣按原话路由到 8 个子 skill（attach-×4 看倾向、合不合适、怎么说；eft-×4 看已在关系里的冲突循环怎么拆、怎么修复）。触发：我是不是焦虑型、他是不是回避型、忽冷忽热要不要继续、我们每次都吵成这样、我越说他越躲、像室友、那个语气一出来我就炸、那件事过去几年还是放不下。不触发：关系模式的童年成因、与伴侣无关的情绪按钮 → psyche；还同时有拖延、自我否定等别的困扰 → cross-system-hub；问"我们会不会分手"这类确定结果 → cross-system-hub C9 改写成你能做的部分。有暴力、害怕对方、严重成瘾、长期出轨 → 只给安全场景格式；自伤信号 → cross-system-hub C5。
 tags: [guanxi, relationship, attachment, eft, hub]
 related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avoidant-trap, attach-secure-communication, eft-demon-dialogues, eft-raw-spot-deescalation, eft-hold-me-tight-talk, eft-forgiving-injuries, psyche, cross-system-hub]
@@ -132,7 +132,7 @@ related_skills: [attach-style-reading, attach-dating-signals, attach-anxious-avo
 1. **不是诊断**：依恋倾向是"此刻在这段关系里的倾向"，不是人格标签。用户要诊断 → 按 `psyche` 第五节第 2 条回答
 2. **证据强度**：只在用户问"有没有依据、准不准"时说一句——依恋维度有较多研究支持；情绪聚焦疗法有临床研究，但自助版效果未经检验。其余时候不评论方法本身
 3. **只听到一方**：循环链写成"你们之间"，不替对方下结论
-4. **不预测结局**："我们会不会分手""他会不会回来"→ 被总入口调用时按 C9 改写；单独使用时交给 `panduan` 写成可检验的命题
+4. **不预测结局**："我们会不会分手""他会不会回来"→ 按总入口 C9 改写（单独使用时也一样）
 
 ## 反例黑名单
 
