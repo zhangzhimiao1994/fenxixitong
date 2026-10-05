@@ -16,3 +16,4 @@ protocol	round	judge_A	judge_B	judge_C	mean	kept	note
 30x3	R16	74.68	75.08	72.71	74.16	no	consensus fixes + check_reply.py; symbol-length cap squeezed tarot to card names
 30x3	S3	75.05	75.82	78.0	76.29	-	structure-only loop S1-S3; independent panel
 30x3-paired	S3-vs-R14	76.49|71.89	79.27|75.37	78.23|71.9	78.0|73.05	yes	same 3 judges scored both versions blind; S3 wins on every judge (+4.95)
+30x3-paired	S4-vs-S3	77.3|72.1	76.29|72.13	76.1|69.81	76.56|71.35	yes	S4 wins on every judge (+5.21); note same S3 scored 78.0 with the previous panel, so absolute scores vary by panel
