@@ -6,7 +6,7 @@
 退出码：0 = 全部通过；1 = 有 ✗；2 = 参数错误。
 
 检查项（都对应 SKILL.md 里的条款，本脚本不另立规则）：
-  1. 问号数（4.1）：全文最多 1 个；续接提示、C5 的热线行豁免；crisis 档另豁免 C5 的安全问句
+  1. 问号数（4.1）：全文最多 1 个；续接提示、C5 的热线行豁免；crisis 档不查（4.1"C5 不受此限"）
   2. 篇幅（4.2）：正文字数 ≤ 深度表上限；摘录行、安全格式、⚖️ 清单、门槛句与 12356、三周计划、
      续接提示、收尾行不计；汉字 1 个算 1 字，英文 1 个词算 1 字，连续数字算 1 字；crisis 档不查
   3. 内部术语（4.5 不外露清单 + 第六节黑名单里的内部说法 + STEP/C/L 编号 + 占位词）；摘录行除外
@@ -52,7 +52,6 @@ PLAN_RE = re.compile(r"^\s*(三周计划|第 ?\d ?周|Day ?\d|每日：|Week ?\d
 CONTINUE_RE = re.compile(r"回[\"'“‘]继续[\"'”’]|reply [\"“]continue[\"”]", re.I)
 THRESHOLD_RE = re.compile(r"(2 ?周|两周|2 ?weeks|two weeks)")
 THRESHOLD_TAIL = re.compile(r"评估|门诊|医院|see a doctor|get (it )?checked|evaluat", re.I)
-C5_SAFETY_Q = re.compile(r"安全吗|伤害自己|具体要怎么做|safe right now|hurt yourself", re.I)
 
 
 def split_sentences(text):
@@ -120,11 +119,11 @@ def body_text(text):
 
 
 def check_questions(text, level):
+    if level == "crisis":
+        return True, "crisis 档不查问号（C5 不受此限）"
     rest = []
     for s in split_sentences(text):
         if CONTINUE_RE.search(s):
-            continue
-        if level == "crisis" and (C5_SAFETY_Q.search(s) or "12356" in s or "热线" in s):
             continue
         if "12356" in s and "热线" in s:
             continue

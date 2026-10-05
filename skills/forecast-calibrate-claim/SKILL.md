@@ -1,6 +1,6 @@
 ---
 name: forecast-calibrate-claim
-version: "1.2.0"
+version: "1.2.1"
 description: 做什么：把一句含糊判断（自己的直觉、专家或领导的说法、星盘/八字/塔罗/卦象给出的"倾向"）改写成到期能判对错的概率命题——事件、阈值、截止日、判定来源、概率、更新信号、复盘日，并登记成一行预测日志。 何时激活：用户想知道某个说法"准不准、该信几成、怎么验证"，问某个概率词到底是多大可能，或想开始记录自己的预测。 触发信号："这个说法准不准怎么验证""星盘说今年是窗口期，我该信几成""他说'很可能'到底是多大可能""帮我把这个判断变成能检验的""给我设个复盘点""我想记录自己的预测看看准不准"。关键词：校准、可检验、预测日志、复盘点、词-数对照。 不触发 → 去哪：命题已写好、要从零估概率 → forecast-fermi-baserate；已有数字来了新消息或已到期 → forecast-update-postmortem；想读命盘本身 → fortune / astrology-transit / bazi-liunian；只想排查认知偏差 → psychological-traps。 边界：寿命、疾病/受伤结局、买卖时点不给概率，改写为用户可控的行为命题；5 年以上的大问题不给单一数字，拆成 1 年内可裁定的问题簇；自伤信号 → `cross-system-hub` C5 危机话术。
 source_book: "《超预测》(Superforecasting: The Art and Science of Prediction) Philip E. Tetlock & Dan Gardner"
 source_chapter: 第3章 Keeping Score；第6章 Superquants?；第8章 Perpetual Beta；第12章 What's Next?；附录 十诫 (1)(6)(7)
@@ -20,7 +20,7 @@ related_skills:
     relation: composes-with   # 对方先把"注定/有劫"断言降级、缓解恐惧，本 skill 再写成可检验命题
 ---
 
-> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
+> 被 `panduan` 或总入口调用时，只提供素材（事件、截止日、判定方式、同类参考）；给数、暂估、日志都不出，写法以 `panduan` 段落契约为准；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## 🧭 决策树
 

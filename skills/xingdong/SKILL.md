@@ -1,6 +1,6 @@
 ---
 name: xingdong
-version: "1.6.3"
+version: "1.6.4"
 description: 行动维度总路由（习惯 + 深度工作）：用户想做却做不到、做不下去时激活——习惯养不成或戒不掉、一直拖着没开始、断了不想捡、专注不了、时间被会议消息切碎——按原话路由到 8 个子 skill（habit-×4 管生活习惯和生活里单件事的拖延，deepwork-×4 管工作交付物的开工拖延、专注与时间结构）。触发：道理都懂就是做不到、戒不掉睡前刷手机、我就不是早起的人、一直没开始、拖了两周没动、断了不想捡、练了没效果、一无聊就刷手机、论文整块时间总被切碎、要不要退微博、一天五个会正事没动。不触发：觉得自己根本不行、是不是没天赋 → chengzhang；身体累、失眠为主 → huangdi-neijing；还同时有关系、自我否定等别的困扰 → cross-system-hub。自伤信号 → cross-system-hub C5。
 tags: [xingdong, action, habits, deep-work, hub]
 related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-design, habit-streak-plateau, deepwork-depth-philosophy, deepwork-embrace-boredom, deepwork-craftsman-tools, deepwork-shallow-shutdown, chengzhang, huangdi-neijing, cross-system-hub]
@@ -73,7 +73,7 @@ related_skills: [habit-four-laws-audit, habit-identity-votes, habit-starter-desi
 
 1. **证据强度**：只在用户问"有没有依据、有没有用"时说一句——执行意图有较多研究支持；四定律、深度工作的具体方法以作者经验和案例为主。其余时候不评论方法本身
 2. **不归因于不自律**：先查设计——提示、阻力、起步大小
-3. **领域常识**：涉及减重、运动、睡眠时，步骤里补 1 句相关常识，如热量缺口、运动加量每周不超过 10%、固定起床时间；睡眠常识与 `huangdi-neijing` 契约的睡眠常识提示同时成立时，按那条，步骤里不另写
+3. **领域常识**：涉及减重、运动、睡眠时，步骤里补 1 句相关常识，如热量缺口、运动加量每周不超过 10%、固定起床时间；睡眠常识与 `huangdi-neijing` 契约的睡眠常识提示同时成立时，按那条，步骤里不另写；`huangdi-neijing` 没被调用时，这句按本条自写，放在步骤括号里
 4. **结构因素优先**：岗位要求随时在线、违法用工造成的问题，先承认外部因素
 
 ## 反例黑名单

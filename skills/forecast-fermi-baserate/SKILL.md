@@ -1,6 +1,6 @@
 ---
 name: forecast-fermi-baserate
-version: "1.2.0"
+version: "1.2.1"
 description: 做什么：从零估一个概率（工期问题转成"X 日前完成"的概率）：拆开看 → 同类情况一般多少 → 按本案加减 → 换个角度再估 → 换条件对照 → 落成 5% 刻度的数字，并写清它是怎么来的。 何时激活：命题已经清楚（事件+阈值+时间窗），用户要一个"几成把握 / 多少 / 多久"，尤其是没数据、觉得"这次不一样"或几个人说法不一时。 触发信号："这件事成的概率大概多少""完全没数据怎么估""我觉得这次不一样""帮我拆一下这个问题""大家说法不一，到底取多少""这个项目要多久"。关键词：费米估算、基率、外部视角、规划谬误。 不触发 → 去哪：判断还是一句含糊话、要先定义成可检验命题 → forecast-calibrate-claim；已有数字，来了新消息要改 → forecast-update-postmortem；只想检查自己犯了哪些偏差 → psychological-traps；多个方案比优劣 → consequences-table；找主要矛盾 → maodun-fenxi。 边界：汇率/股价等高噪音问题初值只给 35%-65%，不给买卖方向或时点；他人是否会伤害自己不做估算，先谈安全。
 source_book: "《超预测》(Superforecasting: The Art and Science of Prediction) Philip E. Tetlock & Dan Gardner"
 source_chapter: 第5章 Supersmart?（Fermi-ize / Outside First / The Inside View / Dragonfly）；第3章 狐狸与刺猬、蜻蜓眼；第6章 三档拨盘；第11章 范围敏感；附录 十诫 (2)(3)(5)(6)
@@ -16,7 +16,7 @@ related_skills:
     relation: composes-with
 ---
 
-> 被维度入口或总入口调用时，只提供素材；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
+> 被 `panduan` 或总入口调用时，只提供素材（拆解、参照类）；给数、暂估、日志都不出，写法以 `panduan` 段落契约为准；格式、篇幅、提问、收尾、危机话术按总入口全局契约。
 
 ## 🧭 决策树
 
