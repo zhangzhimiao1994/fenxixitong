@@ -9,6 +9,8 @@
      "层"只取观察/象征/校准；"顺序"是数字且不重复；互译表的列名都在维度表里
   6. 提到 divine.py 的 skill：有 scripts/divine.py 且与 tools/divine.py 哈希一致、有 scripts/requirements.txt、
      SKILL.md 有 divine-tool 标记块、标记块外不再写死 tools/divine.py
+  7. 分析层不能路由到维护层：hub 维度表的入口、任何 skills/*/SKILL.md 里不出现指向 meta/ 的路径
+  8. meta/*/SKILL.md 的 frontmatter 是合法 YAML，且有 name、description（meta 维护 skill 不计入分析 skill 数）
 警告（不影响退出码）：frontmatter 的 name 与目录名不一致；维度入口里出现字数配额（数字 + 字）
 """
 import json
@@ -28,8 +30,18 @@ SKILLS = Path(__file__).resolve().parent.parent / "skills"
 # 平台自带的 skill / 参考文档，不按本仓库约定维护
 VENDORED: set = set()  # 本仓库为通用 agent 技能包，不内置任何平台 skill
 
+META = SKILLS.parent / "meta"  # 维护层：蒸馏、进化用，永远不能被 hub 路由到
+META_PATH = re.compile(r"(?<![\w.-])meta[/\\]")
+
 errors, warnings = [], []
 slugs = {p.parent.name for p in SKILLS.glob("*/SKILL.md")}
+meta_slugs = {p.parent.name for p in META.glob("*/SKILL.md")}
+
+# 7. 分析层里不出现指向 meta/ 的路径
+for p in sorted(SKILLS.glob("*/SKILL.md")):
+    for n, line in enumerate(p.read_text(encoding="utf-8").split("\n"), 1):
+        if META_PATH.search(line):
+            errors.append(f"{p.parent.name}:{n}: 出现指向 meta/ 的路径，分析 skill 不能引用维护层：{line.strip()[:40]}")
 
 for p in sorted(SKILLS.rglob("SKILL.md")):
     rel = p.relative_to(SKILLS)
@@ -106,10 +118,15 @@ if HUB.exists():
         if len(cells) != len(cols):
             errors.append(f"cross-system-hub: 维度表第 {i + 1} 行列数 {len(cells)} 与表头 {len(cols)} 不一致")
             continue
+        if META_PATH.search(cells[cols.index("入口")]):
+            errors.append(f"cross-system-hub: 维度表第 {i + 1} 行（{cells[0]}）的入口指向 meta/，维护层不能被 hub 路由到")
+            continue
         m = re.search(r"`([\w-]+)`", cells[cols.index("入口")])
         if not m:
             errors.append(f"cross-system-hub: 维度表第 {i + 1} 行（{cells[0]}）的入口列没有 `slug`")
             continue
+        if m.group(1) in meta_slugs:
+            errors.append(f"cross-system-hub: 维度表 {cells[0]} 的入口 {m.group(1)} 是 meta/ 下的维护 skill，不能被 hub 路由到")
         entries.append((cells[0], m.group(1)))
         layer = cells[cols.index("层")]
         if layer not in LAYERS:
@@ -194,9 +211,34 @@ for p in sorted(SKILLS.glob("*/SKILL.md")):
         if "tools/divine.py" in line:
             errors.append(f"{slug}: SKILL.md 仍写死 tools/divine.py 路径（改成 scripts/divine.py）：{line.strip()[:40]}")
 
+# 8. meta 维护 skill：frontmatter 合法（单行 YAML，有 name、description）
+for p in sorted(META.glob("*/SKILL.md")):
+    slug = p.parent.name
+    text = p.read_text(encoding="utf-8").replace("\r\n", "\n")
+    m = re.match(r"^---\n(.*?)\n---\n", text, re.S)
+    if not m:
+        errors.append(f"meta/{slug}: 没有 frontmatter")
+        continue
+    if any(re.match(r"^([\w_-]+):\s*[|>][-+]?\s*$", line) for line in m.group(1).split("\n")):
+        errors.append(f"meta/{slug}: frontmatter 用了块标量（| 或 >），改成单行")
+    try:
+        fm = yaml.safe_load(m.group(1))
+    except yaml.YAMLError as e:
+        errors.append(f"meta/{slug}: frontmatter 不是合法 YAML（值里含冒号时要加引号）：{str(e).splitlines()[0]}")
+        continue
+    if not isinstance(fm, dict):
+        errors.append(f"meta/{slug}: frontmatter 不是映射")
+        continue
+    for key in ("name", "description"):
+        if not fm.get(key):
+            errors.append(f"meta/{slug}: frontmatter 缺 {key}")
+    if fm.get("name") and fm["name"] != slug:
+        warnings.append(f"meta/{slug}: name 是 {fm['name']!r}，与目录名不一致")
+
 for w in warnings:
     print("WARN ", w)
 for e in errors:
     print("ERROR", e)
-print(f"\n{len(slugs)} 个 skill（其中 {len(VENDORED & slugs)} 个平台自带未检查）；{len(errors)} 个错误，{len(warnings)} 个警告")
+print(f"meta 维护 skill {len(meta_slugs)} 个（不计入分析 skill）")
+print(f"\n{len(slugs)} 个分析 skill（其中 {len(VENDORED & slugs)} 个平台自带未检查）；{len(errors)} 个错误，{len(warnings)} 个警告")
 sys.exit(1 if errors else 0)

@@ -87,7 +87,9 @@ def plan():
         targets.append((d / "scripts" / "divine.py", src))
         targets.append((d / "scripts" / "requirements.txt", req))
         text = skill_md.read_bytes().decode("utf-8")
-        targets.append((skill_md, render_skill_md(text).encode("utf-8")))
+        crlf = "\r\n" in text  # 保留文件原有的换行风格（Windows 检出可能是 CRLF）
+        out = render_skill_md(text.replace("\r\n", "\n"))
+        targets.append((skill_md, (out.replace("\n", "\r\n") if crlf else out).encode("utf-8")))
         extra = sorted((d / "references").glob("*.md")) + [d / "test-prompts.json"]
         for f in extra:
             if f.is_file():

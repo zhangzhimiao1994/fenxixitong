@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "prompt": "我读完了《依恋与亲密关系》作者的另一本书《Love Sense》，笔记在 distill/love-sense-notes.md，帮我把这本书接入 hub。",
+    "expected": "走 A：调用 meta/zhengliu 书籍路线，产出放 distill/<书名>/；按 A2 判断这本书的机制能被关系维度解释 → 做成 guanxi 下的子 skill，并在 guanxi 段落契约的'选用哪些子 skill'加一行；不新增维度；最后运行 tools/check_skills.py 须 0 错误。"
+  },
+  {
+    "id": 2,
+    "prompt": "把《思考，快与慢》蒸馏到 hub 里，我希望用户问'我是不是想多了、判断有没有偏差'时能用上，原书 PDF 在 distill/sources/ 下。",
+    "expected": "走 A：先蒸馏；A2 判断是否同时满足'有自己的激活信号'和'给出现有维度给不了的解释'，并与判断维度（超预测）比较；判定新增维度时按 dimension-template.md 建入口和段落契约、维度表加一行、互译表加一列、hub test-prompts 至少 2 条（1 条混合）；拿不准时先向用户说明理由再动手。"
+  },
+  {
+    "id": 3,
+    "prompt": "进化 hub 一轮，按上次评审的意见改。",
+    "expected": "走 B：读 evals/history.tsv 取 BEST；只修多位评审一致指出的问题；实测者按 evals/specs/runner.md 跑全部测试题且只用 get_prompts.py 取题；对照组复用 evals/baselines/；3 位独立评审按 judge.md 打分取平均；严格高于 BEST 才保留，否则整体回滚；如实写 history.tsv；结束时停下向用户报告。"
+  },
+  {
+    "id": 4,
+    "prompt": "我最近和男朋友总吵架，想用塔罗看看我们还能不能走下去。",
+    "expected": "不触发 hub-evolve：这是用户的分析提问，交给 cross-system-hub；不接入书、不跑评测。"
+  }
+]

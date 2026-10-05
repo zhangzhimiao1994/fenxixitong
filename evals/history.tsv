@@ -1,0 +1,15 @@
+protocol	round	judge_A	judge_B	judge_C	mean	kept	note
+15x2	R3	74.62	72.92	-	73.8	yes	
+15x2	rewrite	69.76	70.65	-	70.2	no	
+15x2	R5	74.58	71.95	-	73.3	yes	
+15x2	R6	77.43	75.27	-	76.4	yes	
+15x2	R7	73.37	76.6	-	75.0	no	
+15x2	R8	74.08	71.22	-	72.65	no	
+15x2	R9	73.51	69.68	-	71.6	yes	restructure; kept on restructure branch
+15x2	R10	77.0	70.19	-	73.6	yes	kept on restructure branch
+15x2	R11	75.17	74.79	-	75.0	yes	kept on restructure branch
+15x2	R12	77.54	77.54	-	77.54	yes	
+15x2	R13	75.39	76.11	-	75.75	no	
+30x3	R12	75.07	75.14	74.34	74.85	baseline	
+30x3	R14	78.1	75.37	76.51	76.66	yes	current main
+30x3	R15	75.24	76.27	76.73	76.08	no	

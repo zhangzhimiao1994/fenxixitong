@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zhengliu"
+  short_description: "先分流人物或书籍长内容，再生成高质量可验证可复用技能包"
+  default_prompt: "Use $zhengliu and first ask me to choose person distillation or book/content distillation."

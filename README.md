@@ -32,6 +32,10 @@
 - **整个仓库克隆**到 agent 的 skills 目录；
 - **单独拷某个 skill 文件夹**（如只拷 `skills/tarot/`）。
 
+仓库分两类 skill：
+- **只要分析功能**：拷 `skills/` 即可。
+- **还要蒸馏新书、进化 hub**：再拷 `meta/`（`zhengliu`、`darwin-skill`、`hub-evolve`）；也可以只拷其中某一个，如只拷 `meta/zhengliu/`。`meta/` 只做维护，不会被 hub 路由到。
+
 抽牌、起卦、排盘工具已随 skill 打包：每个用到工具的 skill 自带 `scripts/divine.py`，依赖清单在该 skill 的 `scripts/requirements.txt`。SKILL.md 里的"运行抽牌/排盘工具"标记块写明找脚本、运行、缺依赖、失败时的做法，任何能执行命令的 agent 照做即可：
 
 ```bash
@@ -58,6 +62,11 @@ python tools/sync_scripts.py --check   # 只检查，必须 0 差异
 
 关系、成长、行动、判断四个维度（23 个）和托勒密古典本命（4 个）由 7 本原书蒸馏而来，同样走 RIA+E+B 路线。每本书的概览、候选、拒绝理由、术语和盲测都在 `distill/tixi-fenxi-zhengliu/books/<书>/`，总览见该目录下的 `INDEX.md` 和 `DIGEST.md`。
 
+## 🔧 维护：接入新书与进化
+
+- **接入新书**、**进化 hub**：调用 `meta/hub-evolve`。它串起 `meta/zhengliu`（书籍蒸馏）、维度归属判断、`tools/check_skills.py`，以及评测与棘轮。
+- **评测协议、操作步骤、分数历史**：见 `evals/README.md`。
+
 ## 🚀 使用方式
 
 每个 skill 目录内含 `SKILL.md` 与 `test-prompts.json`。将本仓库克隆到 OpenClaw workspace 的 `skills/` 目录下即可使用。
@@ -72,7 +81,7 @@ python tools/sync_scripts.py --check   # 只检查，必须 0 差异
 python tools/check_skills.py
 ```
 
-脚本检查：有没有嵌套副本、frontmatter 是否合法、`test-prompts.json` 是否存在且有用例、`related_skills` 引用的 slug 是否存在、维度入口是否齐全，以及用到工具的 skill 是否自带与源码一致的 `scripts/divine.py`、`scripts/requirements.txt` 和标记块。任何一项不过，退出码为 1。
+脚本检查：有没有嵌套副本、frontmatter 是否合法、`test-prompts.json` 是否存在且有用例、`related_skills` 引用的 slug 是否存在、维度入口是否齐全，以及用到工具的 skill 是否自带与源码一致的 `scripts/divine.py`、`scripts/requirements.txt` 和标记块，以及 `skills/` 不引用 `meta/`、`meta/` 下 frontmatter 合法。任何一项不过，退出码为 1。
 
 ## ⚠️ 声明
 
