@@ -17,3 +17,5 @@ protocol	round	judge_A	judge_B	judge_C	mean	kept	note
 30x3	S3	75.05	75.82	78.0	76.29	-	structure-only loop S1-S3; independent panel
 30x3-paired	S3-vs-R14	76.49|71.89	79.27|75.37	78.23|71.9	78.0|73.05	yes	same 3 judges scored both versions blind; S3 wins on every judge (+4.95)
 30x3-paired	S4-vs-S3	77.3|72.1	76.29|72.13	76.1|69.81	76.56|71.35	yes	S4 wins on every judge (+5.21); note same S3 scored 78.0 with the previous panel, so absolute scores vary by panel
+30x3-paired	S5-vs-S4	77.05|72.52	77.92|74.35	pending	77.49|73.44	yes	S5 wins on both completed judges (+4.05); third judge pending at push time
+30x3	S5	75.04	73.95	73.64	74.21	-	independent panel; absolute scores sit at 74-77 for every version under the 'any nameable defect caps at 8' rubric
